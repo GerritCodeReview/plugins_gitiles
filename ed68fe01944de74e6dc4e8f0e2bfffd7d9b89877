@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "SsRFUjP4",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2013-03-27T18:53:08Z",
+      "side": 1,
+      "message": "It\u0027s request scoped (depends on PerRequestProjectControlCache) and there\u0027s no request scope implementation bound in the plugins. I was guessing Provider\u003cCurrentUser\u003e is magic is why it works at all.",
+      "parentUuid": "SsTE68NE",
+      "revId": "ed68fe01944de74e6dc4e8f0e2bfffd7d9b89877",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "St8tl9fg",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2013-03-27T18:28:03Z",
       "side": 1,
       "message": "validateFor() to make sure its visible to the caller.",
+      "revId": "ed68fe01944de74e6dc4e8f0e2bfffd7d9b89877",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "St8uIlW8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2013-03-27T18:53:08Z",
+      "side": 1,
+      "message": "Unfortunately that is only a method on Factory, not GenericFactory, so I had to do it manually.",
+      "parentUuid": "St8tl9fg",
       "revId": "ed68fe01944de74e6dc4e8f0e2bfffd7d9b89877",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "St.uNUXw",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2013-03-27T18:53:08Z",
+      "side": 1,
+      "message": "Yes:\n\n\tpublic B setGitDir(File gitDir) {\n\t\tthis.gitDir \u003d gitDir;\n\t\tthis.config \u003d null;\n\t\treturn self();\n\t}",
+      "parentUuid": "SsdFlpPg",
+      "revId": "ed68fe01944de74e6dc4e8f0e2bfffd7d9b89877",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "St.tqMcg",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2013-03-27T18:28:03Z",
       "side": 1,
       "message": "no-op this. Gitiles should not call it.",
+      "revId": "ed68fe01944de74e6dc4e8f0e2bfffd7d9b89877",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "St4uSjZc",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2013-03-27T18:53:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "St.tqMcg",
       "revId": "ed68fe01944de74e6dc4e8f0e2bfffd7d9b89877",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "SsTFRkA8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2013-03-27T18:53:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "St4tf7SA",
+      "revId": "ed68fe01944de74e6dc4e8f0e2bfffd7d9b89877",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "SsbFkoPk",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
         "patchSetId": 2
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "SsdGIRG8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2013-03-27T18:53:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "SsbFkoPk",
+      "revId": "ed68fe01944de74e6dc4e8f0e2bfffd7d9b89877",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "St6tkKfk",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
         "patchSetId": 2
@@ -115,6 +223,24 @@
       "writtenOn": "2013-03-27T18:28:03Z",
       "side": 1,
       "message": "don\u0027t close this here. instead the Repository should close the Repository delegate.",
+      "revId": "ed68fe01944de74e6dc4e8f0e2bfffd7d9b89877",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "SsfGNSHw",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2013-03-27T18:53:08Z",
+      "side": 1,
+      "message": "ITYM \"should close the RefDatabase delegate\". Done.",
+      "parentUuid": "St6tkKfk",
       "revId": "ed68fe01944de74e6dc4e8f0e2bfffd7d9b89877",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -155,6 +281,24 @@
     },
     {
       "key": {
+        "uuid": "St6uXSYY",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2013-03-27T18:53:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "SsVFaFDE",
+      "revId": "ed68fe01944de74e6dc4e8f0e2bfffd7d9b89877",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "SsXFXGAY",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
         "patchSetId": 2
@@ -166,6 +310,24 @@
       "writtenOn": "2013-03-27T18:28:03Z",
       "side": 1,
       "message": "I think you can just return an empty list here. Additional refs are things like FETCH_HEAD or MERGE_HEAD that gitiles does not need.",
+      "revId": "ed68fe01944de74e6dc4e8f0e2bfffd7d9b89877",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "St0udhaU",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2013-03-27T18:53:08Z",
+      "side": 1,
+      "message": "Probably, but I wouldn\u0027t rule out FETCH_HEAD support eventually, and it\u0027s not like this is complicated.",
+      "parentUuid": "SsXFXGAY",
       "revId": "ed68fe01944de74e6dc4e8f0e2bfffd7d9b89877",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -189,6 +351,24 @@
     },
     {
       "key": {
+        "uuid": "St2uawbA",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GerritGitilesAccess.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2013-03-27T18:53:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "SsRE9bMg",
+      "revId": "ed68fe01944de74e6dc4e8f0e2bfffd7d9b89877",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "Stys6edE",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/HttpModule.java",
         "patchSetId": 2
@@ -206,6 +386,24 @@
     },
     {
       "key": {
+        "uuid": "SsVGdNKU",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/HttpModule.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2013-03-27T18:53:08Z",
+      "side": 1,
+      "message": "That\u0027s why I changed HttpPluginServlet to allow specifying the documentation path as well as the static path. See pom.xml.",
+      "parentUuid": "Stys6edE",
+      "revId": "ed68fe01944de74e6dc4e8f0e2bfffd7d9b89877",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "Stws9Pcg",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/Module.java",
         "patchSetId": 2
@@ -217,6 +415,24 @@
       "writtenOn": "2013-03-27T18:28:03Z",
       "side": 1,
       "message": "This is used to set the browser window title. Its a subset of the host name because review.source.android.com was long and I hated that long of a string. You should just use the full getHost() string in the SSH URL when the host name is \"*\".\n\nMaybe move this block below into the ssh case where the host was identified as \"*\" and you need the host name. And dont\u0027t do this dot parsing just use u.getHost().",
+      "revId": "ed68fe01944de74e6dc4e8f0e2bfffd7d9b89877",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Stwunffs",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/Module.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2013-03-27T18:53:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "Stws9Pcg",
       "revId": "ed68fe01944de74e6dc4e8f0e2bfffd7d9b89877",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
