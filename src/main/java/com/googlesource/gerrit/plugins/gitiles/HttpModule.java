@@ -18,6 +18,7 @@ import com.google.gerrit.server.config.SitePaths;
 import com.google.gitiles.GitilesAccess;
 import com.google.gitiles.GitilesServlet;
 import com.google.gitiles.GitilesUrls;
+import com.google.gitiles.GitilesView;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
 import com.google.inject.name.Named;
@@ -34,10 +35,12 @@ import org.slf4j.LoggerFactory;
 import java.io.File;
 import java.io.IOException;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
 class HttpModule extends ServletModule {
-  private static final Logger log = LoggerFactory.getLogger(ServletModule.class);
+  private static final Logger log = LoggerFactory
+      .getLogger(ServletModule.class);
 
   @Override
   protected void configureServlets() {
@@ -48,12 +51,15 @@ class HttpModule extends ServletModule {
 
   @Provides
   @Singleton
-  GitilesServlet getServlet(@Named("gitiles") Config cfg,
-      GitilesUrls urls,
+  GitilesServlet getServlet(@Named("gitiles") Config cfg, GitilesUrls urls,
       GitilesAccess.Factory accessFactory,
-      RepositoryResolver<HttpServletRequest> resolver) {
-    return new GitilesServlet(cfg, null, urls, accessFactory, resolver, null,
-        null, null);
+      RepositoryResolver<HttpServletRequest> resolver,
+      MenuFilter menuFilter) throws ServletException {
+    GitilesServlet s = new GitilesServlet(cfg, null, urls, accessFactory, resolver, null, null, null);
+    for (GitilesView.Type view : GitilesView.Type.values()) {
+      s.addFilter(view, menuFilter);
+    }
+    return s;
   }
 
   @Provides
