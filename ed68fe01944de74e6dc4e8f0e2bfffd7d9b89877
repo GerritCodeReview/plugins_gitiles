@@ -1,0 +1,225 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "SsTE68NE",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1001240
+      },
+      "writtenOn": "2013-03-27T18:28:03Z",
+      "side": 1,
+      "message": "Use Factory, that is based on the current user automatically.",
+      "revId": "ed68fe01944de74e6dc4e8f0e2bfffd7d9b89877",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "St8tl9fg",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1001240
+      },
+      "writtenOn": "2013-03-27T18:28:03Z",
+      "side": 1,
+      "message": "validateFor() to make sure its visible to the caller.",
+      "revId": "ed68fe01944de74e6dc4e8f0e2bfffd7d9b89877",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "SsdFlpPg",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1001240
+      },
+      "writtenOn": "2013-03-27T18:28:03Z",
+      "side": 1,
+      "message": "I think this might crash on the DFS backend. Does setGitDir accept a null directory path?",
+      "revId": "ed68fe01944de74e6dc4e8f0e2bfffd7d9b89877",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "St.tqMcg",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1001240
+      },
+      "writtenOn": "2013-03-27T18:28:03Z",
+      "side": 1,
+      "message": "no-op this. Gitiles should not call it.",
+      "revId": "ed68fe01944de74e6dc4e8f0e2bfffd7d9b89877",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "St4tf7SA",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1001240
+      },
+      "writtenOn": "2013-03-27T18:28:03Z",
+      "side": 1,
+      "message": "no-op this. Gitiles should not call it.",
+      "revId": "ed68fe01944de74e6dc4e8f0e2bfffd7d9b89877",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "SsbFkoPk",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1001240
+      },
+      "writtenOn": "2013-03-27T18:28:03Z",
+      "side": 1,
+      "message": "override close() to call delegate.close()",
+      "revId": "ed68fe01944de74e6dc4e8f0e2bfffd7d9b89877",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "St6tkKfk",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1001240
+      },
+      "writtenOn": "2013-03-27T18:28:03Z",
+      "side": 1,
+      "message": "don\u0027t close this here. instead the Repository should close the Repository delegate.",
+      "revId": "ed68fe01944de74e6dc4e8f0e2bfffd7d9b89877",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "St0taZTE",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1001240
+      },
+      "writtenOn": "2013-03-27T18:28:03Z",
+      "side": 1,
+      "message": "This seems full of NPE fail. If getRef() returns null now you have a null in the map which may confuse the RefFilter. It doesn\u0027t expect a null entry in a map, it would expect an empty map.\n\nIt also expects the name of the map key to be the ref.getName() and not the name passed in. The name passed in can be a short name like \"master\" that is resolved using the search path in the delegate.\n\nI would rewrite this as:\n\n  Ref ref \u003d delegate.getRef(name);\n  if (ref \u003d\u003d null) {\n    return null;\n  }\n  return refFilter.filter(ImmutableMap.of(ref.getName(), ref), true).get(ref.getName());",
+      "revId": "ed68fe01944de74e6dc4e8f0e2bfffd7d9b89877",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "SsVFaFDE",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1001240
+      },
+      "writtenOn": "2013-03-27T18:28:03Z",
+      "side": 1,
+      "message": "FYI VisibleRefFilter has a bug. If prefix is \"refs/heads/\" or something the delegate map contains keys like \"master\" but the filter turns around and makes the keys \"refs/heads/master\". So its restoring the prefix.\n\nThis may confuse Gitiles?",
+      "revId": "ed68fe01944de74e6dc4e8f0e2bfffd7d9b89877",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "SsXFXGAY",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1001240
+      },
+      "writtenOn": "2013-03-27T18:28:03Z",
+      "side": 1,
+      "message": "I think you can just return an empty list here. Additional refs are things like FETCH_HEAD or MERGE_HEAD that gitiles does not need.",
+      "revId": "ed68fe01944de74e6dc4e8f0e2bfffd7d9b89877",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "SsRE9bMg",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GerritGitilesAccess.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1001240
+      },
+      "writtenOn": "2013-03-27T18:28:03Z",
+      "side": 1,
+      "message": "IIRC you don\u0027t need this anymore because its set automatically by apply().",
+      "revId": "ed68fe01944de74e6dc4e8f0e2bfffd7d9b89877",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Stys6edE",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/HttpModule.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1001240
+      },
+      "writtenOn": "2013-03-27T18:28:03Z",
+      "side": 1,
+      "message": "Gerrit serves documentation from /Documentation. Which may mean you can\u0027t have a project named Documentation.",
+      "revId": "ed68fe01944de74e6dc4e8f0e2bfffd7d9b89877",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Stws9Pcg",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/Module.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1001240
+      },
+      "writtenOn": "2013-03-27T18:28:03Z",
+      "side": 1,
+      "message": "This is used to set the browser window title. Its a subset of the host name because review.source.android.com was long and I hated that long of a string. You should just use the full getHost() string in the SSH URL when the host name is \"*\".\n\nMaybe move this block below into the ssh case where the host was identified as \"*\" and you need the host name. And dont\u0027t do this dot parsing just use u.getHost().",
+      "revId": "ed68fe01944de74e6dc4e8f0e2bfffd7d9b89877",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
