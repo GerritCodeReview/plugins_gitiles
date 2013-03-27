@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "St.tDEVY",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1010813
+      },
+      "writtenOn": "2013-03-27T16:38:47Z",
+      "side": 1,
+      "message": "This is going to require 2.7-SNAPSHOT, since it depends on I9443654f.",
+      "revId": "0bafc3a99532cd0858d6c52c08d38f3175f41c35",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "SsTEfUGY",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1010813
+      },
+      "writtenOn": "2013-03-27T16:38:47Z",
+      "side": 1,
+      "message": "[nit] Can just reuse ${project.version} from above.",
+      "revId": "0bafc3a99532cd0858d6c52c08d38f3175f41c35",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "St4sNrUQ",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/HttpModule.java",
         "patchSetId": 1
