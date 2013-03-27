@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "SsZFIfHQ",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2013-03-27T17:51:28Z",
+      "side": 1,
+      "message": "Crap, I didn\u0027t mean to push that to master, I meant to push it to stable-2.6. Can we cherry-pick it into the release branch? I\u0027m fine with pushing this plugin back to 2.7 if there\u0027s a good reason, but I\"m not sure this was a good reason :)",
+      "parentUuid": "St.tDEVY",
+      "revId": "0bafc3a99532cd0858d6c52c08d38f3175f41c35",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "SsTEfUGY",
         "filename": "pom.xml",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2013-03-27T16:38:47Z",
       "side": 1,
       "message": "[nit] Can just reuse ${project.version} from above.",
+      "revId": "0bafc3a99532cd0858d6c52c08d38f3175f41c35",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "St6tNCYM",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2013-03-27T17:51:28Z",
+      "side": 1,
+      "message": "This is the upstream gitiles version, not the version of the gitiles plugin. I would assume they are versioned independently. (I should probably also cut a release of gitiles at some point.)",
+      "parentUuid": "SsTEfUGY",
       "revId": "0bafc3a99532cd0858d6c52c08d38f3175f41c35",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "SsbFNgIM",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GerritGitilesAccess.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2013-03-27T17:51:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "SsfFDCFY",
+      "revId": "0bafc3a99532cd0858d6c52c08d38f3175f41c35",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "St4sNrUQ",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/HttpModule.java",
         "patchSetId": 1
@@ -64,6 +118,24 @@
       "writtenOn": "2013-03-27T14:22:25Z",
       "side": 1,
       "message": "Please add a Documentation/config.md page that at least hyperlinks to the gitiles docs, or tries to repeat a bunch of it here.",
+      "revId": "0bafc3a99532cd0858d6c52c08d38f3175f41c35",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "St0szRf8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/HttpModule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2013-03-27T17:51:28Z",
+      "side": 1,
+      "message": "Will do this in a later change if not now.",
+      "parentUuid": "St4sNrUQ",
       "revId": "0bafc3a99532cd0858d6c52c08d38f3175f41c35",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "SsVEo1JQ",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/Module.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2013-03-27T17:51:28Z",
+      "side": 1,
+      "message": "I thought so too, but for some reason it comes from SchemaModule, which is bound in SiteProgram/WebAppInitializer. That should probably get refactored, huh.",
+      "parentUuid": "StwsL-TQ",
+      "revId": "0bafc3a99532cd0858d6c52c08d38f3175f41c35",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "StysIOTU",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/Module.java",
         "patchSetId": 1
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "SsXEl2Lk",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/Module.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2013-03-27T17:51:28Z",
+      "side": 1,
+      "message": "Done. Gitiles allows it to be nullable too.",
+      "parentUuid": "StysIOTU",
+      "revId": "0bafc3a99532cd0858d6c52c08d38f3175f41c35",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "St6sS6V0",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/Resolver.java",
         "patchSetId": 1
@@ -115,6 +223,24 @@
       "writtenOn": "2013-03-27T14:22:25Z",
       "side": 1,
       "message": "Aren\u0027t we missing some magic here to wrap the Repository with another Repository that has a RefDatabase that knows how to filter the refs the user can see?",
+      "revId": "0bafc3a99532cd0858d6c52c08d38f3175f41c35",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Sq3f.EPA",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/Resolver.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2013-03-27T17:51:28Z",
+      "side": 1,
+      "message": "Yeah, I thought this seemed too easy...\n\nDone.",
+      "parentUuid": "St6sS6V0",
       "revId": "0bafc3a99532cd0858d6c52c08d38f3175f41c35",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
