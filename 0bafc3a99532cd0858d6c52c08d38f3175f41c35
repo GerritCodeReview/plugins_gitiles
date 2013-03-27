@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "St4sNrUQ",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/HttpModule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1001240
+      },
+      "writtenOn": "2013-03-27T14:22:25Z",
+      "side": 1,
+      "message": "Please add a Documentation/config.md page that at least hyperlinks to the gitiles docs, or tries to repeat a bunch of it here.",
+      "revId": "0bafc3a99532cd0858d6c52c08d38f3175f41c35",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "StwsL-TQ",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/Module.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1001240
+      },
+      "writtenOn": "2013-03-27T14:22:25Z",
+      "side": 1,
+      "message": "Odd, this should have been part of the plugin Guice environment you inherit from the server.",
+      "revId": "0bafc3a99532cd0858d6c52c08d38f3175f41c35",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "StysIOTU",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/Module.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1001240
+      },
+      "writtenOn": "2013-03-27T14:22:25Z",
+      "side": 1,
+      "message": "Just to warn you, this is a nullable property in the core server. If its not set Guice will fail to setup the plugin here. We maybe should consider fixing the core to refuse to start unless this is set, and then start making it a non-null property everywhere.",
+      "revId": "0bafc3a99532cd0858d6c52c08d38f3175f41c35",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "St6sS6V0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/Resolver.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1001240
+      },
+      "writtenOn": "2013-03-27T14:22:25Z",
+      "side": 1,
+      "message": "Aren\u0027t we missing some magic here to wrap the Repository with another Repository that has a RefDatabase that knows how to filter the refs the user can see?",
+      "revId": "0bafc3a99532cd0858d6c52c08d38f3175f41c35",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
