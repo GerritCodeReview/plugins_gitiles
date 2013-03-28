@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "SumhXIwY",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/InitGitiles.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1001240
+      },
+      "writtenOn": "2013-03-28T16:09:04Z",
+      "side": 1,
+      "message": "This might need to omit the leading /. You want to load the plugin relative to the host page not the server root in case its running in a subdirectory.",
+      "revId": "6247b4615142c80aa4b2346caaddf278f7b92fe1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "SuUlaYTE",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/InitGitiles.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1001240
+      },
+      "writtenOn": "2013-03-28T16:09:04Z",
+      "side": 1,
+      "message": "set type and linkname first before url. this makes the order cleaner to read in the config file.",
+      "revId": "6247b4615142c80aa4b2346caaddf278f7b92fe1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
