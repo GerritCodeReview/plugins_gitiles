@@ -28,7 +28,7 @@ limitations under the License.
     <Gerrit-ApiType>plugin</Gerrit-ApiType>
     <Gerrit-ApiVersion>2.6-SNAPSHOT</Gerrit-ApiVersion>
 
-    <gitilesVersion>1.0-SNAPSHOT</gitilesVersion>
+    <gitilesVersion>1.0-rc0</gitilesVersion>
   </properties>
 
   <build>
