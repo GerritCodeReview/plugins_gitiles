@@ -64,20 +64,21 @@ limitations under the License.
           <promoteTransitiveDependencies>true</promoteTransitiveDependencies>
           <artifactSet>
             <excludes>
-              <!-- Common gitiles/gerrit dependencies. -->
-              <exclude>com.google.guava:guava</exclude>
-              <exclude>org.eclipse.jgit:org.eclipse.jgit</exclude>
-              <exclude>org.eclipse.jgit:org.eclipse.jgit.http.server</exclude>
-              <exclude>org.slf4j:slf4j-api</exclude>
-              <exclude>com.google.code.gson:gson</exclude>
-
-              <!-- Common Soy dependencies. -->
-              <exclude>com.google.inject:guice</exclude>
-              <exclude>com.google.inject.extensions:guice-assistedinject</exclude>
-              <exclude>javax.inject:javax.inject</exclude>
+              <!-- Common Gitiles/Gerrit/Soy transitive dependencies. -->
+              <exclude>aopalliance:aopalliance</exclude>
               <exclude>args4j:args4j</exclude>
               <exclude>com.google.code.findbugs:jsr305</exclude>
-          </excludes>
+              <exclude>com.google.code.gson:gson</exclude>
+              <exclude>com.google.guava:guava</exclude>
+              <exclude>com.google.inject.extensions:guice-assistedinject</exclude>
+              <exclude>com.google.inject:guice</exclude>
+              <exclude>com.googlecode.javaewah</exclude>
+              <exclude>com.jcraft:jsch</exclude>
+              <exclude>javax.inject:javax.inject</exclude>
+              <exclude>org.eclipse.jgit:org.eclipse.jgit.http.server</exclude>
+              <exclude>org.eclipse.jgit:org.eclipse.jgit</exclude>
+              <exclude>org.slf4j:slf4j-api</exclude>
+            </excludes>
           </artifactSet>
           <transformers>
             <transformer
