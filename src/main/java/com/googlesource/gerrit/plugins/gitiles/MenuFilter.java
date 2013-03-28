@@ -53,10 +53,10 @@ class MenuFilter implements Filter {
       entries
           .add(BaseServlet.menuEntry(((IdentifiedUser) user).getName(), null));
       entries.add(BaseServlet.menuEntry("Sign Out", urls.getBaseGerritUrl(req)
-          + "logout/"));
+          + "logout"));
     } else {
       entries.add(BaseServlet.menuEntry("Sign In", urls.getBaseGerritUrl(req)
-          + "login/"));
+          + "login"));
     }
     BaseServlet.putSoyData(req, "menuEntries", entries);
     chain.doFilter(request, response);
