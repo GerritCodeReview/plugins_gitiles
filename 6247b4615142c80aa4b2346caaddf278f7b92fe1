@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "SuWlXJQY",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/InitGitiles.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2013-03-28T16:14:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "SumhXIwY",
+      "revId": "6247b4615142c80aa4b2346caaddf278f7b92fe1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "SuUlaYTE",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/InitGitiles.java",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2013-03-28T16:09:04Z",
       "side": 1,
       "message": "set type and linkname first before url. this makes the order cleaner to read in the config file.",
+      "revId": "6247b4615142c80aa4b2346caaddf278f7b92fe1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "SusiIj28",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/InitGitiles.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2013-03-28T16:14:13Z",
+      "side": 1,
+      "message": "Done. Considering I copied the order from https://gerrit-review.googlesource.com/Documentation/config-gerrit.html#_a_id_gitweb_a_section_gitweb we may want to change that as well.",
+      "parentUuid": "SuUlaYTE",
       "revId": "6247b4615142c80aa4b2346caaddf278f7b92fe1",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
