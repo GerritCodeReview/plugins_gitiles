@@ -97,6 +97,7 @@ class GerritGitilesAccess implements GitilesAccess {
       Set<String> branches) throws ServiceNotEnabledException,
       ServiceNotAuthorizedException, IOException {
     ListProjects lp = listProjects.get();
+    lp.setShowDescription(true);
     lp.setAll(true);
     for (String branch : branches) {
       lp.addShowBranch(branch);
