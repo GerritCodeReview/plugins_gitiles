@@ -104,12 +104,23 @@ limitations under the License.
               </manifestEntries>
             </transformer>
           </transformers>
+          <filters>
+            <filter>
+              <artifact>*:*</artifact>
+              <excludes>
+                <exclude>META-INF/*.SF</exclude>
+                <exclude>META-INF/*.DSA</exclude>
+                <exclude>META-INF/*.RSA</exclude>
+              </excludes>
+            </filter>
+          </filters>
           <relocations>
             <relocation>
               <pattern>com.google.gitiles.static</pattern>
               <shadedPattern>+static</shadedPattern>
             </relocation>
           </relocations>
+
         </configuration>
         <executions>
           <execution>
