@@ -63,6 +63,11 @@ class InitGitiles implements InitStep {
     gitilesConfig.createNewFile();
   }
 
+  @Override
+  public void postRun() throws Exception {
+    // no op
+  }
+
   private boolean confirm() {
     if (!cfg.getSections().contains("gitweb")) {
       return ui.yesno(true, "Configure Gitiles source browser");
