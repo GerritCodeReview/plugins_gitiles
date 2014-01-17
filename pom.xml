@@ -85,6 +85,7 @@ limitations under the License.
             <transformer
               implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
               <manifestEntries>
+                <Gerrit-PluginName>gitiles</Gerrit-PluginName>
                 <Gerrit-Module>com.googlesource.gerrit.plugins.gitiles.Module</Gerrit-Module>
                 <Gerrit-HttpModule>com.googlesource.gerrit.plugins.gitiles.HttpModule</Gerrit-HttpModule>
                 <Gerrit-InitStep>com.googlesource.gerrit.plugins.gitiles.InitGitiles</Gerrit-InitStep>
