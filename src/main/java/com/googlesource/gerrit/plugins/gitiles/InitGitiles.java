@@ -57,6 +57,8 @@ class InitGitiles implements InitStep {
     gitweb.set("project", "${project}");
     gitweb.set("branch", "${project}/+/${branch}");
     gitweb.set("filehistory", "${project}/+log/${branch}/${file}");
+    gitweb.set("file", "${project}/+/${commit}/${file}");
+    gitweb.set("roottree", "${project}");
 
     // Configuration is mainly done in code. Create an empty config file so the
     // user knows where to put additional configuration.
