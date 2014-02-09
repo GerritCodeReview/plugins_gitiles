@@ -55,7 +55,7 @@ class HttpModule extends ServletModule {
       GitilesAccess.Factory accessFactory,
       RepositoryResolver<HttpServletRequest> resolver,
       MenuFilter menuFilter) throws ServletException {
-    GitilesServlet s = new GitilesServlet(cfg, null, urls, accessFactory, resolver, null, null, null);
+    GitilesServlet s = new GitilesServlet(cfg, null, urls, accessFactory, resolver, null, null, null, null);
     for (GitilesView.Type view : GitilesView.Type.values()) {
       s.addFilter(view, menuFilter);
     }
