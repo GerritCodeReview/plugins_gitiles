@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcc0b9c1_83d33e49",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/Module.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2014-03-25T02:50:06Z",
+      "side": 0,
+      "message": "It would be nicer if this was a refactor change first that pulled this code into GerritGitilesUrls, then a second change that makes your modifications. Much easier to see what changes you\u0027re making then.",
+      "revId": "7bd510a969e9679b48a2e0931c402c14c361940d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

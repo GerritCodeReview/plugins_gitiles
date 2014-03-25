@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcc0b9c1_23788a96",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GerritGitilesUrls.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2014-03-25T02:50:06Z",
+      "side": 1,
+      "message": "Can configSshAddress be null?",
+      "range": {
+        "startLine": 78,
+        "startChar": 10,
+        "endLine": 78,
+        "endChar": 37
+      },
+      "revId": "68fc4d5a3c0c56c864604c6c85a25e7b08cff143",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc7b055f_e25dc62d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GerritGitilesUrls.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2014-03-25T02:50:06Z",
+      "side": 1,
+      "message": "Won\u0027t this return a string prefixed with \u0027git://\u0027? That seems like a strange thing to end up setting as gitHttpUrl.",
+      "range": {
+        "startLine": 92,
+        "startChar": 15,
+        "endLine": 92,
+        "endChar": 72
+      },
+      "revId": "68fc4d5a3c0c56c864604c6c85a25e7b08cff143",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
