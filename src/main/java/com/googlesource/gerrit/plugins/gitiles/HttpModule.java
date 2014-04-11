@@ -34,11 +34,45 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequestWrapper;
 
 class HttpModule extends ServletModule {
+  protected Filter createPathFilter() {
+    return new Filter() {
+      @Override
+      public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException{
+        log.warn("Filtering request: " + ((HttpServletRequest)request).getPathInfo());
+        HttpServletRequestWrapper wrappedRequest = new HttpServletRequestWrapper((HttpServletRequest)request) {
+          @Override public String getRequestURI() {
+            log.warn("getRequestURI");
+            try {
+              URI uri = new URI(super.getRequestURI());
+              log.warn("uri: " + uri.getPath());
+              return uri.getPath();
+            } catch (URISyntaxException e) {
+              return super.getRequestURI();
+            }
+          }
+        };
+        chain.doFilter(wrappedRequest, response);
+      }
+
+      @Override public void destroy() { }
+
+      @Override public void init(FilterConfig config) throws ServletException { }
+    };
+  }
+
   private static final Logger log = LoggerFactory
       .getLogger(ServletModule.class);
 
@@ -46,6 +80,7 @@ class HttpModule extends ServletModule {
   protected void configureServlets() {
     // Let /+static, /+Documentation, etc. fall through to default servlet, but
     // handle everything else.
+    filter("/*").through(createPathFilter());
     serveRegex("^(/)$", "^(/[^+].*)").with(GitilesServlet.class);
   }
 
