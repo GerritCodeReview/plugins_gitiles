@@ -14,6 +14,7 @@
 
 package com.googlesource.gerrit.plugins.gitiles;
 
+import com.google.gerrit.common.Nullable;
 import com.google.gerrit.server.config.AllProjectsName;
 import com.google.gerrit.server.config.AllProjectsNameProvider;
 import com.google.gerrit.server.config.CanonicalWebUrl;
@@ -36,7 +37,6 @@ import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.List;
 
-import javax.annotation.Nullable;
 import javax.servlet.http.HttpServletRequest;
 
 class Module extends AbstractModule {
