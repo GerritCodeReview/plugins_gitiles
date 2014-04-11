@@ -15,6 +15,7 @@
 package com.googlesource.gerrit.plugins.gitiles;
 
 import com.google.common.collect.Maps;
+import com.google.gerrit.extensions.common.ProjectInfo;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.IdentifiedUser;
@@ -22,7 +23,6 @@ import com.google.gerrit.server.config.AnonymousCowardName;
 import com.google.gerrit.server.project.ListProjects;
 import com.google.gerrit.server.project.ProjectCache;
 import com.google.gerrit.server.project.ProjectJson;
-import com.google.gerrit.server.project.ProjectJson.ProjectInfo;
 import com.google.gerrit.server.project.ProjectState;
 import com.google.gitiles.GitilesAccess;
 import com.google.gitiles.GitilesUrls;
@@ -31,6 +31,7 @@ import com.google.inject.Inject;
 import com.google.inject.Provider;
 
 import org.eclipse.jgit.errors.RepositoryNotFoundException;
+import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.transport.resolver.ServiceNotAuthorizedException;
 import org.eclipse.jgit.transport.resolver.ServiceNotEnabledException;
 
@@ -144,5 +145,10 @@ class GerritGitilesAccess implements GitilesAccess {
       throw new RepositoryNotFoundException(nameKey.get());
     }
     return toDescription(nameKey.get(), projectJson.format(state.getProject()));
+  }
+
+  @Override
+  public Config getConfig() throws IOException {
+    return new Config();
   }
 }

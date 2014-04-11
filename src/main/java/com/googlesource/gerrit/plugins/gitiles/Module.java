@@ -14,17 +14,21 @@
 
 package com.googlesource.gerrit.plugins.gitiles;
 
+import com.google.gerrit.common.Nullable;
+import com.google.gerrit.extensions.events.LifecycleListener;
+import com.google.gerrit.lifecycle.LifecycleModule;
 import com.google.gerrit.server.config.AllProjectsName;
 import com.google.gerrit.server.config.AllProjectsNameProvider;
 import com.google.gerrit.server.config.CanonicalWebUrl;
 import com.google.gerrit.server.config.GerritServerConfig;
 import com.google.gerrit.server.ssh.SshAdvertisedAddresses;
+import com.google.gitiles.ArchiveFormat;
 import com.google.gitiles.DefaultUrls;
 import com.google.gitiles.GitilesAccess;
 import com.google.gitiles.GitilesUrls;
-import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.google.inject.ProvisionException;
+import com.google.inject.Singleton;
 import com.google.inject.TypeLiteral;
 
 import org.eclipse.jgit.lib.Config;
@@ -36,15 +40,15 @@ import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.List;
 
-import javax.annotation.Nullable;
 import javax.servlet.http.HttpServletRequest;
 
-class Module extends AbstractModule {
+class Module extends LifecycleModule {
   @Override
   protected void configure() {
     bind(GitilesAccess.Factory.class).to(GerritGitilesAccess.Factory.class);
     bind(new TypeLiteral<RepositoryResolver<HttpServletRequest>>() {}).to(Resolver.class);
     bind(AllProjectsName.class).toProvider(AllProjectsNameProvider.class);
+    listener().to(Lifecycle.class);
   }
 
   @Provides
@@ -89,5 +93,18 @@ class Module extends AbstractModule {
 
   private String getLocalHostName() throws UnknownHostException {
     return InetAddress.getLocalHost().getCanonicalHostName();
+  }
+
+  @Singleton
+  static class Lifecycle implements LifecycleListener {
+    @Override
+    public void start() {
+      // Do nothing.
+    }
+
+    @Override
+    public void stop() {
+      ArchiveFormat.unregisterAll();
+    }
   }
 }
