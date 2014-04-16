@@ -2,8 +2,8 @@ include_defs('//lib/maven.defs')
 
 maven_jar(
   name = 'gitiles-servlet',
-  id = 'com.google.gitiles:gitiles-servlet:0.1-1',
-  sha1 = 'b47569ef1a428a6858668757ed71052b262350b5',
+  id = 'com.google.gitiles:gitiles-servlet:0.1-2',
+  sha1 = '31c84c6fdcde30174c70e4f1f5a5a8d71c57a19e',
   license = 'Apache2.0',
   repository = GERRIT,
   visibility = [],
