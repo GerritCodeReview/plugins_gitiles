@@ -33,9 +33,8 @@ maven_jar(
   visibility = [],
 )
 
-
 gerrit_plugin(
-  name = 'gitiles',
+  name = 'gitiles_base',
   srcs = glob(['src/main/java/**/*.java']),
   deps = [
     ':gitiles-servlet',
@@ -59,5 +58,22 @@ gerrit_plugin(
     # are reserved by Gitiles and can't match repos.
     'Gerrit-HttpStaticPrefix: +static',
     'Gerrit-HttpDocumentationPrefix: +Documentation',
+  ],
+  visibility = [],
+)
+
+genrule(
+  name = 'gitiles',
+  cmd = ' && '.join([
+    'cp $(location :gitiles_base) $OUT',
+    'unzip -qd $TMP $(location :gitiles-servlet) "com/google/gitiles/static/*"',
+    'cd $TMP/com/google/gitiles',
+    'mv static +static',
+    'zip -Drq $OUT -g . -i "+static/*"',
+  ]),
+  out = 'gitiles.jar',
+  deps = [
+    ':gitiles-servlet',
+    ':gitiles_base',
   ],
 )
