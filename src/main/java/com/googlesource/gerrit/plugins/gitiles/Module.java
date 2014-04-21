@@ -71,6 +71,11 @@ class Module extends LifecycleModule {
     String gitUrl;
     if (!advertisedSshAddresses.isEmpty()) {
       String addr = advertisedSshAddresses.get(0);
+      int index = addr.indexOf(":");
+      String port = "";
+      if( index != -1 ) {
+        port = addr.substring(index);
+      }
       if (addr.startsWith("*:") || "".equals(addr)) {
         if (u != null && u.getHost() != null) {
           addr = u.getHost();
@@ -78,7 +83,7 @@ class Module extends LifecycleModule {
           addr = getLocalHostName();
         }
       }
-      gitUrl = "ssh://" + addr + "/";
+      gitUrl = "ssh://" + addr + port + "/";
     } else {
       gitUrl = gerritConfig.getString("gerrit", null, "gitHttpUrl");
       if (gitUrl == null) {
