@@ -46,6 +46,29 @@
       "revId": "939e500fe52c1e1c06481afbc4487a9743f288ee",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25929b12_5f25abcc",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/Module.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2014-04-21T15:16:51Z",
+      "side": 1,
+      "message": "If addr is localhost:29418, wouldn\u0027t this make gitUrl \u003d ssh://localhost:29418:29418/?",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 44
+      },
+      "revId": "939e500fe52c1e1c06481afbc4487a9743f288ee",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
