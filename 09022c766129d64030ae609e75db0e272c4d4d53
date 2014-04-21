@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "256b7bde_7703f02d",
+        "filename": "BUCK",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-04-21T13:49:39Z",
+      "side": 1,
+      "message": "This belongs to Buck convertion change:\n\n  I9974756cb6fdcf6efdf2effd62016431ea2d49c1\n\nThere\u0027s not much point to merge commits, that produce broken artifacts.",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 4
+      },
+      "revId": "09022c766129d64030ae609e75db0e272c4d4d53",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
