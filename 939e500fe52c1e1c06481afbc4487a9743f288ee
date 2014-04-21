@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "05975703_7e2af19f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/Module.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2014-04-21T15:11:31Z",
+      "side": 1,
+      "message": "nit: spacing\n\n if (index !\u003d 1) {",
+      "range": {
+        "startLine": 76,
+        "startChar": 6,
+        "endLine": 76,
+        "endChar": 23
+      },
+      "revId": "939e500fe52c1e1c06481afbc4487a9743f288ee",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
