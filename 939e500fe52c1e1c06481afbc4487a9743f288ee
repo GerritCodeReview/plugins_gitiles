@@ -22,6 +22,30 @@
       "revId": "939e500fe52c1e1c06481afbc4487a9743f288ee",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25929b12_bf087744",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/Module.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1012612
+      },
+      "writtenOn": "2014-04-21T15:14:32Z",
+      "side": 1,
+      "message": "Thanks, gets me every time... especially when I\u0027m not paying attention on a Monday. :)",
+      "parentUuid": "05975703_7e2af19f",
+      "range": {
+        "startLine": 76,
+        "startChar": 6,
+        "endLine": 76,
+        "endChar": 23
+      },
+      "revId": "939e500fe52c1e1c06481afbc4487a9743f288ee",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
