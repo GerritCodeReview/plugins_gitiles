@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4566af13_38fd69d6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-04-21T13:44:03Z",
+      "side": 1,
+      "message": "Given that every commit must compile and produce correct artifact, i don\u0027t see much point of uploading broken commits.\n\nReshuffle this series, and rebase this convertion change on top of the change that fixed the build against latest Gerrit API.",
+      "range": {
+        "startLine": 7,
+        "startChar": 23,
+        "endLine": 7,
+        "endChar": 50
+      },
+      "revId": "58361fe254b43f9d79c6a108687a4cd163fa67b9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "256b7bde_b7f18806",
+        "filename": "BUCK",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-04-21T13:44:03Z",
+      "side": 1,
+      "message": "nit: put the main rule gerrit_plugin() on the top of this file. maven_jar() rules go to the bottom.",
+      "revId": "58361fe254b43f9d79c6a108687a4cd163fa67b9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4566af13_18f8a5e5",
+        "filename": "BUCK",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-04-21T13:44:03Z",
+      "side": 1,
+      "message": "By repeating Gerrit dep(s) in transistive deps list, you are putting all these deps transitively in the binary artifact. That\u0027s because //lib/jgit-servlet itself depends on //lib/jgit:\n\n  maven_jar(\n    name \u003d \u0027jgit-servlet\u0027,\n    id \u003d \u0027org.eclipse.jgit:org.eclipse.jgit.http.server:\u0027 + VERS,\n    sha1 \u003d \u0027f0d8a1e8abca55a5723fbd595dd63992f16dea5a\u0027,\n    license \u003d \u0027jgit\u0027,\n    repository \u003d REPO,\n    deps \u003d [\u0027:jgit\u0027],\n  [...]\n\nSo, you are packaging the whole JGit twice: in Gerrit itself and in gitiles.jar.\n\nWhat you want is to provide jgit-servlet as compile_deps:\n\n  deps \u003d [\n    \u0027:gitiles-servlet\u0027,\n    \u0027:guice-multibindings\u0027,\n    \u0027:soy\u0027,\n  ],\n  compile_deps \u003d [\n    \u0027//lib/jgit:jgit-servlet\u0027,\n  ],",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 30
+      },
+      "revId": "58361fe254b43f9d79c6a108687a4cd163fa67b9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
