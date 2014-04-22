@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "85ba679a_8a676bf0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/HttpModule.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2014-04-22T18:07:30Z",
+      "side": 1,
+      "message": "Gitiles has an AbstractHttpFilter so you don\u0027t have to downcast request.",
+      "revId": "54330e5174caa9f1156e8ea727b840336c2bb94b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85ba679a_ea6aa7b9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/HttpModule.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2014-04-22T18:07:30Z",
+      "side": 1,
+      "message": "Nit: please wrap lines at 100 chars.",
+      "revId": "54330e5174caa9f1156e8ea727b840336c2bb94b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65bf338d_e983953f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/HttpModule.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2014-04-22T18:07:30Z",
+      "side": 1,
+      "message": "Nit: line break after @Override",
+      "revId": "54330e5174caa9f1156e8ea727b840336c2bb94b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85ba679a_aa64afeb",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/HttpModule.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2014-04-22T18:07:30Z",
+      "side": 1,
+      "message": "Does this return a different result than URLDecoder.decode(super.getRequestURI(), \"UTF-8\")? If so, please document why we need this variant.",
+      "revId": "54330e5174caa9f1156e8ea727b840336c2bb94b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65bf338d_8990d986",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/HttpModule.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2014-04-22T18:07:30Z",
+      "side": 1,
+      "message": "Nits: line break after @Override, no space between {}",
+      "revId": "54330e5174caa9f1156e8ea727b840336c2bb94b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65bf338d_a98d9d6d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/HttpModule.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2014-04-22T18:07:30Z",
+      "side": 1,
+      "message": "Same nits as above.",
+      "revId": "54330e5174caa9f1156e8ea727b840336c2bb94b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85ba679a_4ac17364",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/Module.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2014-04-22T18:07:30Z",
+      "side": 1,
+      "message": "I think this is right but I would like there to be tests. Not asking you to write them, just thinking out loud.",
+      "revId": "54330e5174caa9f1156e8ea727b840336c2bb94b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
