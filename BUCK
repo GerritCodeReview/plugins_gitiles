@@ -28,7 +28,7 @@ gerrit_plugin(
     ':commons-lang3',
   ],
   # Deps shared with Gerrit but not in the plugin API.
-  compile_deps = [
+  provided_deps = [
     '//lib/jgit:jgit-servlet',
   ],
   resources = glob(['src/main/resources/**/*']),
