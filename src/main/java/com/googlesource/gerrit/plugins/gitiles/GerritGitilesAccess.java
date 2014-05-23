@@ -15,7 +15,6 @@
 package com.googlesource.gerrit.plugins.gitiles;
 
 import com.google.common.collect.Maps;
-import com.google.gerrit.extensions.common.ProjectInfo;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.IdentifiedUser;
@@ -23,6 +22,7 @@ import com.google.gerrit.server.config.AnonymousCowardName;
 import com.google.gerrit.server.project.ListProjects;
 import com.google.gerrit.server.project.ProjectCache;
 import com.google.gerrit.server.project.ProjectJson;
+import com.google.gerrit.server.project.ProjectJson.ProjectInfo;
 import com.google.gerrit.server.project.ProjectState;
 import com.google.gitiles.GitilesAccess;
 import com.google.gitiles.GitilesUrls;
