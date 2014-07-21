@@ -48,7 +48,8 @@ class MenuFilter implements Filter {
       FilterChain chain) throws IOException, ServletException {
     HttpServletRequest req = (HttpServletRequest) request;
     CurrentUser user = userProvider.get();
-    List<Object> entries = Lists.newArrayListWithCapacity(2);
+    List<Object> entries = Lists.newArrayListWithCapacity(3);
+    entries.add(BaseServlet.menuEntry("Code Review", urls.getBaseGerritUrl(req)));
     if (user instanceof IdentifiedUser) {
       entries
           .add(BaseServlet.menuEntry(((IdentifiedUser) user).getName(), null));
