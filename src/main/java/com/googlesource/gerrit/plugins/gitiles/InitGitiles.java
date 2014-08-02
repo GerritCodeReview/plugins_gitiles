@@ -14,10 +14,10 @@
 
 package com.googlesource.gerrit.plugins.gitiles;
 
-import com.google.gerrit.pgm.init.InitFlags;
-import com.google.gerrit.pgm.init.InitStep;
-import com.google.gerrit.pgm.init.Section;
-import com.google.gerrit.pgm.util.ConsoleUI;
+import com.google.gerrit.pgm.init.api.InitFlags;
+import com.google.gerrit.pgm.init.api.InitStep;
+import com.google.gerrit.pgm.init.api.Section;
+import com.google.gerrit.pgm.init.api.ConsoleUI;
 import com.google.gerrit.server.config.SitePaths;
 import com.google.inject.Inject;
 
