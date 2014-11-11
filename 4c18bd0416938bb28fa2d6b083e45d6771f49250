@@ -80,6 +80,24 @@
       "revId": "4c18bd0416938bb28fa2d6b083e45d6771f49250",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a77bfc2_33e6e8fa",
+        "filename": "BUCK",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2014-11-11T23:41:24Z",
+      "side": 1,
+      "message": "For each maven_jar rule that must match the Gerrit version, add a comment saying \"# This version must match the version used by Gerrit.\"",
+      "parentUuid": "da71a7c8_7931a7df",
+      "revId": "4c18bd0416938bb28fa2d6b083e45d6771f49250",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
