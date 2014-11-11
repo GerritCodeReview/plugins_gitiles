@@ -74,8 +74,8 @@ maven_jar(
 
 maven_jar(
   name = 'guice-multibindings',
-  id = 'com.google.inject.extensions:guice-multibindings:4.0-beta',
-  sha1 = '558a3dcfd203db33a5a96a70a18076c866723ee4',
+  id = 'com.google.inject.extensions:guice-multibindings:4.0-beta5',
+  sha1 = 'f432356db0a167127ffe4a7921238d7205b12682',
   license = 'Apache2.0',
   exclude_java_sources = True,
   exclude = [
