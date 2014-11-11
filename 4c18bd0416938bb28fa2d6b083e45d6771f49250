@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a77bfc2_73dc6026",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2014-11-11T23:28:14Z",
+      "side": 1,
+      "message": "Done.",
+      "range": {
+        "startLine": 14,
+        "startChar": 6,
+        "endLine": 14,
+        "endChar": 60
+      },
+      "revId": "4c18bd0416938bb28fa2d6b083e45d6771f49250",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3aa1e35e_1c0f3525",
+        "filename": "BUCK",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2014-11-11T23:28:14Z",
+      "side": 1,
+      "message": "3",
+      "range": {
+        "startLine": 53,
+        "startChar": 47,
+        "endLine": 53,
+        "endChar": 48
+      },
+      "revId": "4c18bd0416938bb28fa2d6b083e45d6771f49250",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a77bfc2_53d7e402",
+        "filename": "BUCK",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2014-11-11T23:28:14Z",
+      "side": 1,
+      "message": "We should leave a comment on each library that must match the Gerrit version. That should help people coming through and trying to fix new build problems that crop up.",
+      "revId": "4c18bd0416938bb28fa2d6b083e45d6771f49250",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
