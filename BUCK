@@ -23,9 +23,10 @@ gerrit_plugin(
     ':gitiles-servlet',
 
     # Deps only needed by Gitiles.
-    ':guice-multibindings',
-    ':soy',
     ':commons-lang3',
+    ':guice-multibindings',
+    ':nullable-jsr305',
+    ':soy',
   ],
   # Deps shared with Gerrit but not in the plugin API.
   provided_deps = [
@@ -49,8 +50,8 @@ gerrit_plugin(
 
 maven_jar(
   name = 'gitiles-servlet',
-  id = 'com.google.gitiles:gitiles-servlet:0.1-2',
-  sha1 = '31c84c6fdcde30174c70e4f1f5a5a8d71c57a19e',
+  id = 'com.google.gitiles:gitiles-servlet:0.1-3',
+  sha1 = '862e6bf36d16859f98c866739fdaabebb5bb39db',
   license = 'Apache2.0',
   repository = GERRIT,
   visibility = [],
@@ -64,18 +65,29 @@ maven_jar(
   visibility = [],
 )
 
+# soy must match closure-template version used in Gitiles
 maven_jar(
   name = 'soy',
-  id = 'com.google.template:soy:2012-12-21',
-  sha1 = 'cc28da103845a0f08cfd3fa5abdd45899b0adae1',
+  id = 'com.google.template:soy:e74fcfa284a1e31d42ac93e53cb84a71f638c70b',
+  sha1 = '1c75a007218f29d6124c46c8b18f4158cba4839c',
+  deps = [':icu4j'],
   license = 'Apache2.0',
+  repository = GERRIT,
   visibility = [],
 )
 
 maven_jar(
+  name = 'icu4j',
+  id = 'com.ibm.icu:icu4j:51.1',
+  sha1 = '8ce396c4aed83c0c3de9158dc72c834fd283d5a4',
+  license = 'Apache2.0',
+)
+
+# guice-multibindings must match Guice version used in Gerrit
+maven_jar(
   name = 'guice-multibindings',
-  id = 'com.google.inject.extensions:guice-multibindings:4.0-beta',
-  sha1 = '558a3dcfd203db33a5a96a70a18076c866723ee4',
+  id = 'com.google.inject.extensions:guice-multibindings:4.0-beta5',
+  sha1 = 'f432356db0a167127ffe4a7921238d7205b12682',
   license = 'Apache2.0',
   exclude_java_sources = True,
   exclude = [
@@ -85,5 +97,14 @@ maven_jar(
     'META-INF/maven/com.google.guava/guava/pom.properties',
     'META-INF/maven/com.google.guava/guava/pom.xml',
   ],
+  visibility = [],
+)
+
+maven_jar(
+  name = 'nullable-jsr305',
+  id = 'com.google.code.findbugs:jsr305:3.0.0',
+  sha1 = '5871fb60dc68d67da54a663c3fd636a10a532948',
+  license = 'Apache2.0',
+  exclude_java_sources = True,
   visibility = [],
 )
