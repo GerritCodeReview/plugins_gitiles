@@ -24,6 +24,7 @@ import com.google.gerrit.server.project.ListProjects;
 import com.google.gerrit.server.project.ProjectCache;
 import com.google.gerrit.server.project.ProjectJson;
 import com.google.gerrit.server.project.ProjectState;
+import com.google.gerrit.extensions.restapi.BadRequestException;
 import com.google.gitiles.GitilesAccess;
 import com.google.gitiles.GitilesUrls;
 import com.google.gitiles.RepositoryDescription;
@@ -103,7 +104,12 @@ class GerritGitilesAccess implements GitilesAccess {
     for (String branch : branches) {
       lp.addShowBranch(branch);
     }
-    Map<String, ProjectInfo> projects = lp.apply();
+    Map<String, ProjectInfo> projects;
+    try {
+      projects = lp.apply();
+    } catch (BadRequestException bex) {
+      throw new IOException(bex);
+    }
     Map<String, RepositoryDescription> result = Maps.newLinkedHashMap();
     for (Map.Entry<String, ProjectInfo> e : projects.entrySet()) {
       result.put(e.getKey(), toDescription(e.getKey(), e.getValue()));
