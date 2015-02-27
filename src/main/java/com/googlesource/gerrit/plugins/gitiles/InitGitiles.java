@@ -38,7 +38,7 @@ class InitGitiles implements InitStep {
     this.ui = ui;
     this.gitweb = sections.get("gitweb", null);
     this.cfg = flags.cfg;
-    this.gitilesConfig = new File(sitePaths.etc_dir, "gitiles.config");
+    this.gitilesConfig = sitePaths.etc_dir.resolve("gitiles.config").toFile();
   }
 
   @Override

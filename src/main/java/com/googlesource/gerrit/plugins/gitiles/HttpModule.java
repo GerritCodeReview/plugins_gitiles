@@ -105,7 +105,7 @@ class HttpModule extends ServletModule {
   @Provides
   @Named("gitiles")
   Config getConfig(SitePaths site) throws IOException, ConfigInvalidException {
-    File cfgFile = new File(site.etc_dir, "gitiles.config");
+    File cfgFile = site.etc_dir.resolve("gitiles.config").toFile();
     FileBasedConfig cfg = new FileBasedConfig(cfgFile, FS.DETECTED);
     if (cfg.getFile().exists()) {
       cfg.load();
