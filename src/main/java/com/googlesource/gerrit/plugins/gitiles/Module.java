@@ -17,8 +17,6 @@ package com.googlesource.gerrit.plugins.gitiles;
 import com.google.gerrit.common.Nullable;
 import com.google.gerrit.extensions.events.LifecycleListener;
 import com.google.gerrit.lifecycle.LifecycleModule;
-import com.google.gerrit.server.config.AllProjectsName;
-import com.google.gerrit.server.config.AllProjectsNameProvider;
 import com.google.gerrit.server.config.CanonicalWebUrl;
 import com.google.gerrit.server.config.GerritServerConfig;
 import com.google.gerrit.server.ssh.SshAdvertisedAddresses;
@@ -47,7 +45,6 @@ class Module extends LifecycleModule {
   protected void configure() {
     bind(GitilesAccess.Factory.class).to(GerritGitilesAccess.Factory.class);
     bind(new TypeLiteral<RepositoryResolver<HttpServletRequest>>() {}).to(Resolver.class);
-    bind(AllProjectsName.class).toProvider(AllProjectsNameProvider.class);
     listener().to(Lifecycle.class);
   }
 
