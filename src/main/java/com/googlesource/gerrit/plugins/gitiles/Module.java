@@ -47,7 +47,6 @@ class Module extends LifecycleModule {
   protected void configure() {
     bind(GitilesAccess.Factory.class).to(GerritGitilesAccess.Factory.class);
     bind(new TypeLiteral<RepositoryResolver<HttpServletRequest>>() {}).to(Resolver.class);
-    bind(AllProjectsName.class).toProvider(AllProjectsNameProvider.class);
     listener().to(Lifecycle.class);
   }
 
