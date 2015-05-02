@@ -1,0 +1,41 @@
+include_defs('//bucklets/maven_jar.bucklet')
+
+REPO = GERRIT  # Leave here even if set to MAVEN_CENTRAL.
+VERS = '3.7.0.201502260915-r.63-gf1a15f7'
+
+maven_jar(
+  name = 'jgit',
+  id = 'org.eclipse.jgit:org.eclipse.jgit:' + VERS,
+  bin_sha1 = 'f0690b06d4270cc823b03ca88fb996897edbc410',
+  src_sha1 = 'c0b8232d4c5e8422198b35a90409c9826af68fa3',
+  license = 'jgit',
+  repository = REPO,
+  unsign = True,
+  deps = [':ewah'],
+  exclude = [
+    'META-INF/eclipse.inf',
+    'about.html',
+    'plugin.properties',
+  ],
+)
+
+maven_jar(
+  name = 'jgit-servlet',
+  id = 'org.eclipse.jgit:org.eclipse.jgit.http.server:' + VERS,
+  sha1 = '1284d550981a037ffe92441faf5d16cdfc09396d',
+  license = 'jgit',
+  repository = REPO,
+  deps = [':jgit'],
+  unsign = True,
+  exclude = [
+    'about.html',
+    'plugin.properties',
+  ],
+)
+
+maven_jar(
+  name = 'ewah',
+  id = 'com.googlecode.javaewah:JavaEWAH:0.7.9',
+  sha1 = 'eceaf316a8faf0e794296ebe158ae110c7d72a5a',
+  license = 'Apache2.0',
+)
