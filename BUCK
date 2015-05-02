@@ -1,4 +1,5 @@
-include_defs('//lib/maven.defs')
+include_defs('//bucklets/gerrit_plugin.bucklet')
+include_defs('//bucklets/maven_jar.bucklet')
 
 genrule(
   name = 'gitiles_jar',
@@ -46,6 +47,11 @@ gerrit_plugin(
     'Gerrit-HttpDocumentationPrefix: +Documentation',
   ],
   visibility = [],
+)
+
+java_library(
+  name = 'classpath',
+  deps = [':gitiles__plugin'],
 )
 
 maven_jar(
