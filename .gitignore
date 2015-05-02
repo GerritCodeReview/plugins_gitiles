@@ -1,5 +1,10 @@
+/bucklets
 /target
+/.buckversion
 /.classpath
 /.project
 /.settings/org.maven.ide.eclipse.prefs
 /.settings/org.eclipse.m2e.core.prefs
+/.buckd
+/.watchmanconfig
+/buck-out
