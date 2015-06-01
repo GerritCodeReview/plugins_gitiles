@@ -16,6 +16,12 @@ package com.googlesource.gerrit.plugins.gitiles;
 
 import com.google.gerrit.common.Nullable;
 import com.google.gerrit.extensions.events.LifecycleListener;
+import com.google.gerrit.extensions.registration.DynamicSet;
+import com.google.gerrit.extensions.webui.BranchWebLink;
+import com.google.gerrit.extensions.webui.FileHistoryWebLink;
+import com.google.gerrit.extensions.webui.FileWebLink;
+import com.google.gerrit.extensions.webui.PatchSetWebLink;
+import com.google.gerrit.extensions.webui.ProjectWebLink;
 import com.google.gerrit.lifecycle.LifecycleModule;
 import com.google.gerrit.server.config.CanonicalWebUrl;
 import com.google.gerrit.server.config.GerritServerConfig;
@@ -43,6 +49,11 @@ import javax.servlet.http.HttpServletRequest;
 class Module extends LifecycleModule {
   @Override
   protected void configure() {
+    DynamicSet.bind(binder(), BranchWebLink.class).to(GitilesWeblinks.class);
+    DynamicSet.bind(binder(), FileHistoryWebLink.class).to(GitilesWeblinks.class);
+    DynamicSet.bind(binder(), FileWebLink.class).to(GitilesWeblinks.class);
+    DynamicSet.bind(binder(), PatchSetWebLink.class).to(GitilesWeblinks.class);
+    DynamicSet.bind(binder(), ProjectWebLink.class).to(GitilesWeblinks.class);
     bind(GitilesAccess.Factory.class).to(GerritGitilesAccess.Factory.class);
     bind(new TypeLiteral<RepositoryResolver<HttpServletRequest>>() {}).to(Resolver.class);
     listener().to(Lifecycle.class);
