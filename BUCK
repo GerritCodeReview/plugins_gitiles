@@ -38,7 +38,6 @@ gerrit_plugin(
     'Gerrit-PluginName: gitiles',
     'Gerrit-Module: com.googlesource.gerrit.plugins.gitiles.Module',
     'Gerrit-HttpModule: com.googlesource.gerrit.plugins.gitiles.HttpModule',
-    'Gerrit-InitStep: com.googlesource.gerrit.plugins.gitiles.InitGitiles',
 
     # Gitiles uses /repo to access a repo, so the default plugin layout would
     # disallow repos named "static" or "Documentation". Paths starting with +
