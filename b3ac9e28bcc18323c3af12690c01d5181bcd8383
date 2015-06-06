@@ -22,6 +22,53 @@
       "revId": "b3ac9e28bcc18323c3af12690c01d5181bcd8383",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79b0e009_3bd5f72d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/LoginFilter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1012612
+      },
+      "writtenOn": "2015-06-06T02:26:34Z",
+      "side": 1,
+      "message": "D\u0027oh, copy-paste error.  Corrected for the next revision.",
+      "parentUuid": "d9d46c30_f6b6802b",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "b3ac9e28bcc18323c3af12690c01d5181bcd8383",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79b0e009_5bc8c395",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/Resolver.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1012612
+      },
+      "writtenOn": "2015-06-06T02:26:34Z",
+      "side": 1,
+      "message": "Technically, I think I can go without the ServiceNotAuthorizedException by instead matching SC_NOT_FOUND in the LoginFilter and just checking if the user is logged in there (alternatively, I could keep this and avoid passing UserProvider into the filter).",
+      "range": {
+        "startLine": 71,
+        "startChar": 8,
+        "endLine": 71,
+        "endChar": 50
+      },
+      "revId": "b3ac9e28bcc18323c3af12690c01d5181bcd8383",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
