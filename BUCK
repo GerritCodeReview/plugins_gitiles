@@ -97,8 +97,8 @@ maven_jar(
 # guice-multibindings must match Guice version used in Gerrit
 maven_jar(
   name = 'guice-multibindings',
-  id = 'com.google.inject.extensions:guice-multibindings:4.0-beta5',
-  sha1 = 'f432356db0a167127ffe4a7921238d7205b12682',
+  id = 'com.google.inject.extensions:guice-multibindings:4.0',
+  sha1 = 'f4509545b4470bbcc865aa500ad6fef2e97d28bf',
   license = 'Apache2.0',
   exclude_java_sources = True,
   exclude = [
