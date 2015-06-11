@@ -155,6 +155,12 @@ class GerritGitilesAccess implements GitilesAccess {
 
   @Override
   public Config getConfig() throws IOException {
-    return new Config();
+    Config config = new Config();
+    // TODO(davido): Fix the version collision between parboiled
+    // used in Gitiles and in Gerrit. Gitiles: outdated version from parboiled1
+    // included within forked grappa library. Gerrit: Parboiled 1.1.7.
+    // As a temporary measure disable markdown rendering of README.md files.
+    config.setBoolean("markdown", null, "render", false);
+    return config;
   }
 }
