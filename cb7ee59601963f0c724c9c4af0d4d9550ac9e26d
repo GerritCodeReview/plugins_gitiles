@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "cd1f4a53_959fc46a",
+        "filename": "BUCK",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2015-07-21T20:39:15Z",
+      "side": 1,
+      "message": "Is does not compile in eclipse if I generate project using bucklets/tools/eclipse.py.\n\nyou must add GERRIT_API_PLUGIN: \n\n  deps \u003d GERRIT_PLUGIN_API + [\u0027:gitiles_base__plugin\u0027],",
+      "range": {
+        "startLine": 54,
+        "startChar": 2,
+        "endLine": 54,
+        "endChar": 34
+      },
+      "revId": "cb7ee59601963f0c724c9c4af0d4d9550ac9e26d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0df5e23c_9f76b3b0",
         "filename": "BUCK",
         "patchSetId": 2
@@ -42,6 +65,40 @@
         "endLine": 4,
         "endChar": 40
       },
+      "revId": "cb7ee59601963f0c724c9c4af0d4d9550ac9e26d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdf66a4b_bd4bbf7c",
+        "filename": "src/main/resources/+Documentation/build.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2015-07-21T20:39:15Z",
+      "side": 1,
+      "message": "Why is there a + sign in the Documentation folder name?",
+      "revId": "cb7ee59601963f0c724c9c4af0d4d9550ac9e26d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdf66a4b_dd4e8b8e",
+        "filename": "src/main/resources/+Documentation/build.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2015-07-21T20:39:15Z",
+      "side": 1,
+      "message": "extra empty line?",
       "revId": "cb7ee59601963f0c724c9c4af0d4d9550ac9e26d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
