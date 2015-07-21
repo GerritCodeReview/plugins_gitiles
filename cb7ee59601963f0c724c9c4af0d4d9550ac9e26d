@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0df5e23c_9f76b3b0",
+        "filename": "BUCK",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2015-07-21T20:22:57Z",
+      "side": 1,
+      "message": "Update this?",
+      "range": {
+        "startLine": 59,
+        "startChar": 43,
+        "endLine": 59,
+        "endChar": 48
+      },
+      "revId": "cb7ee59601963f0c724c9c4af0d4d9550ac9e26d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0df5e23c_bf7977a4",
+        "filename": "lib/jgit/BUCK",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2015-07-21T20:22:57Z",
+      "side": 1,
+      "message": "Update this?",
+      "range": {
+        "startLine": 4,
+        "startChar": 8,
+        "endLine": 4,
+        "endChar": 40
+      },
+      "revId": "cb7ee59601963f0c724c9c4af0d4d9550ac9e26d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
