@@ -1,6 +1,6 @@
 [alias]
-  gitiles = //:gitiles
-  plugin = //:gitiles
+  gitiles = //:gitiles-plugin
+  plugin = //:gitiles-plugin
 
 [java]
   src_roots = java, resources

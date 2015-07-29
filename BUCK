@@ -18,7 +18,7 @@ genrule(
 )
 
 gerrit_plugin(
-  name = 'gitiles',
+  name = 'gitiles-plugin',
   srcs = glob(['src/main/java/**/*.java']),
   deps = [
     ':gitiles-servlet',
@@ -51,7 +51,7 @@ gerrit_plugin(
 
 java_library(
   name = 'classpath',
-  deps = [':gitiles__plugin'],
+  deps = [':gitiles-plugin__plugin'],
 )
 
 maven_jar(
