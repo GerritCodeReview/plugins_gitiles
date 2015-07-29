@@ -94,7 +94,7 @@ class HttpModule extends ServletModule {
   GitilesServlet getServlet(@Named("gitiles") Config cfg, GitilesUrls urls,
       GitilesAccess.Factory accessFactory,
       RepositoryResolver<HttpServletRequest> resolver,
-      MenuFilter menuFilter) throws ServletException {
+      MenuFilter menuFilter) {
     GitilesServlet s = new GitilesServlet(cfg, null, urls, accessFactory, resolver, null, null, null, null);
     for (GitilesView.Type view : GitilesView.Type.values()) {
       s.addFilter(view, menuFilter);
