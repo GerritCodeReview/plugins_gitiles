@@ -17,7 +17,6 @@ package com.googlesource.gerrit.plugins.gitiles;
 import com.google.gerrit.extensions.restapi.Url;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.IdentifiedUser;
-import com.google.gitiles.BaseServlet;
 import com.google.gitiles.GitilesUrls;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -53,7 +52,7 @@ class LoginFilter implements Filter {
       public void sendError(int sc) throws IOException {
         CurrentUser user = userProvider.get();
         if (sc == SC_UNAUTHORIZED && !(user instanceof IdentifiedUser)) {
-          sendRedirect(getLoginRedirectUrl((HttpServletRequest) req));
+          sendRedirect(getLoginRedirectUrl(req));
           return;
         }
         super.sendError(sc);
@@ -63,7 +62,7 @@ class LoginFilter implements Filter {
       public void sendError(int sc, String msg) throws IOException {
         CurrentUser user = userProvider.get();
         if (sc == SC_UNAUTHORIZED && !(user instanceof IdentifiedUser)) {
-          sendRedirect(getLoginRedirectUrl((HttpServletRequest) req));
+          sendRedirect(getLoginRedirectUrl(req));
           return;
         }
         super.sendError(sc, msg);
