@@ -90,7 +90,7 @@ class HttpModule extends ServletModule {
   }
 
   private static final Logger log = LoggerFactory
-      .getLogger(ServletModule.class);
+      .getLogger(HttpModule.class);
 
   @Override
   protected void configureServlets() {
