@@ -52,7 +52,7 @@ class LoginFilter implements Filter {
       public void sendError(int sc) throws IOException {
         CurrentUser user = userProvider.get();
         if (sc == SC_UNAUTHORIZED && !(user instanceof IdentifiedUser)) {
-          sendRedirect(getLoginRedirectUrl((HttpServletRequest) req));
+          sendRedirect(getLoginRedirectUrl(req));
           return;
         }
         super.sendError(sc);
@@ -62,7 +62,7 @@ class LoginFilter implements Filter {
       public void sendError(int sc, String msg) throws IOException {
         CurrentUser user = userProvider.get();
         if (sc == SC_UNAUTHORIZED && !(user instanceof IdentifiedUser)) {
-          sendRedirect(getLoginRedirectUrl((HttpServletRequest) req));
+          sendRedirect(getLoginRedirectUrl(req));
           return;
         }
         super.sendError(sc, msg);
