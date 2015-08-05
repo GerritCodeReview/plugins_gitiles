@@ -1,9 +1,9 @@
 include_defs('//lib/maven.defs')
 
 genrule(
-  name = 'gitiles_jar',
+  name = 'gitiles',
   cmd = ' && '.join([
-    'cp $(location :gitiles) $OUT',
+    'cp $(location :gitiles_base) $OUT',
     'unzip -qd $TMP $(location :gitiles-servlet) "com/google/gitiles/static/*"',
     'cd $TMP/com/google/gitiles',
     'mv static +static',
@@ -12,12 +12,12 @@ genrule(
   out = 'gitiles.jar',
   deps = [
     ':gitiles-servlet',
-    ':gitiles',
+    ':gitiles_base',
   ],
 )
 
 gerrit_plugin(
-  name = 'gitiles',
+  name = 'gitiles_base',
   srcs = glob(['src/main/java/**/*.java']),
   deps = [
     ':gitiles-servlet',
@@ -50,8 +50,8 @@ gerrit_plugin(
 
 maven_jar(
   name = 'gitiles-servlet',
-  id = 'com.google.gitiles:gitiles-servlet:0.1-3',
-  sha1 = '862e6bf36d16859f98c866739fdaabebb5bb39db',
+  id = 'com.google.gitiles:gitiles-servlet:0.1-4',
+  sha1 = 'a7f33ef3685838ff9379e83b7ba41db6007a4fc8',
   deps = [':prettify'],
   license = 'Apache2.0',
   repository = GERRIT,

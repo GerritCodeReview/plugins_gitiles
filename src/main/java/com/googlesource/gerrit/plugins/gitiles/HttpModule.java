@@ -15,10 +15,13 @@
 package com.googlesource.gerrit.plugins.gitiles;
 
 import com.google.gerrit.server.config.SitePaths;
+import com.google.gerrit.server.CurrentUser;
 import com.google.gitiles.GitilesAccess;
 import com.google.gitiles.GitilesServlet;
 import com.google.gitiles.GitilesUrls;
 import com.google.gitiles.GitilesView;
+import com.google.inject.Inject;
+import com.google.inject.Provider;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
 import com.google.inject.name.Named;
@@ -47,6 +50,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 
 class HttpModule extends ServletModule {
+  private final Provider<CurrentUser> userProvider;
+  private final GitilesUrls urls;
+
+  @Inject
+  HttpModule(Provider<CurrentUser> userProvider, GitilesUrls urls) {
+    this.userProvider = userProvider;
+    this.urls = urls;
+  }
+
   protected Filter createPathFilter() {
     return new Filter() {
       @Override
@@ -78,12 +90,13 @@ class HttpModule extends ServletModule {
   }
 
   private static final Logger log = LoggerFactory
-      .getLogger(ServletModule.class);
+      .getLogger(HttpModule.class);
 
   @Override
   protected void configureServlets() {
     // Filter all paths so we can decode escaped entities in the URI
     filter("/*").through(createPathFilter());
+    filter("/*").through(new LoginFilter(userProvider, urls));
     // Let /+static, /+Documentation, etc. fall through to default servlet, but
     // handle everything else.
     serveRegex("^(/)$", "^(/[^+].*)").with(GitilesServlet.class);
