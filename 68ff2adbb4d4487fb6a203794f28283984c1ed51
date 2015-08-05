@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aafbdc84_ec4c2b96",
+        "filename": "BUCK",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1012612
+      },
+      "writtenOn": "2015-08-05T04:07:16Z",
+      "side": 1,
+      "message": "Does the Documentation directory get moved to +Documentation when the plugin is built? Otherwise, the rename may be a problem.",
+      "range": {
+        "startLine": 47,
+        "startChar": 38,
+        "endLine": 47,
+        "endChar": 51
+      },
+      "revId": "68ff2adbb4d4487fb6a203794f28283984c1ed51",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
