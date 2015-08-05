@@ -22,6 +22,30 @@
       "revId": "35f11590808263b167f9fe7451dc3f41d63f625e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6afe4471_b2528033",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1012612
+      },
+      "writtenOn": "2015-08-05T04:04:51Z",
+      "side": 1,
+      "message": "I have no complaints with that; wasn\u0027t sure if anyone else would mind the temporarily-broken commit.",
+      "parentUuid": "8ae458f8_bb7d2791",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 7
+      },
+      "revId": "35f11590808263b167f9fe7451dc3f41d63f625e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
