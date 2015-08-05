@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aafbdc84_0ca9b794",
+        "filename": "BUCK",
+        "patchSetId": 6
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1012612
+      },
+      "writtenOn": "2015-08-05T14:52:14Z",
+      "side": 1,
+      "message": "It just occurred to me, that there won\u0027t be a gitiles__plugin target with the gerrit_plugin() defined as it is (after reverting the fix to Eclipse project generation).  The real name would be \"gitiles_base__plugin\"... but I can\u0027t see this line as necessary anyway? (I tried removing it, and indeed, both in-tree and out-of-tree builds work normally.)",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 1
+      },
+      "revId": "f35153753c7e5cc726e5b110265018c790c8c625",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
