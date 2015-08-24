@@ -50,8 +50,8 @@ gerrit_plugin(
 
 maven_jar(
   name = 'gitiles-servlet',
-  id = 'com.google.gitiles:gitiles-servlet:0.1-4',
-  sha1 = 'a7f33ef3685838ff9379e83b7ba41db6007a4fc8',
+  id = 'com.google.gitiles:gitiles-servlet:0.1-5',
+  sha1 = '228ba3c781135d28a8c7f4fd401cb622f71e536c',
   deps = [':prettify'],
   license = 'Apache2.0',
   repository = GERRIT,
