@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8430d27f_d64a849b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GitilesWeblinks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2015-09-11T12:18:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4195610_57466c8b",
+      "revId": "1e93c12f2ec32d9a4f3a3b1196fa60489209b537",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64ee7e38_dd224be3",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GitilesWeblinks.java",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2015-09-10T17:16:04Z",
       "side": 1,
       "message": "Is it possible to inject the plugin name using the @PluginName annotation instead?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 58
+      },
+      "revId": "1e93c12f2ec32d9a4f3a3b1196fa60489209b537",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4195610_7743707a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GitilesWeblinks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2015-09-11T12:18:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64ee7e38_dd224be3",
       "range": {
         "startLine": 25,
         "startChar": 0,
