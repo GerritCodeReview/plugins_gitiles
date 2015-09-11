@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "a4195610_57466c8b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GitilesWeblinks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2015-09-11T12:17:29Z",
+      "side": 1,
+      "message": "Should implement FileHistoryWeblink as well.",
+      "revId": "1e93c12f2ec32d9a4f3a3b1196fa60489209b537",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64ee7e38_dd224be3",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GitilesWeblinks.java",
         "patchSetId": 2
