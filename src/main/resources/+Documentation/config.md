@@ -4,12 +4,15 @@ Setup
 The Gitiles plugin for Gerrit allows you to list and browse all your Gerrit
 repositories using [Gitiles](http://code.google.com/p/gitiles).
 
-Once you have installed the plugin, run `java -jar gerrit.war init -d my-site`
-to configure Gitiles as your source browser for Gerrit, replacing gitweb. The
-plugin points Gitiles back at the running Gerrit server for things like
+The plugin points Gitiles back at the running Gerrit server for things like
 Change-Id links, so you can be up and running with no additional configuration.
 If necessary, though, you can put additional Gitiles configuration in
 `etc/gitiles.config`.
+
+Gitiles now provides its own links through the weblinks extensions in Gerrit.
+If you upgrade from an older version of the Gitiles plugin, that uses the gitweb
+configuration in 'etc/gerrit.config', you will have to remove this section or
+the links will be in duplicate.
 
 Access Controls
 ---------------
