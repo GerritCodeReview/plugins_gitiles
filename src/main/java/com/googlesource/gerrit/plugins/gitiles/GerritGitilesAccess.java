@@ -15,6 +15,7 @@
 package com.googlesource.gerrit.plugins.gitiles;
 
 import com.google.common.collect.Maps;
+import com.google.gerrit.commom.Nullable;
 import com.google.gerrit.extensions.common.ProjectInfo;
 import com.google.gerrit.extensions.restapi.BadRequestException;
 import com.google.gerrit.reviewdb.client.Project;
@@ -96,8 +97,10 @@ class GerritGitilesAccess implements GitilesAccess {
 
   @Override
   public Map<String, RepositoryDescription> listRepositories(
-      Set<String> branches) throws ServiceNotEnabledException,
-      ServiceNotAuthorizedException, IOException {
+        @Nullable String prefix, Set<String> branches)
+            throws ServiceNotEnabledException,
+                   ServiceNotAuthorizedException,
+                   IOException  {
     ListProjects lp = listProjects.get();
     lp.setShowDescription(true);
     lp.setAll(true);
