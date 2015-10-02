@@ -41,6 +41,7 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 
+import javax.annotation.Nullable;
 import javax.servlet.http.HttpServletRequest;
 
 class GerritGitilesAccess implements GitilesAccess {
@@ -96,8 +97,9 @@ class GerritGitilesAccess implements GitilesAccess {
 
   @Override
   public Map<String, RepositoryDescription> listRepositories(
-      Set<String> branches) throws ServiceNotEnabledException,
-      ServiceNotAuthorizedException, IOException {
+        @Nullable String prefix, Set<String> branches)
+            throws ServiceNotEnabledException, ServiceNotAuthorizedException,
+	              IOException  {
     ListProjects lp = listProjects.get();
     lp.setShowDescription(true);
     lp.setAll(true);
