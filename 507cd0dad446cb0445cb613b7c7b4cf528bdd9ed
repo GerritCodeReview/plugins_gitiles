@@ -16,6 +16,24 @@
       "revId": "507cd0dad446cb0445cb613b7c7b4cf528bdd9ed",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75d9d26e_ce52c358",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GerritGitilesAccess.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1011624
+      },
+      "writtenOn": "2015-10-02T13:06:47Z",
+      "side": 1,
+      "message": "I just took it from gitiles.., fix with PS3",
+      "parentUuid": "75d9d26e_ee4d7fb6",
+      "revId": "507cd0dad446cb0445cb613b7c7b4cf528bdd9ed",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
