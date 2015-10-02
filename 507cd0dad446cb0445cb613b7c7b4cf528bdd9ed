@@ -34,6 +34,24 @@
       "revId": "507cd0dad446cb0445cb613b7c7b4cf528bdd9ed",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55a68ed6_9d5c036a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GerritGitilesAccess.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2015-10-02T13:13:36Z",
+      "side": 1,
+      "message": "Apparently nobody ever tried to deploy gitiles into OSGI aware application server. Gerrit and plugins are different story.",
+      "parentUuid": "75d9d26e_ce52c358",
+      "revId": "507cd0dad446cb0445cb613b7c7b4cf528bdd9ed",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
