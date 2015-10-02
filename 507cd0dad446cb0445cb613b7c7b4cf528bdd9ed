@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "75d9d26e_ee4d7fb6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GerritGitilesAccess.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2015-10-02T12:59:03Z",
+      "side": 1,
+      "message": "import com.google.gerrit.common.Nullable;\n\nThere was some issues with using javax.annotation.Nullable in combination with OSGI containers, so that it was replaced again with our own implementation in I63b27be6d695e73fd92940e42169d09f751d7274 , after it was previously replaced with javax.annotation.Nullable in 2.1.2:\n\n  $ git grep javax.annotation.Nullable\n  ReleaseNotes/ReleaseNotes-2.1.2.txt:* Replace our own @Nullable with javax.annotation.Nullable.",
+      "revId": "507cd0dad446cb0445cb613b7c7b4cf528bdd9ed",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
