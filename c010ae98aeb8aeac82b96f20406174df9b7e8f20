@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7fec56ce_8da92164",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2015-10-14T14:40:25Z",
+      "side": 1,
+      "message": "nit: lines too long, please reformat the commit message",
+      "revId": "c010ae98aeb8aeac82b96f20406174df9b7e8f20",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
