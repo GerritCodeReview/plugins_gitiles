@@ -156,6 +156,22 @@ class GerritGitilesAccess implements GitilesAccess {
 
   @Override
   public Config getConfig() throws IOException {
+    // Try to get a gitiles.config file from the refs/meta/config branch
+    // of the project. For non-project access, use All-Projects as project.
+    Project.NameKey nameKey = Resolver.getNameKey(req);
+    ProjectState state = projectCache.get(nameKey);
+    if (state != null) {
+      Config cfg = state.getConfig("gitiles.config").getWithInheritance();
+      if (cfg != null) {
+        return cfg;
+      }
+    } else {
+      state = projectCache.getAllProjects();
+      Config cfg = state.getConfig("gitiles.config").get();
+      if (cfg != null) {
+        return cfg;
+      }
+    }
     return new Config();
   }
 }
