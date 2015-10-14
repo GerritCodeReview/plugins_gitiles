@@ -97,6 +97,11 @@ class HttpModule extends ServletModule {
     // Filter all paths so we can decode escaped entities in the URI
     filter("/*").through(createPathFilter());
     filter("/*").through(new LoginFilter(userProvider, urls));
+
+    // make this plugin's classloader the context classloader to prevent
+    // classloader issue when rendering markdown
+    filterRegex("^(/)$", "^(/[^+].*)").through(SetContextClassLoader.class);
+
     // Let /+static, /+Documentation, etc. fall through to default servlet, but
     // handle everything else.
     serveRegex("^(/)$", "^(/[^+].*)").with(GitilesServlet.class);
