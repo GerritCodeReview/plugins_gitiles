@@ -155,6 +155,23 @@ class GerritGitilesAccess implements GitilesAccess {
 
   @Override
   public Config getConfig() throws IOException {
+    Project.NameKey nameKey = Resolver.getNameKey(req);
+    ProjectState state = projectCache.get(nameKey);
+    if (state != null) {
+        for (ProjectState p: state.tree()) {
+            Config cfg = p.getConfig("gitiles.config").get();
+            if (cfg != null) {
+               return cfg;
+            }
+        }
+    } else {
+        state = projectCache.get(new Project.NameKey("All-Projects"));
+        Config cfg = state.getConfig("gitiles.config").get();
+        if (cfg != null) {
+            return cfg;
+       }
+    }
+
     return new Config();
   }
 }
