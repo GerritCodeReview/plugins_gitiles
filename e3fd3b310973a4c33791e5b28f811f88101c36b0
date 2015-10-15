@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c8f58ad_1edf6d3d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GerritGitilesAccess.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2015-10-15T00:36:20Z",
+      "side": 1,
+      "message": "optional: this is only used once, on the next line, so just inline it there rather than using a variable.",
+      "range": {
+        "startLine": 158,
+        "startChar": 4,
+        "endLine": 158,
+        "endChar": 55
+      },
+      "revId": "e3fd3b310973a4c33791e5b28f811f88101c36b0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c8f58ad_dec42573",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GerritGitilesAccess.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2015-10-15T00:36:20Z",
+      "side": 1,
+      "message": "nit: wrong indentation here",
+      "range": {
+        "startLine": 162,
+        "startChar": 5,
+        "endLine": 162,
+        "endChar": 6
+      },
+      "revId": "e3fd3b310973a4c33791e5b28f811f88101c36b0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c8f58ad_fec9e187",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GerritGitilesAccess.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2015-10-15T00:36:20Z",
+      "side": 1,
+      "message": "optional: use the ternary operator here:\n\n return state !\u003d null\n   ? state.getConfig(\"gitiles.config\").get()\n   : new Config();",
+      "range": {
+        "startLine": 160,
+        "startChar": 4,
+        "endLine": 163,
+        "endChar": 51
+      },
+      "revId": "e3fd3b310973a4c33791e5b28f811f88101c36b0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
