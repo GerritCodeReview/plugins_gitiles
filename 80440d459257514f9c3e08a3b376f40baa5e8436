@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d98d62f4_c0ed5ee7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GerritGitilesAccess.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1011624
+      },
+      "writtenOn": "2015-10-15T08:09:36Z",
+      "side": 1,
+      "message": "Here we should return the global gitiles config, that is loaded as part of the servlet module (HttpModule.java). \nBut I need some hint how to get at it here.",
+      "revId": "80440d459257514f9c3e08a3b376f40baa5e8436",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
