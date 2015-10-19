@@ -39,6 +39,24 @@
       "revId": "f35153753c7e5cc726e5b110265018c790c8c625",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59fb3286_acfce36b",
+        "filename": "src/main/resources/+Documentation/build.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2015-10-19T14:36:28Z",
+      "side": 1,
+      "message": "There is a commit from Doug to fix this:\n\nhttps://gerrit-review.googlesource.com/#/c/70054/\n\nPlease try with that.\n\nAlso, why do you want to add the plugin in plugins/BUCK:CORE?  Is your intention to bundle the plugin in the release WAR file?",
+      "parentUuid": "d92002e1_48739fa3",
+      "revId": "f35153753c7e5cc726e5b110265018c790c8c625",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
