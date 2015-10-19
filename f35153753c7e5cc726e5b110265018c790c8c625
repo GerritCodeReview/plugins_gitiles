@@ -22,6 +22,23 @@
       "revId": "f35153753c7e5cc726e5b110265018c790c8c625",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d92002e1_48739fa3",
+        "filename": "src/main/resources/+Documentation/build.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2015-10-19T13:09:20Z",
+      "side": 1,
+      "message": "This is not working. The error is:\n\n  BUILD FAILED: Couldn\u0027t get dependency \u0027//plugins/gitiles:gitiles__plugin\u0027 of target \u0027//tools/eclipse:classpath\u0027:\n  No rule found when resolving target //plugins/gitiles:gitiles__plugin in build file //plugins/gitiles/BUCK\n\nThe cause of the error is that the name in the gerrit_plugin macro is \u0027gitiles_base\u0027 which doesn\u0027t match the plugin folder name \u0027gitiles\u0027. The gerrit_plugin macro will produce \u0027gitiles_base__plugin\u0027 but the tools/eclipse/project.py expects \u0027gitiles_base\u0027.\n\nA workaround could be to name the plugin folder also gitiles_base:\n\n  plugins/gitiles_base\n\nAfter that the tools/eclipse/project.py works.\n\nHowever, if we try to add the gitiles plugin to the list of core plugins (in the plugins/BUCK:CORE) then \"buck build release\" will fail as it will not find a gerrit_plugin(\u0027gitiles\u0027).\n\nMeans: it is not possible to list the gitiles plugin as a core plugin and at the same time have the tools/project/eclipse.py working.\n\nAny suggestion?",
+      "revId": "f35153753c7e5cc726e5b110265018c790c8c625",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
