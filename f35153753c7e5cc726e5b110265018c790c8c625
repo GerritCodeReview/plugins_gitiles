@@ -57,6 +57,24 @@
       "revId": "f35153753c7e5cc726e5b110265018c790c8c625",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d92002e1_285f4b09",
+        "filename": "src/main/resources/+Documentation/build.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2015-10-19T14:56:22Z",
+      "side": 1,
+      "message": "\u003e Is your intention to bundle the plugin in the release WAR file?\n\nYes.\n\nTrying 70054.",
+      "parentUuid": "59fb3286_acfce36b",
+      "revId": "f35153753c7e5cc726e5b110265018c790c8c625",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
