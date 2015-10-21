@@ -22,6 +22,30 @@
       "revId": "e970c5cb5ca7e966abf8155de2788fd0a6357169",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59c412d2_e4c15a63",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GerritGitilesAccess.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2015-10-21T09:46:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "762485ad_6dc9158b",
+      "range": {
+        "startLine": 18,
+        "startChar": 25,
+        "endLine": 18,
+        "endChar": 31
+      },
+      "revId": "e970c5cb5ca7e966abf8155de2788fd0a6357169",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
