@@ -11,10 +11,6 @@ genrule(
     'zip -Drq $OUT -g . -i "+static/*"',
   ]),
   out = 'gitiles.jar',
-  deps = [
-    ':gitiles-servlet',
-    ':gitiles__base',
-  ],
 )
 
 gerrit_plugin(
