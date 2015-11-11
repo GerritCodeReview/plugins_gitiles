@@ -136,7 +136,7 @@ class FilteredRepository extends Repository {
 
   @Override
   public ReflogReader getReflogReader(String refName) throws IOException {
-    return getRef(refName) != null ? delegate.getReflogReader(refName) : null;
+    return refdb.exactRef(refName) != null ? delegate.getReflogReader(refName) : null;
   }
 
   @Override
