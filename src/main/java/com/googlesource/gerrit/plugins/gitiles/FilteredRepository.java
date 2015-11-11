@@ -186,6 +186,15 @@ class FilteredRepository extends Repository {
     }
 
     @Override
+    public Ref exactRef(String name) throws IOException {
+      Ref ref = delegate.exactRef(name);
+      if (ref == null) {
+        return null;
+      }
+      return refFilter.filter(ImmutableMap.of(name, ref), true).get(name);
+    }
+
+    @Override
     public Ref getRef(String name) throws IOException {
       Ref ref = delegate.getRef(name);
       if (ref == null) {
