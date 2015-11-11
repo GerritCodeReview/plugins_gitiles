@@ -14,6 +14,9 @@
 
 package com.googlesource.gerrit.plugins.gitiles;
 
+import com.google.base.Functions;
+import com.google.base.Predicates;
+import com.google.common.collect.FluentIterable;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
@@ -40,6 +43,7 @@ import org.eclipse.jgit.lib.RepositoryBuilder;
 import org.eclipse.jgit.lib.StoredConfig;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -189,12 +193,29 @@ class FilteredRepository extends Repository {
     }
 
     @Override
-    public Ref getRef(String name) throws IOException {
-      Ref ref = delegate.getRef(name);
-      if (ref == null) {
-        return null;
+    public Map<String, Ref> exactRef(String... names) throws IOException {
+      Map<String, Ref> refs = delegate.exactRef(names);
+      if (refs.isEmpty()) {
+        return refs;
       }
-      return refFilter.filter(ImmutableMap.of(ref.getName(), ref), true).get(ref.getName());
+      return refFilter.filter(refs, true);
+    }
+
+    @Override
+    public Ref firstExactRef(String... names) throws IOException {
+      return FluentIterable.from(names)
+          .transform(Functions.forMap(exactRef(names)))
+          .firstMatch(Predicates.notNull())
+          .orNull();
+    }
+
+    @Override
+    public Ref getRef(String name) throws IOException {
+      String[] names = new String[SEARCH_PATH.length];
+      for (int i = 0; i < SEARCH_PATH.length; i++) {
+        names[i] = SEARCH_PATH[i] + name;
+      }
+      return firstExactRef(names);
     }
 
     @Override
