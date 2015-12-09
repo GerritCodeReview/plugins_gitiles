@@ -9,6 +9,7 @@ genrule(
     'mv static +static',
     'zip -Drq $OUT -g . -i "+static/*"',
   ]),
+  visibility = ['PUBLIC'],
   out = 'gitiles.jar',
   deps = [
     ':gitiles-servlet',
