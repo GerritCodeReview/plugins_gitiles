@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a70b2e17_f8add1a6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2016-01-11T15:47:45Z",
+      "side": 1,
+      "message": "Use spaces for indentation.",
+      "revId": "ec1b881a0c1314571b33f326d8bd0e78f0fccc63",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
