@@ -16,6 +16,24 @@
       "revId": "ec1b881a0c1314571b33f326d8bd0e78f0fccc63",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "672a167c_ceaa438d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1011624
+      },
+      "writtenOn": "2016-01-11T16:22:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a70b2e17_f8add1a6",
+      "revId": "ec1b881a0c1314571b33f326d8bd0e78f0fccc63",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
