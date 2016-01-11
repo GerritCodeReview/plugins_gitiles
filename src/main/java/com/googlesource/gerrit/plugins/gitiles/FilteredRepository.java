@@ -29,6 +29,7 @@ import com.google.gerrit.server.project.ProjectControl;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 
+import org.eclipse.jgit.attributes.AttributesNodeProvider;
 import org.eclipse.jgit.lib.ReflogReader;
 import org.eclipse.jgit.lib.ObjectDatabase;
 import org.eclipse.jgit.lib.Ref;
@@ -105,6 +106,11 @@ class FilteredRepository extends Repository {
   @Override
   public void create(boolean bare) throws IOException {
     throw new UnsupportedOperationException(); // Gitiles is read-only.
+  }
+
+  @Override
+  public AttributesNodeProvider createAttributesNodeProvider() {
+    return delegate.createAttributesNodeProvider();
   }
 
   @Override
