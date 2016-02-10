@@ -53,8 +53,8 @@ java_library(
 
 maven_jar(
   name = 'gitiles-servlet',
-  id = 'com.google.gitiles:gitiles-servlet:0.1-7',
-  sha1 = '5166c0adbf7c63e28d894dcda65cea051e07043f',
+  id = 'com.google.gitiles:gitiles-servlet:0.1-8',
+  sha1 = 'e3210ae4d89bc6df5a87fee559300e7b602fec94',
   deps = [':prettify'],
   license = 'Apache2.0',
   repository = GERRIT,
