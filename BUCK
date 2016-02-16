@@ -79,14 +79,13 @@ maven_jar(
   visibility = [],
 )
 
-# soy must match closure-template version used in Gitiles
+# soy version must match version used in Gitiles
 maven_jar(
   name = 'soy',
-  id = 'com.google.template:soy:e74fcfa284a1e31d42ac93e53cb84a71f638c70b',
-  sha1 = '1c75a007218f29d6124c46c8b18f4158cba4839c',
+  id = 'com.google.template:soy:2015-04-10',
+  sha1 = 'f2a260c0eafbc5756ccec546efd2ffd5b0a583cb',
   deps = [':icu4j'],
   license = 'Apache2.0',
-  repository = GERRIT,
   visibility = [],
 )
 
