@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5d1a4804_57750cd2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GerritGitilesAccess.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-02-16T05:52:41Z",
+      "side": 1,
+      "message": "nit: indentation is wrong in this block.  should be 2, not 4.",
+      "range": {
+        "startLine": 162,
+        "startChar": 4,
+        "endLine": 171,
+        "endChar": 8
+      },
+      "revId": "15a6c39d57ab26a06e035537f74d3d3bb1148aef",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
