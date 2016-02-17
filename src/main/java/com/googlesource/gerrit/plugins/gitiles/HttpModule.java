@@ -14,8 +14,8 @@
 
 package com.googlesource.gerrit.plugins.gitiles;
 
-import com.google.gerrit.server.config.SitePaths;
 import com.google.gerrit.server.CurrentUser;
+import com.google.gerrit.server.config.SitePaths;
 import com.google.gitiles.GitilesAccess;
 import com.google.gitiles.GitilesServlet;
 import com.google.gitiles.GitilesUrls;
