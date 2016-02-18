@@ -52,7 +52,7 @@ class MenuFilter implements Filter {
     entries.add(BaseServlet.menuEntry("Code Review", urls.getBaseGerritUrl(req)));
     if (user instanceof IdentifiedUser) {
       entries
-          .add(BaseServlet.menuEntry(((IdentifiedUser) user).getName(), null));
+          .add(BaseServlet.menuEntry(((IdentifiedUser) user).getAccount().getName("unknown"), null));
       entries.add(BaseServlet.menuEntry("Sign Out", urls.getBaseGerritUrl(req)
           + "logout"));
     } else {
