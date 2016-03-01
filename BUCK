@@ -26,10 +26,6 @@ gerrit_plugin(
     ':nullable-jsr305',
     ':soy',
   ],
-  # Deps shared with Gerrit but not in the plugin API.
-  provided_deps = [
-    '//lib/jgit:jgit-servlet',
-  ],
   resources = glob(['src/main/resources/**/*']),
   manifest_entries = [
     'Gerrit-PluginName: gitiles',
