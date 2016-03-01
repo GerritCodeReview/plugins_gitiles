@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "62684971_c7063e3f",
+        "filename": "BUCK",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2016-03-01T06:35:43Z",
+      "side": 1,
+      "message": "Instead of doing something like that I would prefer to export \njgit-servlet in plugin-api.",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 4
+      },
+      "revId": "a952e5f48a9f9ae338325100a4c856a8c4ffcd58",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
