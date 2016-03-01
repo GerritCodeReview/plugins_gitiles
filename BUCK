@@ -29,6 +29,8 @@ gerrit_plugin(
   # Deps shared with Gerrit but not in the plugin API.
   provided_deps = [
     '//lib/jgit:jgit-servlet',
+  ] if STANDALONE_MODE else [
+    '@jgit//org.eclipse.jgit.http.server:jgit-servlet',
   ],
   resources = glob(['src/main/resources/**/*']),
   manifest_entries = [
