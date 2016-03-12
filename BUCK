@@ -1,4 +1,5 @@
-include_defs('//lib/maven.defs')
+gginclude_defs('//lib/maven.defs')
+include_defs('//bucklets/local_jar.bucklet')
 
 genrule(
   name = 'gitiles',
@@ -50,13 +51,12 @@ gerrit_plugin(
 )
 
 maven_jar(
-  name = 'gitiles-servlet',
-  id = 'com.google.gitiles:gitiles-servlet:0.1-6',
-  sha1 = '233fbe1315205861ac1adc3d77a3d5037f97fbaa',
-  deps = [':prettify'],
-  license = 'Apache2.0',
-  repository = GERRIT,
-  visibility = [],
+    name = 'gitiles-servlet',
+    id = 'com.google.gitiles:gitiles-servlet:0.1-11a10', # Your latest local ver
+    deps = [':prettify'],
+    license = 'Apache2.0',
+    repository = MAVEN_LOCAL,
+    visibility = [],
 )
 
 # prettify must match the version used in Gitiles
