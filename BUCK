@@ -1,4 +1,3 @@
-include_defs('//bucklets/gerrit_plugin.bucklet')
 include_defs('//bucklets/maven_jar.bucklet')
 
 genrule(
@@ -49,11 +48,11 @@ java_library(
 
 maven_jar(
   name = 'gitiles-servlet',
-  id = 'com.google.gitiles:gitiles-servlet:0.1-8',
-  sha1 = 'e3210ae4d89bc6df5a87fee559300e7b602fec94',
+  id = 'com.google.gitiles:gitiles-servlet:0.1-9',
+  sha1 = '653b054661425499b55400888c35b55089f8816b',
   deps = [':prettify'],
   license = 'Apache2.0',
-  repository = GERRIT,
+  repository = MAVEN_LOCAL,
   visibility = [],
 )
 
