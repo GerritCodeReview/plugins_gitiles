@@ -20,10 +20,11 @@ import com.google.common.collect.Maps;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.reviewdb.server.ReviewDb;
 import com.google.gerrit.server.CurrentUser;
-import com.google.gerrit.server.git.ChangeCache;
 import com.google.gerrit.server.git.GitRepositoryManager;
 import com.google.gerrit.server.git.TagCache;
 import com.google.gerrit.server.git.VisibleRefFilter;
+import com.google.gerrit.server.git.SearchingChangeCacheImpl;
+import com.google.gerrit.server.notedb.ChangeNotes;
 import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.gerrit.server.project.ProjectControl;
 import com.google.inject.Inject;
@@ -51,7 +52,8 @@ class FilteredRepository extends Repository {
     private final Provider<CurrentUser> userProvider;
     private final GitRepositoryManager repoManager;
     private final TagCache tagCache;
-    private final ChangeCache changeCache;
+    private final ChangeNotes.Factory changeNotesFactory;
+    private final SearchingChangeCacheImpl changeCache;
 
     @Inject
     Factory(Provider<ReviewDb> db,
@@ -59,12 +61,14 @@ class FilteredRepository extends Repository {
         Provider<CurrentUser> userProvider,
         GitRepositoryManager repoManager,
         TagCache tagCache,
-        ChangeCache changeCache) {
+        ChangeNotes.Factory changeNotesFactory,
+        SearchingChangeCacheImpl changeCache) {
       this.db = db;
       this.projectControlFactory = projectControlFactory;
       this.userProvider = userProvider;
       this.repoManager = repoManager;
       this.tagCache = tagCache;
+      this.changeNotesFactory = changeNotesFactory;
       this.changeCache = changeCache;
     }
 
@@ -76,7 +80,8 @@ class FilteredRepository extends Repository {
       }
       Repository repo = repoManager.openRepository(name);
       return new FilteredRepository(ctl, repo,
-          new VisibleRefFilter(tagCache, changeCache, repo, ctl, db.get(), true));
+          new VisibleRefFilter(tagCache, changeNotesFactory, changeCache, repo,
+              ctl, db.get(), true));
     }
   }
 
