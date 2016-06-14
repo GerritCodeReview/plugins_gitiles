@@ -25,6 +25,11 @@ gerrit_plugin(
     ':guice-multibindings',
     ':nullable-jsr305',
     ':soy',
+    ':commonmark',
+    ':cm-autolink',
+    ':gfm-tables',
+    ':gfm-strikethrough',
+
   ],
   resources = glob(['src/main/resources/**/*']),
   manifest_entries = [
@@ -116,4 +121,45 @@ maven_jar(
   license = 'Apache2.0',
   exclude_java_sources = True,
   visibility = [],
+)
+
+maven_jar(
+  name = 'commonmark',
+  id = 'com.atlassian.commonmark:commonmark:0.5.1',
+  sha1 = 'b35ae2353871955674bbfa1a92394272b1dada45',
+  license = 'commonmark',
+)
+
+maven_jar(
+  name = 'cm-autolink',
+  id = 'com.atlassian.commonmark:commonmark-ext-autolink:0.5.1',
+  sha1 = '29bb9d22a7aaf5bd8f23d8cbdd9f438f07e26735',
+  license = 'commonmark',
+  deps = [
+    ':commonmark',
+    ':autolink',
+  ],
+  )
+
+maven_jar(
+  name = 'autolink',
+  id = 'org.nibor.autolink:autolink:0.4.0',
+  sha1 = '764f7b0147a0675d971a34282dce9ec76b8307c9',
+  license = 'autolink',
+)
+
+maven_jar(
+  name = 'gfm-strikethrough',
+  id = 'com.atlassian.commonmark:commonmark-ext-gfm-strikethrough:0.5.1',
+  sha1 = 'acc28d79c4e00a6e24017596dd22ce757df71db3',
+  license = 'commonmark',
+  deps = [':commonmark'],
+)
+
+maven_jar(
+  name = 'gfm-tables',
+  id = 'com.atlassian.commonmark:commonmark-ext-gfm-tables:0.5.1',
+  sha1 = '5cdc350f7e498458e5ed6751771c5e8c3efc107e',
+  license = 'commonmark',
+  deps = [':commonmark'],
 )
