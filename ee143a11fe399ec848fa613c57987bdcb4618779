@@ -93,6 +93,30 @@
       "revId": "ee143a11fe399ec848fa613c57987bdcb4618779",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54f075dc_d05dbc63",
+        "filename": "BUCK",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1011624
+      },
+      "writtenOn": "2016-06-15T11:37:49Z",
+      "side": 1,
+      "message": "putting it into libs seems not really common (I only found it in plugins/gitblitv and the its-... plugins, and there one has to use //plugins/gitbit/lib:... , so this will make out-of-tree build problematic). As all other deps from gitiles are in this file as well, I tend to keep it for now.",
+      "parentUuid": "54f075dc_f058c075",
+      "range": {
+        "startLine": 128,
+        "startChar": 44,
+        "endLine": 128,
+        "endChar": 49
+      },
+      "revId": "ee143a11fe399ec848fa613c57987bdcb4618779",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
