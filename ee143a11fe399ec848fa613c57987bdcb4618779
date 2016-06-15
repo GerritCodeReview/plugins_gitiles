@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "f4732992_159af478",
+        "filename": "BUCK",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-06-15T13:15:53Z",
+      "side": 1,
+      "message": "I\u0027ll wait for the \"bump version\" change to go in, then do the release.\n\nI assume you\u0027ve built gitiles from this version and verified it with the plugin?",
+      "parentUuid": "7412d9d9_491c81ba",
+      "range": {
+        "startLine": 58,
+        "startChar": 10,
+        "endLine": 58,
+        "endChar": 50
+      },
+      "revId": "ee143a11fe399ec848fa613c57987bdcb4618779",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "749bb98d_c1dd021b",
         "filename": "BUCK",
         "patchSetId": 2
