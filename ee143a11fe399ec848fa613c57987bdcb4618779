@@ -117,6 +117,30 @@
       "revId": "ee143a11fe399ec848fa613c57987bdcb4618779",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "749bb98d_21cf0e5d",
+        "filename": "BUCK",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-06-15T13:14:48Z",
+      "side": 1,
+      "message": "I was referring to other deps in this plugin under the lib/ folder, but OK, let\u0027s keep it here for now. It doesn\u0027t cause any problems to do so.",
+      "parentUuid": "54f075dc_d05dbc63",
+      "range": {
+        "startLine": 128,
+        "startChar": 44,
+        "endLine": 128,
+        "endChar": 49
+      },
+      "revId": "ee143a11fe399ec848fa613c57987bdcb4618779",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
