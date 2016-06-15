@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "7412d9d9_6964e536",
+        "filename": "BUCK",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1011624
+      },
+      "writtenOn": "2016-06-15T13:46:59Z",
+      "side": 1,
+      "message": "Correct, I built the plugin against a local gitiles build. I am currently testing the cleanup-series as  well, so releasing 0.1-10 could wait until that is merged as well.",
+      "parentUuid": "f4732992_159af478",
+      "range": {
+        "startLine": 58,
+        "startChar": 10,
+        "endLine": 58,
+        "endChar": 50
+      },
+      "revId": "ee143a11fe399ec848fa613c57987bdcb4618779",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "749bb98d_c1dd021b",
         "filename": "BUCK",
         "patchSetId": 2
