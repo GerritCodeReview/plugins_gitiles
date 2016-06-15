@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7412d9d9_491c81ba",
+        "filename": "BUCK",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1011624
+      },
+      "writtenOn": "2016-06-15T10:58:56Z",
+      "side": 1,
+      "message": "Yes, I know.",
+      "parentUuid": "f471691c_85c72247",
+      "range": {
+        "startLine": 58,
+        "startChar": 10,
+        "endLine": 58,
+        "endChar": 50
+      },
+      "revId": "ee143a11fe399ec848fa613c57987bdcb4618779",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "749bb98d_c1dd021b",
         "filename": "BUCK",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-06-15T09:25:18Z",
       "side": 1,
       "message": "Make this a variable and use it in the other places below. This will ensure that all the related components are updated together in future.\n\nActually I\u0027d be inclined to put commonmark in its own BUCK file under lib, like we do with other dependencies.",
+      "range": {
+        "startLine": 128,
+        "startChar": 44,
+        "endLine": 128,
+        "endChar": 49
+      },
+      "revId": "ee143a11fe399ec848fa613c57987bdcb4618779",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54f075dc_f058c075",
+        "filename": "BUCK",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1011624
+      },
+      "writtenOn": "2016-06-15T10:58:56Z",
+      "side": 1,
+      "message": "Should this be done the same way in gitiles as well? \n\nI\u0027ll update the change.",
+      "parentUuid": "749bb98d_c1dd021b",
       "range": {
         "startLine": 128,
         "startChar": 44,
