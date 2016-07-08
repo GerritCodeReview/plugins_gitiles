@@ -134,8 +134,9 @@ class GerritGitilesAccess implements GitilesAccess {
     CurrentUser user = userProvider.get();
     if (user instanceof IdentifiedUser) {
       return ((IdentifiedUser) user).getAccountId();
+    } else {
+      return anonymousCowardName;
     }
-    return anonymousCowardName;
   }
 
   @Override

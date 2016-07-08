@@ -64,11 +64,12 @@ class Resolver implements RepositoryResolver<HttpServletRequest> {
     } catch (NoSuchProjectException e) {
       if (userProvider.get().isIdentifiedUser()) {
         throw new RepositoryNotFoundException(name, e);
+      } else {
+        // Allow anonymous users a chance to login.
+        // Avoid leaking information by not distinguishing between
+        // project not existing and no access rights.
+        throw new ServiceNotAuthorizedException();
       }
-      // Allow anonymous users a chance to login.
-      // Avoid leaking information by not distinguishing between
-      // project not existing and no access rights.
-      throw new ServiceNotAuthorizedException();
     } catch (IOException e) {
       ServiceMayNotContinueException err =
           new ServiceMayNotContinueException("error opening repository " + name);
