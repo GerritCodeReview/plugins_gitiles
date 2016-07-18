@@ -21,3 +21,15 @@ Gitiles uses Gerrit access controls behind the scenes: the only repositories
 listed are those that are visible to the current user, logged in or not, and
 branch-level access controls are applied as well. Objects can only be looked up
 by SHA-1 if they are reachable from a visible branch.
+
+File `gitiles.config`
+-------------------------
+
+The optional file `$site_path/etc/gitiles.config` is a Git-style config file 
+that controls the settings for the gitiles plugin.  The name of the link appears
+in Gerrit can be configured under `gerrit.linkname`.
+
+```
+  [gerrit]
+    linkname = browse
+```
