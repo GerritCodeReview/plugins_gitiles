@@ -31,7 +31,7 @@ public class GitilesWeblinks implements BranchWebLink, FileWebLink,
 
   @Inject
   public GitilesWeblinks(@PluginName String pluginName) {
-    name = pluginName;
+    name = "browse";
     baseUrl = "plugins/" + pluginName;
   }
 
