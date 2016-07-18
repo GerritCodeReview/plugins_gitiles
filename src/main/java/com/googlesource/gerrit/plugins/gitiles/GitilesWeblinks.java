@@ -30,8 +30,12 @@ public class GitilesWeblinks implements BranchWebLink, FileWebLink,
   private final String baseUrl;
 
   @Inject
+  private com.google.gerrit.server.config.PluginConfigFactory cfg;
+
+  @Inject
   public GitilesWeblinks(@PluginName String pluginName) {
-    name = pluginName;
+    name = cfg.getGlobalPluginConfig(pluginName)
+              .getString("gerrit", "linkname", "browse");
     baseUrl = "plugins/" + pluginName;
   }
 
