@@ -21,8 +21,11 @@ import com.google.gerrit.extensions.webui.FileHistoryWebLink;
 import com.google.gerrit.extensions.webui.FileWebLink;
 import com.google.gerrit.extensions.webui.PatchSetWebLink;
 import com.google.gerrit.extensions.webui.ProjectWebLink;
-
+import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.inject.Inject;
+import com.google.common.base.MoreObjects;
+
+import org.eclipse.jgit.lib.Config;
 
 public class GitilesWeblinks implements BranchWebLink, FileWebLink,
     PatchSetWebLink, ProjectWebLink, FileHistoryWebLink {
@@ -30,8 +33,12 @@ public class GitilesWeblinks implements BranchWebLink, FileWebLink,
   private final String baseUrl;
 
   @Inject
-  public GitilesWeblinks(@PluginName String pluginName) {
-    name = pluginName;
+  public GitilesWeblinks(@PluginName String pluginName,
+                         PluginConfigFactory configFactory) {
+    Config config = configFactory.getGlobalPluginConfig("gitiles");
+    name = MoreObjects.firstNonNull("browse",
+                                    config.getString("gerrit",
+                                                     null, "linkname"));
     baseUrl = "plugins/" + pluginName;
   }
 
