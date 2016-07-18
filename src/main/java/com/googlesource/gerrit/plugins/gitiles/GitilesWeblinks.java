@@ -22,6 +22,8 @@ import com.google.gerrit.extensions.webui.FileWebLink;
 import com.google.gerrit.extensions.webui.PatchSetWebLink;
 import com.google.gerrit.extensions.webui.ProjectWebLink;
 
+import com.google.gerrit.server.config.PluginConfigFactory;
+
 import com.google.inject.Inject;
 
 public class GitilesWeblinks implements BranchWebLink, FileWebLink,
@@ -30,8 +32,10 @@ public class GitilesWeblinks implements BranchWebLink, FileWebLink,
   private final String baseUrl;
 
   @Inject
-  public GitilesWeblinks(@PluginName String pluginName) {
-    name = pluginName;
+  public GitilesWeblinks(@PluginName String pluginName,
+                         PluginConfigFactory configFactory) {
+    name = configFactory.getGlobalPluginConfig("gitiles")
+                        .getString("gerrit", "linkname", "browse");
     baseUrl = "plugins/" + pluginName;
   }
 
