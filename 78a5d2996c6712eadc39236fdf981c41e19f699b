@@ -22,6 +22,30 @@
       "revId": "78a5d2996c6712eadc39236fdf981c41e19f699b",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ac9eb46_2ba5199b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GitilesWeblinks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-07-19T07:30:30Z",
+      "side": 1,
+      "message": "Agreed.  This should be configurable.",
+      "parentUuid": "6ad3d7eb_d2920448",
+      "range": {
+        "startLine": 34,
+        "startChar": 15,
+        "endLine": 34,
+        "endChar": 16
+      },
+      "revId": "78a5d2996c6712eadc39236fdf981c41e19f699b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
