@@ -46,6 +46,30 @@
       "revId": "78a5d2996c6712eadc39236fdf981c41e19f699b",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca50431e_65f4868c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GitilesWeblinks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1021862
+      },
+      "writtenOn": "2016-07-19T19:43:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ac9eb46_2ba5199b",
+      "range": {
+        "startLine": 34,
+        "startChar": 15,
+        "endLine": 34,
+        "endChar": 16
+      },
+      "revId": "78a5d2996c6712eadc39236fdf981c41e19f699b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
