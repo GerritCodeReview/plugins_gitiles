@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0a233bed_27a65aab",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GitilesWeblinks.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1021862
+      },
+      "writtenOn": "2016-07-20T21:05:19Z",
+      "side": 1,
+      "message": "Ah, I was following the doc example (https://gerrit-review.googlesource.com/Documentation/dev-plugins.html#configuration) but you are right about it not being used later.\n\nFixed.",
+      "parentUuid": "6ad3d7eb_f2638813",
+      "range": {
+        "startLine": 33,
+        "startChar": 1,
+        "endLine": 36,
+        "endChar": 57
+      },
+      "revId": "98a7abc743e408c6189bbf5e2da4341e5c9bba2b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ad3d7eb_b29660e0",
         "filename": "src/main/resources/+Documentation/config.md",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2016-07-20T13:05:17Z",
       "side": 1,
       "message": "This file is actually shared with gitiles (see first part of doc).",
+      "range": {
+        "startLine": 28,
+        "startChar": 19,
+        "endLine": 28,
+        "endChar": 49
+      },
+      "revId": "98a7abc743e408c6189bbf5e2da4341e5c9bba2b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a233bed_87b626d6",
+        "filename": "src/main/resources/+Documentation/config.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1021862
+      },
+      "writtenOn": "2016-07-20T21:05:19Z",
+      "side": 1,
+      "message": "Sorry, I am confused.  Are you suggesting I should use a different config name or this is fine and I just need to change the wording?",
+      "parentUuid": "6ad3d7eb_b29660e0",
       "range": {
         "startLine": 28,
         "startChar": 19,
