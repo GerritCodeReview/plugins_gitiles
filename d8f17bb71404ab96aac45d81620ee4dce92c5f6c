@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aaf94fd7_44b7ced3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GitilesWeblinks.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-07-22T12:36:33Z",
+      "side": 1,
+      "message": "This is looking for a config like this:\n\n [gerrit \"linkname\"]\n   browse \u003d some-value\n\nand will end up with name being \"some-value\".\n\nIf the config is defined like this then it won\u0027t work:\n\n [gerrit]\n   linkname \u003d \"browse\"\n\nand name will be null.\n\nWhat you need is something like this:\n\n Config config \u003d configFactory.getGlobalPluginConfig(\"gitiles\");\n name \u003d MoreObjects.firstNonNull(\n     config.getString(\"gerrit\", null, \"linkname\"),\n     \"gitiles\");\n\nwhich with the second config mentioned above will result in name being \"browse\", or will default to \"gitiles\" if the config is missing.",
+      "range": {
+        "startLine": 37,
+        "startChar": 4,
+        "endLine": 38,
+        "endChar": 67
+      },
+      "revId": "d8f17bb71404ab96aac45d81620ee4dce92c5f6c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
