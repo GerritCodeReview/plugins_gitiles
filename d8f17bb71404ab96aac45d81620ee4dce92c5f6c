@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "aaf94fd7_04b1d6dc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-07-22T12:42:47Z",
+      "side": 1,
+      "message": "This should be changed to something like \"Make the link name configurable\"",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 58
+      },
+      "revId": "d8f17bb71404ab96aac45d81620ee4dce92c5f6c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aaf94fd7_44b7ced3",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GitilesWeblinks.java",
         "patchSetId": 7
