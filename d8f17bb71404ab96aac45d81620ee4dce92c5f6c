@@ -45,6 +45,30 @@
       "revId": "d8f17bb71404ab96aac45d81620ee4dce92c5f6c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a409bd2_5f93eb4c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GitilesWeblinks.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1021862
+      },
+      "writtenOn": "2016-07-22T16:17:33Z",
+      "side": 1,
+      "message": "Sorry about so many back-and-forth.  I read the getBoolean interface and made an assumption instead of jumping to the jgit lib to look at the doc.",
+      "parentUuid": "aaf94fd7_44b7ced3",
+      "range": {
+        "startLine": 37,
+        "startChar": 4,
+        "endLine": 38,
+        "endChar": 67
+      },
+      "revId": "d8f17bb71404ab96aac45d81620ee4dce92c5f6c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
