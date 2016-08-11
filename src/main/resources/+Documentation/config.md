@@ -23,11 +23,14 @@ branch-level access controls are applied as well. Objects can only be looked up
 by SHA-1 if they are reachable from a visible branch.
 
 File `gitiles.config`
--------------------------
+---------------------
 
-The optional file `$site_path/etc/gitiles.config` is a Git-style config file 
-that controls the settings for the gitiles plugin.  The name of the link appears
-in Gerrit can be configured under `gerrit.linkname`.
+The optional file `$site_path/etc/gitiles.config` is a Git-style config file
+that controls the settings for the core gitiles servlet. Some settings specific
+to the gitiles plugin can also be configured.
+
+The name of the link that appears in Gerrit can be configured with
+`gerrit.linkname`.
 
 ```
   [gerrit]
