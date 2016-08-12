@@ -57,7 +57,7 @@ java_library(
 
 maven_jar(
   name = 'gitiles-servlet',
-  id = 'com.google.gitiles:gitiles-servlet:0.1-10',
+  id = 'com.google.gitiles:gitiles-servlet:0.1-11',
   sha1 = '426ddf32e19891821f278417160f1325b9896b76',
   deps = [':prettify'],
   license = 'Apache2.0',
@@ -86,17 +86,19 @@ maven_jar(
 # soy version must match version used in Gitiles
 maven_jar(
   name = 'soy',
-  id = 'com.google.template:soy:2015-04-10',
-  sha1 = 'f2a260c0eafbc5756ccec546efd2ffd5b0a583cb',
-  deps = [':icu4j'],
+  id = 'com.google.template:soy:2016-08-09',
+  sha1 = '43d33651e95480d515fe26c10a662faafe3ad1e4',
+  deps = [
+   ':icu4j',
+  ],
   license = 'Apache2.0',
   visibility = [],
 )
 
 maven_jar(
   name = 'icu4j',
-  id = 'com.ibm.icu:icu4j:51.1',
-  sha1 = '8ce396c4aed83c0c3de9158dc72c834fd283d5a4',
+  id = 'com.ibm.icu:icu4j:57.1',
+  sha1 = '198ea005f41219f038f4291f0b0e9f3259730e92',
   license = 'Apache2.0',
 )
 
@@ -126,11 +128,11 @@ maven_jar(
   visibility = [],
 )
 
-COMMONMARK_VERSION = '0.5.1'
+COMMONMARK_VERSION = '0.6.0'
 maven_jar(
   name = 'commonmark',
   id = 'com.atlassian.commonmark:commonmark:' + COMMONMARK_VERSION,
-  sha1 = 'b35ae2353871955674bbfa1a92394272b1dada45',
+  sha1 = '5df3f6fa3073966620685924aa22d08ece7213f2',
   license = 'commonmark',
   local_license = True,
 )
@@ -138,7 +140,7 @@ maven_jar(
 maven_jar(
   name = 'cm-autolink',
   id = 'com.atlassian.commonmark:commonmark-ext-autolink:' + COMMONMARK_VERSION,
-  sha1 = '29bb9d22a7aaf5bd8f23d8cbdd9f438f07e26735',
+  sha1 = '4d7e828a4651e2f590b4a059925991be58e62da6',
   license = 'commonmark',
   local_license = True,
   deps = [
@@ -149,8 +151,8 @@ maven_jar(
 
 maven_jar(
   name = 'autolink',
-  id = 'org.nibor.autolink:autolink:0.4.0',
-  sha1 = '764f7b0147a0675d971a34282dce9ec76b8307c9',
+  id = 'org.nibor.autolink:autolink:0.5.0',
+  sha1 = 'dab74ea929a5fb4c99189af18c9528faf8d5340b',
   license = 'autolink',
   local_license = True,
 )
@@ -158,7 +160,7 @@ maven_jar(
 maven_jar(
   name = 'gfm-strikethrough',
   id = 'com.atlassian.commonmark:commonmark-ext-gfm-strikethrough:' + COMMONMARK_VERSION,
-  sha1 = 'acc28d79c4e00a6e24017596dd22ce757df71db3',
+  sha1 = '75a95aaec77810496de41239bcc773adfb13285f',
   license = 'commonmark',
   local_license = True,
   deps = [':commonmark'],
@@ -167,7 +169,7 @@ maven_jar(
 maven_jar(
   name = 'gfm-tables',
   id = 'com.atlassian.commonmark:commonmark-ext-gfm-tables:' + COMMONMARK_VERSION,
-  sha1 = '5cdc350f7e498458e5ed6751771c5e8c3efc107e',
+  sha1 = 'ae1c701517e8116bc205b561b9b215a53df8abc7',
   license = 'commonmark',
   local_license = True,
   deps = [':commonmark'],
