@@ -25,9 +25,6 @@ gerrit_plugin(
 
     # Deps only needed by Gitiles.
     ':commons-lang3',
-    ':guice-multibindings',
-    ':nullable-jsr305',
-    ':soy',
     ':commonmark',
     ':cm-autolink',
     ':gfm-tables',
@@ -83,49 +80,6 @@ maven_jar(
   visibility = [],
 )
 
-# soy version must match version used in Gitiles
-maven_jar(
-  name = 'soy',
-  id = 'com.google.template:soy:2015-04-10',
-  sha1 = 'f2a260c0eafbc5756ccec546efd2ffd5b0a583cb',
-  deps = [':icu4j'],
-  license = 'Apache2.0',
-  visibility = [],
-)
-
-maven_jar(
-  name = 'icu4j',
-  id = 'com.ibm.icu:icu4j:51.1',
-  sha1 = '8ce396c4aed83c0c3de9158dc72c834fd283d5a4',
-  license = 'Apache2.0',
-)
-
-# guice-multibindings must match Guice version used in Gerrit
-maven_jar(
-  name = 'guice-multibindings',
-  id = 'com.google.inject.extensions:guice-multibindings:4.0',
-  sha1 = 'f4509545b4470bbcc865aa500ad6fef2e97d28bf',
-  license = 'Apache2.0',
-  exclude_java_sources = True,
-  exclude = [
-    'META-INF/DEPENDENCIES',
-    'META-INF/LICENSE',
-    'META-INF/NOTICE',
-    'META-INF/maven/com.google.guava/guava/pom.properties',
-    'META-INF/maven/com.google.guava/guava/pom.xml',
-  ],
-  visibility = [],
-)
-
-maven_jar(
-  name = 'nullable-jsr305',
-  id = 'com.google.code.findbugs:jsr305:3.0.0',
-  sha1 = '5871fb60dc68d67da54a663c3fd636a10a532948',
-  license = 'Apache2.0',
-  exclude_java_sources = True,
-  visibility = [],
-)
-
 COMMONMARK_VERSION = '0.5.1'
 maven_jar(
   name = 'commonmark',
@@ -145,7 +99,7 @@ maven_jar(
     ':commonmark',
     ':autolink',
   ],
-  )
+)
 
 maven_jar(
   name = 'autolink',
