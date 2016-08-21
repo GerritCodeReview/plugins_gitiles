@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "483d43bc_50882ccf",
+        "filename": "BUCK",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-08-21T11:31:03Z",
+      "side": 0,
+      "message": "We must now make sure that the version defined in core Gitiles matches the one in core Gerrit.",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 48
+      },
+      "revId": "0c1aba9bbf09c27cdd4aaefcb94166e4f7390fb2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
