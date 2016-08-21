@@ -22,6 +22,30 @@
       "revId": "0c1aba9bbf09c27cdd4aaefcb94166e4f7390fb2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68c1271d_e99ab509",
+        "filename": "BUCK",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2016-08-21T11:40:01Z",
+      "side": 0,
+      "message": "I don\u0027 think it\u0027s easy doable, as gitiles core doesn\u0027t include soy. So they just can upgrade it and release new gitiles-servlet artifact built on top of it...",
+      "parentUuid": "483d43bc_50882ccf",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 48
+      },
+      "revId": "0c1aba9bbf09c27cdd4aaefcb94166e4f7390fb2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
