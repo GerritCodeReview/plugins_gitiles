@@ -46,6 +46,30 @@
       "revId": "0c1aba9bbf09c27cdd4aaefcb94166e4f7390fb2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "683cc7c0_51ddd4dc",
+        "filename": "BUCK",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-08-21T11:45:56Z",
+      "side": 0,
+      "message": "\u003e gitiles core doesn\u0027t include soy\n\nIt\u0027s included here unless I misunderstand you.\n\nhttps://gerrit.googlesource.com/gitiles/+/master/lib/soy/BUCK\n\nWhat I meant is that the version defined there should match the version defined here.  But now it\u0027s not defined here, but in Gerrit.",
+      "parentUuid": "68c1271d_e99ab509",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 48
+      },
+      "revId": "0c1aba9bbf09c27cdd4aaefcb94166e4f7390fb2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
