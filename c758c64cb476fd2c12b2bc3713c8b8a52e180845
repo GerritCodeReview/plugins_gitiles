@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "513df5bb_d0ae5c86",
+        "filename": "BUCK",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1011624
+      },
+      "writtenOn": "2016-08-30T07:31:34Z",
+      "side": 1,
+      "message": "I do something similar for using the latest gitiles head, but with less invasive changes:\n\n  maven_jar(\n    name \u003d \u0027gitiles-servlet\u0027,\n    id \u003d \u0027com.google.gitiles:gitiles-servlet:0.1-11a10\u0027,\n    deps \u003d [\u0027:prettify\u0027],\n    license \u003d \u0027Apache2.0\u0027,\n    repository \u003d MAVEN_LOCAL,\n    visibility \u003d [],\n )",
+      "revId": "c758c64cb476fd2c12b2bc3713c8b8a52e180845",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
