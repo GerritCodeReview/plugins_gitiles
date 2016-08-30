@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3142414d_4fc40d05",
+        "filename": "BUCK",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1011624
+      },
+      "writtenOn": "2016-08-30T12:20:21Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 2
+      },
+      "revId": "5d3fad9c25f523fb6a01cd8d41daae5ec8b40800",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "513df5bb_d07d3cbd",
+        "filename": "BUCK",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1011624
+      },
+      "writtenOn": "2016-08-30T12:20:21Z",
+      "side": 1,
+      "message": "not needed?",
+      "revId": "5d3fad9c25f523fb6a01cd8d41daae5ec8b40800",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
