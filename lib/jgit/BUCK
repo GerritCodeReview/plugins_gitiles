@@ -1,13 +1,13 @@
 include_defs('//bucklets/maven_jar.bucklet')
 
 REPO = GERRIT  # Leave here even if set to MAVEN_CENTRAL.
-VERS = '4.4.1.201607150455-r.137-gdd2a5a7'
+VERS = '4.4.1.201607150455-r.144-gb67df51'
 
 maven_jar(
   name = 'jgit',
   id = 'org.eclipse.jgit:org.eclipse.jgit:' + VERS,
-  bin_sha1 = 'cbb405a0d72d4f6086e1cdc4eca6121b3d6b41c1',
-  src_sha1 = '3313d555e91177cb0f9c662aa3a5558a711bce8c',
+  bin_sha1 = 'b28b6e0d14adfcf0a3afcf4002fe16dc2cc3e453',
+  src_sha1 = '362c6913beb90a278c5cd479f7536813fe007b60',
   license = 'jgit',
   repository = REPO,
   unsign = True,
