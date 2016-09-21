@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b091cf63_ae09578c",
+        "filename": "lib/jgit/BUCK",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-09-21T15:35:04Z",
+      "side": 1,
+      "message": "should also be updated",
+      "range": {
+        "startLine": 25,
+        "startChar": 10,
+        "endLine": 25,
+        "endChar": 50
+      },
+      "revId": "c552c5d2a58937236f17895fd2b2a9d56edf2a4a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
