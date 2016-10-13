@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c455a84_5e7a3578",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1011624
+      },
+      "writtenOn": "2016-10-13T11:43:03Z",
+      "side": 1,
+      "message": "Where is this set? git grep show only  the 3 occurences here. I guess this is the reason for the error I see.",
+      "range": {
+        "startLine": 225,
+        "startChar": 34,
+        "endLine": 225,
+        "endChar": 45
+      },
+      "revId": "bed043d91600cd62dd9d9563ce163bc7a1686c67",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
