@@ -22,6 +22,30 @@
       "revId": "bed043d91600cd62dd9d9563ce163bc7a1686c67",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c04964d_d1bc64b1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-10-13T12:07:59Z",
+      "side": 1,
+      "message": "It\u0027s a constant defined in JGit:\n\nhttps://github.com/eclipse/jgit/blob/master/org.eclipse.jgit/src/org/eclipse/jgit/lib/RefDatabase.java#L73",
+      "parentUuid": "1c455a84_5e7a3578",
+      "range": {
+        "startLine": 225,
+        "startChar": 34,
+        "endLine": 225,
+        "endChar": 45
+      },
+      "revId": "bed043d91600cd62dd9d9563ce163bc7a1686c67",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
