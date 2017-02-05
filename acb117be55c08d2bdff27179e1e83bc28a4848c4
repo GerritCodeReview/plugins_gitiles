@@ -22,6 +22,64 @@
       "revId": "acb117be55c08d2bdff27179e1e83bc28a4848c4",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "923ebfe1_c265e2dd",
+        "filename": "BUILD",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "Feb 5, 2017 1:50:13 PM",
+      "side": 1,
+      "message": "It was broken. I fixed this. It also needed to change some stuff in Gerrit core. I added two commits there, to support building this plugin.",
+      "parentUuid": "8fe21abc_21f7f633",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 1
+      },
+      "revId": "acb117be55c08d2bdff27179e1e83bc28a4848c4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57238_1ceea503",
+        "filename": "lib/BUILD",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "Feb 5, 2017 1:50:13 PM",
+      "side": 1,
+      "message": "This is not needed.",
+      "revId": "acb117be55c08d2bdff27179e1e83bc28a4848c4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "665934ab_493f3b42",
+        "filename": "lib/jgit/BUILD",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "Feb 5, 2017 1:50:13 PM",
+      "side": 1,
+      "message": "Unused.",
+      "revId": "acb117be55c08d2bdff27179e1e83bc28a4848c4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
