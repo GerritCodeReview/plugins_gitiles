@@ -61,7 +61,7 @@ tree, and issue the command:
 The output is created in
 
 ```
-  buck-out/gen/plugins/gitiles/gitiles.jar
+  buck-out/gen/plugins/gitiles/gitiles/gitiles.jar
 ```
 
 This project can be imported into the Eclipse IDE:
