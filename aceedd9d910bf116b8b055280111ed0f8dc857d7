@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "016b3d90_fa1d072c",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "Feb 5, 2017 3:55:33 PM",
+      "side": 1,
+      "message": "This is also unused.\n\nBoth removed in the latest PS.",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 4
+      },
+      "revId": "aceedd9d910bf116b8b055280111ed0f8dc857d7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ed48223_239eaa72",
         "filename": "external_plugin_deps.bzl",
         "patchSetId": 3
