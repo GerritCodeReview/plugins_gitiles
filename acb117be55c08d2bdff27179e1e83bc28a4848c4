@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "da6df8b5_deecb05b",
+        "filename": "lib/BUILD",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "Feb 5, 2017 2:00:14 PM",
+      "side": 1,
+      "message": "I thought this is needed for the deps?\n\nI mean for deps depending on other deps.\n\nThough we could do https://gerrit-review.googlesource.com/#/c/95675/ in maven once that is merged. :)",
+      "parentUuid": "86b57238_1ceea503",
+      "revId": "acb117be55c08d2bdff27179e1e83bc28a4848c4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "665934ab_493f3b42",
         "filename": "lib/jgit/BUILD",
         "patchSetId": 2
