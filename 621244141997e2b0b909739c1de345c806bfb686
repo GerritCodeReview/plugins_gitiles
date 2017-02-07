@@ -105,6 +105,24 @@
       "revId": "621244141997e2b0b909739c1de345c806bfb686",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c239a8f1_7c8be1b8",
+        "filename": "src/main/resources/+Documentation/build.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "Feb 7, 2017 9:03:29 AM",
+      "side": 1,
+      "message": "I know... but someone else building gitiles for the first time may not know that.",
+      "parentUuid": "7bf2e73c_6c5c6eab",
+      "revId": "621244141997e2b0b909739c1de345c806bfb686",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
