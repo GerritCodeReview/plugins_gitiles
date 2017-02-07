@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8c66a870_f41045ff",
+        "filename": "src/main/resources/+Documentation/build.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "Feb 7, 2017 9:09:19 AM",
+      "side": 1,
+      "message": "After the commands in the lines 12-14 we are in the plugins folder\nExecuting \"cd gerrit\" will fail as there is not gerrit folder under the plugins folder.",
+      "revId": "aa3c5b0ca93e96ef8fa98ed4c28a3f380c4cf934",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "097e379d_2560def6",
+        "filename": "src/main/resources/+Documentation/build.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "Feb 7, 2017 9:09:19 AM",
+      "side": 1,
+      "message": "now this line is too long :-)",
+      "revId": "aa3c5b0ca93e96ef8fa98ed4c28a3f380c4cf934",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
