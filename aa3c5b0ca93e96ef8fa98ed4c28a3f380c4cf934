@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "06ac1070_48cf1973",
+        "filename": "src/main/resources/+Documentation/build.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "Feb 7, 2017 9:15:58 AM",
+      "side": 1,
+      "message": "Thanks, done.",
+      "parentUuid": "8c66a870_f41045ff",
+      "revId": "aa3c5b0ca93e96ef8fa98ed4c28a3f380c4cf934",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "097e379d_2560def6",
         "filename": "src/main/resources/+Documentation/build.md",
         "patchSetId": 5
@@ -30,6 +48,24 @@
       "writtenOn": "Feb 7, 2017 9:09:19 AM",
       "side": 1,
       "message": "now this line is too long :-)",
+      "revId": "aa3c5b0ca93e96ef8fa98ed4c28a3f380c4cf934",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8023fd30_0a0f7201",
+        "filename": "src/main/resources/+Documentation/build.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "Feb 7, 2017 9:15:58 AM",
+      "side": 1,
+      "message": "Thanks, done.",
+      "parentUuid": "097e379d_2560def6",
       "revId": "aa3c5b0ca93e96ef8fa98ed4c28a3f380c4cf934",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
