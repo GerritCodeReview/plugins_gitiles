@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7cd302f8_33273f54",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "Feb 7, 2017 3:29:40 PM",
+      "side": 1,
+      "message": "docs",
+      "range": {
+        "startLine": 7,
+        "startChar": 7,
+        "endLine": 7,
+        "endChar": 12
+      },
+      "revId": "b9046ec3dc8ab5221b272ab722e2703dcfb6622a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50528cb2_3ee869cb",
+        "filename": "src/main/resources/+Documentation/build.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "Feb 7, 2017 3:29:40 PM",
+      "side": 1,
+      "message": "\"is\"",
+      "range": {
+        "startLine": 4,
+        "startChar": 12,
+        "endLine": 4,
+        "endChar": 18
+      },
+      "revId": "b9046ec3dc8ab5221b272ab722e2703dcfb6622a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8b57325_294d3347",
+        "filename": "src/main/resources/+Documentation/build.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "Feb 7, 2017 3:29:40 PM",
+      "side": 1,
+      "message": "nit: long line",
+      "range": {
+        "startLine": 32,
+        "startChar": 77,
+        "endLine": 32,
+        "endChar": 78
+      },
+      "revId": "b9046ec3dc8ab5221b272ab722e2703dcfb6622a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
