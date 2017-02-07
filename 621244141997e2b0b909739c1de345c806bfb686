@@ -16,6 +16,23 @@
       "revId": "621244141997e2b0b909739c1de345c806bfb686",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2c5e20ac_2127eabb",
+        "filename": "src/main/resources/+Documentation/build.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "Feb 7, 2017 8:54:29 AM",
+      "side": 1,
+      "message": "this line and the line 11 assume different working directory but a \"cd ..\" is missing.",
+      "revId": "621244141997e2b0b909739c1de345c806bfb686",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
