@@ -69,6 +69,24 @@
       "revId": "621244141997e2b0b909739c1de345c806bfb686",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcb63158_9eb864a7",
+        "filename": "src/main/resources/+Documentation/build.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "Feb 7, 2017 9:00:36 AM",
+      "side": 1,
+      "message": "Just execute all the commands from the lines 11-13 and then execute this one. You will get an error from bazel:\n\n  ERROR: no such target \u0027//plugins:plugins/gitiles\u0027:...",
+      "parentUuid": "d89dbcfc_f194a18f",
+      "revId": "621244141997e2b0b909739c1de345c806bfb686",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
