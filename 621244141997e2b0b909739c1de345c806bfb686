@@ -87,6 +87,24 @@
       "revId": "621244141997e2b0b909739c1de345c806bfb686",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7bf2e73c_6c5c6eab",
+        "filename": "src/main/resources/+Documentation/build.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "Feb 7, 2017 9:01:38 AM",
+      "side": 1,
+      "message": "You should cd into gerrit then bazel build plugins/gitiles.",
+      "parentUuid": "dcb63158_9eb864a7",
+      "revId": "621244141997e2b0b909739c1de345c806bfb686",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
