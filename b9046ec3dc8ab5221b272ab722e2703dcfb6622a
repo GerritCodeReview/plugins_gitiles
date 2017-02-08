@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8d3d6fc6_9dfeb076",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "Feb 7, 2017 4:16:18 PM",
+      "side": 1,
+      "message": "Thanks, done.",
+      "parentUuid": "7cd302f8_33273f54",
+      "range": {
+        "startLine": 7,
+        "startChar": 7,
+        "endLine": 7,
+        "endChar": 12
+      },
+      "revId": "b9046ec3dc8ab5221b272ab722e2703dcfb6622a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50528cb2_3ee869cb",
         "filename": "src/main/resources/+Documentation/build.md",
         "patchSetId": 6
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "f56e51b4_8abd4799",
+        "filename": "src/main/resources/+Documentation/build.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "Feb 7, 2017 4:16:18 PM",
+      "side": 1,
+      "message": "Thanks, done.",
+      "parentUuid": "50528cb2_3ee869cb",
+      "range": {
+        "startLine": 4,
+        "startChar": 12,
+        "endLine": 4,
+        "endChar": 18
+      },
+      "revId": "b9046ec3dc8ab5221b272ab722e2703dcfb6622a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8b57325_294d3347",
         "filename": "src/main/resources/+Documentation/build.md",
         "patchSetId": 6
@@ -59,6 +107,30 @@
       "writtenOn": "Feb 7, 2017 3:29:40 PM",
       "side": 1,
       "message": "nit: long line",
+      "range": {
+        "startLine": 32,
+        "startChar": 77,
+        "endLine": 32,
+        "endChar": 78
+      },
+      "revId": "b9046ec3dc8ab5221b272ab722e2703dcfb6622a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "960539d5_977bf668",
+        "filename": "src/main/resources/+Documentation/build.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "Feb 7, 2017 4:16:18 PM",
+      "side": 1,
+      "message": "Thanks, done.",
+      "parentUuid": "b8b57325_294d3347",
       "range": {
         "startLine": 32,
         "startChar": 77,
