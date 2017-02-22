@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa56d14c_41a1e96b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2017-02-22T23:46:22Z",
+      "side": 1,
+      "message": "Use the full name?",
+      "range": {
+        "startLine": 2,
+        "startChar": 12,
+        "endLine": 2,
+        "endChar": 17
+      },
+      "revId": "2ddd7c8a0b3d94204487952d33323413d1ce7497",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a50ac1d_53a92275",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2017-02-22T23:46:22Z",
+      "side": 1,
+      "message": "This includes two separate things; it would be better to do them in separate commits.\n\nAlso, please document the new target setting in src/main/resources/+Documentation/config.md",
+      "revId": "2ddd7c8a0b3d94204487952d33323413d1ce7497",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bbc568f7_b1ae63cf",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GitilesWeblinks.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2017-02-22T23:46:22Z",
+      "side": 1,
+      "message": "This will throw an exception if the value in the config file is not recognised.  It would be better to wrap it in a try-block; log the exception and set the default value.",
+      "range": {
+        "startLine": 45,
+        "startChar": 13,
+        "endLine": 45,
+        "endChar": 27
+      },
+      "revId": "2ddd7c8a0b3d94204487952d33323413d1ce7497",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
