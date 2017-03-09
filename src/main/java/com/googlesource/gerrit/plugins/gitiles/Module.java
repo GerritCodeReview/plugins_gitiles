@@ -20,6 +20,7 @@ import com.google.gerrit.extensions.registration.DynamicSet;
 import com.google.gerrit.extensions.webui.BranchWebLink;
 import com.google.gerrit.extensions.webui.FileHistoryWebLink;
 import com.google.gerrit.extensions.webui.FileWebLink;
+import com.google.gerrit.extensions.webui.ParentWebLink;
 import com.google.gerrit.extensions.webui.PatchSetWebLink;
 import com.google.gerrit.extensions.webui.ProjectWebLink;
 import com.google.gerrit.lifecycle.LifecycleModule;
@@ -52,6 +53,7 @@ class Module extends LifecycleModule {
     DynamicSet.bind(binder(), BranchWebLink.class).to(GitilesWeblinks.class);
     DynamicSet.bind(binder(), FileHistoryWebLink.class).to(GitilesWeblinks.class);
     DynamicSet.bind(binder(), FileWebLink.class).to(GitilesWeblinks.class);
+    DynamicSet.bind(binder(), ParentWebLink.class).to(GitilesWeblinks.class);
     DynamicSet.bind(binder(), PatchSetWebLink.class).to(GitilesWeblinks.class);
     DynamicSet.bind(binder(), ProjectWebLink.class).to(GitilesWeblinks.class);
     bind(GitilesAccess.Factory.class).to(GerritGitilesAccess.Factory.class);
