@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a107bb6_aa4c63d2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GitilesWeblinks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2017-03-09T17:48:41Z",
+      "side": 1,
+      "message": "You don\u0027t have to do it now if you don\u0027t want, but this exact thing has been repeated 3 or 4 times, probably it deserves its own private method.",
+      "revId": "2f1eb381c6a6488051287b2d8562210def57e4a0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
