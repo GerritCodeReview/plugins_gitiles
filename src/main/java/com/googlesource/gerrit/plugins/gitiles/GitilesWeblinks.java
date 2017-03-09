@@ -29,7 +29,7 @@ import com.google.common.base.MoreObjects;
 import org.eclipse.jgit.lib.Config;
 
 public class GitilesWeblinks implements BranchWebLink, FileWebLink,
-    PatchSetWebLink, ProjectWebLink, FileHistoryWebLink {
+    PatchSetWebLink, ProjectWebLink, FileHistoryWebLink, ParentWebLink {
   private final String name;
   private final String baseUrl;
   private final Target target;
@@ -65,6 +65,12 @@ public class GitilesWeblinks implements BranchWebLink, FileWebLink,
 
   @Override
   public WebLinkInfo getPatchSetWebLink(String projectName, String commit) {
+    return new WebLinkInfo(name, null, String.format("%s/%s/+/%s", baseUrl,
+        projectName, commit), target);
+  }
+
+  @Override
+  public WebLinkInfo getParentWeblink(String projectName, String commit) {
     return new WebLinkInfo(name, null, String.format("%s/%s/+/%s", baseUrl,
         projectName, commit), target);
   }
