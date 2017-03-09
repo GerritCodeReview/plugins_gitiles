@@ -32,7 +32,12 @@ to the gitiles plugin can also be configured.
 The name of the link that appears in Gerrit can be configured with
 `gerrit.linkname`.
 
+The link frame target name can be configured with `gerrit.target`. Valid values
+are defined in the [W3C HTML Specification](https://www.w3.org/TR/1999/REC-html401-19991224/types.html#type-frame-target).
+Defaults to `_blank` if not set.
+
 ```
   [gerrit]
     linkname = browse
+    target = _self
 ```
