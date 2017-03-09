@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8c8ac07e_61d55a14",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GitilesWeblinks.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2017-03-09T17:46:03Z",
+      "side": 1,
+      "message": "See below, pretty sure this should be String.",
+      "range": {
+        "startLine": 35,
+        "startChar": 16,
+        "endLine": 35,
+        "endChar": 22
+      },
+      "revId": "8138258106832cd9e5004376b26a057f4983d832",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c8c8085_7eb7360d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GitilesWeblinks.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2017-03-09T17:46:03Z",
+      "side": 1,
+      "message": "Nit: logger should be the first field in the class.",
+      "revId": "8138258106832cd9e5004376b26a057f4983d832",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4f907c7_c7f79bfa",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GitilesWeblinks.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2017-03-09T17:46:03Z",
+      "side": 1,
+      "message": "Tasrget.SELF",
+      "range": {
+        "startLine": 51,
+        "startChar": 12,
+        "endLine": 51,
+        "endChar": 18
+      },
+      "revId": "8138258106832cd9e5004376b26a057f4983d832",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7339d666_922fd8b2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GitilesWeblinks.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2017-03-09T17:46:03Z",
+      "side": 1,
+      "message": "It\u0027s been a while since I looked at this part of the extension API, but it appears Target is just a plain class with public static final String members. (Which I disagree with, for the record.) So I don\u0027t think you need to do this parsing/validation.",
+      "revId": "8138258106832cd9e5004376b26a057f4983d832",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
