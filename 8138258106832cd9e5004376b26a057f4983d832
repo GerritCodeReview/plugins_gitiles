@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "52b9bbee_6eb26732",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GitilesWeblinks.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2017-03-10T02:09:19Z",
+      "side": 1,
+      "message": "This is unused; it should be in the following commit.",
+      "revId": "8138258106832cd9e5004376b26a057f4983d832",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8c8ac07e_61d55a14",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GitilesWeblinks.java",
         "patchSetId": 1
@@ -66,6 +83,24 @@
     },
     {
       "key": {
+        "uuid": "80ade514_f397b376",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GitilesWeblinks.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2017-03-10T02:09:19Z",
+      "side": 1,
+      "message": "Also, this doesn\u0027t compile because Logger and LoggerFactory are not imported.",
+      "parentUuid": "5c8c8085_7eb7360d",
+      "revId": "8138258106832cd9e5004376b26a057f4983d832",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d4f907c7_c7f79bfa",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GitilesWeblinks.java",
         "patchSetId": 1
@@ -86,6 +121,29 @@
       "revId": "8138258106832cd9e5004376b26a057f4983d832",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a54a7c0_e7535cb9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GitilesWeblinks.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2017-03-10T02:09:19Z",
+      "side": 1,
+      "message": "Missing () causes compilation errors.\n\nAlso, since the actual values of the strings defined in Target are lower case, this is probably not necessary anyway.",
+      "range": {
+        "startLine": 51,
+        "startChar": 20,
+        "endLine": 51,
+        "endChar": 31
+      },
+      "revId": "8138258106832cd9e5004376b26a057f4983d832",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
