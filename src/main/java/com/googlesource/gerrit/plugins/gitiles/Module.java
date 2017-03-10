@@ -34,17 +34,14 @@ import com.google.inject.Provides;
 import com.google.inject.ProvisionException;
 import com.google.inject.Singleton;
 import com.google.inject.TypeLiteral;
-
-import org.eclipse.jgit.lib.Config;
-import org.eclipse.jgit.transport.resolver.RepositoryResolver;
-
 import java.net.InetAddress;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
+import org.eclipse.jgit.lib.Config;
+import org.eclipse.jgit.transport.resolver.RepositoryResolver;
 
 class Module extends LifecycleModule {
   @Override
@@ -60,7 +57,8 @@ class Module extends LifecycleModule {
   }
 
   @Provides
-  GitilesUrls getGitilesUrls(@GerritServerConfig Config gerritConfig,
+  GitilesUrls getGitilesUrls(
+      @GerritServerConfig Config gerritConfig,
       @Nullable @CanonicalWebUrl String gerritUrl,
       @SshAdvertisedAddresses List<String> advertisedSshAddresses)
       throws MalformedURLException, UnknownHostException {

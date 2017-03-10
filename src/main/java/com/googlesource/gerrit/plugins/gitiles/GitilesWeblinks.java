@@ -14,6 +14,7 @@
 
 package com.googlesource.gerrit.plugins.gitiles;
 
+import com.google.common.base.MoreObjects;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.extensions.common.WebLinkInfo;
 import com.google.gerrit.extensions.webui.BranchWebLink;
@@ -24,64 +25,66 @@ import com.google.gerrit.extensions.webui.PatchSetWebLink;
 import com.google.gerrit.extensions.webui.ProjectWebLink;
 import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.inject.Inject;
-import com.google.common.base.MoreObjects;
-
 import org.eclipse.jgit.lib.Config;
 
-public class GitilesWeblinks implements BranchWebLink, FileWebLink,
-    PatchSetWebLink, ProjectWebLink, FileHistoryWebLink, ParentWebLink {
+public class GitilesWeblinks
+    implements BranchWebLink,
+        FileWebLink,
+        PatchSetWebLink,
+        ProjectWebLink,
+        FileHistoryWebLink,
+        ParentWebLink {
   private final String name;
   private final String baseUrl;
   private final String target;
 
   @Inject
-  public GitilesWeblinks(@PluginName String pluginName,
-                         PluginConfigFactory configFactory) {
+  public GitilesWeblinks(@PluginName String pluginName, PluginConfigFactory configFactory) {
     Config config = configFactory.getGlobalPluginConfig("gitiles");
-    name = MoreObjects.firstNonNull(
-                          config.getString("gerrit", null, "linkname"),
-                          "browse");
+    name = MoreObjects.firstNonNull(config.getString("gerrit", null, "linkname"), "browse");
     baseUrl = "plugins/" + pluginName;
 
-    target = MoreObjects.firstNonNull(
-        config.getString("gerrit", null, "target"),
-        Target.BLANK);
+    target = MoreObjects.firstNonNull(config.getString("gerrit", null, "target"), Target.BLANK);
   }
 
   @Override
   public WebLinkInfo getProjectWeblink(String projectName) {
-    return new WebLinkInfo(name, null, String.format("%s/%s", baseUrl,
-        projectName), target);
+    return new WebLinkInfo(name, null, String.format("%s/%s", baseUrl, projectName), target);
   }
 
   @Override
   public WebLinkInfo getPatchSetWebLink(String projectName, String commit) {
-    return new WebLinkInfo(name, null, String.format("%s/%s/+/%s", baseUrl,
-        projectName, commit), target);
+    return new WebLinkInfo(
+        name, null, String.format("%s/%s/+/%s", baseUrl, projectName, commit), target);
   }
 
   @Override
   public WebLinkInfo getParentWebLink(String projectName, String commit) {
-    return new WebLinkInfo(name, null, String.format("%s/%s/+/%s", baseUrl,
-        projectName, commit), target);
+    return new WebLinkInfo(
+        name, null, String.format("%s/%s/+/%s", baseUrl, projectName, commit), target);
   }
 
   @Override
-  public WebLinkInfo getFileWebLink(String projectName, String revision,
-      String fileName) {
-    return new WebLinkInfo(name, null, String.format("%s/%s/+/%s/%s", baseUrl,
-        projectName, revision, fileName), target);
+  public WebLinkInfo getFileWebLink(String projectName, String revision, String fileName) {
+    return new WebLinkInfo(
+        name,
+        null,
+        String.format("%s/%s/+/%s/%s", baseUrl, projectName, revision, fileName),
+        target);
   }
 
   @Override
   public WebLinkInfo getBranchWebLink(String projectName, String branchName) {
-    return new WebLinkInfo(name, null, String.format("%s/%s/+/%s", baseUrl,
-        projectName, branchName), target);
+    return new WebLinkInfo(
+        name, null, String.format("%s/%s/+/%s", baseUrl, projectName, branchName), target);
   }
 
   @Override
   public WebLinkInfo getFileHistoryWebLink(String projectName, String revision, String fileName) {
-    return new WebLinkInfo(name, null, String.format("%s/%s/+log/%s/%s", baseUrl,
-        projectName, revision, fileName), target);
+    return new WebLinkInfo(
+        name,
+        null,
+        String.format("%s/%s/+log/%s/%s", baseUrl, projectName, revision, fileName),
+        target);
   }
 }

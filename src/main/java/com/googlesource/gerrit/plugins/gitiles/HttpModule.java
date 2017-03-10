@@ -26,20 +26,10 @@ import com.google.inject.Provides;
 import com.google.inject.Singleton;
 import com.google.inject.name.Named;
 import com.google.inject.servlet.ServletModule;
-
-import org.eclipse.jgit.errors.ConfigInvalidException;
-import org.eclipse.jgit.lib.Config;
-import org.eclipse.jgit.storage.file.FileBasedConfig;
-import org.eclipse.jgit.transport.resolver.RepositoryResolver;
-import org.eclipse.jgit.util.FS;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -48,6 +38,13 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
+import org.eclipse.jgit.errors.ConfigInvalidException;
+import org.eclipse.jgit.lib.Config;
+import org.eclipse.jgit.storage.file.FileBasedConfig;
+import org.eclipse.jgit.transport.resolver.RepositoryResolver;
+import org.eclipse.jgit.util.FS;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class HttpModule extends ServletModule {
   private final Provider<CurrentUser> userProvider;
@@ -62,8 +59,8 @@ class HttpModule extends ServletModule {
   protected Filter createPathFilter() {
     return new Filter() {
       @Override
-      public void doFilter(ServletRequest request, ServletResponse response,
-          FilterChain chain) throws IOException, ServletException {
+      public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+          throws IOException, ServletException {
         HttpServletRequestWrapper wrappedRequest =
             new HttpServletRequestWrapper((HttpServletRequest) request) {
               @Override
@@ -89,8 +86,7 @@ class HttpModule extends ServletModule {
     };
   }
 
-  private static final Logger log = LoggerFactory
-      .getLogger(HttpModule.class);
+  private static final Logger log = LoggerFactory.getLogger(HttpModule.class);
 
   @Override
   protected void configureServlets() {
@@ -109,11 +105,14 @@ class HttpModule extends ServletModule {
 
   @Provides
   @Singleton
-  GitilesServlet getServlet(@Named("gitiles") Config cfg, GitilesUrls urls,
+  GitilesServlet getServlet(
+      @Named("gitiles") Config cfg,
+      GitilesUrls urls,
       GitilesAccess.Factory accessFactory,
       RepositoryResolver<HttpServletRequest> resolver,
       MenuFilter menuFilter) {
-    GitilesServlet s = new GitilesServlet(cfg, null, urls, accessFactory, resolver, null, null, null, null);
+    GitilesServlet s =
+        new GitilesServlet(cfg, null, urls, accessFactory, resolver, null, null, null, null);
     for (GitilesView.Type view : GitilesView.Type.values()) {
       s.addFilter(view, menuFilter);
     }

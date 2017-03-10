@@ -21,20 +21,16 @@ import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
-
+import java.io.IOException;
+import javax.servlet.http.HttpServletRequest;
 import org.eclipse.jgit.errors.RepositoryNotFoundException;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.transport.ServiceMayNotContinueException;
 import org.eclipse.jgit.transport.resolver.RepositoryResolver;
 import org.eclipse.jgit.transport.resolver.ServiceNotAuthorizedException;
 
-import java.io.IOException;
-
-import javax.servlet.http.HttpServletRequest;
-
 class Resolver implements RepositoryResolver<HttpServletRequest> {
-  private static final String NAME_KEY_ATTRIBUTE = Resolver.class.getName()
-      + "/NameKey";
+  private static final String NAME_KEY_ATTRIBUTE = Resolver.class.getName() + "/NameKey";
   private final Provider<CurrentUser> userProvider;
 
   static Project.NameKey getNameKey(HttpServletRequest req) {
@@ -44,8 +40,7 @@ class Resolver implements RepositoryResolver<HttpServletRequest> {
   private final FilteredRepository.Factory repoFactory;
 
   @Inject
-  Resolver(FilteredRepository.Factory repoFactory,
-      Provider<CurrentUser> userProvider) {
+  Resolver(FilteredRepository.Factory repoFactory, Provider<CurrentUser> userProvider) {
     this.repoFactory = repoFactory;
     this.userProvider = userProvider;
   }
@@ -53,10 +48,14 @@ class Resolver implements RepositoryResolver<HttpServletRequest> {
   @Override
   public Repository open(HttpServletRequest req, String name)
       throws RepositoryNotFoundException, ServiceMayNotContinueException,
-      ServiceNotAuthorizedException {
+          ServiceNotAuthorizedException {
     Project.NameKey oldName = getNameKey(req);
-    checkState(oldName == null, "Resolved multiple repositories on %s: %s, %s",
-        req.getRequestURL(), oldName, name);
+    checkState(
+        oldName == null,
+        "Resolved multiple repositories on %s: %s, %s",
+        req.getRequestURL(),
+        oldName,
+        name);
     Project.NameKey nameKey = new Project.NameKey(name);
     req.setAttribute(NAME_KEY_ATTRIBUTE, nameKey);
     try {
