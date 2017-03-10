@@ -30,7 +30,7 @@ that controls the settings for the core gitiles servlet. Some settings specific
 to the gitiles plugin can also be configured.
 
 The name of the link that appears in Gerrit can be configured with
-`gerrit.linkname`.
+`gerrit.linkname`. Defaults to `browse` if not set.
 
 The link frame target name can be configured with `gerrit.target`. Valid values
 are defined in the [W3C HTML Specification](https://www.w3.org/TR/1999/REC-html401-19991224/types.html#type-frame-target).
@@ -38,6 +38,6 @@ Defaults to `_blank` if not set.
 
 ```
   [gerrit]
-    linkname = browse
+    linkname = gitiles
     target = _self
 ```
