@@ -20,6 +20,7 @@ import com.google.gerrit.extensions.webui.BranchWebLink;
 import com.google.gerrit.extensions.webui.FileHistoryWebLink;
 import com.google.gerrit.extensions.webui.FileWebLink;
 import com.google.gerrit.extensions.webui.PatchSetWebLink;
+import com.google.gerrit.extensions.webui.ParentWebLink;
 import com.google.gerrit.extensions.webui.ProjectWebLink;
 import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.inject.Inject;
@@ -28,7 +29,7 @@ import com.google.common.base.MoreObjects;
 import org.eclipse.jgit.lib.Config;
 
 public class GitilesWeblinks implements BranchWebLink, FileWebLink,
-    PatchSetWebLink, ProjectWebLink, FileHistoryWebLink {
+    PatchSetWebLink, ProjectWebLink, FileHistoryWebLink, ParentWebLink {
   private final String name;
   private final String baseUrl;
   private final String target;
@@ -57,6 +58,12 @@ public class GitilesWeblinks implements BranchWebLink, FileWebLink,
 
   @Override
   public WebLinkInfo getPatchSetWebLink(String projectName, String commit) {
+    return new WebLinkInfo(name, null, String.format("%s/%s/+/%s", baseUrl,
+        projectName, commit), target);
+  }
+
+  @Override
+  public WebLinkInfo getParentWeblink(String projectName, String commit) {
     return new WebLinkInfo(name, null, String.format("%s/%s/+/%s", baseUrl,
         projectName, commit), target);
   }
