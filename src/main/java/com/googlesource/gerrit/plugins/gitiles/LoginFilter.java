@@ -20,9 +20,7 @@ import com.google.gerrit.server.IdentifiedUser;
 import com.google.gitiles.GitilesUrls;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
-
 import java.io.IOException;
-
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -44,40 +42,39 @@ class LoginFilter implements Filter {
   }
 
   @Override
-  public void doFilter(ServletRequest request, ServletResponse response,
-      FilterChain chain) throws IOException, ServletException {
+  public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+      throws IOException, ServletException {
     final HttpServletRequest req = (HttpServletRequest) request;
-    HttpServletResponseWrapper rsp = new HttpServletResponseWrapper((HttpServletResponse) response) {
-      @Override
-      public void sendError(int sc) throws IOException {
-        CurrentUser user = userProvider.get();
-        if (sc == SC_UNAUTHORIZED && !(user instanceof IdentifiedUser)) {
-          sendRedirect(getLoginRedirectUrl(req));
-          return;
-        }
-        super.sendError(sc);
-      }
+    HttpServletResponseWrapper rsp =
+        new HttpServletResponseWrapper((HttpServletResponse) response) {
+          @Override
+          public void sendError(int sc) throws IOException {
+            CurrentUser user = userProvider.get();
+            if (sc == SC_UNAUTHORIZED && !(user instanceof IdentifiedUser)) {
+              sendRedirect(getLoginRedirectUrl(req));
+              return;
+            }
+            super.sendError(sc);
+          }
 
-      @Override
-      public void sendError(int sc, String msg) throws IOException {
-        CurrentUser user = userProvider.get();
-        if (sc == SC_UNAUTHORIZED && !(user instanceof IdentifiedUser)) {
-          sendRedirect(getLoginRedirectUrl(req));
-          return;
-        }
-        super.sendError(sc, msg);
-      }
-    };
+          @Override
+          public void sendError(int sc, String msg) throws IOException {
+            CurrentUser user = userProvider.get();
+            if (sc == SC_UNAUTHORIZED && !(user instanceof IdentifiedUser)) {
+              sendRedirect(getLoginRedirectUrl(req));
+              return;
+            }
+            super.sendError(sc, msg);
+          }
+        };
     chain.doFilter(request, rsp);
   }
 
   @Override
-  public void init(FilterConfig filterConfig) throws ServletException {
-  }
+  public void init(FilterConfig filterConfig) throws ServletException {}
 
   @Override
-  public void destroy() {
-  }
+  public void destroy() {}
 
   private String getLoginRedirectUrl(HttpServletRequest req) {
     String baseUrl = urls.getBaseGerritUrl(req);

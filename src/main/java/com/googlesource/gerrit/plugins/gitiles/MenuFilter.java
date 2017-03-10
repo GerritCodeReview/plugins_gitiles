@@ -21,10 +21,8 @@ import com.google.gitiles.BaseServlet;
 import com.google.gitiles.GitilesUrls;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
-
 import java.io.IOException;
 import java.util.List;
-
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -44,30 +42,25 @@ class MenuFilter implements Filter {
   }
 
   @Override
-  public void doFilter(ServletRequest request, ServletResponse response,
-      FilterChain chain) throws IOException, ServletException {
+  public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+      throws IOException, ServletException {
     HttpServletRequest req = (HttpServletRequest) request;
     CurrentUser user = userProvider.get();
     List<Object> entries = Lists.newArrayListWithCapacity(3);
     entries.add(BaseServlet.menuEntry("Code Review", urls.getBaseGerritUrl(req)));
     if (user instanceof IdentifiedUser) {
-      entries
-          .add(BaseServlet.menuEntry(((IdentifiedUser) user).getName(), null));
-      entries.add(BaseServlet.menuEntry("Sign Out", urls.getBaseGerritUrl(req)
-          + "logout"));
+      entries.add(BaseServlet.menuEntry(((IdentifiedUser) user).getName(), null));
+      entries.add(BaseServlet.menuEntry("Sign Out", urls.getBaseGerritUrl(req) + "logout"));
     } else {
-      entries.add(BaseServlet.menuEntry("Sign In", urls.getBaseGerritUrl(req)
-          + "login"));
+      entries.add(BaseServlet.menuEntry("Sign In", urls.getBaseGerritUrl(req) + "login"));
     }
     BaseServlet.putSoyData(req, "menuEntries", entries);
     chain.doFilter(request, response);
   }
 
   @Override
-  public void init(FilterConfig filterConfig) throws ServletException {
-  }
+  public void init(FilterConfig filterConfig) throws ServletException {}
 
   @Override
-  public void destroy() {
-  }
+  public void destroy() {}
 }
