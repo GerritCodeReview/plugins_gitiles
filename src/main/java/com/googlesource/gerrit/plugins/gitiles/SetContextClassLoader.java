@@ -15,9 +15,7 @@
 package com.googlesource.gerrit.plugins.gitiles;
 
 import com.google.inject.Singleton;
-
 import java.io.IOException;
-
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -29,12 +27,11 @@ import javax.servlet.ServletResponse;
 public class SetContextClassLoader implements Filter {
 
   @Override
-  public void init(FilterConfig arg0) throws ServletException {
-  }
+  public void init(FilterConfig arg0) throws ServletException {}
 
   @Override
-  public void doFilter(ServletRequest request, ServletResponse response,
-      FilterChain chain) throws IOException, ServletException {
+  public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+      throws IOException, ServletException {
     Thread t = Thread.currentThread();
     ClassLoader old = t.getContextClassLoader();
     try {
@@ -46,6 +43,5 @@ public class SetContextClassLoader implements Filter {
   }
 
   @Override
-  public void destroy() {
-  }
+  public void destroy() {}
 }

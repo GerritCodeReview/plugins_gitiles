@@ -21,15 +21,17 @@ import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.reviewdb.server.ReviewDb;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.git.GitRepositoryManager;
+import com.google.gerrit.server.git.SearchingChangeCacheImpl;
 import com.google.gerrit.server.git.TagCache;
 import com.google.gerrit.server.git.VisibleRefFilter;
-import com.google.gerrit.server.git.SearchingChangeCacheImpl;
 import com.google.gerrit.server.notedb.ChangeNotes;
 import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.gerrit.server.project.ProjectControl;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
-
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 import org.eclipse.jgit.attributes.AttributesNodeProvider;
 import org.eclipse.jgit.lib.ObjectDatabase;
 import org.eclipse.jgit.lib.Ref;
@@ -40,10 +42,6 @@ import org.eclipse.jgit.lib.ReflogReader;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.lib.RepositoryBuilder;
 import org.eclipse.jgit.lib.StoredConfig;
-
-import java.io.IOException;
-import java.util.List;
-import java.util.Map;
 
 class FilteredRepository extends Repository {
   static class Factory {
@@ -56,7 +54,8 @@ class FilteredRepository extends Repository {
     private final SearchingChangeCacheImpl changeCache;
 
     @Inject
-    Factory(Provider<ReviewDb> db,
+    Factory(
+        Provider<ReviewDb> db,
         ProjectControl.GenericFactory projectControlFactory,
         Provider<CurrentUser> userProvider,
         GitRepositoryManager repoManager,
@@ -72,24 +71,24 @@ class FilteredRepository extends Repository {
       this.changeCache = changeCache;
     }
 
-    FilteredRepository create(Project.NameKey name)
-        throws NoSuchProjectException, IOException {
+    FilteredRepository create(Project.NameKey name) throws NoSuchProjectException, IOException {
       ProjectControl ctl = projectControlFactory.controlFor(name, userProvider.get());
       if (!ctl.isVisible()) {
         throw new NoSuchProjectException(name);
       }
       Repository repo = repoManager.openRepository(name);
-      return new FilteredRepository(ctl, repo,
-          new VisibleRefFilter(tagCache, changeNotesFactory, changeCache, repo,
-              ctl, db.get(), true));
+      return new FilteredRepository(
+          ctl,
+          repo,
+          new VisibleRefFilter(
+              tagCache, changeNotesFactory, changeCache, repo, ctl, db.get(), true));
     }
   }
 
   private final Repository delegate;
   private final RefDatabase refdb;
 
-  private FilteredRepository(ProjectControl ctl, Repository delegate,
-      VisibleRefFilter refFilter) {
+  private FilteredRepository(ProjectControl ctl, Repository delegate, VisibleRefFilter refFilter) {
     super(toBuilder(delegate));
     this.delegate = delegate;
     if (ctl.allRefsAreVisible()) {
@@ -100,8 +99,8 @@ class FilteredRepository extends Repository {
   }
 
   private static RepositoryBuilder toBuilder(Repository repo) {
-    RepositoryBuilder b = new RepositoryBuilder().setGitDir(repo.getDirectory())
-      .setFS(repo.getFS());
+    RepositoryBuilder b =
+        new RepositoryBuilder().setGitDir(repo.getDirectory()).setFS(repo.getFS());
     if (!repo.isBare()) {
       b.setWorkTree(repo.getWorkTree()).setIndexFile(repo.getIndexFile());
     }
@@ -185,8 +184,7 @@ class FilteredRepository extends Repository {
     }
 
     @Override
-    public RefRename newRename(String fromName, String toName)
-        throws IOException {
+    public RefRename newRename(String fromName, String toName) throws IOException {
       throw new UnsupportedOperationException(); // Gitiles is read-only.
     }
 

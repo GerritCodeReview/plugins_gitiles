@@ -31,18 +31,15 @@ import com.google.gitiles.GitilesUrls;
 import com.google.gitiles.RepositoryDescription;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
-
-import org.eclipse.jgit.errors.RepositoryNotFoundException;
-import org.eclipse.jgit.lib.Config;
-import org.eclipse.jgit.transport.resolver.ServiceNotAuthorizedException;
-import org.eclipse.jgit.transport.resolver.ServiceNotEnabledException;
-
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
-
 import javax.servlet.http.HttpServletRequest;
+import org.eclipse.jgit.errors.RepositoryNotFoundException;
+import org.eclipse.jgit.lib.Config;
+import org.eclipse.jgit.transport.resolver.ServiceNotAuthorizedException;
+import org.eclipse.jgit.transport.resolver.ServiceNotEnabledException;
 
 class GerritGitilesAccess implements GitilesAccess {
   // Assisted injection doesn't work with the overridden method, so write the
@@ -56,7 +53,8 @@ class GerritGitilesAccess implements GitilesAccess {
     private final String anonymousCowardName;
 
     @Inject
-    Factory(ProjectCache projectCache,
+    Factory(
+        ProjectCache projectCache,
         ProjectJson projectJson,
         Provider<ListProjects> listProjects,
         GitilesUrls urls,
@@ -97,8 +95,8 @@ class GerritGitilesAccess implements GitilesAccess {
 
   @Override
   public Map<String, RepositoryDescription> listRepositories(
-      @Nullable String prefix, Set<String> branches) throws ServiceNotEnabledException,
-      ServiceNotAuthorizedException, IOException  {
+      @Nullable String prefix, Set<String> branches)
+      throws ServiceNotEnabledException, ServiceNotAuthorizedException, IOException {
     ListProjects lp = listProjects.get();
     lp.setShowDescription(true);
     lp.setAll(true);
