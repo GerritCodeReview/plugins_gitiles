@@ -7,6 +7,7 @@ genrule(
         "@gitiles_servlet//jar",
     ],
     outs = ["gitiles.jar"],
+    visibility = ["//plugins:__subpackages__"],
     cmd = " && ".join([
         "ROOT=$$PWD",
         "TMP=$$(mktemp -d || mktemp -d -t bazel-tmp)",
