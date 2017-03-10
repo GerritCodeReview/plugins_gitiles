@@ -31,6 +31,7 @@ public class GitilesWeblinks implements BranchWebLink, FileWebLink,
     PatchSetWebLink, ProjectWebLink, FileHistoryWebLink {
   private final String name;
   private final String baseUrl;
+  private final String target;
 
   @Inject
   public GitilesWeblinks(@PluginName String pluginName,
@@ -40,36 +41,39 @@ public class GitilesWeblinks implements BranchWebLink, FileWebLink,
                           config.getString("gerrit", null, "linkname"),
                           "browse");
     baseUrl = "plugins/" + pluginName;
+    target = MoreObjects.firstNonNull(
+                          config.getString("gerrit", null, "target"),
+                          Target.BLANK);
   }
 
   @Override
   public WebLinkInfo getProjectWeblink(String projectName) {
     return new WebLinkInfo(name, null, String.format("%s/%s", baseUrl,
-        projectName), Target.BLANK);
+        projectName), target);
   }
 
   @Override
   public WebLinkInfo getPatchSetWebLink(String projectName, String commit) {
     return new WebLinkInfo(name, null, String.format("%s/%s/+/%s", baseUrl,
-        projectName, commit), Target.BLANK);
+        projectName, commit), target);
   }
 
   @Override
   public WebLinkInfo getFileWebLink(String projectName, String revision,
       String fileName) {
     return new WebLinkInfo(name, null, String.format("%s/%s/+/%s/%s", baseUrl,
-        projectName, revision, fileName), Target.BLANK);
+        projectName, revision, fileName), target);
   }
 
   @Override
   public WebLinkInfo getBranchWebLink(String projectName, String branchName) {
     return new WebLinkInfo(name, null, String.format("%s/%s/+/%s", baseUrl,
-        projectName, branchName), Target.BLANK);
+        projectName, branchName), target);
   }
 
   @Override
   public WebLinkInfo getFileHistoryWebLink(String projectName, String revision, String fileName) {
     return new WebLinkInfo(name, null, String.format("%s/%s/+log/%s/%s", baseUrl,
-        projectName, revision, fileName), Target.BLANK);
+        projectName, revision, fileName), target);
   }
 }
