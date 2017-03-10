@@ -36,3 +36,10 @@ The name of the link that appears in Gerrit can be configured with
   [gerrit]
     linkname = browse
 ```
+
+By default gitiles pages are opened in the same window (self), this behaviour is customisable, for example to open in a new window: 
+
+```
+  [gerrit]
+    target = blank
+```
