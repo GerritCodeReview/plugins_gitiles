@@ -1,13 +1,13 @@
-load("//tools/bzl:maven_jar.bzl", "maven_jar", "GERRIT", "MAVEN_CENTRAL")
+load("//tools/bzl:maven_jar.bzl", "maven_jar", "GERRIT", "MAVEN_CENTRAL", "MAVEN_LOCAL")
 
 COMMONMARK_VERSION = '0.6.0'
 
 def external_plugin_deps():
   maven_jar(
     name = 'gitiles_servlet',
-    artifact = 'com.google.gitiles:gitiles-servlet:0.2',
+    artifact = 'com.google.gitiles:gitiles-servlet:0.2-1',
     sha1 = 'e5530e0c53e24aa814c7f83de644be0ae1cbc193',
-    repository = GERRIT,
+    repository = MAVEN_LOCAL,
   )
 
   # prettify must match the version used in Gitiles
