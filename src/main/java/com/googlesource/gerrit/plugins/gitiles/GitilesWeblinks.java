@@ -42,7 +42,7 @@ public class GitilesWeblinks
   public GitilesWeblinks(@PluginName String pluginName, PluginConfigFactory configFactory) {
     Config config = configFactory.getGlobalPluginConfig("gitiles");
     name = MoreObjects.firstNonNull(config.getString("gerrit", null, "linkname"), "browse");
-    baseUrl = "plugins/" + pluginName;
+    baseUrl = "/plugins/" + pluginName;
 
     target = MoreObjects.firstNonNull(config.getString("gerrit", null, "target"), Target.BLANK);
   }
