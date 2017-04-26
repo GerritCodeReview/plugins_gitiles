@@ -15,6 +15,7 @@
 package com.googlesource.gerrit.plugins.gitiles;
 
 import com.google.common.base.MoreObjects;
+import com.google.gerrit.common.Nullable;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.extensions.common.WebLinkInfo;
 import com.google.gerrit.extensions.webui.BranchWebLink;
@@ -23,8 +24,11 @@ import com.google.gerrit.extensions.webui.FileWebLink;
 import com.google.gerrit.extensions.webui.ParentWebLink;
 import com.google.gerrit.extensions.webui.PatchSetWebLink;
 import com.google.gerrit.extensions.webui.ProjectWebLink;
+import com.google.gerrit.server.config.CanonicalWebUrl;
 import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.inject.Inject;
+import java.net.MalformedURLException;
+import java.net.URL;
 import org.eclipse.jgit.lib.Config;
 
 public class GitilesWeblinks
@@ -39,10 +43,23 @@ public class GitilesWeblinks
   private final String target;
 
   @Inject
-  public GitilesWeblinks(@PluginName String pluginName, PluginConfigFactory configFactory) {
+  public GitilesWeblinks(
+      @PluginName String pluginName,
+      @Nullable @CanonicalWebUrl String gerritUrl,
+      PluginConfigFactory configFactory)
+      throws MalformedURLException {
+
+    String baseGerritUrl;
+    if (gerritUrl != null) {
+      URL u = new URL(gerritUrl);
+      baseGerritUrl = u.getPath();
+    } else {
+      baseGerritUrl = "/";
+    }
+
     Config config = configFactory.getGlobalPluginConfig("gitiles");
     name = MoreObjects.firstNonNull(config.getString("gerrit", null, "linkname"), "browse");
-    baseUrl = "plugins/" + pluginName;
+    baseUrl = baseGerritUrl + "plugins/" + pluginName;
 
     target = MoreObjects.firstNonNull(config.getString("gerrit", null, "target"), Target.BLANK);
   }
