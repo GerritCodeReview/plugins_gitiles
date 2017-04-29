@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ada01f2_83e0d35e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GitilesWeblinks.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1015982
+      },
+      "writtenOn": "2017-04-29T08:25:13Z",
+      "side": 1,
+      "message": "If someone were to use a sub folder when hosting Gerrit, I suspect this would also produce the wrong URL. Have seen a similar issue with the plugin manager and the client js references.",
+      "revId": "6e1bdfa2e6fa761a2cd1463b246083dc1f5f0fd3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
