@@ -16,6 +16,24 @@
       "revId": "6e1bdfa2e6fa761a2cd1463b246083dc1f5f0fd3",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "009a9b9e_4223a514",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GitilesWeblinks.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1040243
+      },
+      "writtenOn": "2017-04-29T08:27:54Z",
+      "side": 1,
+      "message": "Yes, I thought of this, there should be a $base url or something similar that is provided by gerrit to make it work.",
+      "parentUuid": "0ada01f2_83e0d35e",
+      "revId": "6e1bdfa2e6fa761a2cd1463b246083dc1f5f0fd3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
