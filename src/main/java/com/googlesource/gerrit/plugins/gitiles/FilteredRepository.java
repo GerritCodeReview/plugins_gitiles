@@ -30,6 +30,7 @@ import com.google.gerrit.server.project.ProjectControl;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import org.eclipse.jgit.attributes.AttributesNodeProvider;
@@ -73,7 +74,7 @@ class FilteredRepository extends Repository {
 
     FilteredRepository create(Project.NameKey name) throws NoSuchProjectException, IOException {
       ProjectControl ctl = projectControlFactory.controlFor(name, userProvider.get());
-      if (!ctl.isVisible()) {
+      if (ctl.isHidden()) {
         throw new NoSuchProjectException(name);
       }
       Repository repo = repoManager.openRepository(name);
@@ -91,7 +92,7 @@ class FilteredRepository extends Repository {
   private FilteredRepository(ProjectControl ctl, Repository delegate, VisibleRefFilter refFilter) {
     super(toBuilder(delegate));
     this.delegate = delegate;
-    if (ctl.allRefsAreVisible()) {
+    if (ctl.allRefsAreVisible(Collections.emptySet())) {
       this.refdb = delegate.getRefDatabase();
     } else {
       this.refdb = new FilteredRefDatabase(delegate.getRefDatabase(), refFilter);

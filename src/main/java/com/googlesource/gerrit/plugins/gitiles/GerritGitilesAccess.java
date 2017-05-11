@@ -22,6 +22,7 @@ import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.IdentifiedUser;
 import com.google.gerrit.server.config.AnonymousCowardName;
+import com.google.gerrit.server.permissions.PermissionBackendException;
 import com.google.gerrit.server.project.ListProjects;
 import com.google.gerrit.server.project.ProjectCache;
 import com.google.gerrit.server.project.ProjectJson;
@@ -106,7 +107,7 @@ class GerritGitilesAccess implements GitilesAccess {
     Map<String, ProjectInfo> projects;
     try {
       projects = lp.apply();
-    } catch (BadRequestException e) {
+    } catch (BadRequestException | PermissionBackendException e) {
       throw new IOException(e);
     }
     Map<String, RepositoryDescription> result = Maps.newLinkedHashMap();
