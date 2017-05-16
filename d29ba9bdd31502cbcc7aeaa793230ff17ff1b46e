@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c4864c13_731440e2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-05-16T20:34:43Z",
+      "side": 1,
+      "message": "Yes, that call to project control was done in the wrong place anyway, as it had little to do with security after all.\n\nGoing instead to apply your suggested approach, more stable in the longer term.",
+      "parentUuid": "ef2e8661_f68e9a12",
+      "revId": "d29ba9bdd31502cbcc7aeaa793230ff17ff1b46e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8ca494fc_1b3f11cb",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2017-05-16T20:16:46Z",
       "side": 1,
       "message": "Obviously this works for now, but long term the goal is to get rid of ProjectControl or at least its public methods. A more thorough cleanup would replace this with a PermissionBackend check for ProjectPermission.READ",
+      "revId": "d29ba9bdd31502cbcc7aeaa793230ff17ff1b46e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f046e7d9_41dcd725",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-05-16T20:34:43Z",
+      "side": 1,
+      "message": "Let me explore this option, need to get more familiar with the new PermissionBackend anyhow ...",
+      "parentUuid": "8ca494fc_1b3f11cb",
       "revId": "d29ba9bdd31502cbcc7aeaa793230ff17ff1b46e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
