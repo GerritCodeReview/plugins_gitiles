@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ef2e8661_f68e9a12",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2017-05-16T20:16:46Z",
+      "side": 1,
+      "message": "See below, long term, ProjectControl is going to go away. This line is not a permission check, so it won\u0027t be replaced with a call to PermissionBackend; instead, it will be something like:\n\n projectCache.checkedGet(name).getProject().getState().equals(ProjectState.HIDDEN)",
+      "revId": "d29ba9bdd31502cbcc7aeaa793230ff17ff1b46e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ca494fc_1b3f11cb",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2017-05-16T20:16:46Z",
+      "side": 1,
+      "message": "Obviously this works for now, but long term the goal is to get rid of ProjectControl or at least its public methods. A more thorough cleanup would replace this with a PermissionBackend check for ProjectPermission.READ",
+      "revId": "d29ba9bdd31502cbcc7aeaa793230ff17ff1b46e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
