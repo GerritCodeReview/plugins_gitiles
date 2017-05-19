@@ -41,3 +41,12 @@ Defaults to `_blank` if not set.
     linkname = gitiles
     target = _self
 ```
+
+The flag `gerrit.noWebLinks` can be set to `true` to run Gitiles without
+adding links in the Gerrit UI. Defaults to `false` if not set, meaning the
+links are added.
+
+```
+  [gerrit]
+    noWebLinks = true
+```
