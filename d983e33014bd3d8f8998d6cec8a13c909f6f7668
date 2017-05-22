@@ -22,6 +22,30 @@
       "revId": "d983e33014bd3d8f8998d6cec8a13c909f6f7668",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "864164c7_66d82975",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/Module.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2017-05-22T07:56:38Z",
+      "side": 1,
+      "message": "It\u0027s like that in the other class too.  I think the reason is core gitiles also expects \"gitiles.config\" rather than anything else, which is what would happen for example if this plugin got renamed.\n\nIf we change this I would prefer to do it in a separate commit.",
+      "parentUuid": "a0e713a6_4058f7af",
+      "range": {
+        "startLine": 54,
+        "startChar": 56,
+        "endLine": 54,
+        "endChar": 65
+      },
+      "revId": "d983e33014bd3d8f8998d6cec8a13c909f6f7668",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
