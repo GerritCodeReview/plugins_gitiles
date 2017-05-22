@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a81bceef_f651a935",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GitilesWeblinks.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-05-22T06:07:43Z",
+      "side": 1,
+      "message": "Can\u0027t we prevent binding instead? Retrieve the plugin configuration in Module\u0027s configure method, and don\u0027t bind this class in noWebLinks case:\n\n  noWebLinks \u003d config.getBoolean(...);\n  if (!noWebLinks) {\n    DynamicSet.bind(binder(), BranchWebLink.class).to(GitilesWeblinks.class);\n    DynamicSet.bind(binder(), FileHistoryWebLink.class).to(GitilesWeblinks.class);\n    DynamicSet.bind(binder(), FileWebLink.class).to(GitilesWeblinks.class);\n    DynamicSet.bind(binder(), ParentWebLink.class).to(GitilesWeblinks.class);\n    DynamicSet.bind(binder(), PatchSetWebLink.class).to(GitilesWeblinks.class);\n    DynamicSet.bind(binder(), ProjectWebLink.class).to(GitilesWeblinks.class);\n  }\n  [...]\n\nThis would allow us to let this class untouched and still support disabling of web links.",
+      "revId": "baf3062963ec4ee1a7531c653172f3d6bf7d1f02",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
