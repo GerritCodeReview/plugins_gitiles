@@ -16,6 +16,24 @@
       "revId": "baf3062963ec4ee1a7531c653172f3d6bf7d1f02",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5ff4df0_f957b7ff",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GitilesWeblinks.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2017-05-22T07:02:27Z",
+      "side": 1,
+      "message": "OK, that would probably be a bit more elegant.  Will do.",
+      "parentUuid": "a81bceef_f651a935",
+      "revId": "baf3062963ec4ee1a7531c653172f3d6bf7d1f02",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
