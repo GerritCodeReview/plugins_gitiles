@@ -25,8 +25,10 @@ import com.google.gerrit.extensions.webui.PatchSetWebLink;
 import com.google.gerrit.extensions.webui.ProjectWebLink;
 import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import org.eclipse.jgit.lib.Config;
 
+@Singleton
 public class GitilesWeblinks
     implements BranchWebLink,
         FileWebLink,

@@ -26,11 +26,13 @@ import com.google.gerrit.extensions.webui.ProjectWebLink;
 import com.google.gerrit.lifecycle.LifecycleModule;
 import com.google.gerrit.server.config.CanonicalWebUrl;
 import com.google.gerrit.server.config.GerritServerConfig;
+import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.gerrit.server.ssh.SshAdvertisedAddresses;
 import com.google.gitiles.ArchiveFormat;
 import com.google.gitiles.DefaultUrls;
 import com.google.gitiles.GitilesAccess;
 import com.google.gitiles.GitilesUrls;
+import com.google.inject.Inject;
 import com.google.inject.Provides;
 import com.google.inject.ProvisionException;
 import com.google.inject.Singleton;
@@ -45,14 +47,24 @@ import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.transport.resolver.RepositoryResolver;
 
 class Module extends LifecycleModule {
+  private final boolean noWebLinks;
+
+  @Inject
+  Module(PluginConfigFactory configFactory) {
+    Config config = configFactory.getGlobalPluginConfig("gitiles");
+    this.noWebLinks = config.getBoolean("gerrit", null, "noWebLinks", false);
+  }
+
   @Override
   protected void configure() {
-    DynamicSet.bind(binder(), BranchWebLink.class).to(GitilesWeblinks.class);
-    DynamicSet.bind(binder(), FileHistoryWebLink.class).to(GitilesWeblinks.class);
-    DynamicSet.bind(binder(), FileWebLink.class).to(GitilesWeblinks.class);
-    DynamicSet.bind(binder(), ParentWebLink.class).to(GitilesWeblinks.class);
-    DynamicSet.bind(binder(), PatchSetWebLink.class).to(GitilesWeblinks.class);
-    DynamicSet.bind(binder(), ProjectWebLink.class).to(GitilesWeblinks.class);
+    if (!noWebLinks) {
+      DynamicSet.bind(binder(), BranchWebLink.class).to(GitilesWeblinks.class);
+      DynamicSet.bind(binder(), FileHistoryWebLink.class).to(GitilesWeblinks.class);
+      DynamicSet.bind(binder(), FileWebLink.class).to(GitilesWeblinks.class);
+      DynamicSet.bind(binder(), ParentWebLink.class).to(GitilesWeblinks.class);
+      DynamicSet.bind(binder(), PatchSetWebLink.class).to(GitilesWeblinks.class);
+      DynamicSet.bind(binder(), ProjectWebLink.class).to(GitilesWeblinks.class);
+    }
     bind(GitilesAccess.Factory.class).to(GerritGitilesAccess.Factory.class);
     bind(new TypeLiteral<RepositoryResolver<HttpServletRequest>>() {}).to(Resolver.class);
     listener().to(Lifecycle.class);
