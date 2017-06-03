@@ -10,6 +10,12 @@ def external_plugin_deps():
     repository = GERRIT,
   )
 
+  # Uncomment to route gitiles-servlet dependency to local repository
+  #native.local_repository(
+  #  name = "gitiles",
+  #  path = "/home/<user>/projects/gitiles",
+  #)
+
   # prettify must match the version used in Gitiles
   maven_jar(
     name = 'prettify',
