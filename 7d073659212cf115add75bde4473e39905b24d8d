@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "03187ec8_771173db",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2017-06-20T10:46:30Z",
+      "side": 1,
+      "message": "isHidden was removed in [1].  This should probably be somehow converted to use PermissionBackend.ForProject\n\n[1] https://gerrit-review.googlesource.com/#/c/105195/",
+      "range": {
+        "startLine": 65,
+        "startChar": 6,
+        "endLine": 67,
+        "endChar": 7
+      },
+      "revId": "7d073659212cf115add75bde4473e39905b24d8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
