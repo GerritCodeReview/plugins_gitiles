@@ -17,14 +17,11 @@ package com.googlesource.gerrit.plugins.gitiles;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
+import com.google.gerrit.extensions.client.ProjectState;
 import com.google.gerrit.reviewdb.client.Project;
-import com.google.gerrit.reviewdb.server.ReviewDb;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.git.GitRepositoryManager;
-import com.google.gerrit.server.git.SearchingChangeCacheImpl;
-import com.google.gerrit.server.git.TagCache;
 import com.google.gerrit.server.git.VisibleRefFilter;
-import com.google.gerrit.server.notedb.ChangeNotes;
 import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.gerrit.server.project.ProjectControl;
 import com.google.inject.Inject;
@@ -46,56 +43,45 @@ import org.eclipse.jgit.lib.StoredConfig;
 
 class FilteredRepository extends Repository {
   static class Factory {
-    private final Provider<ReviewDb> db;
     private final ProjectControl.GenericFactory projectControlFactory;
     private final Provider<CurrentUser> userProvider;
     private final GitRepositoryManager repoManager;
-    private final TagCache tagCache;
-    private final ChangeNotes.Factory changeNotesFactory;
-    private final SearchingChangeCacheImpl changeCache;
+    private final VisibleRefFilter.Factory visibleRefFilterFactory;
 
     @Inject
     Factory(
-        Provider<ReviewDb> db,
         ProjectControl.GenericFactory projectControlFactory,
         Provider<CurrentUser> userProvider,
         GitRepositoryManager repoManager,
-        TagCache tagCache,
-        ChangeNotes.Factory changeNotesFactory,
-        SearchingChangeCacheImpl changeCache) {
-      this.db = db;
+        VisibleRefFilter.Factory visibleRefFilterFactory) {
       this.projectControlFactory = projectControlFactory;
       this.userProvider = userProvider;
       this.repoManager = repoManager;
-      this.tagCache = tagCache;
-      this.changeNotesFactory = changeNotesFactory;
-      this.changeCache = changeCache;
+      this.visibleRefFilterFactory = visibleRefFilterFactory;
     }
 
     FilteredRepository create(Project.NameKey name) throws NoSuchProjectException, IOException {
       ProjectControl ctl = projectControlFactory.controlFor(name, userProvider.get());
-      if (ctl.isHidden()) {
+      if (ctl.getProject().getState().equals(ProjectState.HIDDEN)) {
         throw new NoSuchProjectException(name);
       }
-      Repository repo = repoManager.openRepository(name);
-      return new FilteredRepository(
-          ctl,
-          repo,
-          new VisibleRefFilter(
-              tagCache, changeNotesFactory, changeCache, repo, ctl, db.get(), true));
+      return new FilteredRepository(ctl, repoManager.openRepository(name), visibleRefFilterFactory);
     }
   }
 
   private final Repository delegate;
   private final RefDatabase refdb;
 
-  private FilteredRepository(ProjectControl ctl, Repository delegate, VisibleRefFilter refFilter) {
+  private FilteredRepository(
+      ProjectControl ctl, Repository delegate, VisibleRefFilter.Factory refFilterFactory) {
     super(toBuilder(delegate));
     this.delegate = delegate;
     if (ctl.allRefsAreVisible(Collections.emptySet())) {
       this.refdb = delegate.getRefDatabase();
     } else {
-      this.refdb = new FilteredRefDatabase(delegate.getRefDatabase(), refFilter);
+      this.refdb =
+          new FilteredRefDatabase(
+              delegate.getRefDatabase(), refFilterFactory.create(ctl.getProjectState(), delegate));
     }
   }
 
