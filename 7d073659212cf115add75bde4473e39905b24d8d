@@ -46,6 +46,29 @@
       "revId": "7d073659212cf115add75bde4473e39905b24d8d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4f715958_d7e3536b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2017-06-21T00:21:32Z",
+      "side": 1,
+      "message": "We only need the refFilter here, so we could defer creation to here instead of always creating it at L70.",
+      "range": {
+        "startLine": 83,
+        "startChar": 70,
+        "endLine": 83,
+        "endChar": 79
+      },
+      "revId": "7d073659212cf115add75bde4473e39905b24d8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
