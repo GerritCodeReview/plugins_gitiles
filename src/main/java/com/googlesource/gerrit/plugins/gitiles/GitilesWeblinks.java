@@ -23,6 +23,7 @@ import com.google.gerrit.extensions.webui.FileWebLink;
 import com.google.gerrit.extensions.webui.ParentWebLink;
 import com.google.gerrit.extensions.webui.PatchSetWebLink;
 import com.google.gerrit.extensions.webui.ProjectWebLink;
+import com.google.gerrit.extensions.webui.TagWebLink;
 import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
@@ -35,7 +36,8 @@ public class GitilesWeblinks
         PatchSetWebLink,
         ProjectWebLink,
         FileHistoryWebLink,
-        ParentWebLink {
+        ParentWebLink,
+        TagWebLink {
   private final String name;
   private final String baseUrl;
   private final String target;
@@ -79,6 +81,12 @@ public class GitilesWeblinks
   public WebLinkInfo getBranchWebLink(String projectName, String branchName) {
     return new WebLinkInfo(
         name, null, String.format("%s/%s/+/%s", baseUrl, projectName, branchName), target);
+  }
+
+  @Override
+  public WebLinkInfo getTagWebLink(String projectName, String tagName) {
+    return new WebLinkInfo(
+        name, null, String.format("%s/%s/+/%s", baseUrl, projectName, tagName), target);
   }
 
   @Override
