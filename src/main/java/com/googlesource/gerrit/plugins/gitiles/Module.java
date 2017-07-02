@@ -23,6 +23,7 @@ import com.google.gerrit.extensions.webui.FileWebLink;
 import com.google.gerrit.extensions.webui.ParentWebLink;
 import com.google.gerrit.extensions.webui.PatchSetWebLink;
 import com.google.gerrit.extensions.webui.ProjectWebLink;
+import com.google.gerrit.extensions.webui.TagWebLink;
 import com.google.gerrit.lifecycle.LifecycleModule;
 import com.google.gerrit.server.config.CanonicalWebUrl;
 import com.google.gerrit.server.config.GerritServerConfig;
@@ -64,6 +65,7 @@ class Module extends LifecycleModule {
       DynamicSet.bind(binder(), ParentWebLink.class).to(GitilesWeblinks.class);
       DynamicSet.bind(binder(), PatchSetWebLink.class).to(GitilesWeblinks.class);
       DynamicSet.bind(binder(), ProjectWebLink.class).to(GitilesWeblinks.class);
+      DynamicSet.bind(binder(), TagWebLink.class).to(GitilesWeblinks.class);
     }
     bind(GitilesAccess.Factory.class).to(GerritGitilesAccess.Factory.class);
     bind(new TypeLiteral<RepositoryResolver<HttpServletRequest>>() {}).to(Resolver.class);
