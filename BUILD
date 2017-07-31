@@ -1,4 +1,4 @@
-load("//tools/bzl:plugin.bzl", "gerrit_plugin")
+load("//tools/bzl:plugin.bzl", "gerrit_plugin", "PLUGIN_DEPS_NEVERLINK")
 
 genrule(
     name = "gitiles",
@@ -36,6 +36,14 @@ gerrit_plugin(
     resources = glob(["src/main/resources/**/*"]),
     target_suffix = "__base",
     deps = [
+        ":gitiles__plugin_deps",
+    ],
+)
+
+java_library(
+    name = "gitiles__plugin_deps",
+    visibility = ["//visibility:public"],
+    exports = PLUGIN_DEPS_NEVERLINK + [
         "@autolink//jar",
         "@cm_autolink//jar",
         "@commonmark//jar",
@@ -43,5 +51,15 @@ gerrit_plugin(
         "@gfm_tables//jar",
         "@gitiles_servlet//jar",
         "@prettify//jar",
+    ],
+)
+
+java_library(
+    name = "gitiles__classpath_deps",
+    testonly = 1,
+    visibility = ["//visibility:public"],
+    exports = [
+        ":gitiles__plugin",
+        ":gitiles__plugin_deps",
     ],
 )
