@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "33385b0e_eb4c61e0",
+        "filename": "src/main/resources/+Documentation/build.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-08-01T13:19:41Z",
+      "side": 1,
+      "message": "Should this rather be \"base\" (java_library rule)? Or does \"plugin\" (genrule rule) works too? What the unzip command on the final artefact shows?",
+      "range": {
+        "startLine": 30,
+        "startChar": 27,
+        "endLine": 30,
+        "endChar": 33
+      },
+      "revId": "9854f68fa2b7e57ec1fb03176d6b671141a1ac36",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
