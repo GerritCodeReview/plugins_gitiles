@@ -22,6 +22,30 @@
       "revId": "9854f68fa2b7e57ec1fb03176d6b671141a1ac36",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6aa0b45_065779cf",
+        "filename": "src/main/resources/+Documentation/build.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1019328
+      },
+      "writtenOn": "2017-08-01T13:25:55Z",
+      "side": 1,
+      "message": "It works with plugin. The final artifact contains the plugin source code.",
+      "parentUuid": "33385b0e_eb4c61e0",
+      "range": {
+        "startLine": 30,
+        "startChar": 27,
+        "endLine": 30,
+        "endChar": 33
+      },
+      "revId": "9854f68fa2b7e57ec1fb03176d6b671141a1ac36",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
