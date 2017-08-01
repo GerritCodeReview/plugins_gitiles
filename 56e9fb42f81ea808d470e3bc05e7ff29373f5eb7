@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a8f545d_15d6711e",
+        "filename": "BUILD",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-08-01T11:33:35Z",
+      "side": 1,
+      "message": "Why was the added here? gerrit_plugin() adds it on its own (in gerrit core and in bazlets version(\n\n  native.java_library(\n    name \u003d name + \u0027__plugin\u0027,\n    srcs \u003d srcs,\n    resources \u003d resources,\n    deps \u003d provided_deps + deps + gwt_deps + PLUGIN_DEPS_NEVERLINK,\n    visibility \u003d [\u0027//visibility:public\u0027],\n    **kwargs\n  )\n\nand classpath generation machinery mentions the PLUGIN_DEPS constant (without never link bit).",
+      "range": {
+        "startLine": 46,
+        "startChar": 14,
+        "endLine": 46,
+        "endChar": 35
+      },
+      "revId": "56e9fb42f81ea808d470e3bc05e7ff29373f5eb7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
