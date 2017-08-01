@@ -46,6 +46,30 @@
       "revId": "9854f68fa2b7e57ec1fb03176d6b671141a1ac36",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6c215637_dec37b22",
+        "filename": "src/main/resources/+Documentation/build.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-08-01T13:39:41Z",
+      "side": 1,
+      "message": "Never mind. I was wrong. target suffix is added to only final plugin artefact, (genrule that merges stamping infos). The intermediate artefact has suffix \"__plugin\", so this is correct also for plugins with target_suffix:\n\n  native.java_library(\n    name \u003d name + \u0027__plugin\u0027,\n    srcs \u003d srcs,\n    resources \u003d resources,\n    deps \u003d provided_deps + deps + gwt_deps + PLUGIN_DEPS_NEVERLINK,\n    visibility \u003d [\u0027//visibility:public\u0027],\n    **kwargs\n  )",
+      "parentUuid": "b6aa0b45_065779cf",
+      "range": {
+        "startLine": 30,
+        "startChar": 27,
+        "endLine": 30,
+        "endChar": 33
+      },
+      "revId": "9854f68fa2b7e57ec1fb03176d6b671141a1ac36",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
