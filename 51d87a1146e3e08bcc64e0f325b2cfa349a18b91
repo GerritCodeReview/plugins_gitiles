@@ -46,6 +46,30 @@
       "revId": "51d87a1146e3e08bcc64e0f325b2cfa349a18b91",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8868aa5_d91d6676",
+        "filename": "BUILD",
+        "patchSetId": 7
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-08-01T12:21:14Z",
+      "side": 1,
+      "message": "OK. Let it as is then.",
+      "parentUuid": "54b3f9e6_90809d47",
+      "range": {
+        "startLine": 62,
+        "startChar": 9,
+        "endLine": 62,
+        "endChar": 25
+      },
+      "revId": "51d87a1146e3e08bcc64e0f325b2cfa349a18b91",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
