@@ -1,10 +1,7 @@
-/bucklets
-/target
-/.buckversion
 /.classpath
+/.primary_build_tool
 /.project
 /.settings/org.maven.ide.eclipse.prefs
 /.settings/org.eclipse.m2e.core.prefs
-/.buckd
-/.watchmanconfig
-/buck-out
+/bazel-*
+/eclipse-out/
