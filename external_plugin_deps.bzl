@@ -18,6 +18,7 @@ def external_plugin_deps():
     repository = GERRIT,
   )
 
+  # commonmark must match the version used in Gitiles
   maven_jar(
     name = 'commonmark',
     artifact = 'com.atlassian.commonmark:commonmark:' + COMMONMARK_VERSION,
