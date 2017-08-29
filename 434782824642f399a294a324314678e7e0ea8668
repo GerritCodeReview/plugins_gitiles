@@ -70,6 +70,30 @@
       "revId": "434782824642f399a294a324314678e7e0ea8668",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b83efb1_7648092e",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001240
+      },
+      "writtenOn": "2017-08-29T02:14:07Z",
+      "side": 1,
+      "message": "Here is what I have for gitiles-servlet:\n\n* 0.2-3 \u003d 0d187e12c2b80bd50f4f86035962b282c23d96f9\n* 0.2-4 \u003d 0d187e12c2b80bd50f4f86035962b282c23d96f9\n\nBoth came from `tools/maven/mvn.sh install` and then running openssl sha1 on the files in my `~/.m2/repository` directory.",
+      "parentUuid": "dad43cd1_5c755fa6",
+      "range": {
+        "startLine": 9,
+        "startChar": 12,
+        "endLine": 9,
+        "endChar": 52
+      },
+      "revId": "434782824642f399a294a324314678e7e0ea8668",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
