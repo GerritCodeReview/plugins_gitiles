@@ -46,6 +46,30 @@
       "revId": "434782824642f399a294a324314678e7e0ea8668",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dad43cd1_5c755fa6",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2017-08-29T01:54:10Z",
+      "side": 1,
+      "message": "What do you get if you build 0.2-3?\n\nI found that the sha1 for blame-cache artifact changed for 0.2-4.\n\nI don\u0027t understand why it\u0027s resulting in the same sha1 for gitiles-servlet for both 0.2-3 and 0.2-4.",
+      "parentUuid": "4b3e666b_d92d04d4",
+      "range": {
+        "startLine": 9,
+        "startChar": 12,
+        "endLine": 9,
+        "endChar": 52
+      },
+      "revId": "434782824642f399a294a324314678e7e0ea8668",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
