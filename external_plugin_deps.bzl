@@ -13,9 +13,8 @@ def external_plugin_deps():
   # prettify must match the version used in Gitiles
   maven_jar(
     name = 'prettify',
-    artifact = 'prettify:java-prettify:1.2.1',
-    sha1 = '29ad8d072f9d0b83d1a2e9aa6ccb0905e6d543c6',
-    repository = GERRIT,
+    artifact = 'com.github.twalcari:java-prettify:1.2.2',
+    sha1 = 'b8ba1c1eb8b2e45cfd465d01218c6060e887572e',
   )
 
   # commonmark must match the version used in Gitiles
