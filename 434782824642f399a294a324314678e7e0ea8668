@@ -94,6 +94,30 @@
       "revId": "434782824642f399a294a324314678e7e0ea8668",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ae3a9c3_e82f7a68",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2017-08-29T02:43:48Z",
+      "side": 1,
+      "message": "\u003e Here is what I have for gitiles-servlet\n\nOK, so you also get the same sha1 for both versions, but it\u0027s different to the sha1 that I get. That\u0027s strange.\n\ndfba4b00f748e579797aadb3fd3b2fd5c85c45ed is the sha1 of 0.2-3 that was deployed to the google bucket by Masaya Suzuki.\n\n\u003e Both came from `tools/maven/mvn.sh install` and then running openssl sha1 on the files in my `~/.m2/repository` directory.\n\nThis is also how I did it.",
+      "parentUuid": "8b83efb1_7648092e",
+      "range": {
+        "startLine": 9,
+        "startChar": 12,
+        "endLine": 9,
+        "endChar": 52
+      },
+      "revId": "434782824642f399a294a324314678e7e0ea8668",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
