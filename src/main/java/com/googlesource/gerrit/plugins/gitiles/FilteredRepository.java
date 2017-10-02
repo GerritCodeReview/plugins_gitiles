@@ -18,18 +18,22 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 import com.google.gerrit.extensions.client.ProjectState;
+import com.google.gerrit.extensions.restapi.AuthException;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.git.GitRepositoryManager;
 import com.google.gerrit.server.git.VisibleRefFilter;
+import com.google.gerrit.server.permissions.PermissionBackend;
+import com.google.gerrit.server.permissions.PermissionBackendException;
+import com.google.gerrit.server.permissions.ProjectPermission;
 import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.gerrit.server.project.ProjectControl;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import java.io.IOException;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+
 import org.eclipse.jgit.attributes.AttributesNodeProvider;
 import org.eclipse.jgit.lib.ObjectDatabase;
 import org.eclipse.jgit.lib.Ref;
@@ -47,17 +51,20 @@ class FilteredRepository extends Repository {
     private final Provider<CurrentUser> userProvider;
     private final GitRepositoryManager repoManager;
     private final VisibleRefFilter.Factory visibleRefFilterFactory;
+    private final PermissionBackend permissionBackend;
 
     @Inject
     Factory(
         ProjectControl.GenericFactory projectControlFactory,
         Provider<CurrentUser> userProvider,
         GitRepositoryManager repoManager,
-        VisibleRefFilter.Factory visibleRefFilterFactory) {
+        VisibleRefFilter.Factory visibleRefFilterFactory,
+        PermissionBackend permissionBackend) {
       this.projectControlFactory = projectControlFactory;
       this.userProvider = userProvider;
       this.repoManager = repoManager;
       this.visibleRefFilterFactory = visibleRefFilterFactory;
+      this.permissionBackend = permissionBackend;
     }
 
     FilteredRepository create(Project.NameKey name) throws NoSuchProjectException, IOException {
@@ -65,7 +72,8 @@ class FilteredRepository extends Repository {
       if (ctl.getProject().getState().equals(ProjectState.HIDDEN)) {
         throw new NoSuchProjectException(name);
       }
-      return new FilteredRepository(ctl, repoManager.openRepository(name), visibleRefFilterFactory);
+      return new FilteredRepository(ctl, repoManager.openRepository(name), visibleRefFilterFactory,
+          permissionBackend);
     }
   }
 
@@ -73,10 +81,22 @@ class FilteredRepository extends Repository {
   private final RefDatabase refdb;
 
   private FilteredRepository(
-      ProjectControl ctl, Repository delegate, VisibleRefFilter.Factory refFilterFactory) {
+      ProjectControl ctl, Repository delegate, VisibleRefFilter.Factory refFilterFactory,
+      PermissionBackend permissionBackend)
+      throws IOException {
     super(toBuilder(delegate));
     this.delegate = delegate;
-    if (ctl.allRefsAreVisible(Collections.emptySet())) {
+    boolean visible = true;
+    try {
+      permissionBackend.user(ctl.getUser()).
+          project(ctl.getProject().getNameKey()).check(ProjectPermission.READ);
+    } catch (AuthException e) {
+      visible = false;
+    } catch (PermissionBackendException e) {
+      throw new IOException(e);
+    }
+
+    if (visible) {
       this.refdb = delegate.getRefDatabase();
     } else {
       this.refdb =
