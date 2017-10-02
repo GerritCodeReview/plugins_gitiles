@@ -14,16 +14,22 @@
 
 package com.googlesource.gerrit.plugins.gitiles;
 
+import static com.google.gerrit.extensions.client.ProjectState.HIDDEN;
+
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
-import com.google.gerrit.extensions.client.ProjectState;
+import com.google.gerrit.extensions.restapi.AuthException;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.git.GitRepositoryManager;
 import com.google.gerrit.server.git.VisibleRefFilter;
+import com.google.gerrit.server.permissions.PermissionBackend;
+import com.google.gerrit.server.permissions.PermissionBackendException;
+import com.google.gerrit.server.permissions.ProjectPermission;
 import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.gerrit.server.project.ProjectControl;
+import com.google.gerrit.server.project.ProjectState;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import java.io.IOException;
@@ -40,32 +46,43 @@ import org.eclipse.jgit.lib.ReflogReader;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.lib.RepositoryBuilder;
 import org.eclipse.jgit.lib.StoredConfig;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class FilteredRepository extends Repository {
+  private static final Logger log = LoggerFactory.getLogger(FilteredRepository.class);
+
   static class Factory {
     private final ProjectControl.GenericFactory projectControlFactory;
     private final Provider<CurrentUser> userProvider;
     private final GitRepositoryManager repoManager;
     private final VisibleRefFilter.Factory visibleRefFilterFactory;
+    private final PermissionBackend permissionBackend;
+    private final ProjectState projectState;
 
     @Inject
     Factory(
         ProjectControl.GenericFactory projectControlFactory,
         Provider<CurrentUser> userProvider,
         GitRepositoryManager repoManager,
-        VisibleRefFilter.Factory visibleRefFilterFactory) {
+        VisibleRefFilter.Factory visibleRefFilterFactory,
+        PermissionBackend permissionBackend,
+        ProjectState projectState) {
       this.projectControlFactory = projectControlFactory;
       this.userProvider = userProvider;
       this.repoManager = repoManager;
       this.visibleRefFilterFactory = visibleRefFilterFactory;
+      this.permissionBackend = permissionBackend;
+      this.projectState = projectState;
     }
 
     FilteredRepository create(Project.NameKey name) throws NoSuchProjectException, IOException {
       ProjectControl ctl = projectControlFactory.controlFor(name, userProvider.get());
-      if (ctl.getProject().getState().equals(ProjectState.HIDDEN)) {
+      if (ctl.getProject().getState().equals(HIDDEN)) {
         throw new NoSuchProjectException(name);
       }
-      return new FilteredRepository(ctl, repoManager.openRepository(name), visibleRefFilterFactory);
+      return new FilteredRepository(ctl, repoManager.openRepository(name), visibleRefFilterFactory,
+          userProvider, permissionBackend, projectState);
     }
   }
 
@@ -73,16 +90,39 @@ class FilteredRepository extends Repository {
   private final RefDatabase refdb;
 
   private FilteredRepository(
-      ProjectControl ctl, Repository delegate, VisibleRefFilter.Factory refFilterFactory) {
+      ProjectControl ctl, Repository delegate, VisibleRefFilter.Factory refFilterFactory,
+      Provider<CurrentUser> userProvider, PermissionBackend permissionBackend,
+      ProjectState projectState) {
     super(toBuilder(delegate));
     this.delegate = delegate;
-    if (ctl.allRefsAreVisible(Collections.emptySet())) {
+
+    PermissionBackend.WithUser withUser = permissionBackend.user(userProvider);
+    PermissionBackend.ForProject forProject = withUser.project(projectState.getNameKey());
+    if (checkProjectPermission(forProject, ProjectPermission.READ, userProvider, projectState)) {
       this.refdb = delegate.getRefDatabase();
     } else {
       this.refdb =
           new FilteredRefDatabase(
               delegate.getRefDatabase(), refFilterFactory.create(ctl.getProjectState(), delegate));
     }
+  }
+
+  private boolean checkProjectPermission(
+      PermissionBackend.ForProject forProject, ProjectPermission perm, Provider<CurrentUser> userProvider,
+      ProjectState projectState) {
+    try {
+      forProject.check(perm);
+    } catch (AuthException e) {
+      return false;
+    } catch (PermissionBackendException e) {
+      log.error(
+          String.format(
+              "Can't check permission for user %s on project %s",
+              userProvider.get(), projectState.getName()),
+          e);
+      return false;
+    }
+    return true;
   }
 
   private static RepositoryBuilder toBuilder(Repository repo) {
