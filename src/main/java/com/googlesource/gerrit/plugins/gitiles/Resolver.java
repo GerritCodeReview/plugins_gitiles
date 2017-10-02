@@ -18,6 +18,7 @@ import static com.google.common.base.Preconditions.checkState;
 
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.CurrentUser;
+import com.google.gerrit.server.permissions.PermissionBackendException;
 import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -68,7 +69,7 @@ class Resolver implements RepositoryResolver<HttpServletRequest> {
       // Avoid leaking information by not distinguishing between
       // project not existing and no access rights.
       throw new ServiceNotAuthorizedException();
-    } catch (IOException e) {
+    } catch (IOException | PermissionBackendException e) {
       ServiceMayNotContinueException err =
           new ServiceMayNotContinueException("error opening repository " + name);
       err.initCause(e);
