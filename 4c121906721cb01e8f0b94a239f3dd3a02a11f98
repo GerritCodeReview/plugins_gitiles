@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10c422ff_02c1d8e8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1019939
+      },
+      "writtenOn": "2017-10-04T08:10:59Z",
+      "side": 1,
+      "message": "just a suggestion,\n\n    boolean visible \u003d true;\n    try {\n      permissionBackend.user(ctl.getUser()).\n          project(ctl.getProject().getNameKey()).check(ProjectPermission.READ);\n    } catch (AuthException e) {\n      visible \u003d false;\n    } catch (PermissionBackendException e) {\n      throw new IOException(e);\n    }\n\n    if (visible) {",
+      "revId": "4c121906721cb01e8f0b94a239f3dd3a02a11f98",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
