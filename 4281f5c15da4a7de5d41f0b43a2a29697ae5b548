@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c21671f5_fe6b3f97",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-10-09T23:21:30Z",
+      "side": 1,
+      "message": "This has nothing to do with an I/O error and we shouldn\u0027t hijack it for the sake of avoiding to propagate a permission backend problem.",
+      "range": {
+        "startLine": 99,
+        "startChar": 6,
+        "endLine": 99,
+        "endChar": 31
+      },
+      "revId": "4281f5c15da4a7de5d41f0b43a2a29697ae5b548",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
