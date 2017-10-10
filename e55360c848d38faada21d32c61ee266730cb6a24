@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "40626472_1546f7c2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2017-10-10T06:45:24Z",
+      "side": 1,
+      "message": "Don\u0027t pass in ProjectControl here, but pass CurrentUser and Project.NameKey instead. Please also remove the factory call from the caller of this method.",
+      "range": {
+        "startLine": 84,
+        "startChar": 6,
+        "endLine": 84,
+        "endChar": 25
+      },
+      "revId": "e55360c848d38faada21d32c61ee266730cb6a24",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
