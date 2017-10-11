@@ -46,6 +46,30 @@
       "revId": "e55360c848d38faada21d32c61ee266730cb6a24",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1713a8b3_1e157b20",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2017-10-11T06:46:09Z",
+      "side": 1,
+      "message": "Yeah no worries, I\u0027ll follow up this week!",
+      "parentUuid": "338e3f79_f360610f",
+      "range": {
+        "startLine": 84,
+        "startChar": 6,
+        "endLine": 84,
+        "endChar": 25
+      },
+      "revId": "e55360c848d38faada21d32c61ee266730cb6a24",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
