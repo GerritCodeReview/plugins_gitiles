@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ceca9ced_f8628af8",
+        "filename": "WORKSPACE",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2017-10-18T11:32:37Z",
+      "side": 1,
+      "message": "Revert this after the bazlets change is merged.",
+      "revId": "b5edc8acb44c7d56b2c953290f0f5b9b7a7116d6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
