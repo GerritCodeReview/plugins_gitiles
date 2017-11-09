@@ -17,7 +17,7 @@ package com.googlesource.gerrit.plugins.gitiles;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
-import com.google.gerrit.extensions.client.ProjectState;
+// import com.google.gerrit.extensions.client.ProjectState;
 import com.google.gerrit.extensions.restapi.AuthException;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.CurrentUser;
@@ -27,7 +27,9 @@ import com.google.gerrit.server.permissions.PermissionBackend;
 import com.google.gerrit.server.permissions.PermissionBackendException;
 import com.google.gerrit.server.permissions.ProjectPermission;
 import com.google.gerrit.server.project.NoSuchProjectException;
-import com.google.gerrit.server.project.ProjectControl;
+// import com.google.gerrit.server.project.ProjectControl;
+import com.google.gerrit.server.project.ProjectCache;
+import com.google.gerrit.server.project.ProjectState;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import java.io.IOException;
@@ -46,21 +48,21 @@ import org.eclipse.jgit.lib.StoredConfig;
 
 class FilteredRepository extends Repository {
   static class Factory {
-    private final ProjectControl.GenericFactory projectControlFactory;
     private final Provider<CurrentUser> userProvider;
+    private final ProjectCache projectCache;
     private final GitRepositoryManager repoManager;
     private final VisibleRefFilter.Factory visibleRefFilterFactory;
     private final PermissionBackend permissionBackend;
 
     @Inject
     Factory(
-        ProjectControl.GenericFactory projectControlFactory,
+        ProjectCache projectCache,
         Provider<CurrentUser> userProvider,
         GitRepositoryManager repoManager,
         VisibleRefFilter.Factory visibleRefFilterFactory,
         PermissionBackend permissionBackend) {
-      this.projectControlFactory = projectControlFactory;
       this.userProvider = userProvider;
+      this.projectCache = projectCache;
       this.repoManager = repoManager;
       this.visibleRefFilterFactory = visibleRefFilterFactory;
       this.permissionBackend = permissionBackend;
@@ -68,12 +70,12 @@ class FilteredRepository extends Repository {
 
     FilteredRepository create(Project.NameKey name)
         throws NoSuchProjectException, IOException, PermissionBackendException {
-      ProjectControl ctl = projectControlFactory.controlFor(name, userProvider.get());
-      if (ctl.getProject().getState().equals(ProjectState.HIDDEN)) {
+      ProjectState projectState = projectCache.checkedGet(name);
+      if (projectState.getProject().getState() ==com.google.gerrit.extensions.client.ProjectState.HIDDEN) {
         throw new NoSuchProjectException(name);
       }
       return new FilteredRepository(
-          ctl, repoManager.openRepository(name), visibleRefFilterFactory, permissionBackend);
+          projectState, userProvider.get(), repoManager.openRepository(name), visibleRefFilterFactory, permissionBackend);
     }
   }
 
@@ -81,7 +83,8 @@ class FilteredRepository extends Repository {
   private final RefDatabase refdb;
 
   private FilteredRepository(
-      ProjectControl ctl,
+      ProjectState projectState,
+      CurrentUser user,
       Repository delegate,
       VisibleRefFilter.Factory refFilterFactory,
       PermissionBackend permissionBackend)
@@ -91,8 +94,8 @@ class FilteredRepository extends Repository {
     boolean visible = true;
     try {
       permissionBackend
-          .user(ctl.getUser())
-          .project(ctl.getProject().getNameKey())
+          .user(user)
+          .project(projectState.getNameKey())
           .check(ProjectPermission.READ);
     } catch (AuthException e) {
       visible = false;
@@ -101,9 +104,10 @@ class FilteredRepository extends Repository {
     if (visible) {
       this.refdb = delegate.getRefDatabase();
     } else {
+
       this.refdb =
           new FilteredRefDatabase(
-              delegate.getRefDatabase(), refFilterFactory.create(ctl.getProjectState(), delegate));
+              delegate.getRefDatabase(), refFilterFactory.create(projectState, delegate));
     }
   }
 
