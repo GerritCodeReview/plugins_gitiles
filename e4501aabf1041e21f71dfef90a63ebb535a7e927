@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3867d4ff_af1585c5",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1056386
+      },
+      "writtenOn": "2017-11-10T00:58:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a78b850a_7cea1606",
+      "revId": "e4501aabf1041e21f71dfef90a63ebb535a7e927",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d67587e_3e643242",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "e4501aabf1041e21f71dfef90a63ebb535a7e927",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5781f731_43b0799c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1056386
+      },
+      "writtenOn": "2017-11-10T00:58:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d67587e_3e643242",
+      "revId": "e4501aabf1041e21f71dfef90a63ebb535a7e927",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -75,6 +111,54 @@
         "startChar": 47,
         "endLine": 74,
         "endChar": 49
+      },
+      "revId": "e4501aabf1041e21f71dfef90a63ebb535a7e927",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94f36613_9208aa46",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1056386
+      },
+      "writtenOn": "2017-11-10T00:58:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b42dc97_634fc8ca",
+      "range": {
+        "startLine": 74,
+        "startChar": 47,
+        "endLine": 74,
+        "endChar": 49
+      },
+      "revId": "e4501aabf1041e21f71dfef90a63ebb535a7e927",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b05fffcd_0d0f48c8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1056386
+      },
+      "writtenOn": "2017-11-10T00:58:05Z",
+      "side": 1,
+      "message": "plugins/gitiles/src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java:72: error: cannot find symbol\n      if (projectState.getProject().getState() \u003d\u003d ProjectState.HIDDEN)\n--------------------------------------------------------------------\ncan not only use ProjectState.HIDDEN,there is no com.google.gerrit.extensions.client.ProjectState imported",
+      "parentUuid": "32573810_d50bf8e1",
+      "range": {
+        "startLine": 74,
+        "startChar": 49,
+        "endLine": 74,
+        "endChar": 104
       },
       "revId": "e4501aabf1041e21f71dfef90a63ebb535a7e927",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
