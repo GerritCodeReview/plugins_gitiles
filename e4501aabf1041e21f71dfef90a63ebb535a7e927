@@ -187,6 +187,30 @@
       "revId": "e4501aabf1041e21f71dfef90a63ebb535a7e927",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24703541_ad35ed00",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1056386
+      },
+      "writtenOn": "2017-11-10T03:14:06Z",
+      "side": 1,
+      "message": "you mean \u003d\u003e if (projectState.getProject().getState().permitsRead() \u003d\u003d false)\nseems this is better.",
+      "parentUuid": "a467c428_8da831c9",
+      "range": {
+        "startLine": 74,
+        "startChar": 49,
+        "endLine": 74,
+        "endChar": 104
+      },
+      "revId": "e4501aabf1041e21f71dfef90a63ebb535a7e927",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
