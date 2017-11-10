@@ -163,6 +163,30 @@
       "revId": "e4501aabf1041e21f71dfef90a63ebb535a7e927",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a467c428_8da831c9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2017-11-10T01:27:13Z",
+      "side": 1,
+      "message": "Ah, sorry, I didn\u0027t realise they were different ProjectState classes.\n\nHow about using:\n\n projectState.getProject().getState().permitsRead()\n\n?",
+      "parentUuid": "b05fffcd_0d0f48c8",
+      "range": {
+        "startLine": 74,
+        "startChar": 49,
+        "endLine": 74,
+        "endChar": 104
+      },
+      "revId": "e4501aabf1041e21f71dfef90a63ebb535a7e927",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
