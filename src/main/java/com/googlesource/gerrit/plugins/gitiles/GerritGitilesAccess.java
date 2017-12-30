@@ -32,13 +32,17 @@ import com.google.gitiles.GitilesUrls;
 import com.google.gitiles.RepositoryDescription;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
+import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 import org.eclipse.jgit.errors.RepositoryNotFoundException;
+import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.eclipse.jgit.lib.Config;
+import org.eclipse.jgit.storage.file.FileBasedConfig;
+import org.eclipse.jgit.util.FS;
 import org.eclipse.jgit.transport.resolver.ServiceNotAuthorizedException;
 import org.eclipse.jgit.transport.resolver.ServiceNotEnabledException;
 
@@ -128,6 +132,19 @@ class GerritGitilesAccess implements GitilesAccess {
     return desc;
   }
 
+  private Config getGlobalConfig() throws IOException, ConfigInvalidException {
+    File sitePath = new File(".").getAbsoluteFile();
+    if (".".equals(sitePath.getName())) {
+      sitePath = sitePath.getParentFile();
+    }
+    FileBasedConfig cfg = new FileBasedConfig(new File(sitePath, "etc/gitiles.config"), FS.DETECTED);
+    if (cfg.getFile().exists()) {
+      cfg.load();
+    }
+
+    return cfg;
+  }
+
   @Override
   public Object getUserKey() {
     CurrentUser user = userProvider.get();
@@ -156,20 +173,26 @@ class GerritGitilesAccess implements GitilesAccess {
   public Config getConfig() throws IOException {
     // Try to get a gitiles.config file from the refs/meta/config branch
     // of the project. For non-project access, use All-Projects as project.
+    // If none of the above exists, use global gitiles.config.
     Project.NameKey nameKey = Resolver.getNameKey(req);
     ProjectState state = projectCache.get(nameKey);
     if (state != null) {
       Config cfg = state.getConfig("gitiles.config").getWithInheritance();
-      if (cfg != null) {
+      if (cfg != null && cfg.getSections().size() > 0) {
         return cfg;
       }
     } else {
       state = projectCache.getAllProjects();
       Config cfg = state.getConfig("gitiles.config").get();
-      if (cfg != null) {
+      if (cfg != null && cfg.getSections().size() > 0) {
         return cfg;
       }
     }
+
+    try {
+      return getGlobalConfig();
+    } catch (Exception e) {}
+
     return new Config();
   }
 }
