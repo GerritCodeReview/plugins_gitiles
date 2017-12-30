@@ -21,6 +21,7 @@ import com.google.gerrit.extensions.restapi.BadRequestException;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.IdentifiedUser;
+import com.google.gerrit.server.config.SitePaths;
 import com.google.gerrit.server.config.AnonymousCowardName;
 import com.google.gerrit.server.permissions.PermissionBackendException;
 import com.google.gerrit.server.project.ListProjects;
@@ -32,13 +33,17 @@ import com.google.gitiles.GitilesUrls;
 import com.google.gitiles.RepositoryDescription;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
+import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 import org.eclipse.jgit.errors.RepositoryNotFoundException;
+import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.eclipse.jgit.lib.Config;
+import org.eclipse.jgit.storage.file.FileBasedConfig;
+import org.eclipse.jgit.util.FS;
 import org.eclipse.jgit.transport.resolver.ServiceNotAuthorizedException;
 import org.eclipse.jgit.transport.resolver.ServiceNotEnabledException;
 
@@ -50,6 +55,7 @@ class GerritGitilesAccess implements GitilesAccess {
     private final ProjectJson projectJson;
     private final Provider<ListProjects> listProjects;
     private final GitilesUrls urls;
+    private final SitePaths site;
     private final Provider<CurrentUser> userProvider;
     private final String anonymousCowardName;
 
@@ -59,12 +65,14 @@ class GerritGitilesAccess implements GitilesAccess {
         ProjectJson projectJson,
         Provider<ListProjects> listProjects,
         GitilesUrls urls,
+        SitePaths site,
         Provider<CurrentUser> userProvider,
         @AnonymousCowardName String anonymousCowardName) {
       this.projectCache = projectCache;
       this.projectJson = projectJson;
       this.listProjects = listProjects;
       this.urls = urls;
+      this.site = site;
       this.userProvider = userProvider;
       this.anonymousCowardName = anonymousCowardName;
     }
@@ -79,6 +87,7 @@ class GerritGitilesAccess implements GitilesAccess {
   private final ProjectJson projectJson;
   private final Provider<ListProjects> listProjects;
   private final GitilesUrls urls;
+  private final SitePaths site;
   private final Provider<CurrentUser> userProvider;
   private final String anonymousCowardName;
   private final HttpServletRequest req;
@@ -89,6 +98,7 @@ class GerritGitilesAccess implements GitilesAccess {
     this.projectJson = factory.projectJson;
     this.listProjects = factory.listProjects;
     this.urls = factory.urls;
+    this.site = factory.site;
     this.userProvider = factory.userProvider;
     this.anonymousCowardName = factory.anonymousCowardName;
     this.req = req;
@@ -128,6 +138,20 @@ class GerritGitilesAccess implements GitilesAccess {
     return desc;
   }
 
+  private Config getGlobalConfig() throws IOException {
+    File cfgFile = site.etc_dir.resolve("gitiles.config").toFile();
+    FileBasedConfig cfg = new FileBasedConfig(cfgFile, FS.DETECTED);
+    try {
+      if (cfg.getFile().exists()) {
+        cfg.load();
+      }
+    } catch (ConfigInvalidException e) {
+      throw new IOException(e);
+    }
+
+    return cfg;
+  }
+
   @Override
   public Object getUserKey() {
     CurrentUser user = userProvider.get();
@@ -156,20 +180,22 @@ class GerritGitilesAccess implements GitilesAccess {
   public Config getConfig() throws IOException {
     // Try to get a gitiles.config file from the refs/meta/config branch
     // of the project. For non-project access, use All-Projects as project.
+    // If none of the above exists, use global gitiles.config.
     Project.NameKey nameKey = Resolver.getNameKey(req);
     ProjectState state = projectCache.get(nameKey);
     if (state != null) {
       Config cfg = state.getConfig("gitiles.config").getWithInheritance();
-      if (cfg != null) {
+      if (cfg != null && cfg.getSections().size() > 0) {
         return cfg;
       }
     } else {
       state = projectCache.getAllProjects();
       Config cfg = state.getConfig("gitiles.config").get();
-      if (cfg != null) {
+      if (cfg != null && cfg.getSections().size() > 0) {
         return cfg;
       }
     }
-    return new Config();
+
+    return getGlobalConfig();
   }
 }
