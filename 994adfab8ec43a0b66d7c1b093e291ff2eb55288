@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c1e22f9e_3826a208",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GerritGitilesAccess.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2018-01-01T23:42:34Z",
+      "side": 1,
+      "message": "can\u0027t you inject SitePaths like e.g. in\nhttps://gerrit.googlesource.com/plugins/replication/+/refs/heads/master/src/main/java/com/googlesource/gerrit/plugins/replication/Init.java#35\nand then use sitePaths.etc_dir ?",
+      "revId": "994adfab8ec43a0b66d7c1b093e291ff2eb55288",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1aa2acd4_4a80c3b7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GerritGitilesAccess.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2018-01-01T23:42:34Z",
+      "side": 1,
+      "message": "I think exceptions should at least be logged as an error",
+      "revId": "994adfab8ec43a0b66d7c1b093e291ff2eb55288",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
