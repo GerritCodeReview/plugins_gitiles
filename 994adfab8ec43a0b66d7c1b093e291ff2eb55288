@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "af0d6fd4_e4b5334f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GerritGitilesAccess.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1057569
+      },
+      "writtenOn": "2018-01-02T08:02:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1e22f9e_3826a208",
+      "revId": "994adfab8ec43a0b66d7c1b093e291ff2eb55288",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1aa2acd4_4a80c3b7",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GerritGitilesAccess.java",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2018-01-01T23:42:34Z",
       "side": 1,
       "message": "I think exceptions should at least be logged as an error",
+      "revId": "994adfab8ec43a0b66d7c1b093e291ff2eb55288",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "559f9213_bfa7c369",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GerritGitilesAccess.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1057569
+      },
+      "writtenOn": "2018-01-02T08:02:34Z",
+      "side": 1,
+      "message": "I changed it to use the original exception handler for IOException now, like https://gerrit.googlesource.com/gitiles/+/master/java/com/google/gitiles/PathServlet.java#616",
+      "parentUuid": "1aa2acd4_4a80c3b7",
       "revId": "994adfab8ec43a0b66d7c1b093e291ff2eb55288",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
