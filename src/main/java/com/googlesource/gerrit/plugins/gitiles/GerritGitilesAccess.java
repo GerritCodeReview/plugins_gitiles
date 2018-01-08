@@ -14,6 +14,18 @@
 
 package com.googlesource.gerrit.plugins.gitiles;
 
+import java.io.IOException;
+import java.util.Collections;
+import java.util.Map;
+import java.util.Set;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.eclipse.jgit.errors.RepositoryNotFoundException;
+import org.eclipse.jgit.lib.Config;
+import org.eclipse.jgit.transport.resolver.ServiceNotAuthorizedException;
+import org.eclipse.jgit.transport.resolver.ServiceNotEnabledException;
+
 import com.google.common.collect.Maps;
 import com.google.gerrit.common.Nullable;
 import com.google.gerrit.extensions.common.ProjectInfo;
@@ -23,24 +35,15 @@ import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.IdentifiedUser;
 import com.google.gerrit.server.config.AnonymousCowardName;
 import com.google.gerrit.server.permissions.PermissionBackendException;
-import com.google.gerrit.server.project.ListProjects;
 import com.google.gerrit.server.project.ProjectCache;
 import com.google.gerrit.server.project.ProjectJson;
 import com.google.gerrit.server.project.ProjectState;
+import com.google.gerrit.server.restapi.project.ListProjects;
 import com.google.gitiles.GitilesAccess;
 import com.google.gitiles.GitilesUrls;
 import com.google.gitiles.RepositoryDescription;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
-import java.io.IOException;
-import java.util.Collections;
-import java.util.Map;
-import java.util.Set;
-import javax.servlet.http.HttpServletRequest;
-import org.eclipse.jgit.errors.RepositoryNotFoundException;
-import org.eclipse.jgit.lib.Config;
-import org.eclipse.jgit.transport.resolver.ServiceNotAuthorizedException;
-import org.eclipse.jgit.transport.resolver.ServiceNotEnabledException;
 
 class GerritGitilesAccess implements GitilesAccess {
   // Assisted injection doesn't work with the overridden method, so write the
