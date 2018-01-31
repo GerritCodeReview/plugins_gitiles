@@ -37,7 +37,6 @@ gerrit_plugin(
     target_suffix = "__base",
     deps = [
         ":gitiles__plugin_deps",
-        "//java/com/google/gerrit/server/restapi",
     ],
 )
 
