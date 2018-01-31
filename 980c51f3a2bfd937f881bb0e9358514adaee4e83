@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "302faf96_a2a4cc5d",
+        "filename": "BUILD",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2018-01-31T04:03:15Z",
+      "side": 1,
+      "message": "I overlooked this change.  It seems to be harmless in the in-tree build (which is what I tested), but causes the standalone build to fail.\n\nFixed in https://gerrit-review.googlesource.com/#/c/plugins/gitiles/+/156112",
+      "revId": "980c51f3a2bfd937f881bb0e9358514adaee4e83",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
