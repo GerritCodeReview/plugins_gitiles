@@ -50,3 +50,17 @@ links are added.
   [gerrit]
     noWebLinks = true
 ```
+
+The flag `gerrit.baseUrl` can be set to a path other than the default location
+that Gitiles is being exposed. By default, it's at the path to Gerrit + plugins/gitiles/
+
+When Gerrit is behind a reverse proxy, or via rewrite rules, Gitiles can be placed
+in easier-to-remember URLs.
+
+```
+  [gerrit]
+    baseUrl = gerrit.example.com/gitiles/
+```
+
+Note: If using this setting you possibly want to set Gerrit's auth.cookiePath to "/"
+if it's not running in document root already.
