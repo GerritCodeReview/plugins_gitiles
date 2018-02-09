@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ac94a7d_1622b93a",
+        "filename": "src/main/resources/+Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2018-02-09T09:47:02Z",
+      "side": 1,
+      "message": "But how should this work in the context of this gitiles-plugin? A plugin foo is running inside gerrit and can only listen on \u003cgerrit-host\u003e/plugins/foo address.\n\nUnless I\u0027m missing something, you can only have:\n\n* https://gerrit.wikimedia.org/r/plugins/gitiles/mediawiki/extensions/AdvancedSearch/+/285d5af0752ef0398c6944754769c71d75cfe40d\n\nas gitiles URL for this change:\n\n* https://gerrit.wikimedia.org/r/#/c/405905\n\nI guess what you want instead is this URL:\n\n* https://gitiles.wikimedia.org/r/mediawiki/extensions/AdvancedSearch/+/285d5af0752ef0398c6944754769c71d75cfe40d\n\nsimilar to your diffusion URL:\n\n* https://phabricator.wikimedia.org/rEASR285d5af0752ef0398c6944754769c71d75cfe40d\n\nI think you can only achieve that, if you install gitiles standalone at gitiles.wikimedia.org and only add a link in gerrit.config to redirect to that new location, like you are already doing for diffusion, without using this plugin.",
+      "revId": "fb6e327d05e0521770926673460329d03ccf05d2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
