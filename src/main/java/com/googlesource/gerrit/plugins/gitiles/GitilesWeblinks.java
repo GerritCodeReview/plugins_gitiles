@@ -63,7 +63,8 @@ public class GitilesWeblinks
 
     Config config = configFactory.getGlobalPluginConfig("gitiles");
     name = MoreObjects.firstNonNull(config.getString("gerrit", null, "linkname"), "browse");
-    baseUrl = baseGerritUrl + "plugins/" + pluginName;
+    baseUrl = MoreObjects.firstNonNull(config.getString("gerrit", null, "baseUrl"),
+        baseGerritUrl + "plugins/" + pluginName);
 
     target = MoreObjects.firstNonNull(config.getString("gerrit", null, "target"), Target.BLANK);
   }
