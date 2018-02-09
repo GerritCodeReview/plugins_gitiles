@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "7fba7e8b_bc806df7",
+        "filename": "src/main/resources/+Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2018-02-09T17:22:43Z",
+      "side": 1,
+      "message": "Should be https://gerrit.example.com/gitiles/",
+      "range": {
+        "startLine": 62,
+        "startChar": 14,
+        "endLine": 62,
+        "endChar": 41
+      },
+      "revId": "fb6e327d05e0521770926673460329d03ccf05d2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ac94a7d_1622b93a",
         "filename": "src/main/resources/+Documentation/config.md",
         "patchSetId": 1
