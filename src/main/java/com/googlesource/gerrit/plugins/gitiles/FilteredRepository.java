@@ -73,7 +73,11 @@ class FilteredRepository extends Repository {
         throw new NoSuchProjectException(name);
       }
       return new FilteredRepository(
-          projectState, userProvider.get(), repoManager.openRepository(name), visibleRefFilterFactory, permissionBackend);
+          projectState,
+          userProvider.get(),
+          repoManager.openRepository(name),
+          visibleRefFilterFactory,
+          permissionBackend);
     }
   }
 
@@ -91,10 +95,7 @@ class FilteredRepository extends Repository {
     this.delegate = delegate;
     boolean visible = true;
     try {
-      permissionBackend
-          .user(user)
-          .project(projectState.getNameKey())
-          .check(ProjectPermission.READ);
+      permissionBackend.user(user).project(projectState.getNameKey()).check(ProjectPermission.READ);
     } catch (AuthException e) {
       visible = false;
     }
