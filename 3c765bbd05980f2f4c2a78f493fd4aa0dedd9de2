@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a4eb6fa9_448ecf49",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GerritGitilesAccess.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2018-02-19T16:29:19Z",
+      "side": 1,
+      "message": "Meh, Java formatter fixed this file but this shouldn\u0027t be in the same change.",
+      "revId": "3c765bbd05980f2f4c2a78f493fd4aa0dedd9de2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
