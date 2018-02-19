@@ -21,8 +21,8 @@ import com.google.gerrit.extensions.restapi.AuthException;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.git.GitRepositoryManager;
-import com.google.gerrit.server.git.VisibleRefFilter;
 import com.google.gerrit.server.permissions.PermissionBackend;
+import com.google.gerrit.server.permissions.PermissionBackend.RefFilterOptions;
 import com.google.gerrit.server.permissions.PermissionBackendException;
 import com.google.gerrit.server.permissions.ProjectPermission;
 import com.google.gerrit.server.project.NoSuchProjectException;
@@ -49,7 +49,6 @@ class FilteredRepository extends Repository {
     private final Provider<CurrentUser> userProvider;
     private final ProjectCache projectCache;
     private final GitRepositoryManager repoManager;
-    private final VisibleRefFilter.Factory visibleRefFilterFactory;
     private final PermissionBackend permissionBackend;
 
     @Inject
@@ -57,12 +56,10 @@ class FilteredRepository extends Repository {
         ProjectCache projectCache,
         Provider<CurrentUser> userProvider,
         GitRepositoryManager repoManager,
-        VisibleRefFilter.Factory visibleRefFilterFactory,
         PermissionBackend permissionBackend) {
       this.userProvider = userProvider;
       this.projectCache = projectCache;
       this.repoManager = repoManager;
-      this.visibleRefFilterFactory = visibleRefFilterFactory;
       this.permissionBackend = permissionBackend;
     }
 
@@ -73,11 +70,7 @@ class FilteredRepository extends Repository {
         throw new NoSuchProjectException(name);
       }
       return new FilteredRepository(
-          projectState,
-          userProvider.get(),
-          repoManager.openRepository(name),
-          visibleRefFilterFactory,
-          permissionBackend);
+          projectState, userProvider.get(), repoManager.openRepository(name), permissionBackend);
     }
   }
 
@@ -88,7 +81,6 @@ class FilteredRepository extends Repository {
       ProjectState projectState,
       CurrentUser user,
       Repository delegate,
-      VisibleRefFilter.Factory refFilterFactory,
       PermissionBackend permissionBackend)
       throws PermissionBackendException {
     super(toBuilder(delegate));
@@ -106,7 +98,7 @@ class FilteredRepository extends Repository {
 
       this.refdb =
           new FilteredRefDatabase(
-              delegate.getRefDatabase(), refFilterFactory.create(projectState, delegate));
+              delegate, permissionBackend.user(user).project(projectState.getNameKey()));
     }
   }
 
@@ -167,12 +159,12 @@ class FilteredRepository extends Repository {
   }
 
   private static class FilteredRefDatabase extends RefDatabase {
-    private final RefDatabase delegate;
-    private final VisibleRefFilter refFilter;
+    private final Repository git;
+    private final PermissionBackend.ForProject perm;
 
-    private FilteredRefDatabase(RefDatabase delegate, VisibleRefFilter refFilter) {
-      this.delegate = delegate;
-      this.refFilter = refFilter;
+    private FilteredRefDatabase(Repository git, PermissionBackend.ForProject perm) {
+      this.git = git;
+      this.perm = perm;
     }
 
     @Override
@@ -187,7 +179,7 @@ class FilteredRepository extends Repository {
 
     @Override
     public boolean isNameConflicting(String name) throws IOException {
-      return delegate.isNameConflicting(name);
+      return git.getRefDatabase().isNameConflicting(name);
     }
 
     @Override
@@ -202,25 +194,50 @@ class FilteredRepository extends Repository {
 
     @Override
     public Ref exactRef(String name) throws IOException {
-      Ref ref = delegate.exactRef(name);
+      Ref ref = git.getRefDatabase().exactRef(name);
       if (ref == null) {
         return null;
       }
-      return refFilter.filter(ImmutableMap.of(name, ref), true).get(name);
+      try {
+        return perm.filter(
+                ImmutableMap.of(name, ref),
+                git,
+                RefFilterOptions.builder().setFilterTagsSeparately(true).build())
+            .get(name);
+      } catch (PermissionBackendException e) {
+        throw new IOException(e);
+      }
     }
 
     @Override
     public Ref getRef(String name) throws IOException {
-      Ref ref = delegate.getRef(name);
+      Ref ref = git.getRefDatabase().getRef(name);
       if (ref == null) {
         return null;
       }
-      return refFilter.filter(ImmutableMap.of(ref.getName(), ref), true).get(ref.getName());
+      try {
+        return perm.filter(
+                ImmutableMap.of(ref.getName(), ref),
+                git,
+                RefFilterOptions.builder().setFilterTagsSeparately(true).build())
+            .get(ref.getName());
+      } catch (PermissionBackendException e) {
+        throw new IOException(e);
+      }
     }
 
     @Override
     public Map<String, Ref> getRefs(String prefix) throws IOException {
-      Map<String, Ref> refs = refFilter.filter(delegate.getRefs(prefix), true);
+      Map<String, Ref> refs;
+      try {
+        refs =
+            perm.filter(
+                git.getRefDatabase().getRefs(prefix),
+                git,
+                RefFilterOptions.builder().setFilterTagsSeparately(true).build());
+      } catch (PermissionBackendException e) {
+        throw new IOException(e);
+      }
       Map<String, Ref> result = Maps.newHashMapWithExpectedSize(refs.size());
       for (Ref ref : refs.values()) {
         // VisibleRefFilter adds the prefix to the keys, re-strip it.
@@ -231,7 +248,7 @@ class FilteredRepository extends Repository {
 
     @Override
     public List<Ref> getAdditionalRefs() throws IOException {
-      List<Ref> refs = delegate.getAdditionalRefs();
+      List<Ref> refs = git.getRefDatabase().getAdditionalRefs();
       Map<String, Ref> result = Maps.newHashMapWithExpectedSize(refs.size());
       for (Ref ref : refs) {
         result.put(ref.getName(), ref);
@@ -241,7 +258,7 @@ class FilteredRepository extends Repository {
 
     @Override
     public Ref peel(Ref ref) throws IOException {
-      return delegate.peel(ref);
+      return git.getRefDatabase().peel(ref);
     }
   }
 }
