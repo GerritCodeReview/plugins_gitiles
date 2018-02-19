@@ -20,9 +20,10 @@ import com.google.common.collect.Maps;
 import com.google.gerrit.extensions.restapi.AuthException;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.CurrentUser;
+import com.google.gerrit.server.git.DefaultAdvertiseRefsHook;
 import com.google.gerrit.server.git.GitRepositoryManager;
-import com.google.gerrit.server.git.VisibleRefFilter;
 import com.google.gerrit.server.permissions.PermissionBackend;
+import com.google.gerrit.server.permissions.PermissionBackend.RefFilterOptions;
 import com.google.gerrit.server.permissions.PermissionBackendException;
 import com.google.gerrit.server.permissions.ProjectPermission;
 import com.google.gerrit.server.project.NoSuchProjectException;
@@ -49,7 +50,6 @@ class FilteredRepository extends Repository {
     private final Provider<CurrentUser> userProvider;
     private final ProjectCache projectCache;
     private final GitRepositoryManager repoManager;
-    private final VisibleRefFilter.Factory visibleRefFilterFactory;
     private final PermissionBackend permissionBackend;
 
     @Inject
@@ -57,12 +57,10 @@ class FilteredRepository extends Repository {
         ProjectCache projectCache,
         Provider<CurrentUser> userProvider,
         GitRepositoryManager repoManager,
-        VisibleRefFilter.Factory visibleRefFilterFactory,
         PermissionBackend permissionBackend) {
       this.userProvider = userProvider;
       this.projectCache = projectCache;
       this.repoManager = repoManager;
-      this.visibleRefFilterFactory = visibleRefFilterFactory;
       this.permissionBackend = permissionBackend;
     }
 
@@ -73,7 +71,7 @@ class FilteredRepository extends Repository {
         throw new NoSuchProjectException(name);
       }
       return new FilteredRepository(
-          projectState, userProvider.get(), repoManager.openRepository(name), visibleRefFilterFactory, permissionBackend);
+          projectState, userProvider.get(), repoManager.openRepository(name), permissionBackend);
     }
   }
 
@@ -84,17 +82,14 @@ class FilteredRepository extends Repository {
       ProjectState projectState,
       CurrentUser user,
       Repository delegate,
-      VisibleRefFilter.Factory refFilterFactory,
       PermissionBackend permissionBackend)
       throws PermissionBackendException {
     super(toBuilder(delegate));
     this.delegate = delegate;
     boolean visible = true;
+    PermissionBackend.ForProject perm = permissionBackend.user(user).project(projectState.getNameKey());
     try {
-      permissionBackend
-          .user(user)
-          .project(projectState.getNameKey())
-          .check(ProjectPermission.READ);
+      perm.check(ProjectPermission.READ);
     } catch (AuthException e) {
       visible = false;
     }
@@ -105,7 +100,7 @@ class FilteredRepository extends Repository {
 
       this.refdb =
           new FilteredRefDatabase(
-              delegate.getRefDatabase(), refFilterFactory.create(projectState, delegate));
+              delegate.getRefDatabase(), new DefaultAdvertiseRefsHook(perm, RefFilterOptions.defaults());
     }
   }
 
@@ -167,9 +162,9 @@ class FilteredRepository extends Repository {
 
   private static class FilteredRefDatabase extends RefDatabase {
     private final RefDatabase delegate;
-    private final VisibleRefFilter refFilter;
+    private final DefaultAdvertiseRefsHook refFilter;
 
-    private FilteredRefDatabase(RefDatabase delegate, VisibleRefFilter refFilter) {
+    private FilteredRefDatabase(RefDatabase delegate, DefaultAdvertiseRefsHook refFilter) {
       this.delegate = delegate;
       this.refFilter = refFilter;
     }
