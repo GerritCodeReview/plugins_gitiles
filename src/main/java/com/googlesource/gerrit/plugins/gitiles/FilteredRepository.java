@@ -21,8 +21,8 @@ import com.google.gerrit.extensions.restapi.AuthException;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.git.GitRepositoryManager;
-import com.google.gerrit.server.git.VisibleRefFilter;
 import com.google.gerrit.server.permissions.PermissionBackend;
+import com.google.gerrit.server.permissions.PermissionBackend.RefFilterOptions;
 import com.google.gerrit.server.permissions.PermissionBackendException;
 import com.google.gerrit.server.permissions.ProjectPermission;
 import com.google.gerrit.server.project.NoSuchProjectException;
@@ -49,7 +49,6 @@ class FilteredRepository extends Repository {
     private final Provider<CurrentUser> userProvider;
     private final ProjectCache projectCache;
     private final GitRepositoryManager repoManager;
-    private final VisibleRefFilter.Factory visibleRefFilterFactory;
     private final PermissionBackend permissionBackend;
 
     @Inject
@@ -57,12 +56,10 @@ class FilteredRepository extends Repository {
         ProjectCache projectCache,
         Provider<CurrentUser> userProvider,
         GitRepositoryManager repoManager,
-        VisibleRefFilter.Factory visibleRefFilterFactory,
         PermissionBackend permissionBackend) {
       this.userProvider = userProvider;
       this.projectCache = projectCache;
       this.repoManager = repoManager;
-      this.visibleRefFilterFactory = visibleRefFilterFactory;
       this.permissionBackend = permissionBackend;
     }
 
@@ -73,7 +70,7 @@ class FilteredRepository extends Repository {
         throw new NoSuchProjectException(name);
       }
       return new FilteredRepository(
-          projectState, userProvider.get(), repoManager.openRepository(name), visibleRefFilterFactory, permissionBackend);
+          projectState, userProvider.get(), repoManager.openRepository(name), permissionBackend);
     }
   }
 
@@ -84,17 +81,13 @@ class FilteredRepository extends Repository {
       ProjectState projectState,
       CurrentUser user,
       Repository delegate,
-      VisibleRefFilter.Factory refFilterFactory,
       PermissionBackend permissionBackend)
       throws PermissionBackendException {
     super(toBuilder(delegate));
     this.delegate = delegate;
     boolean visible = true;
     try {
-      permissionBackend
-          .user(user)
-          .project(projectState.getNameKey())
-          .check(ProjectPermission.READ);
+      permissionBackend.user(user).project(projectState.getNameKey()).check(ProjectPermission.READ);
     } catch (AuthException e) {
       visible = false;
     }
@@ -105,7 +98,9 @@ class FilteredRepository extends Repository {
 
       this.refdb =
           new FilteredRefDatabase(
-              delegate.getRefDatabase(), refFilterFactory.create(projectState, delegate));
+              delegate.getRefDatabase(),
+              delegate,
+              permissionBackend.user(user).project(projectState.getNameKey()));
     }
   }
 
@@ -167,11 +162,14 @@ class FilteredRepository extends Repository {
 
   private static class FilteredRefDatabase extends RefDatabase {
     private final RefDatabase delegate;
-    private final VisibleRefFilter refFilter;
+    private final Repository git;
+    private final PermissionBackend.ForProject perm;
 
-    private FilteredRefDatabase(RefDatabase delegate, VisibleRefFilter refFilter) {
+    private FilteredRefDatabase(
+        RefDatabase delegate, Repository git, PermissionBackend.ForProject perm) {
       this.delegate = delegate;
-      this.refFilter = refFilter;
+      this.git = git;
+      this.perm = perm;
     }
 
     @Override
@@ -205,7 +203,11 @@ class FilteredRepository extends Repository {
       if (ref == null) {
         return null;
       }
-      return refFilter.filter(ImmutableMap.of(name, ref), true).get(name);
+      try {
+        return perm.filter(ImmutableMap.of(name, ref), git, RefFilterOptions.defaults()).get(name);
+      } catch (PermissionBackendException e) {
+        throw new IOException(e);
+      }
     }
 
     @Override
@@ -214,12 +216,22 @@ class FilteredRepository extends Repository {
       if (ref == null) {
         return null;
       }
-      return refFilter.filter(ImmutableMap.of(ref.getName(), ref), true).get(ref.getName());
+      try {
+        return perm.filter(ImmutableMap.of(ref.getName(), ref), git, RefFilterOptions.defaults())
+            .get(ref.getName());
+      } catch (PermissionBackendException e) {
+        throw new IOException(e);
+      }
     }
 
     @Override
     public Map<String, Ref> getRefs(String prefix) throws IOException {
-      Map<String, Ref> refs = refFilter.filter(delegate.getRefs(prefix), true);
+      Map<String, Ref> refs;
+      try {
+        refs = perm.filter(delegate.getRefs(prefix), git, RefFilterOptions.defaults());
+      } catch (PermissionBackendException e) {
+        throw new IOException(e);
+      }
       Map<String, Ref> result = Maps.newHashMapWithExpectedSize(refs.size());
       for (Ref ref : refs.values()) {
         // VisibleRefFilter adds the prefix to the keys, re-strip it.
