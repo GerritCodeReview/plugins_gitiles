@@ -3,9 +3,6 @@ load("//tools/bzl:maven_jar.bzl", "maven_jar", "GERRIT", "MAVEN_CENTRAL", "MAVEN
 COMMONMARK_VERSION = '0.9.0'
 
 def external_plugin_deps():
-  gitiles()
-
-def gitiles():
   maven_jar(
     name = 'gitiles_servlet',
     artifact = 'com.google.gitiles:gitiles-servlet:0.2-5',
