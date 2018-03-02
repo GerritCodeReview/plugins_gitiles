@@ -43,17 +43,24 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Stream;
 import javax.servlet.http.HttpServletRequest;
 import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.transport.resolver.RepositoryResolver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class PluginModule extends LifecycleModule {
   private final boolean noWebLinks;
+  private final String cloneUrlType;
+  private static final Logger log = LoggerFactory.getLogger(Module.class);
 
   @Inject
   PluginModule(PluginConfigFactory configFactory) {
     Config config = configFactory.getGlobalPluginConfig("gitiles");
     this.noWebLinks = config.getBoolean("gerrit", null, "noWebLinks", false);
+    this.cloneUrlType = config.getString("gerrit", null, "cloneUrlType");
   }
 
   @Override
@@ -72,6 +79,82 @@ class PluginModule extends LifecycleModule {
     listener().to(Lifecycle.class);
   }
 
+  private Optional<String> getSshCloneUrl(URL gerritUrl, List<String> advertisedSshAddresses) {
+    try {
+      if (!advertisedSshAddresses.isEmpty()) {
+        String addr = advertisedSshAddresses.get(0);
+        int index = addr.indexOf(":");
+        String port = "";
+        if (index != -1) {
+          port = addr.substring(index);
+        }
+        if (addr.startsWith("*:") || "".equals(addr)) {
+          if (gerritUrl != null && gerritUrl.getHost() != null) {
+            addr = gerritUrl.getHost();
+          } else {
+            addr = getLocalHostName();
+          }
+        } else {
+          if (index != -1) {
+            addr = addr.substring(0, index);
+          }
+        }
+        return Optional.of("ssh://" + addr + port + "/");
+      }
+    } catch (UnknownHostException e) {
+      log.error("Unable to get SSH clone url.", e);
+      return Optional.empty();
+    }
+    return Optional.empty();
+  }
+
+  private Optional<String> getHttpCloneUrl(Config gerritConfig) {
+    Optional<String> httpUrl =
+        Optional.ofNullable(gerritConfig.getString("gerrit", null, "gitHttpUrl"));
+    if (httpUrl.isEmpty()) {
+      return getDefaultCloneUrl(gerritConfig);
+    }
+    return httpUrl;
+  }
+
+  private Optional<String> getGitCloneUrl(Config gerritConfig) {
+    Optional<String> gitUrl =
+        Optional.ofNullable(gerritConfig.getString("gerrit", null, "canonicalGitUrl"));
+    if (gitUrl.isEmpty()) {
+      return getDefaultCloneUrl(gerritConfig);
+    }
+    return gitUrl;
+  }
+
+  private Optional<String> getDefaultCloneUrl(Config gerritConfig) {
+    return Optional.ofNullable(gerritConfig.getString("gerrit", null, "canonicalWebUrl"));
+  }
+
+  private Optional<String> getUserConfig(
+      Config gerritConfig, URL u, @SshAdvertisedAddresses List<String> advertisedSshAddresses) {
+    Optional<String> gitUrl = Optional.empty();
+    // Try to use user's config first.
+    if (this.cloneUrlType != null) {
+      switch (this.cloneUrlType) {
+        case "ssh":
+          gitUrl = getSshCloneUrl(u, advertisedSshAddresses);
+          break;
+        case "http":
+          gitUrl = getHttpCloneUrl(gerritConfig);
+          break;
+        case "git":
+          gitUrl = getGitCloneUrl(gerritConfig);
+          break;
+      }
+      if (gitUrl.isEmpty()) {
+        log.info(
+            "Failed to use clone url type configuration."
+                + " Using default type (prefer SSH, then HTTP, then Git).");
+      }
+    }
+    return gitUrl;
+  }
+
   @Provides
   GitilesUrls getGitilesUrls(
       @GerritServerConfig Config gerritConfig,
@@ -88,37 +171,22 @@ class PluginModule extends LifecycleModule {
       hostName = "Gerrit";
     }
 
-    // Arbitrarily prefer SSH, then HTTP, then git.
-    // TODO: Use user preferences.
-    String gitUrl;
-    if (!advertisedSshAddresses.isEmpty()) {
-      String addr = advertisedSshAddresses.get(0);
-      int index = addr.indexOf(":");
-      String port = "";
-      if (index != -1) {
-        port = addr.substring(index);
-      }
-      if (addr.startsWith("*:") || "".equals(addr)) {
-        if (u != null && u.getHost() != null) {
-          addr = u.getHost();
-        } else {
-          addr = getLocalHostName();
-        }
-      } else {
-        if (index != -1) {
-          addr = addr.substring(0, index);
-        }
-      }
-      gitUrl = "ssh://" + addr + port + "/";
-    } else {
-      gitUrl = gerritConfig.getString("gerrit", null, "gitHttpUrl");
-      if (gitUrl == null) {
-        gitUrl = gerritConfig.getString("gerrit", null, "canonicalGitUrl");
-      }
-    }
-    if (gitUrl == null) {
-      throw new ProvisionException("Unable to determine any canonical git URL from gerrit.config");
-    }
+    // If no config is set, or we can't get the chosen type of URL determined in the config,
+    // arbitrarily prefer SSH, then HTTP, then git.
+    String gitUrl =
+        Stream.of(
+                getUserConfig(gerritConfig, u, advertisedSshAddresses),
+                getSshCloneUrl(u, advertisedSshAddresses),
+                getHttpCloneUrl(gerritConfig),
+                getGitCloneUrl(gerritConfig))
+            .filter(Optional::isPresent)
+            .map(Optional::get)
+            .findFirst()
+            .orElseThrow(
+                () ->
+                    new ProvisionException(
+                        "Unable to determine any canonical git URL from gerrit.config"));
+
     return new DefaultUrls(hostName, gitUrl, gerritUrl);
   }
 
