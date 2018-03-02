@@ -46,14 +46,19 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.transport.resolver.RepositoryResolver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class Module extends LifecycleModule {
   private final boolean noWebLinks;
+  private final String cloneUrlType;
+  private static final Logger log = LoggerFactory.getLogger(Module.class);
 
   @Inject
   Module(PluginConfigFactory configFactory) {
     Config config = configFactory.getGlobalPluginConfig("gitiles");
     this.noWebLinks = config.getBoolean("gerrit", null, "noWebLinks", false);
+    this.cloneUrlType = config.getString("gerrit", null, "cloneUrlType");
   }
 
   @Override
@@ -72,6 +77,43 @@ class Module extends LifecycleModule {
     listener().to(Lifecycle.class);
   }
 
+  private String getSshCloneUrl(URL gerritUrl, List<String> advertisedSshAddresses) {
+    try {
+      if (!advertisedSshAddresses.isEmpty()) {
+        String addr = advertisedSshAddresses.get(0);
+        int index = addr.indexOf(":");
+        String port = "";
+        if (index != -1) {
+          port = addr.substring(index);
+        }
+        if (addr.startsWith("*:") || "".equals(addr)) {
+          if (gerritUrl != null && gerritUrl.getHost() != null) {
+            addr = gerritUrl.getHost();
+          } else {
+            addr = getLocalHostName();
+          }
+        } else {
+          if (index != -1) {
+            addr = addr.substring(0, index);
+          }
+        }
+        return "ssh://" + addr + port + "/";
+      }
+    } catch (UnknownHostException e) {
+      log.error("Unable to get SSH clone url.", e);
+      return null;
+    }
+    return null;
+  }
+
+  private String getHttpCloneUrl(Config gerritConfig) {
+    return gerritConfig.getString("gerrit", null, "gitHttpUrl");
+  }
+
+  private String getGitCloneUrl(Config gerritConfig) {
+    return gerritConfig.getString("gerrit", null, "canonicalGitUrl");
+  }
+
   @Provides
   GitilesUrls getGitilesUrls(
       @GerritServerConfig Config gerritConfig,
@@ -88,32 +130,30 @@ class Module extends LifecycleModule {
       hostName = "Gerrit";
     }
 
-    // Arbitrarily prefer SSH, then HTTP, then git.
-    // TODO: Use user preferences.
-    String gitUrl;
-    if (!advertisedSshAddresses.isEmpty()) {
-      String addr = advertisedSshAddresses.get(0);
-      int index = addr.indexOf(":");
-      String port = "";
-      if (index != -1) {
-        port = addr.substring(index);
+    String gitUrl = null;
+    // Try to use user's config first.
+    if (this.cloneUrlType != null) {
+      if (this.cloneUrlType.equals("ssh")) {
+        gitUrl = getSshCloneUrl(u, advertisedSshAddresses);
+      } else if (this.cloneUrlType.equals("http")) {
+        gitUrl = getHttpCloneUrl(gerritConfig);
+      } else if (this.cloneUrlType.equals("git")) {
+        gitUrl = getGitCloneUrl(gerritConfig);
       }
-      if (addr.startsWith("*:") || "".equals(addr)) {
-        if (u != null && u.getHost() != null) {
-          addr = u.getHost();
-        } else {
-          addr = getLocalHostName();
-        }
-      } else {
-        if (index != -1) {
-          addr = addr.substring(0, index);
-        }
+    }
+    // If no config is set or we can't get the chosen type of URL determined in the config,
+    // arbitrarily prefer SSH, then HTTP, then git.
+    if (gitUrl == null) {
+      if (this.cloneUrlType != null) {
+        log.info("Failed to use clone url type configuration."
+            + " Using default type (prefer SSH, then HTTP, then Git).");
       }
-      gitUrl = "ssh://" + addr + port + "/";
-    } else {
-      gitUrl = gerritConfig.getString("gerrit", null, "gitHttpUrl");
+      gitUrl = getSshCloneUrl(u, advertisedSshAddresses);
       if (gitUrl == null) {
-        gitUrl = gerritConfig.getString("gerrit", null, "canonicalGitUrl");
+        gitUrl = getHttpCloneUrl(gerritConfig);
+        if (gitUrl == null) {
+          gitUrl = getGitCloneUrl(gerritConfig);
+        }
       }
     }
     if (gitUrl == null) {
