@@ -64,3 +64,13 @@ in easier-to-remember URLs.
 
 Note: If using this setting you possibly want to set Gerrit's auth.cookiePath to "/"
 if it's not running in document root already.
+
+The flag `gerrit.cloneUrlType` can be set to either `ssh`, `http`, or `git`. This
+will determine which protocol to be used to display repos' clone url to the user.
+If it's not set, or it fails to get the set type of URL, it will automatically prefer
+SSH, then HTTP, then Git.
+
+```
+  [gerrit]
+    cloneUrlType = http
+```
