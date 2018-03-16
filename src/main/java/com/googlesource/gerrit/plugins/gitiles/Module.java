@@ -76,7 +76,8 @@ class Module extends LifecycleModule {
   GitilesUrls getGitilesUrls(
       @GerritServerConfig Config gerritConfig,
       @Nullable @CanonicalWebUrl String gerritUrl,
-      @SshAdvertisedAddresses List<String> advertisedSshAddresses)
+      @SshAdvertisedAddresses List<String> advertisedSshAddresses,
+      Provider<CurrentUser> userProvider)
       throws MalformedURLException, UnknownHostException {
     URL u;
     String hostName;
@@ -88,10 +89,23 @@ class Module extends LifecycleModule {
       hostName = "Gerrit";
     }
 
+    String usernames;
+    if (userProvider.get().isIdentifiedUser()) {
+      Optional<String> username = userProvider.get().getUserName();
+      if (!username.isPresent()) {
+        usernames = null;
+      } else {
+        usernames = username;
+      }
+    } else {
+      usernames = null;
+    }
+
     // Arbitrarily prefer SSH, then HTTP, then git.
     // TODO: Use user preferences.
     String gitUrl;
-    if (!advertisedSshAddresses.isEmpty()) {
+    if (!advertisedSshAddresses.isEmpty() && usernames != null) {
+      Optional<String> username = userProvider.get().getUserName();
       String addr = advertisedSshAddresses.get(0);
       int index = addr.indexOf(":");
       String port = "";
@@ -109,7 +123,7 @@ class Module extends LifecycleModule {
           addr = addr.substring(0, index);
         }
       }
-      gitUrl = "ssh://" + addr + port + "/";
+      gitUrl = "ssh://" + usernames.get() + "@" + addr + port + "/";
     } else {
       gitUrl = gerritConfig.getString("gerrit", null, "gitHttpUrl");
       if (gitUrl == null) {
