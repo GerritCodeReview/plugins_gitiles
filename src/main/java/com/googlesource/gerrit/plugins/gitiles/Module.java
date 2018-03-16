@@ -25,6 +25,8 @@ import com.google.gerrit.extensions.webui.PatchSetWebLink;
 import com.google.gerrit.extensions.webui.ProjectWebLink;
 import com.google.gerrit.extensions.webui.TagWebLink;
 import com.google.gerrit.lifecycle.LifecycleModule;
+import com.google.gerrit.server.CurrentUser;
+import com.google.gerrit.server.IdentifiedUser;
 import com.google.gerrit.server.config.CanonicalWebUrl;
 import com.google.gerrit.server.config.GerritServerConfig;
 import com.google.gerrit.server.config.PluginConfigFactory;
@@ -34,6 +36,7 @@ import com.google.gitiles.DefaultUrls;
 import com.google.gitiles.GitilesAccess;
 import com.google.gitiles.GitilesUrls;
 import com.google.inject.Inject;
+import com.google.inject.Provider;
 import com.google.inject.Provides;
 import com.google.inject.ProvisionException;
 import com.google.inject.Singleton;
@@ -43,17 +46,20 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.List;
+import java.util.Optional;
 import javax.servlet.http.HttpServletRequest;
 import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.transport.resolver.RepositoryResolver;
 
 class Module extends LifecycleModule {
   private final boolean noWebLinks;
+  private final CurrentUser userProvider;
 
   @Inject
-  Module(PluginConfigFactory configFactory) {
+  Module(PluginConfigFactory configFactory, CurrentUser userProvider) {
     Config config = configFactory.getGlobalPluginConfig("gitiles");
     this.noWebLinks = config.getBoolean("gerrit", null, "noWebLinks", false);
+    this.userProvider = userProvider;
   }
 
   @Override
@@ -109,7 +115,20 @@ class Module extends LifecycleModule {
           addr = addr.substring(0, index);
         }
       }
-      gitUrl = "ssh://" + addr + port + "/";
+      StringBuilder r = new StringBuilder();
+      r.append("ssh://");
+      if (userProvider.getUserName() != null) {
+        r.append(userProvider.getUserName().get());
+        r.append("@");
+      }
+      /*if (userProvider.getUserName().isPresent()) {
+        r.append(userProvider.getUserName().get());
+        r.append("@");
+      }*/
+      r.append(addr);
+      r.append(port);
+      r.append("/");
+      gitUrl = r.toString();
     } else {
       gitUrl = gerritConfig.getString("gerrit", null, "gitHttpUrl");
       if (gitUrl == null) {
