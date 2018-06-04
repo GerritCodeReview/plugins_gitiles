@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a67773cc_f5d22530",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/Module.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1057569
+      },
+      "writtenOn": "2018-06-04T09:13:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e50204f_4012bc4d",
+      "revId": "eea0d7082a8c1e7113b1162eac69449cda9643de",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "14c7a624_c933b430",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/Module.java",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "eea0d7082a8c1e7113b1162eac69449cda9643de",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ca63b2c_210ddd48",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/Module.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1057569
+      },
+      "writtenOn": "2018-06-04T09:13:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14c7a624_c933b430",
+      "revId": "eea0d7082a8c1e7113b1162eac69449cda9643de",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
