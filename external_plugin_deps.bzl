@@ -19,6 +19,12 @@ def external_plugin_deps():
   )
 
   maven_jar(
+    name = 'commons-lang3',
+    artifact = 'org.apache.commons:commons-lang3:3.7',
+    sha1 = '557edd918fd41f9260963583ebf5a61a43a6b423',
+  )
+
+  maven_jar(
     name = 'commonmark',
     artifact = 'com.atlassian.commonmark:commonmark:' + COMMONMARK_VERSION,
     sha1 = '5df3f6fa3073966620685924aa22d08ece7213f2',
