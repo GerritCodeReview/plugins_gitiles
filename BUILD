@@ -46,6 +46,7 @@ java_library(
     exports = [
         "@autolink//jar",
         "@cm_autolink//jar",
+        "@commons-lang3//jar",
         "@commonmark//jar",
         "@gfm_strikethrough//jar",
         "@gfm_tables//jar",
