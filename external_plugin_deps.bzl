@@ -4,7 +4,7 @@ COMMONMARK_VERSION = '0.6.0'
 
 def external_plugin_deps():
   maven_jar(
-    name = 'gitiles_servlet',
+    name = 'gitiles-servlet',
     artifact = 'com.google.gitiles:gitiles-servlet:0.2-1',
     sha1 = '4b83471c65e110a08d99570fafcdaf5f59a0b9ce',
     repository = GERRIT,
@@ -31,7 +31,7 @@ def external_plugin_deps():
   )
 
   maven_jar(
-    name = 'cm_autolink',
+    name = 'cm-autolink',
     artifact = 'com.atlassian.commonmark:commonmark-ext-autolink:' + COMMONMARK_VERSION,
     sha1 = '4d7e828a4651e2f590b4a059925991be58e62da6',
   )
@@ -43,13 +43,13 @@ def external_plugin_deps():
   )
 
   maven_jar(
-    name = 'gfm_strikethrough',
+    name = 'gfm-strikethrough',
     artifact = 'com.atlassian.commonmark:commonmark-ext-gfm-strikethrough:' + COMMONMARK_VERSION,
     sha1 = '75a95aaec77810496de41239bcc773adfb13285f',
   )
 
   maven_jar(
-    name = 'gfm_tables',
+    name = 'gfm-tables',
     artifact = 'com.atlassian.commonmark:commonmark-ext-gfm-tables:' + COMMONMARK_VERSION,
     sha1 = 'ae1c701517e8116bc205b561b9b215a53df8abc7',
   )
