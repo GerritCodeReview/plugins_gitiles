@@ -22,6 +22,30 @@
       "revId": "6c342591d3107417a0f37b222d5258a6d6b60c06",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28b8381a_3481628e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2018-06-14T00:44:06Z",
+      "side": 1,
+      "message": "The released API (2.14.8) still includes commons-lang3. This was removed and will not be in the 2.14.9 API.\n\nA previous change added the explicit dependency, but I only tested that with in-tree build.",
+      "parentUuid": "3dff03ad_439fe4b3",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 26
+      },
+      "revId": "6c342591d3107417a0f37b222d5258a6d6b60c06",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
