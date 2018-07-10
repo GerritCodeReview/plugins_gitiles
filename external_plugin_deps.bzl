@@ -17,13 +17,19 @@ def external_plugin_deps():
     sha1 = 'b8ba1c1eb8b2e45cfd465d01218c6060e887572e',
   )
 
-  # commonmark must match the version used in Gitiles
   maven_jar(
     name = 'commons-lang3',
     artifact = 'org.apache.commons:commons-lang3:3.7',
     sha1 = '557edd918fd41f9260963583ebf5a61a43a6b423',
   )
 
+  maven_jar(
+    name = 'commons-text',
+    artifact = 'org.apache.commons:commons-text:1.2',
+    sha1 = '74acdec7237f576c4803fff0c1008ab8a3808b2b',
+  )
+
+  # commonmark must match the version used in Gitiles
   maven_jar(
     name = 'commonmark',
     artifact = 'com.atlassian.commonmark:commonmark:' + COMMONMARK_VERSION,

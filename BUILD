@@ -47,6 +47,7 @@ java_library(
         "@autolink//jar",
         "@cm_autolink//jar",
         "@commons-lang3//jar",
+        "@commons-text//jar",
         "@commonmark//jar",
         "@gfm_strikethrough//jar",
         "@gfm_tables//jar",
