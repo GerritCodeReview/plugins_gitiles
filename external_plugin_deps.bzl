@@ -1,6 +1,6 @@
 load("//tools/bzl:maven_jar.bzl", "GERRIT", "MAVEN_CENTRAL", "MAVEN_LOCAL", "maven_jar")
 
-COMMONMARK_VERSION = "0.9.0"
+COMMONMARK_VERSION = "0.10.0"
 
 def external_plugin_deps():
     maven_jar(
@@ -27,29 +27,29 @@ def external_plugin_deps():
     maven_jar(
         name = "commonmark",
         artifact = "com.atlassian.commonmark:commonmark:" + COMMONMARK_VERSION,
-        sha1 = "4eb11e3f9aaecafc6073b84c15f66376ef8dc5d3",
+        sha1 = "119cb7bedc3570d9ecb64ec69ab7686b5c20559b",
     )
 
     maven_jar(
         name = "cm-autolink",
         artifact = "com.atlassian.commonmark:commonmark-ext-autolink:" + COMMONMARK_VERSION,
-        sha1 = "b81d7f0e2bdb987d3f447f3e92756bcdbb5ff537",
+        sha1 = "a6056a5efbd68f57d420bc51bbc54b28a5d3c56b",
     )
 
     maven_jar(
         name = "autolink",
-        artifact = "org.nibor.autolink:autolink:0.6.0",
-        sha1 = "3986d016a14e8c81afeec752f19af29b20e8367b",
+        artifact = "org.nibor.autolink:autolink:0.7.0",
+        sha1 = "649f9f13422cf50c926febe6035662ae25dc89b2",
     )
 
     maven_jar(
         name = "gfm-strikethrough",
         artifact = "com.atlassian.commonmark:commonmark-ext-gfm-strikethrough:" + COMMONMARK_VERSION,
-        sha1 = "d6814aac1a6aaa473c0c3ef0a23bfff8836d1e67",
+        sha1 = "40837da951b421b545edddac57012e15fcc9e63c",
     )
 
     maven_jar(
         name = "gfm-tables",
         artifact = "com.atlassian.commonmark:commonmark-ext-gfm-tables:" + COMMONMARK_VERSION,
-        sha1 = "4c8a93ef905ef8fc35d6379965641a980d67e304",
+        sha1 = "c075db2a3301100cf70c7dced8ecf86b494458a2",
     )
