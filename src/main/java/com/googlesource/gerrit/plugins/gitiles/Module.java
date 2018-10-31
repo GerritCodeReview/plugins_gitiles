@@ -43,6 +43,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.List;
+import java.util.Arrays;
 import javax.servlet.http.HttpServletRequest;
 import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.transport.resolver.RepositoryResolver;
@@ -88,38 +89,59 @@ class Module extends LifecycleModule {
       hostName = "Gerrit";
     }
 
+    List<String> schemes = Arrays.asList(gerritConfig.getStringList("download", null, "scheme"));
+    if (schemes.isEmpty()) {
+      schemes = Arrays.asList("ssh", "http", "anon_git");
+    }
+
     // Arbitrarily prefer SSH, then HTTP, then git.
     // TODO: Use user preferences.
-    String gitUrl;
-    if (!advertisedSshAddresses.isEmpty()) {
-      String addr = advertisedSshAddresses.get(0);
-      int index = addr.indexOf(":");
-      String port = "";
-      if (index != -1) {
-        port = addr.substring(index);
+    String gitUrl = null;
+    for (String scheme : schemes) {
+      switch (scheme) {
+        case "ssh":
+          gitUrl = toGitSshUrl(u, advertisedSshAddresses);
+          break;
+        case "http":
+        case "anon_http":
+          gitUrl = gerritConfig.getString("gerrit", null, "gitHttpUrl");
+          break;
+        case "anon_git":
+          gitUrl = gerritConfig.getString("gerrit", null, "canonicalGitUrl");
+          break;
       }
-      if (addr.startsWith("*:") || "".equals(addr)) {
-        if (u != null && u.getHost() != null) {
-          addr = u.getHost();
-        } else {
-          addr = getLocalHostName();
-        }
-      } else {
-        if (index != -1) {
-          addr = addr.substring(0, index);
-        }
-      }
-      gitUrl = "ssh://" + addr + port + "/";
-    } else {
-      gitUrl = gerritConfig.getString("gerrit", null, "gitHttpUrl");
-      if (gitUrl == null) {
-        gitUrl = gerritConfig.getString("gerrit", null, "canonicalGitUrl");
+      if (gitUrl != null) {
+        break;
       }
     }
     if (gitUrl == null) {
       throw new ProvisionException("Unable to determine any canonical git URL from gerrit.config");
     }
     return new DefaultUrls(hostName, gitUrl, gerritUrl);
+  }
+
+  private String toGitSshUrl(URL url, List<String> advertisedSshAddresses) throws UnknownHostException {
+    if (advertisedSshAddresses.isEmpty()) {
+      return null;
+    }
+    String addr = advertisedSshAddresses.get(0);
+    int index = addr.indexOf(":");
+    String port = "";
+    if (index != -1) {
+      port = addr.substring(index);
+    }
+    if (addr.startsWith("*:") || "".equals(addr)) {
+      if (url != null && url.getHost() != null) {
+        addr = url.getHost();
+      } else {
+        addr = getLocalHostName();
+      }
+    } else {
+      if (index != -1) {
+        addr = addr.substring(0, index);
+      }
+    }
+    return "ssh://" + addr + port + "/";
   }
 
   private String getLocalHostName() throws UnknownHostException {
