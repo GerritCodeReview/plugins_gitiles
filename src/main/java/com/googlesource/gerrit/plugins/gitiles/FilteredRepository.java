@@ -144,7 +144,7 @@ class FilteredRepository extends Repository {
   }
 
   @Override
-  public void notifyIndexChanged(boolean internal) {
+  public void notifyIndexChanged() {
     throw new UnsupportedOperationException(); // Gitiles is read-only.
   }
 

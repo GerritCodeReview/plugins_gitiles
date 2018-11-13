@@ -4,7 +4,7 @@ genrule(
     name = "gitiles",
     srcs = [
         ":gitiles__base",
-        "@gitiles_servlet//jar",
+        "@gitiles-servlet//jar",
     ],
     outs = ["gitiles.jar"],
     cmd = " && ".join([
@@ -12,7 +12,7 @@ genrule(
         "TMP=$$(mktemp -d || mktemp -d -t bazel-tmp)",
         "cp $(location :gitiles__base) $@",
         "chmod +w $@",
-        "unzip -qd $$TMP $(location @gitiles_servlet//jar) \"com/google/gitiles/static/*\"",
+        "unzip -qd $$TMP $(location @gitiles-servlet//jar) \"com/google/gitiles/static/*\"",
         "cd $$TMP/com/google/gitiles",
         "mv static +static",
         "zip -Drq $$ROOT/$@ -g . -i \"+static/*\"",
@@ -45,13 +45,13 @@ java_library(
     visibility = ["//visibility:public"],
     exports = [
         "@autolink//jar",
-        "@cm_autolink//jar",
-        "@commons-lang3//jar",
+        "@cm-autolink//jar",
         "@commons-text//jar",
         "@commonmark//jar",
-        "@gfm_strikethrough//jar",
-        "@gfm_tables//jar",
-        "@gitiles_servlet//jar",
+        "@commons-lang3//jar",
+        "@gfm-strikethrough//jar",
+        "@gfm-tables//jar",
+        "@gitiles-servlet//jar",
         "@prettify//jar",
     ],
 )
