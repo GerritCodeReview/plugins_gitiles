@@ -35,25 +35,7 @@ gerrit_plugin(
     ],
     resources = glob(["src/main/resources/**/*"]),
     target_suffix = "__base",
-    deps = [
-        ":gitiles__plugin_deps",
-    ],
-)
-
-java_library(
-    name = "gitiles__plugin_deps",
-    visibility = ["//visibility:public"],
-    exports = [
-        "@autolink//jar",
-        "@cm-autolink//jar",
-        "@commonmark//jar",
-        "@commons-lang3//jar",
-        "@commons-text//jar",
-        "@gfm-strikethrough//jar",
-        "@gfm-tables//jar",
-        "@gitiles-servlet//jar",
-        "@prettify//jar",
-    ],
+    deps = ["//lib/gitiles"],
 )
 
 java_library(
@@ -62,6 +44,6 @@ java_library(
     visibility = ["//visibility:public"],
     exports = [
         ":gitiles__plugin",
-        ":gitiles__plugin_deps",
+        "//lib/gitiles",
     ],
 )
