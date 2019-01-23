@@ -20,7 +20,6 @@ import com.google.gerrit.server.config.SitePaths;
 import com.google.gitiles.GitilesAccess;
 import com.google.gitiles.GitilesServlet;
 import com.google.gitiles.GitilesUrls;
-import com.google.gitiles.GitilesView;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.google.inject.Provides;
@@ -92,6 +91,7 @@ class HttpModule extends ServletModule {
     // Filter all paths so we can decode escaped entities in the URI
     filter("/*").through(createPathFilter());
     filter("/*").through(new LoginFilter(userProvider, urls));
+    filter("/*").through(new MenuFilter(userProvider, urls));
 
     // make this plugin's classloader the context classloader to prevent
     // classloader issue when rendering markdown
@@ -108,14 +108,8 @@ class HttpModule extends ServletModule {
       @Named("gitiles") Config cfg,
       GitilesUrls urls,
       GitilesAccess.Factory accessFactory,
-      RepositoryResolver<HttpServletRequest> resolver,
-      MenuFilter menuFilter) {
-    GitilesServlet s =
-        new GitilesServlet(cfg, null, urls, accessFactory, resolver, null, null, null, null);
-    for (GitilesView.Type view : GitilesView.Type.values()) {
-      s.addFilter(view, menuFilter);
-    }
-    return s;
+      RepositoryResolver<HttpServletRequest> resolver) {
+    return new GitilesServlet(cfg, null, urls, accessFactory, resolver, null, null, null, null);
   }
 
   @Provides
