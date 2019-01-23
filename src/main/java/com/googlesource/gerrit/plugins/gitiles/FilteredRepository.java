@@ -232,7 +232,7 @@ class FilteredRepository extends Repository {
       try {
         refs =
             perm.filter(
-                git.getRefDatabase().getRefs(prefix),
+                git.getRefDatabase().getRefsByPrefix(prefix),
                 git,
                 RefFilterOptions.builder().setFilterTagsSeparately(true).build());
       } catch (PermissionBackendException e) {
