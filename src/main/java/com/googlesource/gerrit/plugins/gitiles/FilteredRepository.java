@@ -199,11 +199,7 @@ class FilteredRepository extends Repository {
         return null;
       }
       try {
-        return perm.filter(
-                ImmutableMap.of(name, ref),
-                git,
-                RefFilterOptions.builder().setFilterTagsSeparately(true).build())
-            .get(name);
+        return perm.filter(ImmutableMap.of(name, ref), git, RefFilterOptions.defaults()).get(name);
       } catch (PermissionBackendException e) {
         throw new IOException(e);
       }
@@ -216,10 +212,7 @@ class FilteredRepository extends Repository {
         return null;
       }
       try {
-        return perm.filter(
-                ImmutableMap.of(ref.getName(), ref),
-                git,
-                RefFilterOptions.builder().setFilterTagsSeparately(true).build())
+        return perm.filter(ImmutableMap.of(ref.getName(), ref), git, RefFilterOptions.defaults())
             .get(ref.getName());
       } catch (PermissionBackendException e) {
         throw new IOException(e);
@@ -232,9 +225,7 @@ class FilteredRepository extends Repository {
       try {
         refs =
             perm.filter(
-                git.getRefDatabase().getRefsByPrefix(prefix),
-                git,
-                RefFilterOptions.builder().setFilterTagsSeparately(true).build());
+                git.getRefDatabase().getRefsByPrefix(prefix), git, RefFilterOptions.defaults());
       } catch (PermissionBackendException e) {
         throw new IOException(e);
       }
