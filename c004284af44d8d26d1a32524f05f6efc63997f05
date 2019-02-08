@@ -16,6 +16,24 @@
       "revId": "c004284af44d8d26d1a32524f05f6efc63997f05",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5cc45f7_de5d11dd",
+        "filename": ".bazelignore",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-02-08T17:13:49Z",
+      "side": 1,
+      "message": "Makes sense to me. Done.",
+      "parentUuid": "a2a6c264_349f755d",
+      "revId": "c004284af44d8d26d1a32524f05f6efc63997f05",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
