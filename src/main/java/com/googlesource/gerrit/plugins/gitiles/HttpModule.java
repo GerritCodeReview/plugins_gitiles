@@ -14,6 +14,7 @@
 
 package com.googlesource.gerrit.plugins.gitiles;
 
+import com.google.common.flogger.FluentLogger;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.config.SitePaths;
 import com.google.gitiles.GitilesAccess;
@@ -43,8 +44,6 @@ import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.storage.file.FileBasedConfig;
 import org.eclipse.jgit.transport.resolver.RepositoryResolver;
 import org.eclipse.jgit.util.FS;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 class HttpModule extends ServletModule {
   private final Provider<CurrentUser> userProvider;
@@ -86,7 +85,7 @@ class HttpModule extends ServletModule {
     };
   }
 
-  private static final Logger log = LoggerFactory.getLogger(HttpModule.class);
+  private static final FluentLogger log = FluentLogger.forEnclosingClass();
 
   @Override
   protected void configureServlets() {
@@ -127,7 +126,7 @@ class HttpModule extends ServletModule {
     if (cfg.getFile().exists()) {
       cfg.load();
     } else {
-      log.info("No " + cfgFile.getAbsolutePath() + "; assuming defaults");
+      log.atInfo().log("No %s; assuming defaults", cfgFile.getAbsolutePath());
     }
     return cfg;
   }
