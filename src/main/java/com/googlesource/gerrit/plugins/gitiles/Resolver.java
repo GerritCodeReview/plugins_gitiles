@@ -57,7 +57,7 @@ class Resolver implements RepositoryResolver<HttpServletRequest> {
         req.getRequestURL(),
         oldName,
         name);
-    Project.NameKey nameKey = new Project.NameKey(name);
+    Project.NameKey nameKey = Project.nameKey(name);
     req.setAttribute(NAME_KEY_ATTRIBUTE, nameKey);
     try {
       return repoFactory.create(nameKey);
