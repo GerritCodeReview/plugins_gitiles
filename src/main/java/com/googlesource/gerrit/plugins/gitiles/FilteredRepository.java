@@ -210,23 +210,6 @@ class FilteredRepository extends Repository {
     }
 
     @Override
-    public Ref getRef(String name) throws IOException {
-      Ref ref = git.getRefDatabase().getRef(name);
-      if (ref == null) {
-        return null;
-      }
-      try {
-        return perm.filter(
-                ImmutableMap.of(ref.getName(), ref),
-                git,
-                RefFilterOptions.builder().setFilterTagsSeparately(true).build())
-            .get(ref.getName());
-      } catch (PermissionBackendException e) {
-        throw new IOException(e);
-      }
-    }
-
-    @Override
     public Map<String, Ref> getRefs(String prefix) throws IOException {
       Map<String, Ref> refs;
       try {
