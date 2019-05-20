@@ -1,4 +1,4 @@
-load("//tools/bzl:maven_jar.bzl", "GERRIT", "MAVEN_CENTRAL", "maven_jar")
+load("//tools/bzl:maven_jar.bzl", "GERRIT", "maven_jar")
 
 COMMONMARK_VERSION = "0.6.0"
 
