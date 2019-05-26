@@ -16,7 +16,7 @@ package com.googlesource.gerrit.plugins.gitiles;
 
 import static com.google.common.base.Preconditions.checkState;
 
-import com.google.gerrit.reviewdb.client.Project;
+import com.google.gerrit.entities.Project;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.permissions.PermissionBackendException;
 import com.google.gerrit.server.project.NoSuchProjectException;
