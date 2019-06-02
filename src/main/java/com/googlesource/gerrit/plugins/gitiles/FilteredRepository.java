@@ -139,6 +139,11 @@ class FilteredRepository extends Repository {
   }
 
   @Override
+  public Path getPath() {
+    return delegate.getPath();
+  }
+
+  @Override
   public void scanForRepoChanges() throws IOException {
     throw new UnsupportedOperationException(); // Gitiles is read-only.
   }
