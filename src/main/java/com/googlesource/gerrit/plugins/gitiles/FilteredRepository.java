@@ -139,6 +139,11 @@ class FilteredRepository extends Repository {
   }
 
   @Override
+  public String getIdentifier() {
+    return delegate.getIdentifier();
+  }
+
+  @Override
   public void scanForRepoChanges() throws IOException {
     throw new UnsupportedOperationException(); // Gitiles is read-only.
   }
