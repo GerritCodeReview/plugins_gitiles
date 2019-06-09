@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "155284f5_1494ee2e",
+        "filename": "BUILD",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2019-06-09T07:50:12Z",
+      "side": 1,
+      "message": "This shouldn\u0027t be needed, if custom genrule2 is used, that is also available in Bazlets repository as well.",
+      "range": {
+        "startLine": 26,
+        "startChar": 8,
+        "endLine": 27,
+        "endChar": 54
+      },
+      "revId": "8d36edd0fdf745e1e68ed9ccb5bba46a0dd02468",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
