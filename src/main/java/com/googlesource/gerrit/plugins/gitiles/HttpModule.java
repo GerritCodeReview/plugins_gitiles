@@ -90,7 +90,6 @@ class HttpModule extends ServletModule {
   protected void configureServlets() {
     // Filter all paths so we can decode escaped entities in the URI
     filter("/*").through(createPathFilter());
-    filter("/*").through(new LoginFilter(userProvider, urls));
     filter("/*").through(new MenuFilter(userProvider, urls));
 
     // make this plugin's classloader the context classloader to prevent
