@@ -15,6 +15,7 @@
 package com.googlesource.gerrit.plugins.gitiles;
 
 import com.google.common.collect.Lists;
+import com.google.gerrit.extensions.restapi.Url;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.IdentifiedUser;
 import com.google.gitiles.BaseServlet;
@@ -52,7 +53,7 @@ class MenuFilter implements Filter {
       entries.add(BaseServlet.menuEntry(((IdentifiedUser) user).getName(), null));
       entries.add(BaseServlet.menuEntry("Sign Out", urls.getBaseGerritUrl(req) + "logout"));
     } else {
-      entries.add(BaseServlet.menuEntry("Sign In", urls.getBaseGerritUrl(req) + "login"));
+      entries.add(BaseServlet.menuEntry("Sign In", getLoginRedirectUrl(req)));
     }
     BaseServlet.putSoyData(req, "menuEntries", entries);
     chain.doFilter(request, response);
@@ -63,4 +64,19 @@ class MenuFilter implements Filter {
 
   @Override
   public void destroy() {}
+
+  private String getLoginRedirectUrl(HttpServletRequest req) {
+    String baseUrl = urls.getBaseGerritUrl(req);
+    String loginUrl = baseUrl + "login/";
+    String token = req.getRequestURL().toString();
+    if (!baseUrl.isEmpty()) {
+      token = token.substring(baseUrl.length());
+    }
+
+    String queryString = req.getQueryString();
+    if (queryString != null && !queryString.isEmpty()) {
+      token = token.concat("?" + queryString);
+    }
+    return (loginUrl + Url.encode(token));
+  }
 }
