@@ -1,24 +1,5 @@
+load("//tools/bzl:genrule2.bzl", "genrule2")
 load("//tools/bzl:plugin.bzl", "gerrit_plugin")
-
-genrule(
-    name = "gitiles",
-    srcs = [
-        ":gitiles__base",
-        "@gitiles-servlet//jar",
-    ],
-    outs = ["gitiles.jar"],
-    cmd = " && ".join([
-        "ROOT=$$PWD",
-        "TMP=$$(mktemp -d || mktemp -d -t bazel-tmp)",
-        "cp $(location :gitiles__base) $@",
-        "chmod +w $@",
-        "unzip -qd $$TMP $(location @gitiles-servlet//jar) \"com/google/gitiles/static/*\"",
-        "cd $$TMP/com/google/gitiles",
-        "mv static +static",
-        "zip -Drq $$ROOT/$@ -g . -i \"+static/*\"",
-    ]),
-    visibility = ["//plugins:__subpackages__"],
-)
 
 gerrit_plugin(
     name = "gitiles",
@@ -33,11 +14,21 @@ gerrit_plugin(
         "Gerrit-HttpStaticPrefix: +static",
         "Gerrit-HttpDocumentationPrefix: +Documentation",
     ],
+    resource_jars = [":gitiles-servlet-resources"],
     resources = glob(["src/main/resources/**/*"]),
-    target_suffix = "__base",
-    deps = [
-        ":gitiles__plugin_deps",
-    ],
+    deps = [":gitiles__plugin_deps"],
+)
+
+genrule2(
+    name = "gitiles-servlet-resources",
+    srcs = ["@gitiles-servlet//jar"],
+    outs = ["gitiles-servlet-resources.jar"],
+    cmd = " && ".join([
+        "unzip -qd $$TMP $(location @gitiles-servlet//jar) \"com/google/gitiles/static/*\"",
+        "cd $$TMP/com/google/gitiles",
+        "mv static +static",
+        "zip -qr $$ROOT/$@ .",
+    ]),
 )
 
 java_library(
