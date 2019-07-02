@@ -3,14 +3,14 @@ workspace(name = "gitiles")
 load("//:bazlets.bzl", "load_bazlets")
 
 load_bazlets(
-    commit = "4df6379dfb49746619dcf4764825916406365774",
+    commit = "92f6cad246b41c5b2f9464ecbd4b7c635015319f",
     #local_path = "/home/<user>/projects/bazlets",
 )
 
 # Snapshot Plugin API
 #load(
-#   "@com_googlesource_gerrit_bazlets//:gerrit_api_maven_local.bzl",
-#   "gerrit_api_maven_local",
+#    "@com_googlesource_gerrit_bazlets//:gerrit_api_maven_local.bzl",
+#    "gerrit_api_maven_local",
 #)
 
 # Load snapshot Plugin API
