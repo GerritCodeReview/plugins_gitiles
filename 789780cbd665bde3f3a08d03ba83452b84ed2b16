@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96769b2d_3914dd19",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2019-09-04T10:15:31Z",
+      "side": 1,
+      "message": "Wrap the lines in the commit message at 72 char. See this recommendation about the commit message: [1].\n\n* [1] https://github.com/GerritCodeReview/gerrit/blob/master/Documentation/dev-crafting-changes.txt#L12-L26",
+      "revId": "789780cbd665bde3f3a08d03ba83452b84ed2b16",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42c45ecf_bb2aaf3d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2019-09-04T10:15:31Z",
+      "side": 1,
+      "message": "gitiles",
+      "range": {
+        "startLine": 9,
+        "startChar": 155,
+        "endLine": 9,
+        "endChar": 163
+      },
+      "revId": "789780cbd665bde3f3a08d03ba83452b84ed2b16",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10b20ba6_615f6c65",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2019-09-04T10:15:31Z",
+      "side": 1,
+      "message": "building.",
+      "range": {
+        "startLine": 9,
+        "startChar": 80,
+        "endLine": 9,
+        "endChar": 89
+      },
+      "revId": "789780cbd665bde3f3a08d03ba83452b84ed2b16",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04159510_6c61fe98",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2019-09-04T10:15:31Z",
+      "side": 1,
+      "message": "This is a configuration change of this plugin and thus must be documented in config.md file: [1].\n\n* [1] https://gerrit.googlesource.com/plugins/gitiles/+/refs/heads/master/src/main/resources/+Documentation/config.md",
+      "range": {
+        "startLine": 10,
+        "startChar": 37,
+        "endLine": 10,
+        "endChar": 61
+      },
+      "revId": "789780cbd665bde3f3a08d03ba83452b84ed2b16",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b180f80_f7f22aa8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2019-09-04T10:15:31Z",
+      "side": 1,
+      "message": "This change allows administrators to choose",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 18
+      },
+      "revId": "789780cbd665bde3f3a08d03ba83452b84ed2b16",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "965acb02_26bf13e8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2019-09-04T10:15:31Z",
+      "side": 1,
+      "message": "Mention, that this behaviour wasn\u0027t changed, it was already like this before this change.",
+      "range": {
+        "startLine": 14,
+        "startChar": 2,
+        "endLine": 14,
+        "endChar": 84
+      },
+      "revId": "789780cbd665bde3f3a08d03ba83452b84ed2b16",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "644e7175_4d1b0ac6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2019-09-04T10:15:31Z",
+      "side": 1,
+      "message": "This is not accurate. The first listed, e.g. SSH wouldn\u0027t be used, when advertisedSshAddresses is not provided.",
+      "range": {
+        "startLine": 15,
+        "startChar": 2,
+        "endLine": 15,
+        "endChar": 56
+      },
+      "revId": "789780cbd665bde3f3a08d03ba83452b84ed2b16",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de704d7c_11f097d4",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/Module.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2019-09-04T10:15:31Z",
+      "side": 1,
+      "message": "This comment is stale now, this change is using user preferences, and thus this comment should be removed.",
+      "range": {
+        "startLine": 97,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 34
+      },
+      "revId": "789780cbd665bde3f3a08d03ba83452b84ed2b16",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c90efb7a_528dd9db",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/Module.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2019-09-04T10:15:31Z",
+      "side": 1,
+      "message": "Optional: extract this to its own function, then you can use return statement instead of double break, that is quite confusing: /1 break from the inner switch statement, /2 break from the outer for loop.",
+      "range": {
+        "startLine": 99,
+        "startChar": 4,
+        "endLine": 114,
+        "endChar": 14
+      },
+      "revId": "789780cbd665bde3f3a08d03ba83452b84ed2b16",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5451547a_306e8ad2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/Module.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2019-09-04T10:15:31Z",
+      "side": 1,
+      "message": "This can be private static, when getLocalHostName() is also changed to be static.",
+      "range": {
+        "startLine": 123,
+        "startChar": 2,
+        "endLine": 123,
+        "endChar": 10
+      },
+      "revId": "789780cbd665bde3f3a08d03ba83452b84ed2b16",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
