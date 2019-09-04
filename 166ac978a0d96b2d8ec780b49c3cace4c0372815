@@ -22,6 +22,30 @@
       "revId": "166ac978a0d96b2d8ec780b49c3cace4c0372815",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2494283e_3ac5579d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-09-04T23:31:46Z",
+      "side": 1,
+      "message": "The subject was copy and pasted from the change on the replication plugin, which also didn\u0027t actually change python rules.",
+      "parentUuid": "04987e2e_b62faa3e",
+      "range": {
+        "startLine": 7,
+        "startChar": 42,
+        "endLine": 7,
+        "endChar": 47
+      },
+      "revId": "166ac978a0d96b2d8ec780b49c3cace4c0372815",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
