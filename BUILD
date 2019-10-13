@@ -30,13 +30,3 @@ genrule2(
         "zip -qr $$ROOT/$@ .",
     ]),
 )
-
-java_library(
-    name = "gitiles__classpath_deps",
-    testonly = 1,
-    visibility = ["//visibility:public"],
-    exports = [
-        ":gitiles__plugin",
-        "//lib/gitiles",
-    ],
-)
