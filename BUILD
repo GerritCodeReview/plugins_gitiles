@@ -1,3 +1,4 @@
+load("@rules_java//java:defs.bzl", "java_library")
 load("//tools/bzl:genrule2.bzl", "genrule2")
 load("//tools/bzl:plugin.bzl", "gerrit_plugin")
 
@@ -29,14 +30,4 @@ genrule2(
         "mv static +static",
         "zip -qr $$ROOT/$@ .",
     ]),
-)
-
-java_library(
-    name = "gitiles__classpath_deps",
-    testonly = 1,
-    visibility = ["//visibility:public"],
-    exports = [
-        ":gitiles__plugin",
-        "//lib/gitiles",
-    ],
 )
