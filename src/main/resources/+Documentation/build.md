@@ -21,7 +21,7 @@ To build the plugin, issue the following command:
 The output is created in
 
 ```
-  bazel-genfiles/@PLUGIN@.jar
+  bazel-bin/@PLUGIN@.jar
 ```
 
 To package the plugin sources run:
@@ -67,7 +67,7 @@ in the root of Gerrit's source tree to build
 The output is created in
 
 ```
-  bazel-genfiles/plugins/gitiles/gitiles.jar
+  bazel-bin/plugins/gitiles/gitiles.jar
 ```
 
 This project can be imported into the Eclipse IDE. Add the plugin name to the
