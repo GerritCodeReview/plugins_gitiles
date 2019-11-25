@@ -14,8 +14,9 @@
 
 package com.googlesource.gerrit.plugins.gitiles;
 
+import static java.util.stream.Collectors.toMap;
+
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.extensions.restapi.AuthException;
@@ -31,6 +32,7 @@ import com.google.gerrit.server.project.ProjectState;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import org.eclipse.jgit.attributes.AttributesNodeProvider;
@@ -204,7 +206,10 @@ class FilteredRepository extends Repository {
         return null;
       }
       try {
-        return perm.filter(ImmutableMap.of(name, ref), git, RefFilterOptions.defaults()).get(name);
+        return perm.filter(ImmutableList.of(ref), git, RefFilterOptions.defaults()).stream()
+            .filter(r -> r.getName().equals(name))
+            .findAny()
+            .orElse(null);
       } catch (PermissionBackendException e) {
         throw new IOException(e);
       }
@@ -212,7 +217,7 @@ class FilteredRepository extends Repository {
 
     @Override
     public Map<String, Ref> getRefs(String prefix) throws IOException {
-      Map<String, Ref> refs;
+      Collection<Ref> refs;
       try {
         refs =
             perm.filter(
@@ -221,11 +226,11 @@ class FilteredRepository extends Repository {
         throw new IOException(e);
       }
       Map<String, Ref> result = Maps.newHashMapWithExpectedSize(refs.size());
-      for (Ref ref : refs.values()) {
+      for (Ref ref : refs) {
         // VisibleRefFilter adds the prefix to the keys, re-strip it.
         result.put(ref.getName().substring(prefix.length()), ref);
       }
-      return refs;
+      return refs.stream().collect(toMap(Ref::getName, r -> r));
     }
 
     @Override
