@@ -5,8 +5,8 @@ COMMONMARK_VERSION = "0.10.0"
 def external_plugin_deps():
     maven_jar(
         name = "gitiles-servlet",
-        artifact = "com.google.gitiles:gitiles-servlet:0.2-7",
-        sha1 = "f23b22cb27fe5c4a78f761492082159d17873f57",
+        artifact = "com.google.gitiles:gitiles-servlet:0.2-7.1",
+        sha1 = "669579c0921c8a258bb6808cad7d597e06eb0f57",
         repository = GERRIT,
     )
 
