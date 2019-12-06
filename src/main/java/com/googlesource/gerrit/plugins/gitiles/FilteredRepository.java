@@ -225,7 +225,6 @@ class FilteredRepository extends Repository {
       } catch (PermissionBackendException e) {
         throw new IOException(e);
       }
-      Map<String, Ref> result = Maps.newHashMapWithExpectedSize(refs.size());
       // VisibleRefFilter adds the prefix to the keys, re-strip it.
       return refs.stream().collect(toMap(r -> r.getName().substring(prefix.length()), r -> r));
     }
