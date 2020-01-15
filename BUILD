@@ -1,4 +1,3 @@
-load("@rules_java//java:defs.bzl", "java_library")
 load("//tools/bzl:genrule2.bzl", "genrule2")
 load("//tools/bzl:plugin.bzl", "gerrit_plugin")
 
