@@ -52,14 +52,14 @@ replacing the existing empty one.
 ```
   cd gerrit/plugins
   rm external_plugin_deps.bzl
-  ln -s gitiles/external_plugin_deps.bzl .
+  ln -s @PLUGIN@/external_plugin_deps.bzl .
 ```
 
 Then issue
 
 ```
   cd ..
-  bazel build plugins/gitiles
+  bazel build plugins/@PLUGIN@
 ```
 
 in the root of Gerrit's source tree to build
@@ -67,7 +67,7 @@ in the root of Gerrit's source tree to build
 The output is created in
 
 ```
-  bazel-bin/plugins/gitiles/gitiles.jar
+  bazel-bin/plugins/@PLUGIN@/@PLUGIN@.jar
 ```
 
 This project can be imported into the Eclipse IDE. Add the plugin name to the
