@@ -37,6 +37,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 import org.eclipse.jgit.errors.ConfigInvalidException;
@@ -169,10 +170,8 @@ class GerritGitilesAccess implements GitilesAccess {
   @Override
   public RepositoryDescription getRepositoryDescription() throws IOException {
     Project.NameKey nameKey = Resolver.getNameKey(req);
-    ProjectState state = projectCache.get(nameKey);
-    if (state == null) {
-      throw new RepositoryNotFoundException(nameKey.get());
-    }
+    ProjectState state =
+        projectCache.get(nameKey).orElseThrow(() -> new RepositoryNotFoundException(nameKey.get()));
     return toDescription(nameKey.get(), projectJson.format(state.getProject()));
   }
 
@@ -182,15 +181,14 @@ class GerritGitilesAccess implements GitilesAccess {
     // of the project. For non-project access, use All-Projects as project.
     // If none of the above exists, use global gitiles.config.
     Project.NameKey nameKey = Resolver.getNameKey(req);
-    ProjectState state = projectCache.get(nameKey);
-    if (state != null) {
-      Config cfg = state.getConfig("gitiles.config").getWithInheritance();
+    Optional<ProjectState> state = projectCache.get(nameKey);
+    if (state.isPresent()) {
+      Config cfg = state.get().getConfig("gitiles.config").getWithInheritance();
       if (cfg != null && cfg.getSections().size() > 0) {
         return cfg;
       }
     } else {
-      state = projectCache.getAllProjects();
-      Config cfg = state.getConfig("gitiles.config").get();
+      Config cfg = projectCache.getAllProjects().getConfig("gitiles.config").get();
       if (cfg != null && cfg.getSections().size() > 0) {
         return cfg;
       }
