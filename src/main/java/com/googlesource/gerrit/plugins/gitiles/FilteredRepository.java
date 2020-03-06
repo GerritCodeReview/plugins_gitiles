@@ -35,6 +35,7 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import org.eclipse.jgit.attributes.AttributesNodeProvider;
 import org.eclipse.jgit.lib.ObjectDatabase;
 import org.eclipse.jgit.lib.Ref;
@@ -67,12 +68,15 @@ class FilteredRepository extends Repository {
 
     FilteredRepository create(Project.NameKey name)
         throws NoSuchProjectException, IOException, PermissionBackendException {
-      ProjectState projectState = projectCache.checkedGet(name);
-      if (projectState == null || !projectState.getProject().getState().permitsRead()) {
+      Optional<ProjectState> projectState = projectCache.get(name);
+      if (projectState == null || !projectState.get().statePermitsRead()) {
         throw new NoSuchProjectException(name);
       }
       return new FilteredRepository(
-          projectState, userProvider.get(), repoManager.openRepository(name), permissionBackend);
+          projectState.get(),
+          userProvider.get(),
+          repoManager.openRepository(name),
+          permissionBackend);
     }
   }
 
