@@ -16,6 +16,24 @@
       "revId": "093e201b94e65ea228423eefbece1f2f95fb1974",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcc7303d_a988da1b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-03-09T08:40:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "895b0b16_a7621a6f",
+      "revId": "093e201b94e65ea228423eefbece1f2f95fb1974",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
