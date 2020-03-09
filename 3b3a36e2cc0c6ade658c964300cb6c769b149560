@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "86ff3fcc_102fd883",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2020-03-09T08:46:45Z",
+      "side": 1,
+      "message": "I missed this before, but is a null check correct here?  Shouldn\u0027t it be\n\n !projectState.isPresent()\n\n?",
+      "range": {
+        "startLine": 72,
+        "startChar": 10,
+        "endLine": 72,
+        "endChar": 30
+      },
+      "revId": "3b3a36e2cc0c6ade658c964300cb6c769b149560",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
