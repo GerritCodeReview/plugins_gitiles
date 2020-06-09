@@ -1,0 +1,11 @@
+{
+  "checks": {
+    "zuul-check:plugins_gitiles": {
+      "state": "SCHEDULED",
+      "message": "Change has been enqueued in check",
+      "started": "2020-06-09T00:41:12Z",
+      "created": "2020-06-09T00:41:12Z",
+      "updated": "2020-06-09T00:41:12Z"
+    }
+  }
+}
