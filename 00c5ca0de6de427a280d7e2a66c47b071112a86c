@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "95d53c65_e82caa35",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012155
+      },
+      "writtenOn": "2020-06-27T09:05:12Z",
+      "side": 1,
+      "message": "This font loading change is related to Issue: 12980 but I\u0027m not sure if linking it in the commit\nmessage is a good fit, as that\u0027s about Gerrit itself, not plugins. If I should\nadd the issue number, just let me know.",
+      "revId": "00c5ca0de6de427a280d7e2a66c47b071112a86c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
