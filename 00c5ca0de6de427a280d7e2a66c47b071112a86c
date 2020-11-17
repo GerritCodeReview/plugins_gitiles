@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": false,
       "key": {
         "uuid": "95d53c65_e82caa35",
         "filename": "/PATCHSET_LEVEL",
@@ -14,8 +15,41 @@
       "side": 1,
       "message": "This font loading change is related to Issue: 12980 but I\u0027m not sure if linking it in the commit\nmessage is a good fit, as that\u0027s about Gerrit itself, not plugins. If I should\nadd the issue number, just let me know.",
       "revId": "00c5ca0de6de427a280d7e2a66c47b071112a86c",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5781bc9_b2503cf3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010788
+      },
+      "writtenOn": "2020-11-17T21:16:02Z",
+      "side": 1,
+      "message": "Gerrit has been fixed via https://gerrit-review.googlesource.com/c/gerrit/+/273371. This change to plugins/gitiles is to work around an issue in gitiles itself within gitiles. Maybe it is an easy gitiles fix?",
+      "revId": "00c5ca0de6de427a280d7e2a66c47b071112a86c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84db7ad7_5bf7116f",
+        "filename": "BUILD",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1010788
+      },
+      "writtenOn": "2020-11-17T21:16:02Z",
+      "side": 1,
+      "message": "Shouldn\u0027t that be fixed in the gitiles repository? We had a similar issue with Gerrit which has been addressed by https://gerrit-review.googlesource.com/c/gerrit/+/273371",
+      "revId": "00c5ca0de6de427a280d7e2a66c47b071112a86c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
