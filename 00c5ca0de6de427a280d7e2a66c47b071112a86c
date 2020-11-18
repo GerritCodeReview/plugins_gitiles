@@ -50,6 +50,24 @@
       "message": "Shouldn\u0027t that be fixed in the gitiles repository? We had a similar issue with Gerrit which has been addressed by https://gerrit-review.googlesource.com/c/gerrit/+/273371",
       "revId": "00c5ca0de6de427a280d7e2a66c47b071112a86c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a44b00ed_24131dc9",
+        "filename": "BUILD",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2020-11-18T11:02:09Z",
+      "side": 1,
+      "message": "So maybe this file needs fixing?\n\nhttps://gerrit.googlesource.com/gitiles/+/master/resources/com/google/gitiles/static/base.css",
+      "parentUuid": "84db7ad7_5bf7116f",
+      "revId": "00c5ca0de6de427a280d7e2a66c47b071112a86c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
