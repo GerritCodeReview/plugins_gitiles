@@ -104,6 +104,24 @@
       "parentUuid": "79cd19ad_3e115deb",
       "revId": "00c5ca0de6de427a280d7e2a66c47b071112a86c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe289cfe_1a04a1f7",
+        "filename": "BUILD",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-11-20T19:37:22Z",
+      "side": 1,
+      "message": "\u003e gitiles can be used without Gerrit. This plugin here is the glue between gitiles and Gerrit.\n\u003e \n\u003e If one removes the `fonts.googleapis.com` loading directly from the gitiles project itself,\n\u003e all non-Gerrit uses of gitiles (not sure how many there are) would have to provide the fonts,\n\u003e which is painful and make gitiles harder to use from other projects.\n\u003e \n\u003e That\u0027s why the font loading re-configuration happens in this plugin, and not in gitiles itself.\n\nHave you thought about adding to Gerrit the fonts needed by Gitiles?\nAt the end of the day should be only \"Source Code Pro\", correct?",
+      "parentUuid": "3c257076_e2a02b25",
+      "revId": "00c5ca0de6de427a280d7e2a66c47b071112a86c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
