@@ -76,13 +76,15 @@ public class GitilesWeblinks
   }
 
   @Override
-  public WebLinkInfo getPatchSetWebLink(String projectName, String commit) {
+  public WebLinkInfo getPatchSetWebLink(
+      String projectName, String commit, String subject, String branchName) {
     return new WebLinkInfo(
         name, null, String.format("%s/%s/+/%s", baseUrl, projectName, commit), target);
   }
 
   @Override
-  public WebLinkInfo getParentWebLink(String projectName, String commit) {
+  public WebLinkInfo getParentWebLink(
+      String projectName, String commit, String subject, String branchName) {
     return new WebLinkInfo(
         name, null, String.format("%s/%s/+/%s", baseUrl, projectName, commit), target);
   }
