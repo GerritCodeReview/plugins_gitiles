@@ -69,7 +69,7 @@ class FilteredRepository extends Repository {
     FilteredRepository create(Project.NameKey name)
         throws NoSuchProjectException, IOException, PermissionBackendException {
       Optional<ProjectState> projectState = projectCache.get(name);
-      if (!projectState.get().statePermitsRead()) {
+      if (!projectState.isPresent() || !projectState.get().statePermitsRead()) {
         throw new NoSuchProjectException(name);
       }
       return new FilteredRepository(
