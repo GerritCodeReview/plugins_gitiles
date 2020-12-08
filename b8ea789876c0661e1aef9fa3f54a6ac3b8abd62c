@@ -16,6 +16,23 @@
       "message": "This issue is present on stable-3.2 and stable-3.3 also.\nThe parent commit on master was incompatible with stable-3.2 so we need to backport only the fix to stable-3.2.",
       "revId": "b8ea789876c0661e1aef9fa3f54a6ac3b8abd62c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "717bf79c_87d0d284",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120740
+      },
+      "writtenOn": "2020-12-08T14:10:56Z",
+      "side": 1,
+      "message": "@Sven Thank you for merging.",
+      "revId": "b8ea789876c0661e1aef9fa3f54a6ac3b8abd62c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
