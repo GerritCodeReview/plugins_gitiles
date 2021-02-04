@@ -210,7 +210,7 @@ class FilteredRepository extends Repository {
         return null;
       }
       try {
-        return perm.filter(ImmutableList.of(ref), git, RefFilterOptions.defaults()).stream()
+        return perm.filter(ImmutableList.of(ref), RefFilterOptions.defaults()).stream()
             .filter(r -> r.getName().equals(name))
             .findAny()
             .orElse(null);
@@ -225,7 +225,7 @@ class FilteredRepository extends Repository {
       try {
         refs =
             perm.filter(
-                git.getRefDatabase().getRefsByPrefix(prefix), git, RefFilterOptions.defaults());
+                git.getRefDatabase().getRefsByPrefix(prefix), RefFilterOptions.defaults());
       } catch (PermissionBackendException e) {
         throw new IOException(e);
       }
