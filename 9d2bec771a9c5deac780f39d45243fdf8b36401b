@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99a2965b_597e02ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1087826
+      },
+      "writtenOn": "2021-02-19T19:42:27Z",
+      "side": 1,
+      "message": "Testing out Depends-On with this copy of https://gerrit-review.googlesource.com/c/plugins/gitiles/+/296023",
+      "revId": "9d2bec771a9c5deac780f39d45243fdf8b36401b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
