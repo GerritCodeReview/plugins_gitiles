@@ -34,6 +34,24 @@
       "parentUuid": "14beacde_df706fe9",
       "revId": "05380c6c23c27cb9c63e2b69fc406c822c94e5ca",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "392776d9_f698ad50",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2021-03-15T08:18:50Z",
+      "side": 1,
+      "message": "Ok. I\u0027ll try to create the backports on protected branches in the sec fix repo. Can you review this change before I do that?\n\nWould you mind helping with releasing and some (manual) testing? I can handle the backports and iterate over review comments.",
+      "parentUuid": "9b50502f_6a6f0647",
+      "revId": "05380c6c23c27cb9c63e2b69fc406c822c94e5ca",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
