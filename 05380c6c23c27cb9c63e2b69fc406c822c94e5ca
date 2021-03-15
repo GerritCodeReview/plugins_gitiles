@@ -52,6 +52,29 @@
       "parentUuid": "9b50502f_6a6f0647",
       "revId": "05380c6c23c27cb9c63e2b69fc406c822c94e5ca",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19dbe958_82766660",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2021-03-15T22:37:36Z",
+      "side": 1,
+      "message": "There is something weird going on: when I am testing this E2E, this exception causes the HTTP call to fail with a 401 Unauthorized, which doesn\u0027t make sense to me.\n\nI was expecting a 404 in this case, what am I missing?",
+      "range": {
+        "startLine": 79,
+        "startChar": 8,
+        "endLine": 79,
+        "endChar": 50
+      },
+      "revId": "05380c6c23c27cb9c63e2b69fc406c822c94e5ca",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
