@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7653ae84_aa4ef6c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1088405
+      },
+      "writtenOn": "2021-04-15T08:17:26Z",
+      "side": 1,
+      "message": "Good day!\nColleagues, are you planning to apply these changes? \nWe are using \u0027Jenkins Trigger\u0027 which uses a SSH connection, but users work via HTTPS, it would be convenient to have this functionality.",
+      "revId": "1608e5c2a040bb153c9b72ecd39b77b509ed4c59",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
