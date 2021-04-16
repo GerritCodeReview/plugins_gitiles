@@ -75,6 +75,30 @@
       },
       "revId": "05380c6c23c27cb9c63e2b69fc406c822c94e5ca",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b696a51a_1a40a38c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2021-04-16T12:54:10Z",
+      "side": 1,
+      "message": "I think that is caused by the resolver code.\n\nIf the user is authorized we throw a RepositoryNotFoundException. If the user is not authorized, we throw a ServiceNotAuthorizedException.\n\nIn your test, were you authenticated?",
+      "parentUuid": "19dbe958_82766660",
+      "range": {
+        "startLine": 79,
+        "startChar": 8,
+        "endLine": 79,
+        "endChar": 50
+      },
+      "revId": "05380c6c23c27cb9c63e2b69fc406c822c94e5ca",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
