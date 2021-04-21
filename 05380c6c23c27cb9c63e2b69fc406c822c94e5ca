@@ -99,6 +99,30 @@
       },
       "revId": "05380c6c23c27cb9c63e2b69fc406c822c94e5ca",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f55b5d5_9d52a3de",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2021-04-21T12:36:07Z",
+      "side": 1,
+      "message": "Ping",
+      "parentUuid": "b696a51a_1a40a38c",
+      "range": {
+        "startLine": 79,
+        "startChar": 8,
+        "endLine": 79,
+        "endChar": 50
+      },
+      "revId": "05380c6c23c27cb9c63e2b69fc406c822c94e5ca",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
