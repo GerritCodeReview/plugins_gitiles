@@ -16,6 +16,46 @@
       "message": "Good day!\nColleagues, are you planning to apply these changes? \nWe are using \u0027Jenkins Trigger\u0027 which uses a SSH connection, but users work via HTTPS, it would be convenient to have this functionality.",
       "revId": "1608e5c2a040bb153c9b72ecd39b77b509ed4c59",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92c5487b_839da7c3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/Module.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1010788
+      },
+      "writtenOn": "2021-05-21T12:07:52Z",
+      "side": 1,
+      "message": "Both are optional and not set by default. When using a standalone Gerrit daemon that provides both the Web and git service, one is instructed to set `gerrit.canonicalWebUrl`\n\nSo maybe each should fall back to canonicalWebUrl?",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 3
+      },
+      "revId": "1608e5c2a040bb153c9b72ecd39b77b509ed4c59",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adf69872_c54b52b6",
+        "filename": "src/main/resources/+Documentation/config.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1010788
+      },
+      "writtenOn": "2021-05-21T12:07:52Z",
+      "side": 1,
+      "message": "Can you document that `git` would use the value of `gerrit.canonicalGitUrl`,  `http` would use the value of `gerrit.gitHttpUrl`  and that if they are not set, the below heuristic used.\n\nIn the .java file I suggest a fall back to gerrit.canonicalWebUrl in case they are not set.",
+      "revId": "1608e5c2a040bb153c9b72ecd39b77b509ed4c59",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
