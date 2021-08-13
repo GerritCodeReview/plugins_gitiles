@@ -46,6 +46,7 @@ import org.eclipse.jgit.lib.ReflogReader;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.lib.RepositoryBuilder;
 import org.eclipse.jgit.lib.StoredConfig;
+import org.eclipse.jgit.transport.ServiceMayNotContinueException;
 
 class FilteredRepository extends Repository {
   static class Factory {
@@ -71,6 +72,13 @@ class FilteredRepository extends Repository {
       Optional<ProjectState> projectState = projectCache.get(name);
       if (!projectState.isPresent() || !projectState.get().statePermitsRead()) {
         throw new NoSuchProjectException(name);
+      }
+      try {
+        permissionBackend.currentUser().project(name).check(ProjectPermission.ACCESS);
+      } catch (AuthException e) {
+        throw new NoSuchProjectException(name, e);
+      } catch (PermissionBackendException e) {
+        throw new ServiceMayNotContinueException(e);
       }
       return new FilteredRepository(
           projectState.get(),
