@@ -108,7 +108,7 @@ class HttpModule extends ServletModule {
       GitilesUrls urls,
       GitilesAccess.Factory accessFactory,
       RepositoryResolver<HttpServletRequest> resolver) {
-    return new GitilesServlet(cfg, null, urls, accessFactory, resolver, null, null, null, null);
+    return new GitilesServlet(cfg, null, urls, accessFactory, resolver, null, null, null, null, null);
   }
 
   @Provides
