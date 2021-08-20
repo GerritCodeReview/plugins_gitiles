@@ -30,7 +30,7 @@ import org.eclipse.jgit.transport.ServiceMayNotContinueException;
 import org.eclipse.jgit.transport.resolver.RepositoryResolver;
 import org.eclipse.jgit.transport.resolver.ServiceNotAuthorizedException;
 
-class Resolver implements RepositoryResolver<HttpServletRequest> {
+public class Resolver implements RepositoryResolver<HttpServletRequest> {
   private static final String NAME_KEY_ATTRIBUTE = Resolver.class.getName() + "/NameKey";
   private final Provider<CurrentUser> userProvider;
 
