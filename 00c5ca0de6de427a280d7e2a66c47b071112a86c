@@ -52,6 +52,23 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa6865a8_ce159215",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010788
+      },
+      "writtenOn": "2021-09-02T15:56:24Z",
+      "side": 1,
+      "message": "I have send the merge commits for the other branches:\n\n* 3.3 https://gerrit-review.googlesource.com/c/plugins/gitiles/+/317142\n* 3.4 https://gerrit-review.googlesource.com/c/plugins/gitiles/+/317143\n* master https://gerrit-review.googlesource.com/c/plugins/gitiles/+/317144",
+      "revId": "00c5ca0de6de427a280d7e2a66c47b071112a86c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "84db7ad7_5bf7116f",
