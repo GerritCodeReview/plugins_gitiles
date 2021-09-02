@@ -69,6 +69,23 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c187d10_e232d024",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2021-09-02T17:48:13Z",
+      "side": 1,
+      "message": "So I\u0027m dead set against Antoine having +2 perms here, but it certainly surprised me. Looks like Dave gave perms many years ago [1] before gitiles was a core plugin. Core plugin rules [2] I think say only maintainers should have -2/+2. Should we fix the ACLs?\n\n[1] https://gerrit.googlesource.com/plugins/gitiles/+/2c53a595d19a2a438fa133748505b7a74d1dd9ec%5E%21/#F1\n[2] https://gerrit-review.googlesource.com/Documentation/dev-core-plugins.html",
+      "revId": "00c5ca0de6de427a280d7e2a66c47b071112a86c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "84db7ad7_5bf7116f",
