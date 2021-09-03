@@ -104,6 +104,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b267375_3986c9e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010788
+      },
+      "writtenOn": "2021-09-03T08:03:13Z",
+      "side": 1,
+      "message": "Oops sorry if I messed around. My rationale is that we had the patch applied on the Wikimedia live instance for quite a while and that patch got reviews from a few others. I was waiting for the original author to move it to the stable branch in order to submit it.\n\nHad it been a more complicated change (like changing java code), I would surely have waited and seek approval from a proper maintainer since that is a core a plugin.\n\nMaybe there should be a permission group solely for the core plugins? Which I guess will have the same restrictions as Gerrit core itself?",
+      "parentUuid": "8078291b_a05b3097",
+      "revId": "00c5ca0de6de427a280d7e2a66c47b071112a86c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "84db7ad7_5bf7116f",
