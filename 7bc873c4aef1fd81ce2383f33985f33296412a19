@@ -33,6 +33,24 @@
       "message": "what\u0027s the status of this? I thought this was submitted already, no?",
       "revId": "7bc873c4aef1fd81ce2383f33985f33296412a19",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3662739_068b3bce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2021-10-05T07:14:09Z",
+      "side": 1,
+      "message": "We did: https://gerrit-review.googlesource.com/c/plugins/gitiles-security-fixes/+/312222\n\nThis was just a private change to discuss the fix. Will delete/abandon.",
+      "parentUuid": "ad08216b_5f9add40",
+      "revId": "7bc873c4aef1fd81ce2383f33985f33296412a19",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
