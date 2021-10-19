@@ -47,11 +47,11 @@ import javax.servlet.http.HttpServletRequest;
 import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.transport.resolver.RepositoryResolver;
 
-class Module extends LifecycleModule {
+class PluginModule extends LifecycleModule {
   private final boolean noWebLinks;
 
   @Inject
-  Module(PluginConfigFactory configFactory) {
+  PluginModule(PluginConfigFactory configFactory) {
     Config config = configFactory.getGlobalPluginConfig("gitiles");
     this.noWebLinks = config.getBoolean("gerrit", null, "noWebLinks", false);
   }

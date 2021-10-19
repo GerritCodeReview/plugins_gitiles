@@ -7,7 +7,7 @@ gerrit_plugin(
     srcs = glob(["src/main/java/**/*.java"]),
     manifest_entries = [
         "Gerrit-PluginName: gitiles",
-        "Gerrit-Module: com.googlesource.gerrit.plugins.gitiles.Module",
+        "Gerrit-Module: com.googlesource.gerrit.plugins.gitiles.PluginModule",
         "Gerrit-HttpModule: com.googlesource.gerrit.plugins.gitiles.HttpModule",
         # Gitiles uses /repo to access a repo, so the default plugin layout would
         # disallow repos named "static" or "Documentation". Paths starting with +

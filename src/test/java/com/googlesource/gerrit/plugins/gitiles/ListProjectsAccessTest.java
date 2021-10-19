@@ -34,7 +34,7 @@ import org.eclipse.jgit.lib.Config;
 import org.junit.After;
 import org.junit.Test;
 
-@TestPlugin(name = "gitiles", sysModule = "com.googlesource.gerrit.plugins.gitiles.Module")
+@TestPlugin(name = "gitiles", sysModule = "com.googlesource.gerrit.plugins.gitiles.PluginModule")
 public class ListProjectsAccessTest extends LightweightPluginDaemonTest {
   @ConfigSuite.Default
   public static Config defaultConfig() {
