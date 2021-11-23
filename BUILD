@@ -29,13 +29,17 @@ genrule2(
         "cd $$TMP/com/google/gitiles/static",
         # To avoid loading 3rd party resources, we adapt gitiles' CSS to
         # load fonts from Gerrit directly:
-        # 1. Strip out Google font CSS imports
-        "sed -e '\\%^@import .//fonts\\.googleapis\\.com/%d' -i base.css",
+        # 1. Strip out Google font CSS imports to tmp file as in-place replace is OSX no-go
+        "sed -e '\\%^@import .//fonts\\.googleapis\\.com/%d' base.css > $$TMP/base.css.tmp",
+        # move tmp file back to base.css
+        "mv $$TMP/base.css.tmp base.css",
         # 2. Add Gerrit's fonts CSS
         "sed -e 's%^\\(.*Common styles and definitions.*\\)$$%" +
-          "\\1\\n\\n@import \"../../../styles/fonts.css\";%' -i base.css",
+          "\\1\\n\\n@import \"../../../styles/fonts.css\";%' base.css > $$TMP/base.css.tmp",
+        "mv $$TMP/base.css.tmp base.css",
         # 3. Use Gerrit's Roboto Mono for Source Code Pro
-        "sed -e 's/Source Code Pro/Roboto Mono/g' -i base.css",
+        "sed -e 's/Source Code Pro/Roboto Mono/g' base.css > $$TMP/base.css.tmp",
+        "mv $$TMP/base.css.tmp base.css",
         # Switching from `static` to `+static` (see comment in plugin definiton)
         "cd $$TMP/com/google/gitiles",
         "mv static +static",
