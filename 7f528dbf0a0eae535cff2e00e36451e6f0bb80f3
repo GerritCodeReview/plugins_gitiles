@@ -18,6 +18,23 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9153cb9b_429b25ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2021-11-23T20:39:07Z",
+      "side": 1,
+      "message": "I\u0027ve tested locally and I can confirm that works as expected on MacOS.\nHappy to upgrade to a +2 once @Christian\u0027s comments are addressed.\n\nThanks, @Jacek, for the fix.",
+      "revId": "7f528dbf0a0eae535cff2e00e36451e6f0bb80f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45eda0f9_de31d2d8",
