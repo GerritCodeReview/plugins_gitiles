@@ -16,6 +16,7 @@ package com.googlesource.gerrit.plugins.gitiles;
 
 import static com.google.common.truth.Truth.assertThat;
 import static com.google.gerrit.acceptance.testsuite.project.TestProjectUpdate.allow;
+import static com.google.gerrit.extensions.client.ProjectState.HIDDEN;
 import static com.google.gerrit.server.group.SystemGroupBackend.ANONYMOUS_USERS;
 
 import com.google.common.collect.ImmutableSet;
@@ -26,6 +27,7 @@ import com.google.gerrit.acceptance.testsuite.request.RequestScopeOperations;
 import com.google.gerrit.entities.Permission;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.extensions.api.projects.BranchInput;
+import com.google.gerrit.extensions.common.ProjectInfo;
 import com.google.gerrit.testing.ConfigSuite;
 import com.google.gerrit.util.http.testutil.FakeHttpServletRequest;
 import java.util.stream.Collectors;
@@ -90,6 +92,19 @@ public class ListProjectsAccessTest extends LightweightPluginDaemonTest {
                 .map(r -> r.branches.keySet())
                 .collect(Collectors.toList()))
         .containsExactly(ImmutableSet.of("refs/heads/visible"));
+  }
+
+  @Test
+  public void listRepositories_hiddenShouldNotBeVisible() throws Exception {
+	projectOperations.allProjectsForUpdate().removeAllAccessSections().update();
+	int sizeBefore = access().listRepositories(null, ImmutableSet.of()).keySet().size();
+    String key = gApi.projects().list().getAsMap().firstKey();
+    ProjectInfo info = gApi.projects().list().getAsMap().get(key);
+    info.state = HIDDEN;
+    requestScopeOperations.setApiUserAnonymous();
+    int sizeAfter = access().listRepositories(null, ImmutableSet.of()).keySet().size();
+
+    assertThat(sizeAfter + 1).isEqualTo(sizeBefore);
   }
 
   private GerritGitilesAccess access() {
