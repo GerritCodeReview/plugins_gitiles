@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "347394ce_74ddc0a0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GerritGitilesAccess.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2021-12-09T15:42:35Z",
+      "side": 1,
+      "message": "Do a static import of HIDDEN?",
+      "range": {
+        "startLine": 136,
+        "startChar": 43,
+        "endLine": 136,
+        "endChar": 99
+      },
+      "revId": "9cd807e39353d26305734a334997254b5a829043",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9134808a_ee4d2655",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GerritGitilesAccess.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2021-12-09T15:42:35Z",
+      "side": 1,
+      "message": "I realized that removeIf might be faster and easier to read:\n\n    projects.entrySet().removeIf(e -\u003e e.getValue().state.equals(HIDDEN));",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 75
+      },
+      "revId": "9cd807e39353d26305734a334997254b5a829043",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc8375ce_a0a8fa54",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GerritGitilesAccess.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2021-12-09T15:42:35Z",
+      "side": 1,
+      "message": "testOrFalse, returns false instead of throwing an Exception.",
+      "range": {
+        "startLine": 142,
+        "startChar": 65,
+        "endLine": 142,
+        "endChar": 69
+      },
+      "revId": "9cd807e39353d26305734a334997254b5a829043",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bb16af9_f1189620",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GerritGitilesAccess.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2021-12-09T15:42:35Z",
+      "side": 1,
+      "message": "The try/catch can be removed, but in other cases you should always handle or rethrow exceptions.",
+      "range": {
+        "startLine": 146,
+        "startChar": 8,
+        "endLine": 146,
+        "endChar": 29
+      },
+      "revId": "9cd807e39353d26305734a334997254b5a829043",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
