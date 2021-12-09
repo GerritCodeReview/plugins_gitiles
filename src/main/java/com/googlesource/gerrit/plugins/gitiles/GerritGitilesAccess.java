@@ -14,16 +14,21 @@
 
 package com.googlesource.gerrit.plugins.gitiles;
 
+import static com.google.gerrit.extensions.client.ProjectState.HIDDEN;
+
 import com.google.common.collect.Maps;
 import com.google.gerrit.common.Nullable;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.extensions.common.ProjectInfo;
 import com.google.gerrit.extensions.restapi.BadRequestException;
+import com.google.gerrit.extensions.restapi.Url;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.IdentifiedUser;
 import com.google.gerrit.server.config.AnonymousCowardName;
 import com.google.gerrit.server.config.SitePaths;
+import com.google.gerrit.server.permissions.PermissionBackend;
 import com.google.gerrit.server.permissions.PermissionBackendException;
+import com.google.gerrit.server.permissions.ProjectPermission;
 import com.google.gerrit.server.project.ProjectCache;
 import com.google.gerrit.server.project.ProjectJson;
 import com.google.gerrit.server.project.ProjectState;
@@ -59,6 +64,7 @@ class GerritGitilesAccess implements GitilesAccess {
     private final SitePaths site;
     private final Provider<CurrentUser> userProvider;
     private final String anonymousCowardName;
+    private final PermissionBackend permissionBackend;
 
     @Inject
     Factory(
@@ -68,6 +74,7 @@ class GerritGitilesAccess implements GitilesAccess {
         GitilesUrls urls,
         SitePaths site,
         Provider<CurrentUser> userProvider,
+        PermissionBackend permissionBackend,
         @AnonymousCowardName String anonymousCowardName) {
       this.projectCache = projectCache;
       this.projectJson = projectJson;
@@ -75,6 +82,7 @@ class GerritGitilesAccess implements GitilesAccess {
       this.urls = urls;
       this.site = site;
       this.userProvider = userProvider;
+      this.permissionBackend = permissionBackend;
       this.anonymousCowardName = anonymousCowardName;
     }
 
@@ -92,6 +100,7 @@ class GerritGitilesAccess implements GitilesAccess {
   private final Provider<CurrentUser> userProvider;
   private final String anonymousCowardName;
   private final HttpServletRequest req;
+  private final PermissionBackend permissionBackend;
 
   @Inject
   GerritGitilesAccess(Factory factory, HttpServletRequest req) {
@@ -102,6 +111,7 @@ class GerritGitilesAccess implements GitilesAccess {
     this.site = factory.site;
     this.userProvider = factory.userProvider;
     this.anonymousCowardName = factory.anonymousCowardName;
+    this.permissionBackend = factory.permissionBackend;
     this.req = req;
   }
 
@@ -122,8 +132,15 @@ class GerritGitilesAccess implements GitilesAccess {
       throw new IOException(e);
     }
     Map<String, RepositoryDescription> result = Maps.newLinkedHashMap();
+    projects.entrySet().removeIf(e -> e.getValue().state.equals(HIDDEN));
+    CurrentUser currentUser = userProvider.get();
+    PermissionBackend.WithUser withUser = permissionBackend.user(currentUser);
     for (Map.Entry<String, ProjectInfo> e : projects.entrySet()) {
-      result.put(e.getKey(), toDescription(e.getKey(), e.getValue()));
+      if (withUser
+          .project(Project.nameKey(Url.decode(e.getValue().id)))
+          .testOrFalse(ProjectPermission.ACCESS)) {
+        result.put(e.getKey(), toDescription(e.getKey(), e.getValue()));
+      }
     }
     return Collections.unmodifiableMap(result);
   }
