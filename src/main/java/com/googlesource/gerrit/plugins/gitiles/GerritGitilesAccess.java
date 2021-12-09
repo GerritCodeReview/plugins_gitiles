@@ -14,6 +14,8 @@
 
 package com.googlesource.gerrit.plugins.gitiles;
 
+import static com.google.gerrit.extensions.client.ProjectState.HIDDEN;
+
 import com.google.common.collect.Maps;
 import com.google.gerrit.common.Nullable;
 import com.google.gerrit.entities.Project;
@@ -122,6 +124,7 @@ class GerritGitilesAccess implements GitilesAccess {
       throw new IOException(e);
     }
     Map<String, RepositoryDescription> result = Maps.newLinkedHashMap();
+    projects.entrySet().removeIf(e -> e.getValue().state.equals(HIDDEN));
     for (Map.Entry<String, ProjectInfo> e : projects.entrySet()) {
       result.put(e.getKey(), toDescription(e.getKey(), e.getValue()));
     }
