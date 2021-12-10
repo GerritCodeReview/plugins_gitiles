@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "895c5648_0e4ffe63",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GerritGitilesAccess.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2021-12-10T10:07:53Z",
+      "side": 1,
+      "message": "This can be null, don\u0027t know how or why but the test\nlistBranches_branchVisiblityIsRespected() and listRepositories_repositoryVisibilityIsRespected\nFails with null-pointer exception. You could debug and step through that test to se what it does. ListProjects should already handle visibility, so it might be that we only have to fix the case were project is HIDDEN.\n\nYou can run the entire test-suite locally with:\n\n    gerrit$ bazel test plugins/gitiles:all",
+      "range": {
+        "startLine": 137,
+        "startChar": 42,
+        "endLine": 137,
+        "endChar": 59
+      },
+      "revId": "75b89ea4d659c2e5ee654d286d82fe00a45bea35",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0ff7e2c_8ab37ee6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GerritGitilesAccess.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2021-12-10T10:07:53Z",
+      "side": 1,
+      "message": "Use google-java-format [1]\n\n[1] https://gerrit-review.googlesource.com/Documentation/dev-crafting-changes.html#style",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 5
+      },
+      "revId": "75b89ea4d659c2e5ee654d286d82fe00a45bea35",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
