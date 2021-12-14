@@ -22,6 +22,30 @@
       },
       "revId": "4065d882b44277cf437c3c1e02930a7178b70f93",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39da4a4b_06049d65",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GerritGitilesAccess.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1142356
+      },
+      "writtenOn": "2021-12-14T16:24:37Z",
+      "side": 1,
+      "message": "Yes I agree, I was thinking about that too. Do you think it is ready for review now?",
+      "parentUuid": "6caef82e_3796e2fb",
+      "range": {
+        "startLine": 135,
+        "startChar": 4,
+        "endLine": 135,
+        "endChar": 73
+      },
+      "revId": "4065d882b44277cf437c3c1e02930a7178b70f93",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
