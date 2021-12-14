@@ -47,6 +47,54 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb6883c1_c3e54d92",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/gitiles/ListProjectsAccessTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1142356
+      },
+      "writtenOn": "2021-12-14T14:06:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06c37525_84136d0d",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 77
+      },
+      "revId": "a445745de21e7cccf419d2f52ae6e086dde18bd4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "080521b2_8cf83301",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/gitiles/ListProjectsAccessTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1142356
+      },
+      "writtenOn": "2021-12-14T14:06:56Z",
+      "side": 1,
+      "message": "I did use google-java-format but for some reason the code here is not formatted as it is in my editor...",
+      "parentUuid": "79909358_a64b343a",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 1
+      },
+      "revId": "a445745de21e7cccf419d2f52ae6e086dde18bd4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "92eef05c_8c2203b4",
@@ -60,6 +108,30 @@
       "writtenOn": "2021-12-14T11:48:00Z",
       "side": 1,
       "message": "You don\u0027t need this lookup since you\u0027ll want to manipulate the project that was created for this specific test, and it\u0027s Project.NameKey is already available as this.project.",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 66
+      },
+      "revId": "a445745de21e7cccf419d2f52ae6e086dde18bd4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05480f82_2edc80e2",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/gitiles/ListProjectsAccessTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1142356
+      },
+      "writtenOn": "2021-12-14T14:06:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92eef05c_8c2203b4",
       "range": {
         "startLine": 101,
         "startChar": 0,
@@ -93,6 +165,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c9c4fa7_381ffaf5",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/gitiles/ListProjectsAccessTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1142356
+      },
+      "writtenOn": "2021-12-14T14:06:56Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "6e674e09_c39cb460",
+      "range": {
+        "startLine": 103,
+        "startChar": 4,
+        "endLine": 103,
+        "endChar": 24
+      },
+      "revId": "a445745de21e7cccf419d2f52ae6e086dde18bd4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bfbc54eb_1ff7df99",
@@ -106,6 +202,30 @@
       "writtenOn": "2021-12-14T11:48:00Z",
       "side": 1,
       "message": "You change the user to anonymous here, and since you removed all access-sections on line 99 anonymous cannot see any projects.\nAnd that\u0027s why only 1 project is visible above (#100), anonymous user cannot see a single project and 0+1 \u003d 1.",
+      "range": {
+        "startLine": 104,
+        "startChar": 4,
+        "endLine": 104,
+        "endChar": 49
+      },
+      "revId": "a445745de21e7cccf419d2f52ae6e086dde18bd4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "142eea9b_3b76b4ef",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/gitiles/ListProjectsAccessTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1142356
+      },
+      "writtenOn": "2021-12-14T14:06:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfbc54eb_1ff7df99",
       "range": {
         "startLine": 104,
         "startChar": 4,
