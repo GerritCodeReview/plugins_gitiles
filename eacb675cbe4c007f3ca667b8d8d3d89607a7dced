@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b28e5456_95ef55b6",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/gitiles/ListProjectsAccessTest.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1142356
+      },
+      "writtenOn": "2021-12-14T14:07:54Z",
+      "side": 1,
+      "message": "This is not indented like this in my editor, don\u0027t know why",
+      "range": {
+        "startLine": 99,
+        "startChar": 1,
+        "endLine": 102,
+        "endChar": 9
+      },
+      "revId": "eacb675cbe4c007f3ca667b8d8d3d89607a7dced",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
