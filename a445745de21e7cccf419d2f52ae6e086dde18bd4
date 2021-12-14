@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79909358_a64b343a",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/gitiles/ListProjectsAccessTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2021-12-14T11:48:00Z",
+      "side": 1,
+      "message": "google-java-format",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 1
+      },
+      "revId": "a445745de21e7cccf419d2f52ae6e086dde18bd4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06c37525_84136d0d",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/gitiles/ListProjectsAccessTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2021-12-14T11:48:00Z",
+      "side": 1,
+      "message": "If you remove this removal of access anonymous users can, by default, see 3 projects All-Projects, All-Users and the project created for this test-case, which is enough for this test-case.",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 77
+      },
+      "revId": "a445745de21e7cccf419d2f52ae6e086dde18bd4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92eef05c_8c2203b4",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/gitiles/ListProjectsAccessTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2021-12-14T11:48:00Z",
+      "side": 1,
+      "message": "You don\u0027t need this lookup since you\u0027ll want to manipulate the project that was created for this specific test, and it\u0027s Project.NameKey is already available as this.project.",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 66
+      },
+      "revId": "a445745de21e7cccf419d2f52ae6e086dde18bd4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e674e09_c39cb460",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/gitiles/ListProjectsAccessTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2021-12-14T11:48:00Z",
+      "side": 1,
+      "message": "This only sets the state for the local ProjectInfo object.\nFor an example of how to set ProjectState see [1]\n(found by:\n\n    $ cd javatests\n    $ git grep ProjectState.HIDDEN\n\n)\n\n[1] https://gerrit.googlesource.com/gerrit/+/refs/heads/master/javatests/com/google/gerrit/acceptance/api/project/ProjectIT.java#482",
+      "range": {
+        "startLine": 103,
+        "startChar": 4,
+        "endLine": 103,
+        "endChar": 24
+      },
+      "revId": "a445745de21e7cccf419d2f52ae6e086dde18bd4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfbc54eb_1ff7df99",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/gitiles/ListProjectsAccessTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2021-12-14T11:48:00Z",
+      "side": 1,
+      "message": "You change the user to anonymous here, and since you removed all access-sections on line 99 anonymous cannot see any projects.\nAnd that\u0027s why only 1 project is visible above (#100), anonymous user cannot see a single project and 0+1 \u003d 1.",
+      "range": {
+        "startLine": 104,
+        "startChar": 4,
+        "endLine": 104,
+        "endChar": 49
+      },
+      "revId": "a445745de21e7cccf419d2f52ae6e086dde18bd4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
