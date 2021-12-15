@@ -22,6 +22,30 @@
       },
       "revId": "d72114f25adcd538209b387422e5d9daf4c5f80c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf1acd90_07fdce25",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2021-12-15T11:56:05Z",
+      "side": 1,
+      "message": "And have it in the same clause as the Change-Id: footer so that it is interpreted as a footer...\n\n    Bug: Issue 15429\n    Change-Id: I35975afd96b5637a6f3978626821337b5047f67b",
+      "parentUuid": "14840e1b_8cd53524",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 39
+      },
+      "revId": "d72114f25adcd538209b387422e5d9daf4c5f80c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
