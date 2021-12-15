@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14840e1b_8cd53524",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2021-12-15T11:52:09Z",
+      "side": 1,
+      "message": "Bug: Issue 15429\n\nCompare: https://gerrit-review.googlesource.com/c/plugins/pull-replication/+/325838",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 39
+      },
+      "revId": "d72114f25adcd538209b387422e5d9daf4c5f80c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
