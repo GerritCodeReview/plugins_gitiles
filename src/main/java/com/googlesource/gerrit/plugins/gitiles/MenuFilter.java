@@ -68,7 +68,7 @@ class MenuFilter implements Filter {
   private String getLoginRedirectUrl(HttpServletRequest req) {
     String baseUrl = urls.getBaseGerritUrl(req);
     String loginUrl = baseUrl + "login/";
-    String token = req.getRequestURL().toString();
+    String token = getRequestUrl(req);
     if (!baseUrl.isEmpty()) {
       token = token.substring(baseUrl.length());
     }
@@ -78,5 +78,10 @@ class MenuFilter implements Filter {
       token = token.concat("?" + queryString);
     }
     return (loginUrl + Url.encode(token));
+  }
+
+  @SuppressWarnings("JdkObsolete")
+  private static String getRequestUrl(HttpServletRequest req) {
+    return req.getRequestURL().toString();
   }
 }
