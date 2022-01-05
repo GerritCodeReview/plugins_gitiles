@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "001f4d50_1c881d33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2022-01-05T07:44:20Z",
+      "side": 1,
+      "message": "Zuul build fails due to issue 15509. Verifying manually.",
+      "revId": "97ce60f8bb4dbf40dde79cf56db6425c384dabcf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
