@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c552946b_294bccae",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2022-01-07T14:04:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3aa53327_231ddf4f",
+      "range": {
+        "startLine": 2,
+        "startChar": 29,
+        "endLine": 2,
+        "endChar": 63
+      },
+      "revId": "8da8cb127e80f6f0763a54e07b4302b0f3f1389e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "6239e54c_994fdebf",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GerritGitilesAccess.java",
         "patchSetId": 11
@@ -54,6 +78,24 @@
       "writtenOn": "2022-01-06T00:24:20Z",
       "side": 1,
       "message": "Wouldn\u0027t it make more sense to assert that the (now) hidden project name isn\u0027t in the list of keys?",
+      "revId": "8da8cb127e80f6f0763a54e07b4302b0f3f1389e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "740528b0_6b81b7a0",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/gitiles/ListProjectsAccessTest.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2022-01-07T14:04:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "317b71d8_187199be",
       "revId": "8da8cb127e80f6f0763a54e07b4302b0f3f1389e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
