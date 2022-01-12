@@ -17,7 +17,6 @@ package com.googlesource.gerrit.plugins.gitiles;
 import static java.util.stream.Collectors.toMap;
 
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.Maps;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.extensions.restapi.AuthException;
 import com.google.gerrit.server.CurrentUser;
@@ -243,12 +242,7 @@ class FilteredRepository extends Repository {
 
     @Override
     public List<Ref> getAdditionalRefs() throws IOException {
-      List<Ref> refs = git.getRefDatabase().getAdditionalRefs();
-      Map<String, Ref> result = Maps.newHashMapWithExpectedSize(refs.size());
-      for (Ref ref : refs) {
-        result.put(ref.getName(), ref);
-      }
-      return ImmutableList.copyOf(result.values());
+      return ImmutableList.copyOf(git.getRefDatabase().getAdditionalRefs());
     }
 
     @Override
