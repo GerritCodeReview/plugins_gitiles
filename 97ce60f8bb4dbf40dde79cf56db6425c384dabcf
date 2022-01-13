@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d18fbee_fa77aab3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2022-01-13T08:35:00Z",
+      "side": 0,
+      "message": "This logic dedupes entries with the same refname. What are \"additional refs\" and can they ever have duplicate ref names?",
+      "range": {
+        "startLine": 249,
+        "startChar": 8,
+        "endLine": 249,
+        "endChar": 39
+      },
+      "revId": "97ce60f8bb4dbf40dde79cf56db6425c384dabcf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
