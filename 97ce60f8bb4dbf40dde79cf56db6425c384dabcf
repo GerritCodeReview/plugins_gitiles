@@ -22,6 +22,30 @@
       },
       "revId": "97ce60f8bb4dbf40dde79cf56db6425c384dabcf",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1930c0c5_7354afa6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/FilteredRepository.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2022-01-14T08:16:56Z",
+      "side": 0,
+      "message": "Yes, the old code dedupes entries with the same refname, but I think it\u0027s not needed:\n\n1. I think there should be no duplicates.\n\n2. If there were duplicates: If it\u0027s okay to return duplicates from git.getRefDatabase().getAdditionalRefs() it should be also okay to return them here, since both methods implement the same API.\n   \n3. I had checked the git history to see if deduping was the reason for adding this code, but nothing like this was mentioned.\n\n\u003e What are \"additional refs\"\n\nNon-ref items such as  MERGE_HEAD and FETCH_RESULT that are accepted by the findRef and exactRef methods.",
+      "parentUuid": "7d18fbee_fa77aab3",
+      "range": {
+        "startLine": 249,
+        "startChar": 8,
+        "endLine": 249,
+        "endChar": 39
+      },
+      "revId": "97ce60f8bb4dbf40dde79cf56db6425c384dabcf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
