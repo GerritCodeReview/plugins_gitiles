@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d029c652_6ee6acba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2022-02-10T14:39:51Z",
+      "side": 1,
+      "message": "Build is failing since it is depending on https://gerrit-review.googlesource.com/c/gerrit/+/330142",
+      "revId": "a454cd029481dd74eb02df65ef89fe825d03820e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
