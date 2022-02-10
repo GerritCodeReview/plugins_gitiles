@@ -17,7 +17,7 @@ package com.googlesource.gerrit.plugins.gitiles;
 import com.google.common.flogger.FluentLogger;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.config.SitePaths;
-import com.google.gitiles.BranchRedirectFilter;
+import com.google.gitiles.BranchRedirect;
 import com.google.gitiles.GitilesAccess;
 import com.google.gitiles.GitilesServlet;
 import com.google.gitiles.GitilesUrls;
@@ -119,7 +119,7 @@ class HttpModule extends ServletModule {
         null,
         null,
         null,
-        new BranchRedirectFilter());
+        new BranchRedirect());
   }
 
   @Provides
