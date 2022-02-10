@@ -103,6 +103,23 @@
       "message": "installed and tested successfully this change with its companion change for gerrit core",
       "revId": "a454cd029481dd74eb02df65ef89fe825d03820e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c37b932_50cbc084",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2022-02-10T17:53:17Z",
+      "side": 1,
+      "message": "Would it worth to add Depend-On footer with corresponding core change to make Zuul happy:\n\n  Depends-On: https://gerrit-review.googlesource.com/c/gerrit/+/330142",
+      "revId": "a454cd029481dd74eb02df65ef89fe825d03820e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
