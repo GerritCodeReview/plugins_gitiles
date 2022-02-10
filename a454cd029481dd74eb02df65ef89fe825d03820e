@@ -33,6 +33,24 @@
       "message": "How can I download this change? \n\nI tried to create the download url manually since the download plugin is currently broken on gerrit-review. But this doesn\u0027t work:\n\n $ git fetch origin refs/changes/41/330141/1 \u0026\u0026 git checkout -b change-330141 FETCH_HEAD\n fatal: couldn\u0027t find remote ref refs/changes/41/330141/1",
       "revId": "a454cd029481dd74eb02df65ef89fe825d03820e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03700b5e_9057fc64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2022-02-10T15:22:14Z",
+      "side": 1,
+      "message": "This works for me:\n\n    git fetch https://gerrit.googlesource.com/plugins/gitiles refs/changes/41/330141/1 \u0026\u0026 git checkout FETCH_HEAD\n\nWhat is $origin in your case?",
+      "parentUuid": "011e4d6f_18550962",
+      "revId": "a454cd029481dd74eb02df65ef89fe825d03820e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
