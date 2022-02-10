@@ -51,6 +51,24 @@
       "parentUuid": "011e4d6f_18550962",
       "revId": "a454cd029481dd74eb02df65ef89fe825d03820e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8d8f1de_90b6ee76",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2022-02-10T15:27:07Z",
+      "side": 1,
+      "message": "stupid me, I tried from root of gerrit working tree instead of the submodule :-)",
+      "parentUuid": "03700b5e_9057fc64",
+      "revId": "a454cd029481dd74eb02df65ef89fe825d03820e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
