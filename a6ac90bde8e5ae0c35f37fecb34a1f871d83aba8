@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79812a07_ed054cf3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2022-02-14T19:31:48Z",
+      "side": 1,
+      "message": "Using Zuul Depends-On-footer feature we can successfully verify this change even though, core extension point change was not merge yet.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 68
+      },
+      "revId": "a6ac90bde8e5ae0c35f37fecb34a1f871d83aba8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
