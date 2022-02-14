@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8be17b01_370eaa6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011217
+      },
+      "writtenOn": "2022-02-14T20:35:47Z",
+      "side": 1,
+      "message": "This builds now but runs into the same sort of java runtime issue I\u0027m having locally. Locally I suspect that it is due to bazel running under java 8 not 11. But I\u0027m not completely sure. Any help to diagnose this is appreciated.",
+      "revId": "5f7777ab4e5db9d9092e132460680a79dd7c2c3a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
