@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6a07b83_3c6c871b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011217
+      },
+      "writtenOn": "2022-02-14T19:41:22Z",
+      "side": 1,
+      "message": "I believe this is failing due to gerrit not being updated. This chicken and egg is what I was worried about before. But I guess we can probably bypass here? I\u0027ll leave that up to you all :)",
+      "revId": "a35b8a8ee166e231051c080d522bebe2385b1880",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
