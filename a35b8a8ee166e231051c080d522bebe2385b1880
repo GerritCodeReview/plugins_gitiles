@@ -16,6 +16,24 @@
       "message": "I believe this is failing due to gerrit not being updated. This chicken and egg is what I was worried about before. But I guess we can probably bypass here? I\u0027ll leave that up to you all :)",
       "revId": "a35b8a8ee166e231051c080d522bebe2385b1880",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d445209b_dc75e9b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2022-02-14T19:52:41Z",
+      "side": 1,
+      "message": "Use Zuul\u0027s Depends-On footer and link to the gerrit core change where the extension point was changed. See change 330380 as example.",
+      "parentUuid": "d6a07b83_3c6c871b",
+      "revId": "a35b8a8ee166e231051c080d522bebe2385b1880",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
