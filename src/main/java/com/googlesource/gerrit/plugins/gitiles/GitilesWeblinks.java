@@ -90,7 +90,8 @@ public class GitilesWeblinks
   }
 
   @Override
-  public WebLinkInfo getFileWebLink(String projectName, String revision, String fileName) {
+  public WebLinkInfo getFileWebLink(
+      String projectName, String revision, String hash, String fileName) {
     return new WebLinkInfo(
         name,
         null,
