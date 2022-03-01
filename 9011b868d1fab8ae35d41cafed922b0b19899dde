@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "debd4942_48e654f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2022-03-01T15:57:55Z",
+      "side": 1,
+      "message": "Confirmed plugin runs on live server with dependent change and that bazel tests pass:\n\n $ bazel test //plugins/gitiles/...\n [snip]\n INFO: Analyzed target //plugins/gitiles:gitiles_tests (0 packages loaded, 0 targets configured).\n INFO: Found 1 test target...\n Target //plugins/gitiles:gitiles_tests up-to-date:\n   bazel-bin/plugins/gitiles/gitiles_tests.jar\n   bazel-bin/plugins/gitiles/gitiles_tests\n INFO: Elapsed time: 11.719s, Critical Path: 10.82s\n INFO: 9 processes: 4 internal, 3 darwin-sandbox, 2 worker.\n INFO: Build completed successfully, 9 total actions\n //plugins/gitiles:gitiles_tests                               PASSED in 7.9s\n Executed 1 out of 1 test: 1 test passes.\n INFO: Build completed successfully, 9 total actions",
+      "revId": "9011b868d1fab8ae35d41cafed922b0b19899dde",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
