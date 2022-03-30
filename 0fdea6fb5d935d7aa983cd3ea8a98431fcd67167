@@ -16,6 +16,23 @@
       "message": "Verification fails since this change depends on a breaking plugin API that was introduced in Stable-3.4 [1], this merge introduces a version of the plugin that is adopted for the API [2].\n\n[1] https://gerrit-review.googlesource.com/c/gerrit/+/329279\n[2] https://gerrit-review.googlesource.com/c/plugins/gitiles/+/330361",
       "revId": "0fdea6fb5d935d7aa983cd3ea8a98431fcd67167",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "facabb52_605a6a8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2022-03-30T11:30:56Z",
+      "side": 1,
+      "message": "Tested locally:\ngerrit$ bazel test plugins/gitiles:all",
+      "revId": "0fdea6fb5d935d7aa983cd3ea8a98431fcd67167",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
