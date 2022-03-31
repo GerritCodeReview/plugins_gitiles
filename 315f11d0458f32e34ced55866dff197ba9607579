@@ -22,6 +22,30 @@
       },
       "revId": "315f11d0458f32e34ced55866dff197ba9607579",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2fe1406_c93797ec",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GerritGitilesAccess.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1135623
+      },
+      "writtenOn": "2022-03-31T13:09:42Z",
+      "side": 1,
+      "message": "You missed to remove it.",
+      "parentUuid": "c86ff977_f587643e",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 73
+      },
+      "revId": "315f11d0458f32e34ced55866dff197ba9607579",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
