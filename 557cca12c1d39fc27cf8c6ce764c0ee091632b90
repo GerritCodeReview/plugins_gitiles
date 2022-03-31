@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00d2c1bf_ea7bd5a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1025452
+      },
+      "writtenOn": "2022-03-31T18:42:27Z",
+      "side": 1,
+      "message": "LGTM but I will let @Nasser give CR+2 as he had comments to resolve (will give CR+2 if he doesn\u0027t respond within a couple of days though).\nMy `nit` is just a proposal so feel free to accept/ignore it ;)",
+      "revId": "557cca12c1d39fc27cf8c6ce764c0ee091632b90",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d81e9e1_9161dadb",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GerritGitilesAccess.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1025452
+      },
+      "writtenOn": "2022-03-31T18:42:27Z",
+      "side": 1,
+      "message": "nit: if you want to play with streams + fluent API it could be simplified to a one-liner:\n\n  return projects.entrySet().stream()\n    .filter(e -\u003e !e.getValue().state.equals(HIDDEN))\n    .collect(Collectors.toUnmodifiableMap(Map.Entry::getKey, Map.Entry::getValue));",
+      "range": {
+        "startLine": 126,
+        "startChar": 4,
+        "endLine": 132,
+        "endChar": 47
+      },
+      "revId": "557cca12c1d39fc27cf8c6ce764c0ee091632b90",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
