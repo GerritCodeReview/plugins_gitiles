@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c86ff977_f587643e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/GerritGitilesAccess.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1135623
+      },
+      "writtenOn": "2022-03-31T12:41:15Z",
+      "side": 1,
+      "message": "We could do this check in the next for loop instead. Then we would only need to traverse the list once. Like:\n\n for (Map.Entry\u003cString, ProjectInfo\u003e e : projects.entrySet()) {\n  if (!e.getValue().state.equals(HIDDEN)) {\n   result.put(e.getKey(), toDescription(e.getKey(), e.getValue()));\n  }\n }",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 73
+      },
+      "revId": "315f11d0458f32e34ced55866dff197ba9607579",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
