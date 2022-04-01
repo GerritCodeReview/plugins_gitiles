@@ -33,6 +33,24 @@
       "message": "Tested locally:\ngerrit$ bazel test plugins/gitiles:all",
       "revId": "0fdea6fb5d935d7aa983cd3ea8a98431fcd67167",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98411dd2_63b405a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2022-04-01T15:06:31Z",
+      "side": 1,
+      "message": "But Zuul pulls in Depends-On dependencies, so it should pass, correct?",
+      "parentUuid": "0649c66c_23d008fd",
+      "revId": "0fdea6fb5d935d7aa983cd3ea8a98431fcd67167",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
