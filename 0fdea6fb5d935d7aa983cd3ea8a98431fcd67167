@@ -51,6 +51,24 @@
       "parentUuid": "0649c66c_23d008fd",
       "revId": "0fdea6fb5d935d7aa983cd3ea8a98431fcd67167",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7a2fa5f_0870fad4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2022-04-01T15:07:09Z",
+      "side": 1,
+      "message": "In fact, the -1 from Zuul seems to be for some other reason. When I click the link, I get \"This buildset does not exist\".",
+      "parentUuid": "98411dd2_63b405a2",
+      "revId": "0fdea6fb5d935d7aa983cd3ea8a98431fcd67167",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
