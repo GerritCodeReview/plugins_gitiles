@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "79c3b3df_159c7b96",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2022-04-04T16:06:51Z",
+      "side": 1,
+      "message": "If I need to rebase the \"gerrit\" change again I\u0027ll try to use Depends-on instead.",
+      "parentUuid": "e87f3a87_07bf8fcf",
+      "range": {
+        "startLine": 14,
+        "startChar": 8,
+        "endLine": 14,
+        "endChar": 10
+      },
+      "revId": "391e89591fb1d6142d61a885b81664104bee647a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b5ffeed7_8ddb67a3",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3

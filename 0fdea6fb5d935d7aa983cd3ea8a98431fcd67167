@@ -105,6 +105,24 @@
       "parentUuid": "4e9eb7de_70fee753",
       "revId": "0fdea6fb5d935d7aa983cd3ea8a98431fcd67167",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba837d82_eda2d42e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2022-04-04T16:06:51Z",
+      "side": 1,
+      "message": "\u003e \u003e Are you seeing this as a blocker in this case?\n\u003e \n\u003e No, but I like to fix problems as they\u0027re occurring. This doesn\u0027t seem to be a one-off or a known issue, so it\u0027s likely to occur again.\nThis is at the top of my fix-problems-as-they\u0027re-occurring stack that is already quite deep as it is ;-)\n\n\u003e \u003e \u003e This buildset does not exist\n\u003e \u003e This is just an effect of builds not being stored forever.\n\u003e \n\u003e I don\u0027t believe that\u0027s true. As you can see, [2] still exists and that was a month ago.\nI stand corrected.\nIt seems like this is the effect of using the \"RERUN\" action from the checks UI.\nAfter a couple of seconds Zuul votes V-1 but the link to the new buildset leads to the \"Error page\" with \"This buildset does not exist\".\nCached result?\n\u003e [2] https://ci.gerritcodereview.com/t/gerrit/build/91457bc770504195a3f51cbc3df8ab86",
+      "parentUuid": "1fe58961_3e63d367",
+      "revId": "0fdea6fb5d935d7aa983cd3ea8a98431fcd67167",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
