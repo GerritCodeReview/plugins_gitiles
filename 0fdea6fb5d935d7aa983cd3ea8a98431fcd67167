@@ -87,6 +87,24 @@
       "parentUuid": "c7a2fa5f_0870fad4",
       "revId": "0fdea6fb5d935d7aa983cd3ea8a98431fcd67167",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fe58961_3e63d367",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2022-04-04T15:32:47Z",
+      "side": 1,
+      "message": "\u003e \u003e But Zuul pulls in Depends-On dependencies, so it should pass, correct?\n\u003e You got the same result when you merged getFileLink into stable-3.5 [1] and you had to verify it manually, so it doesn\u0027t look to me that\u0027s how Depends-On works.\n\nWith [1], Zuul failed because of the java8-\u003ejava11 conversion issues that weren\u0027t resolved at the time. You can actually see that at [2], because the build is still there.\n\n\u003e Are you seeing this as a blocker in this case?\n\nNo, but I like to fix problems as they\u0027re occurring. This doesn\u0027t seem to be a one-off or a known issue, so it\u0027s likely to occur again.\n\n\u003e I would very much like to merge this before I get another merge-conflict, it isn\u0027t a trivial merge (referring to the merge in the \"gerrit\" project).\n\nAck. I get that pain. If we can\u0027t figure it out today, I think it\u0027s fine to override. This change did \"successfully\" (i.e. created a build that we can see) run in Zuul for PS1 [3].\n\n\u003e \n\u003e \u003e This buildset does not exist\n\u003e This is just an effect of builds not being stored forever.\n\nI don\u0027t believe that\u0027s true. As you can see, [2] still exists and that was a month ago.\n\n\u003e [1] https://gerrit-review.googlesource.com/c/plugins/gitiles/+/331459\n\n[2] https://ci.gerritcodereview.com/t/gerrit/build/91457bc770504195a3f51cbc3df8ab86\n[3] https://ci.gerritcodereview.com/t/gerrit/build/bc2f80dd835d48d98c57262813b7f0f4",
+      "parentUuid": "4e9eb7de_70fee753",
+      "revId": "0fdea6fb5d935d7aa983cd3ea8a98431fcd67167",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
