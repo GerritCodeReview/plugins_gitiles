@@ -123,6 +123,24 @@
       "parentUuid": "1fe58961_3e63d367",
       "revId": "0fdea6fb5d935d7aa983cd3ea8a98431fcd67167",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a8d470e_e8aec806",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2022-04-04T17:42:23Z",
+      "side": 1,
+      "message": "\u003e It seems like this is the effect of using the \"RERUN\" action from the checks UI.\n\u003e After a couple of seconds Zuul votes V-1 but the link to the new buildset leads to the \"Error page\" with \"This buildset does not exist\".\n\u003e Cached result?\n\nI don\u0027t think so. I think it\u0027s more that Zuul isn\u0027t creating a build. We can filter to builds just for this change and only PS1 appears: https://ci.gerritcodereview.com/t/gerrit/builds?job_name\u003dgerrit-plugin-build\u0026project\u003dplugins%2Fgitiles\u0026change\u003d334031\u0026skip\u003d0\n\nMaybe there\u0027s an error in the backend Zuul logs?",
+      "parentUuid": "ba837d82_eda2d42e",
+      "revId": "0fdea6fb5d935d7aa983cd3ea8a98431fcd67167",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
