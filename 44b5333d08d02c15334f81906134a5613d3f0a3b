@@ -16,6 +16,23 @@
       "message": "@Sven can you verify this manually? (I can\u0027t see the reason why the Zuul CI failed)",
       "revId": "44b5333d08d02c15334f81906134a5613d3f0a3b",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f87844da_5f3003dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2022-04-11T14:00:25Z",
+      "side": 1,
+      "message": "Verified manually:\n//plugins/gitiles:gitiles_tests                                          PASSED in 6.5s",
+      "revId": "44b5333d08d02c15334f81906134a5613d3f0a3b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
