@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "62046d34_3ed15f9d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/Module.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-04-11T16:06:24Z",
+      "side": 1,
+      "message": "I think he wanted to keep original implementation.",
+      "parentUuid": "92c5487b_839da7c3",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 3
+      },
+      "revId": "1608e5c2a040bb153c9b72ecd39b77b509ed4c59",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "adf69872_c54b52b6",
         "filename": "src/main/resources/+Documentation/config.md",
         "patchSetId": 11
