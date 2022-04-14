@@ -82,6 +82,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "72ff96e8_8ff906d7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/Module.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-04-14T20:15:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62046d34_3ed15f9d",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 3
+      },
+      "revId": "1608e5c2a040bb153c9b72ecd39b77b509ed4c59",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "adf69872_c54b52b6",
@@ -95,6 +119,24 @@
       "writtenOn": "2021-05-21T12:07:52Z",
       "side": 1,
       "message": "Can you document that `git` would use the value of `gerrit.canonicalGitUrl`,  `http` would use the value of `gerrit.gitHttpUrl`  and that if they are not set, the below heuristic used.\n\nIn the .java file I suggest a fall back to gerrit.canonicalWebUrl in case they are not set.",
+      "revId": "1608e5c2a040bb153c9b72ecd39b77b509ed4c59",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dada3a03_a479c4a8",
+        "filename": "src/main/resources/+Documentation/config.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-04-14T20:15:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adf69872_c54b52b6",
       "revId": "1608e5c2a040bb153c9b72ecd39b77b509ed4c59",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
