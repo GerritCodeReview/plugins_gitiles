@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca38833c_1af2fddc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2022-10-02T23:11:51Z",
+      "side": 1,
+      "message": "Manual verified since Zuul is broken:\n```\nINFO: Analyzed target //plugins/gitiles:gitiles_tests (0 packages loaded, 0 targets configured).\nINFO: Found 1 test target...\nTarget //plugins/gitiles:gitiles_tests up-to-date:\n  bazel-bin/plugins/gitiles/gitiles_tests.jar\n  bazel-bin/plugins/gitiles/gitiles_tests\nINFO: Elapsed time: 16.822s, Critical Path: 16.57s\nINFO: 4 processes: 1 internal, 2 darwin-sandbox, 1 worker.\nINFO: Build completed successfully, 4 total actions\n//plugins/gitiles:gitiles_tests                                          PASSED in 7.6s\n\nExecuted 1 out of 1 test: 1 test passes.\nINFO: Build completed successfully, 4 total actions\n```",
+      "revId": "f40a29d0b2b5534e6eb1ef1f63352a52e8192e93",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
