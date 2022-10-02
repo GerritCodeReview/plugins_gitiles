@@ -103,6 +103,23 @@
       "parentUuid": "eed024e1_60ae1cde",
       "revId": "6338aee4179d932b06bcc7fda37dd8a9e0c016bb",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9f168e1_a9004281",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2022-10-02T18:47:44Z",
+      "side": 1,
+      "message": "Verified manually because Zuul CI\u0027s `ensure-java` role is broken for Java 8",
+      "revId": "6338aee4179d932b06bcc7fda37dd8a9e0c016bb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
