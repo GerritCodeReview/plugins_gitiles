@@ -55,16 +55,14 @@ public class RepositoryResolverAccessTest extends LightweightPluginDaemonTest {
 
   @Test
   public void resolveRepository_branchVisibilityIsRespected() throws Exception {
+    gApi.projects().name(project.get()).branch("refs/heads/visible").create(new BranchInput());
+    gApi.projects().name(project.get()).branch("refs/heads/invisible").create(new BranchInput());
     projectOperations.allProjectsForUpdate().removeAllAccessSections().update();
     projectOperations
         .project(project)
         .forUpdate()
         .add(allow(Permission.READ).ref("refs/heads/visible").group(ANONYMOUS_USERS))
-        .add(allow(Permission.CREATE).ref("refs/*").group(ANONYMOUS_USERS))
-        .add(allow(Permission.PUSH).ref("refs/*").group(ANONYMOUS_USERS))
         .update();
-    gApi.projects().name(project.get()).branch("refs/heads/visible").create(new BranchInput());
-    gApi.projects().name(project.get()).branch("refs/heads/invisible").create(new BranchInput());
 
     Repository repo = resolver().open(new FakeHttpServletRequest(), project.get());
     assertThat(repo.exactRef("refs/heads/visible")).isNotNull();

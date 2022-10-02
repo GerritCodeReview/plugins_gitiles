@@ -70,16 +70,14 @@ public class ListProjectsAccessTest extends LightweightPluginDaemonTest {
 
   @Test
   public void listBranches_branchVisiblityIsRespected() throws Exception {
+    gApi.projects().name(project.get()).branch("refs/heads/visible").create(new BranchInput());
+    gApi.projects().name(project.get()).branch("refs/heads/invisible").create(new BranchInput());
     projectOperations.allProjectsForUpdate().removeAllAccessSections().update();
     projectOperations
         .project(project)
         .forUpdate()
         .add(allow(Permission.READ).ref("refs/heads/visible").group(ANONYMOUS_USERS))
-        .add(allow(Permission.CREATE).ref("refs/*").group(ANONYMOUS_USERS))
-        .add(allow(Permission.PUSH).ref("refs/*").group(ANONYMOUS_USERS))
         .update();
-    gApi.projects().name(project.get()).branch("refs/heads/visible").create(new BranchInput());
-    gApi.projects().name(project.get()).branch("refs/heads/invisible").create(new BranchInput());
     requestScopeOperations.setApiUserAnonymous();
 
     assertThat(
