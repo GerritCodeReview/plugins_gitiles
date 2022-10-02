@@ -120,6 +120,24 @@
       "message": "Verified manually because Zuul CI\u0027s `ensure-java` role is broken for Java 8",
       "revId": "6338aee4179d932b06bcc7fda37dd8a9e0c016bb",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "625b8d22_11d6dd78",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2022-10-02T23:06:06Z",
+      "side": 1,
+      "message": "No, it\u0027s because openjdk8 isn\u0027t in buster. 😞\nhttps://stackoverflow.com/questions/57031649/how-to-install-openjdk-8-jdk-on-debian-10-buster",
+      "parentUuid": "c7e3dc5a_d16947b7",
+      "revId": "6338aee4179d932b06bcc7fda37dd8a9e0c016bb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ],
   "submitRequirementResults": [
