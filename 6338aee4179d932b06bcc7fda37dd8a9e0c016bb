@@ -156,6 +156,24 @@
       "parentUuid": "625b8d22_11d6dd78",
       "revId": "6338aee4179d932b06bcc7fda37dd8a9e0c016bb",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62c8a2dd_9d5f846c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2022-10-03T19:43:07Z",
+      "side": 1,
+      "message": "\u003e \u003e No, it\u0027s because openjdk8 isn\u0027t in buster. 😞\n\u003e \u003e https://stackoverflow.com/questions/57031649/how-to-install-openjdk-8-jdk-on-debian-10-buster\n\u003e \n\u003e We use Java 8 on the Gerrit-CI on buster:\n\u003e https://gerrit.googlesource.com/gerrit-ci-scripts/+/refs/heads/master/jenkins-docker/agent-debian\n\nIf you check that Dockerfile, you\u0027ll see line 75 [1] has a special section to install openjdk-8 using adoptopenjdk. It\u0027s not in the debian packages now. Zuul (or the zuul-gerrit layer) could add that kind of a solution, but no one has done that yet.\n\nhttps://gerrit.googlesource.com/gerrit-ci-scripts/+/refs/heads/master/jenkins-docker/agent-debian/Dockerfile#75\n\n\u003e \n\u003e It *was working*, it is not clear to me how it broke and how come that nobody noticed it :-(\n\nIt was only working pre-buster. I checked. 😞\nhttps://gerrit-review.googlesource.com/c/zuul/config/+/343095/comment/186f4e24_6a70f03e/",
+      "parentUuid": "033fda64_2c08255e",
+      "revId": "6338aee4179d932b06bcc7fda37dd8a9e0c016bb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ],
   "submitRequirementResults": [
