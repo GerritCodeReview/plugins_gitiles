@@ -18,6 +18,7 @@ import static com.google.common.truth.Truth.assertThat;
 import static com.google.gerrit.acceptance.testsuite.project.TestProjectUpdate.allow;
 import static com.google.gerrit.extensions.client.ProjectState.HIDDEN;
 import static com.google.gerrit.server.group.SystemGroupBackend.ANONYMOUS_USERS;
+import static com.google.gerrit.server.group.SystemGroupBackend.REGISTERED_USERS;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.gerrit.acceptance.LightweightPluginDaemonTest;
@@ -76,10 +77,11 @@ public class ListProjectsAccessTest extends LightweightPluginDaemonTest {
     projectOperations
         .project(project)
         .forUpdate()
+        .add(allow(Permission.READ).ref("refs/heads/*").group(REGISTERED_USERS))
+        .add(allow(Permission.CREATE).ref("refs/heads/*").group(REGISTERED_USERS))
         .add(allow(Permission.READ).ref("refs/heads/visible").group(ANONYMOUS_USERS))
-        .add(allow(Permission.CREATE).ref("refs/*").group(ANONYMOUS_USERS))
-        .add(allow(Permission.PUSH).ref("refs/*").group(ANONYMOUS_USERS))
         .update();
+    requestScopeOperations.setApiUser(user.id());
     gApi.projects().name(project.get()).branch("refs/heads/visible").create(new BranchInput());
     gApi.projects().name(project.get()).branch("refs/heads/invisible").create(new BranchInput());
     requestScopeOperations.setApiUserAnonymous();
