@@ -17,6 +17,7 @@ package com.googlesource.gerrit.plugins.gitiles;
 import static java.util.stream.Collectors.toMap;
 
 import com.google.common.collect.ImmutableList;
+import com.google.gerrit.common.Nullable;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.extensions.restapi.AuthException;
 import com.google.gerrit.server.CurrentUser;
@@ -166,6 +167,7 @@ class FilteredRepository extends Repository {
     throw new UnsupportedOperationException(); // Gitiles is read-only.
   }
 
+  @Nullable
   @Override
   public ReflogReader getReflogReader(String refName) throws IOException {
     return exactRef(refName) != null ? delegate.getReflogReader(refName) : null;
@@ -210,6 +212,7 @@ class FilteredRepository extends Repository {
       throw new UnsupportedOperationException(); // Gitiles is read-only.
     }
 
+    @Nullable
     @Override
     public Ref exactRef(String name) throws IOException {
       Ref ref = git.getRefDatabase().exactRef(name);
