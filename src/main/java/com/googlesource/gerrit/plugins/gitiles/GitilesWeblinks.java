@@ -44,7 +44,6 @@ public class GitilesWeblinks
         TagWebLink {
   private final String name;
   private final String baseUrl;
-  private final String target;
 
   @Inject
   public GitilesWeblinks(
@@ -66,27 +65,25 @@ public class GitilesWeblinks
     baseUrl =
         MoreObjects.firstNonNull(
             config.getString("gerrit", null, "baseUrl"), baseGerritUrl + "plugins/" + pluginName);
-
-    target = MoreObjects.firstNonNull(config.getString("gerrit", null, "target"), Target.BLANK);
   }
 
   @Override
   public WebLinkInfo getProjectWeblink(String projectName) {
-    return new WebLinkInfo(name, null, String.format("%s/%s", baseUrl, projectName), target);
+    return new WebLinkInfo(name, null, String.format("%s/%s", baseUrl, projectName));
   }
 
   @Override
   public WebLinkInfo getPatchSetWebLink(
       String projectName, String commit, String commitMessage, String branchName) {
     return new WebLinkInfo(
-        name, null, String.format("%s/%s/+/%s", baseUrl, projectName, commit), target);
+        name, null, String.format("%s/%s/+/%s", baseUrl, projectName, commit));
   }
 
   @Override
   public WebLinkInfo getParentWebLink(
       String projectName, String commit, String commitMessage, String branchName) {
     return new WebLinkInfo(
-        name, null, String.format("%s/%s/+/%s", baseUrl, projectName, commit), target);
+        name, null, String.format("%s/%s/+/%s", baseUrl, projectName, commit));
   }
 
   @Override
@@ -95,20 +92,19 @@ public class GitilesWeblinks
     return new WebLinkInfo(
         name,
         null,
-        String.format("%s/%s/+/%s/%s", baseUrl, projectName, revision, fileName),
-        target);
+        String.format("%s/%s/+/%s/%s", baseUrl, projectName, revision, fileName));
   }
 
   @Override
   public WebLinkInfo getBranchWebLink(String projectName, String branchName) {
     return new WebLinkInfo(
-        name, null, String.format("%s/%s/+/%s", baseUrl, projectName, branchName), target);
+        name, null, String.format("%s/%s/+/%s", baseUrl, projectName, branchName));
   }
 
   @Override
   public WebLinkInfo getTagWebLink(String projectName, String tagName) {
     return new WebLinkInfo(
-        name, null, String.format("%s/%s/+/%s", baseUrl, projectName, tagName), target);
+        name, null, String.format("%s/%s/+/%s", baseUrl, projectName, tagName));
   }
 
   @Override
@@ -116,7 +112,6 @@ public class GitilesWeblinks
     return new WebLinkInfo(
         name,
         null,
-        String.format("%s/%s/+log/%s/%s", baseUrl, projectName, revision, fileName),
-        target);
+        String.format("%s/%s/+log/%s/%s", baseUrl, projectName, revision, fileName));
   }
 }
