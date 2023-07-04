@@ -11,10 +11,6 @@ gerrit_plugin(
         "Gerrit-HttpModule: com.googlesource.gerrit.plugins.gitiles.HttpModule",
         # Gitiles uses /repo to access a repo, so the default plugin layout would
         # disallow repos named "static" or "Documentation". Paths starting with +
-        # are reserved by Gitiles and can't match repos.
-        "Gerrit-HttpStaticPrefix: +static",
-        "Gerrit-HttpDocumentationPrefix: +Documentation",
-    ],
     resource_jars = [":gitiles-servlet-resources"],
     resources = glob(["src/main/resources/**/*"]),
     deps = ["//lib/gitiles"],
