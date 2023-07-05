@@ -8,18 +8,6 @@ gerrit_plugin(
     manifest_entries = [
         "Gerrit-PluginName: gitiles",
         "Gerrit-Module: com.googlesource.gerrit.plugins.gitiles.PluginModule",
-        "Gerrit-HttpModule: com.googlesource.gerrit.plugins.gitiles.HttpModule",
-        # Gitiles uses /repo to access a repo, so the default plugin layout would
-        # disallow repos named "static" or "Documentation". Paths starting with +
-        # are reserved by Gitiles and can't match repos.
-        "Gerrit-HttpStaticPrefix: +static",
-        "Gerrit-HttpDocumentationPrefix: +Documentation",
-    ],
-    resource_jars = [":gitiles-servlet-resources"],
-    resources = glob(["src/main/resources/**/*"]),
-    deps = ["//lib/gitiles"],
-)
-
 genrule2(
     name = "gitiles-servlet-resources",
     srcs = ["@gitiles-servlet//jar"],
