@@ -20,12 +20,10 @@ import com.google.common.collect.Maps;
 import com.google.gerrit.common.Nullable;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.extensions.common.ProjectInfo;
-import com.google.gerrit.extensions.restapi.BadRequestException;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.IdentifiedUser;
 import com.google.gerrit.server.config.AnonymousCowardName;
 import com.google.gerrit.server.config.SitePaths;
-import com.google.gerrit.server.permissions.PermissionBackendException;
 import com.google.gerrit.server.project.ProjectCache;
 import com.google.gerrit.server.project.ProjectJson;
 import com.google.gerrit.server.project.ProjectState;
@@ -120,7 +118,7 @@ class GerritGitilesAccess implements GitilesAccess {
     Map<String, ProjectInfo> projects;
     try {
       projects = lp.apply();
-    } catch (BadRequestException | PermissionBackendException e) {
+    } catch (Exception e) {
       throw new IOException(e);
     }
     Map<String, RepositoryDescription> result = Maps.newLinkedHashMap();
