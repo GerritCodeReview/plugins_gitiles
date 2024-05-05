@@ -16,7 +16,7 @@ package com.googlesource.gerrit.plugins.gitiles;
 
 import com.google.gerrit.extensions.restapi.Url;
 import com.google.gitiles.GitilesUrls;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 public final class LoginRedirectUtil {
   private LoginRedirectUtil() {}
