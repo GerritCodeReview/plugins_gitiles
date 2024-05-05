@@ -16,30 +16,31 @@ MANIFEST_ENTRIES = [
     "Gerrit-HttpDocumentationPrefix: +Documentation",
 ]
 
+# The sources are jakarta-canonical (the JGit-style reversed bridge): the
+# default ee8 jar is generated through the shared bazlets `to_javax`
+# transform and stamps `Gerrit-Flavour: ee8`, compiling against the javax
+# plugin API and the javax gitiles-servlet through the flavour seam in
+# //lib/gitiles; the ee11 jar compiles the canonical sources directly and
+# self-selects the jakarta configuration, under which
+# //plugins:plugin-lib-neverlink, //lib/gitiles (jakarta gitiles-servlet
+# 2.0.0) and the resource jar below all flip together. Build one or both:
+#   bazelisk build //plugins/gitiles:gitiles //plugins/gitiles:gitiles-ee11
 gerrit_plugin(
     name = "gitiles",
     srcs = SRCS,
+    canonical = "jakarta",
+    flavour = "ee8",
     manifest_entries = MANIFEST_ENTRIES,
     resource_jars = [":gitiles-servlet-resources"],
     resources = RESOURCES,
     deps = ["//lib/gitiles"],
 )
 
-# EE11 (jakarta.servlet) flavour. The shared bazlets `flavour = "ee11"` rewrites
-# the plugin's javax.servlet imports to jakarta.servlet, injects
-# `Gerrit-Flavour: ee11`, compiles against the jakarta plugin API, and wraps the
-# target in a flavour=ee11 transition -- so building :gitiles-ee11 self-selects
-# the jakarta config with no command-line flag. Under that transition
-# //plugins:plugin-lib-neverlink, //lib/gitiles (jakarta gitiles-servlet 2.0.0)
-# and the resource jar below all flip together. Build with:
-#   bazelisk build //plugins/gitiles:gitiles-ee11
-# (or both flavours at once:
-#   `bazelisk build //plugins/gitiles:gitiles \
-#       //plugins/gitiles:gitiles-ee11`).
 # `dir_name = "gitiles"` keeps stamping/versioning shared with the default jar.
 gerrit_plugin(
     name = "gitiles-ee11",
     srcs = SRCS,
+    canonical = "jakarta",
     dir_name = "gitiles",
     flavour = "ee11",
     manifest_entries = MANIFEST_ENTRIES,
