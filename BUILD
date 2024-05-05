@@ -16,17 +16,23 @@ MANIFEST_ENTRIES = [
     "Gerrit-HttpDocumentationPrefix: +Documentation",
 ]
 
-# The default (javax.servlet) jar. With the ee11 twin below, the plugin is
-# explicitly flavour-managed: `flavour = "ee8"` stamps `Gerrit-Flavour: ee8`
-# (loader-equivalent to the unmarked jar) and guards the target to the ee8
-# configuration, so the ee11 wildcard pass skips the javax side instead of
-# failing -- both wildcard passes stay green at every stage:
+# The sources are jakarta-canonical (the JGit-style reversed bridge): the
+# default ee8 jar is generated through the shared bazlets `to_javax`
+# transform and stamps `Gerrit-Flavour: ee8`, compiling against the javax
+# plugin API and the javax gitiles-servlet through the flavour seam in
+# //lib/gitiles; the ee11 jar compiles the canonical sources directly and
+# self-selects the jakarta configuration, under which
+# //plugins:plugin-lib-neverlink, //lib/gitiles (jakarta gitiles-servlet
+# 2.0.0) and the resource jar below all flip together. Each flavour's
+# targets are guarded to their configuration, so both wildcard passes stay
+# green:
 #   bazelisk test plugins/gitiles/...
 #   bazelisk test --@com_googlesource_gerrit_bazlets//flags:flavour=ee11 \
 #       plugins/gitiles/...
 gerrit_plugin(
     name = "gitiles",
     srcs = SRCS,
+    canonical = "jakarta",
     flavour = "ee8",
     manifest_entries = MANIFEST_ENTRIES,
     resource_jars = [":gitiles-servlet-resources"],
@@ -34,21 +40,11 @@ gerrit_plugin(
     deps = ["//lib/gitiles"],
 )
 
-# EE11 (jakarta.servlet) flavour. The shared bazlets `flavour = "ee11"` rewrites
-# the plugin's javax.servlet imports to jakarta.servlet, injects
-# `Gerrit-Flavour: ee11`, compiles against the jakarta plugin API, and wraps the
-# target in a flavour=ee11 transition -- so building :gitiles-ee11 self-selects
-# the jakarta config with no command-line flag. Under that transition
-# //plugins:plugin-lib-neverlink, //lib/gitiles (jakarta gitiles-servlet 2.0.0)
-# and the resource jar below all flip together. Build with:
-#   bazelisk build //plugins/gitiles:gitiles-ee11
-# (or both flavours at once:
-#   `bazelisk build //plugins/gitiles:gitiles \
-#       //plugins/gitiles:gitiles-ee11`).
 # `dir_name = "gitiles"` keeps stamping/versioning shared with the default jar.
 gerrit_plugin(
     name = "gitiles-ee11",
     srcs = SRCS,
+    canonical = "jakarta",
     dir_name = "gitiles",
     flavour = "ee11",
     manifest_entries = MANIFEST_ENTRIES,
@@ -88,10 +84,13 @@ genrule2(
     ]),
 )
 
-# EE8 tests, guarded to the ee8 configuration (the default).
+# EE8 tests, guarded to the ee8 configuration (the default). The test
+# sources are servlet-namespace-agnostic text; they bind to the flavour of
+# the plugin library and testutil fakes on the classpath.
 gerrit_plugin_tests(
     name = "gitiles_tests",
     srcs = glob(["src/test/java/**/*Test.java"]),
+    canonical = "jakarta",
     flavour = "ee8",
     tags = ["gitiles"],
     visibility = ["//visibility:public"],
@@ -103,22 +102,24 @@ gerrit_plugin_tests(
     ],
 )
 
-# EE11 test twin: the same canonical test sources through the shared
-# `to_jakarta` transform, executed against :gitiles-ee11__plugin; the
-# in-tree deps (testutil, //lib/gitiles) flip with the ee11 configuration.
+# EE11 test twin: the canonical test sources compiled directly (no
+# transform -- since the jakarta-canonical migration the EE11 side IS the
+# canonical side), executed against :gitiles-ee11__plugin; the in-tree
+# deps (testutil, //lib/gitiles) flip with the ee11 configuration.
 # A test target cannot self-transition the flavour, so the twin is guarded
 # to the ee11 configuration and runs under the flag pass; the plain pass
 # skips it and runs gitiles_tests above.
 gerrit_plugin_tests(
     name = "gitiles_tests-ee11",
     srcs = glob(["src/test/java/**/*Test.java"]),
+    canonical = "jakarta",
     flavour = "ee11",
     tags = ["gitiles"],
     visibility = ["//visibility:public"],
     runtime_deps = [":gitiles-ee11__plugin"],
     deps = [
         ":gitiles-ee11__plugin",
-        "//javatests/com/google/gerrit/util/http/testutil:testutil-ee11",
+        "//javatests/com/google/gerrit/util/http/testutil",
         "//lib/gitiles",
     ],
 )
