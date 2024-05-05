@@ -29,7 +29,7 @@ import com.google.gerrit.entities.Project;
 import com.google.gerrit.extensions.api.projects.BranchInput;
 import com.google.gerrit.testing.ConfigSuite;
 import com.google.gerrit.util.http.testutil.FakeHttpServletRequest;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import org.eclipse.jgit.errors.RepositoryNotFoundException;
 import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.lib.Repository;
