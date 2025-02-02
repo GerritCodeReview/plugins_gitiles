@@ -69,9 +69,10 @@ public class RepositoryResolverAccessTest extends LightweightPluginDaemonTest {
     gApi.projects().name(project.get()).branch("refs/heads/invisible").create(new BranchInput());
     requestScopeOperations.setApiUserAnonymous();
 
-    Repository repo = resolver().open(new FakeHttpServletRequest(), project.get());
-    assertThat(repo.exactRef("refs/heads/visible")).isNotNull();
-    assertThat(repo.exactRef("refs/heads/invisible")).isNull();
+    try (Repository repo = resolver().open(new FakeHttpServletRequest(), project.get())) {
+      assertThat(repo.exactRef("refs/heads/visible")).isNotNull();
+      assertThat(repo.exactRef("refs/heads/invisible")).isNull();
+    }
   }
 
   @Test
@@ -86,7 +87,9 @@ public class RepositoryResolverAccessTest extends LightweightPluginDaemonTest {
         .update();
 
     requestScopeOperations.setApiUser(user.id());
-    assertThat(resolver().open(new FakeHttpServletRequest(), "visible")).isNotNull();
+    try (Repository visibleRepository = resolver().open(new FakeHttpServletRequest(), "visible")) {
+      assertThat(visibleRepository).isNotNull();
+    }
     RepositoryNotFoundException ex =
         assertThrows(
             RepositoryNotFoundException.class,
