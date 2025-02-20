@@ -36,6 +36,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import org.eclipse.jgit.annotations.NonNull;
 import org.eclipse.jgit.attributes.AttributesNodeProvider;
 import org.eclipse.jgit.lib.ObjectDatabase;
 import org.eclipse.jgit.lib.Ref;
@@ -241,6 +242,12 @@ class FilteredRepository extends Repository {
       }
       // VisibleRefFilter adds the prefix to the keys, re-strip it.
       return refs.stream().collect(toMap(r -> r.getName().substring(prefix.length()), r -> r));
+    }
+
+    @Override
+    @NonNull
+    public ReflogReader getReflogReader(@NonNull Ref ref) throws IOException {
+      return git.getReflogReader(ref);
     }
 
     @Override
