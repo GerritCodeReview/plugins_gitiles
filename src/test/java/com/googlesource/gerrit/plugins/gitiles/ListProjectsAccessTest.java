@@ -90,7 +90,8 @@ public class ListProjectsAccessTest extends LightweightPluginDaemonTest {
             access()
                 .listRepositories(
                     null, ImmutableSet.of("refs/heads/visible", "refs/heads/invisible"))
-                .values().stream()
+                .values()
+                .stream()
                 .map(r -> r.branches.keySet())
                 .collect(Collectors.toList()))
         .containsExactly(ImmutableSet.of("refs/heads/visible"));

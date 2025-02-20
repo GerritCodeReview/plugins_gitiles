@@ -75,24 +75,20 @@ public class GitilesWeblinks
   @Override
   public WebLinkInfo getPatchSetWebLink(
       String projectName, String commit, String commitMessage, String branchName) {
-    return new WebLinkInfo(
-        name, null, String.format("%s/%s/+/%s", baseUrl, projectName, commit));
+    return new WebLinkInfo(name, null, String.format("%s/%s/+/%s", baseUrl, projectName, commit));
   }
 
   @Override
   public WebLinkInfo getParentWebLink(
       String projectName, String commit, String commitMessage, String branchName) {
-    return new WebLinkInfo(
-        name, null, String.format("%s/%s/+/%s", baseUrl, projectName, commit));
+    return new WebLinkInfo(name, null, String.format("%s/%s/+/%s", baseUrl, projectName, commit));
   }
 
   @Override
   public WebLinkInfo getFileWebLink(
       String projectName, String revision, String hash, String fileName) {
     return new WebLinkInfo(
-        name,
-        null,
-        String.format("%s/%s/+/%s/%s", baseUrl, projectName, revision, fileName));
+        name, null, String.format("%s/%s/+/%s/%s", baseUrl, projectName, revision, fileName));
   }
 
   @Override
@@ -103,15 +99,12 @@ public class GitilesWeblinks
 
   @Override
   public WebLinkInfo getTagWebLink(String projectName, String tagName) {
-    return new WebLinkInfo(
-        name, null, String.format("%s/%s/+/%s", baseUrl, projectName, tagName));
+    return new WebLinkInfo(name, null, String.format("%s/%s/+/%s", baseUrl, projectName, tagName));
   }
 
   @Override
   public WebLinkInfo getFileHistoryWebLink(String projectName, String revision, String fileName) {
     return new WebLinkInfo(
-        name,
-        null,
-        String.format("%s/%s/+log/%s/%s", baseUrl, projectName, revision, fileName));
+        name, null, String.format("%s/%s/+log/%s/%s", baseUrl, projectName, revision, fileName));
   }
 }

@@ -48,7 +48,8 @@ public class Resolver implements RepositoryResolver<HttpServletRequest> {
 
   @Override
   public Repository open(HttpServletRequest req, String name)
-      throws RepositoryNotFoundException, ServiceMayNotContinueException,
+      throws RepositoryNotFoundException,
+          ServiceMayNotContinueException,
           ServiceNotAuthorizedException {
     Project.NameKey oldName = getNameKey(req);
     checkState(
