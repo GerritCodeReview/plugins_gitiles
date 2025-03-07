@@ -40,6 +40,7 @@ import com.google.inject.Singleton;
 import com.google.inject.TypeLiteral;
 import java.net.InetAddress;
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.List;
@@ -164,7 +165,7 @@ class PluginModule extends LifecycleModule {
     URL u;
     String hostName;
     if (gerritUrl != null) {
-      u = new URL(gerritUrl);
+      u = URI.create(gerritUrl).toURL();
       hostName = u.getHost() != null ? u.getHost() : getLocalHostName();
     } else {
       u = null;
