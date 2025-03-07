@@ -171,7 +171,7 @@ class FilteredRepository extends Repository {
   @Nullable
   @Override
   public ReflogReader getReflogReader(String refName) throws IOException {
-    return exactRef(refName) != null ? delegate.getReflogReader(refName) : null;
+    return exactRef(refName) != null ? delegate.getRefDatabase().getReflogReader(refName) : null;
   }
 
   @Override
@@ -247,7 +247,7 @@ class FilteredRepository extends Repository {
     @Override
     @NonNull
     public ReflogReader getReflogReader(@NonNull Ref ref) throws IOException {
-      return git.getReflogReader(ref);
+      return git.getRefDatabase().getReflogReader(ref);
     }
 
     @Override
