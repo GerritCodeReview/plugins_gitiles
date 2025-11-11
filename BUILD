@@ -22,10 +22,10 @@ gerrit_plugin(
 
 genrule2(
     name = "gitiles-servlet-resources",
-    srcs = ["@gerrit_deps//:com_google_gitiles_gitiles_servlet"],
+    srcs = ["@external_deps//:com_google_gitiles_gitiles_servlet"],
     outs = ["gitiles-servlet-resources.jar"],
     cmd = " && ".join([
-        "unzip -qd $$TMP $(location @gerrit_deps//:com_google_gitiles_gitiles_servlet) \"com/google/gitiles/static/*\"",
+        "unzip -qd $$TMP $(location @external_deps//:com_google_gitiles_gitiles_servlet) \"com/google/gitiles/static/*\"",
         "cd $$TMP/com/google/gitiles/static",
         # To avoid loading 3rd party resources, we adapt gitiles' CSS to
         # load fonts from Gerrit directly:
