@@ -22,10 +22,10 @@ gerrit_plugin(
 
 genrule2(
     name = "gitiles-servlet-resources",
-    srcs = ["@gitiles-servlet//jar"],
+    srcs = ["@maven_deps//gitiles-servlet/jar"],
     outs = ["gitiles-servlet-resources.jar"],
     cmd = " && ".join([
-        "unzip -qd $$TMP $(location @gitiles-servlet//jar) \"com/google/gitiles/static/*\"",
+        "unzip -qd $$TMP $(location @maven_deps//gitiles-servlet/jar) \"com/google/gitiles/static/*\"",
         "cd $$TMP/com/google/gitiles/static",
         # To avoid loading 3rd party resources, we adapt gitiles' CSS to
         # load fonts from Gerrit directly:
