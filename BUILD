@@ -1,6 +1,6 @@
 load("//tools/bzl:genrule2.bzl", "genrule2")
-load("//tools/bzl:plugin.bzl", "PLUGIN_DEPS", "PLUGIN_TEST_DEPS", "gerrit_plugin")
 load("//tools/bzl:junit.bzl", "junit_tests")
+load("//tools/bzl:plugin.bzl", "PLUGIN_DEPS", "PLUGIN_TEST_DEPS", "gerrit_plugin")
 
 gerrit_plugin(
     name = "gitiles",
@@ -35,7 +35,7 @@ genrule2(
         "mv $$TMP/base.css.tmp base.css",
         # 2. Add Gerrit's fonts CSS
         "sed -e 's%^\\(.*Common styles and definitions.*\\)$$%" +
-          "\\1\\n\\n@import \"../../../styles/fonts.css\";%' base.css > $$TMP/base.css.tmp",
+        "\\1\\n\\n@import \"../../../styles/fonts.css\";%' base.css > $$TMP/base.css.tmp",
         "mv $$TMP/base.css.tmp base.css",
         # 3. Use Gerrit's Roboto Mono for Source Code Pro
         "sed -e 's/Source Code Pro/Roboto Mono/g' base.css > $$TMP/base.css.tmp",
