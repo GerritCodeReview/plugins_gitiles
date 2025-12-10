@@ -66,9 +66,6 @@ public class Resolver implements RepositoryResolver<HttpServletRequest> {
       if (userProvider.get().isIdentifiedUser()) {
         throw new RepositoryNotFoundException(name, e);
       }
-      // Allow anonymous users a chance to login.
-      // Avoid leaking information by not distinguishing between
-      // project not existing and no access rights.
       throw new ServiceNotAuthorizedException();
     } catch (IOException | PermissionBackendException e) {
       ServiceMayNotContinueException err =

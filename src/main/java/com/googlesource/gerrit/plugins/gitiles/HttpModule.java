@@ -89,6 +89,9 @@ class HttpModule extends ServletModule {
 
   @Override
   protected void configureServlets() {
+    // Filter unauthenticated users to login page as needed
+    filter("/*").through(LoginRedirectErrorHandler.class);
+
     // Filter all paths so we can decode escaped entities in the URI
     filter("/*").through(createPathFilter());
     filter("/*").through(new MenuFilter(userProvider, urls));
