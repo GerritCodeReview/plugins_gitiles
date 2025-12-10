@@ -69,17 +69,30 @@ class FilteredRepository extends Repository {
     }
 
     FilteredRepository create(Project.NameKey name)
-        throws NoSuchProjectException, IOException, PermissionBackendException {
+        throws NoSuchProjectException,
+            LoginRedirectRequiredException,
+            IOException,
+            PermissionBackendException {
       Optional<ProjectState> projectState = projectCache.get(name);
-      if (!projectState.isPresent() || !projectState.get().statePermitsRead()) {
-        throw new NoSuchProjectException(name);
-      }
-      try {
-        permissionBackend.currentUser().project(name).check(ProjectPermission.ACCESS);
-      } catch (AuthException e) {
-        throw new NoSuchProjectException(name, e);
-      } catch (PermissionBackendException e) {
-        throw new ServiceMayNotContinueException(e);
+      if (userProvider.get() == null || !userProvider.get().isIdentifiedUser()) {
+        // If the user is an anonymous user and the project is not visible to anonymous
+        // users, redirect the user to login.
+        try {
+          permissionBackend.currentUser().project(name).check(ProjectPermission.ACCESS);
+        } catch (Exception e) {
+          throw new LoginRedirectRequiredException(e);
+        }
+      } else {
+        if (!projectState.isPresent() || !projectState.get().statePermitsRead()) {
+          throw new NoSuchProjectException(name);
+        }
+        try {
+          permissionBackend.currentUser().project(name).check(ProjectPermission.ACCESS);
+        } catch (AuthException e) {
+          throw new NoSuchProjectException(name, e);
+        } catch (PermissionBackendException e) {
+          throw new ServiceMayNotContinueException(e);
+        }
       }
       return new FilteredRepository(
           projectState.get(),

@@ -20,6 +20,7 @@ import com.google.gerrit.entities.Project;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.permissions.PermissionBackendException;
 import com.google.gerrit.server.project.NoSuchProjectException;
+import com.google.gitiles.GitilesUrls;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import java.io.IOException;
@@ -33,6 +34,7 @@ import org.eclipse.jgit.transport.resolver.ServiceNotAuthorizedException;
 public class Resolver implements RepositoryResolver<HttpServletRequest> {
   private static final String NAME_KEY_ATTRIBUTE = Resolver.class.getName() + "/NameKey";
   private final Provider<CurrentUser> userProvider;
+  private final GitilesUrls urls;
 
   static Project.NameKey getNameKey(HttpServletRequest req) {
     return (Project.NameKey) req.getAttribute(NAME_KEY_ATTRIBUTE);
@@ -41,9 +43,13 @@ public class Resolver implements RepositoryResolver<HttpServletRequest> {
   private final FilteredRepository.Factory repoFactory;
 
   @Inject
-  Resolver(FilteredRepository.Factory repoFactory, Provider<CurrentUser> userProvider) {
+  Resolver(
+      FilteredRepository.Factory repoFactory,
+      Provider<CurrentUser> userProvider,
+      GitilesUrls urls) {
     this.repoFactory = repoFactory;
     this.userProvider = userProvider;
+    this.urls = urls;
   }
 
   @Override
@@ -62,13 +68,13 @@ public class Resolver implements RepositoryResolver<HttpServletRequest> {
     req.setAttribute(NAME_KEY_ATTRIBUTE, nameKey);
     try {
       return repoFactory.create(nameKey);
+    } catch (LoginRedirectRequiredException e) {
+      String loginUrl = LoginRedirectUtil.getLoginRedirectUrl(req, urls);
+      throw new LoginRedirectRequiredException(loginUrl, e);
     } catch (NoSuchProjectException e) {
       if (userProvider.get().isIdentifiedUser()) {
         throw new RepositoryNotFoundException(name, e);
       }
-      // Allow anonymous users a chance to login.
-      // Avoid leaking information by not distinguishing between
-      // project not existing and no access rights.
       throw new ServiceNotAuthorizedException();
     } catch (IOException | PermissionBackendException e) {
       ServiceMayNotContinueException err =

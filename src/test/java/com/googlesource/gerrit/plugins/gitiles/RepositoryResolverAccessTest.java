@@ -79,7 +79,6 @@ public class RepositoryResolverAccessTest extends LightweightPluginDaemonTest {
   public void resolveRepository_repositoryVisibilityIsRespected() throws Exception {
     projectOperations.allProjectsForUpdate().removeAllAccessSections().update();
     projectOperations.newProject().name("visible").create();
-    projectOperations.newProject().name("invisible").create();
     projectOperations
         .project(Project.nameKey("visible"))
         .forUpdate()
@@ -93,8 +92,21 @@ public class RepositoryResolverAccessTest extends LightweightPluginDaemonTest {
     RepositoryNotFoundException ex =
         assertThrows(
             RepositoryNotFoundException.class,
-            () -> resolver().open(new FakeHttpServletRequest(), "invisible"));
-    assertThat(ex).hasMessageThat().contains("repository not found: invisible");
+            () -> resolver().open(new FakeHttpServletRequest(), "nonexistent"));
+    assertThat(ex).hasMessageThat().contains("repository not found: nonexistent");
+  }
+
+  @Test
+  public void resolveRepository_anonymousUserRedirectedToLogin() throws Exception {
+    projectOperations.allProjectsForUpdate().removeAllAccessSections().update();
+    projectOperations.newProject().name("invisible").create();
+    requestScopeOperations.setApiUserAnonymous();
+
+    LoginRedirectRequiredException ex =
+        assertThrows(
+            LoginRedirectRequiredException.class,
+            () -> resolver().open(new FakeHttpServletRequest(), project.get()));
+    assertThat(ex.getRedirectUrl()).contains("/login/");
   }
 
   private Resolver resolver() {
