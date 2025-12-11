@@ -1,6 +1,6 @@
 load("//tools/bzl:genrule2.bzl", "genrule2")
 load("//tools/bzl:plugin.bzl", "PLUGIN_DEPS", "PLUGIN_TEST_DEPS", "gerrit_plugin")
-load("//tools/bzl:junit.bzl", "junit_tests")
+load("@com_googlesource_gerrit_bazlets//tools:junit.bzl", "junit_tests")
 
 gerrit_plugin(
     name = "gitiles",
