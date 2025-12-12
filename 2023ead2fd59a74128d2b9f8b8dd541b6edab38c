@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "155fc2a7_4d277c1a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitiles/LoginRedirectUtil.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 4240010
+      },
+      "writtenOn": "2025-12-12T05:49:14Z",
+      "side": 1,
+      "message": "Should we check if baseUrl is null to prevent NPE at `baseUrl.isEmpty()`? If you are sure this cannot be null, we can ignore that check.",
+      "revId": "2023ead2fd59a74128d2b9f8b8dd541b6edab38c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
