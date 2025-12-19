@@ -1,5 +1,5 @@
 load("//tools/bzl:genrule2.bzl", "genrule2")
-load("//tools/bzl:plugin.bzl", "PLUGIN_DEPS", "PLUGIN_TEST_DEPS", "gerrit_plugin")
+load("@com_googlesource_gerrit_bazlets//:gerrit_plugin.bzl", "gerrit_plugin")
 load("@com_googlesource_gerrit_bazlets//tools:junit.bzl", "junit_tests")
 
 gerrit_plugin(
@@ -53,9 +53,11 @@ junit_tests(
     tags = ["gitiles"],
     visibility = ["//visibility:public"],
     runtime_deps = [":gitiles__plugin"],
-    deps = PLUGIN_TEST_DEPS + PLUGIN_DEPS + [
+    deps = [
         ":gitiles__plugin",
+        "//java/com/google/gerrit/acceptance:lib",
         "//javatests/com/google/gerrit/util/http/testutil",
         "//lib/gitiles",
+        "//plugins:plugin-lib",
     ],
 )
