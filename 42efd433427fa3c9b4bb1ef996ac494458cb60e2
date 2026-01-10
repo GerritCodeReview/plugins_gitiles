@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77547a4a_3db7ccdd",
+        "filename": "BUILD",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2026-01-10T17:06:55Z",
+      "side": 1,
+      "message": "Here and in other similar places: if the thin wrapper mentioned in [1] is implemented in Gerrit core (delegating to `junit_tests` in `bazlets`), this change might not be necessary.\n\n[1]: https://gerrit-review.googlesource.com/c/gerrit/+/535285/5/tools/bzl/junit.bzl",
+      "revId": "42efd433427fa3c9b4bb1ef996ac494458cb60e2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
