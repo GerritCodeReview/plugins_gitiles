@@ -1,6 +1,7 @@
 load("//tools/bzl:genrule2.bzl", "genrule2")
 load("//tools/bzl:plugin.bzl", "PLUGIN_DEPS", "PLUGIN_TEST_DEPS", "gerrit_plugin")
 load("//tools/bzl:junit.bzl", "junit_tests")
+load("@rules_java//java:defs.bzl", "java_library")
 
 gerrit_plugin(
     name = "gitiles",
@@ -17,15 +18,15 @@ gerrit_plugin(
     ],
     resource_jars = [":gitiles-servlet-resources"],
     resources = glob(["src/main/resources/**/*"]),
-    deps = ["//lib/gitiles"],
+    deps = [":gitiles_lib"],
 )
 
 genrule2(
     name = "gitiles-servlet-resources",
-    srcs = ["@gerrit_deps//:com_google_gitiles_gitiles_servlet"],
+    srcs = ["@gerrit_plugin_deps//:com_google_gitiles_gitiles_servlet"],
     outs = ["gitiles-servlet-resources.jar"],
     cmd = " && ".join([
-        "unzip -qd $$TMP $(location @gerrit_deps//:com_google_gitiles_gitiles_servlet) \"com/google/gitiles/static/*\"",
+        "unzip -qd $$TMP $(location @gerrit_plugin_deps//:com_google_gitiles_gitiles_servlet) \"com/google/gitiles/static/*\"",
         "cd $$TMP/com/google/gitiles/static",
         # To avoid loading 3rd party resources, we adapt gitiles' CSS to
         # load fonts from Gerrit directly:
@@ -56,6 +57,70 @@ junit_tests(
     deps = PLUGIN_TEST_DEPS + PLUGIN_DEPS + [
         ":gitiles__plugin",
         "//javatests/com/google/gerrit/util/http/testutil",
-        "//lib/gitiles",
+        ":gitiles_lib",
     ],
+)
+
+java_library(
+    name = "gitiles_lib",
+    visibility = ["//visibility:public"],
+    exports = [
+        ":blame-cache",
+        ":cm-autolink",
+        ":commonmark",
+        ":gfm-strikethrough",
+        ":gfm-tables",
+        ":gitiles-servlet",
+        ":prettify",
+        "//lib/commons:lang3",
+        "//lib/commons:text",
+    ],
+)
+
+java_library(
+    name = "cm-autolink",
+    data = ["//lib:LICENSE-commonmark"],
+    visibility = ["//visibility:public"],
+    exports = ["@gerrit_plugin_deps//:org_commonmark_commonmark_ext_autolink"],
+)
+
+java_library(
+    name = "commonmark",
+    data = ["//lib:LICENSE-commonmark"],
+    visibility = ["//visibility:public"],
+    exports = ["@gerrit_plugin_deps//:org_commonmark_commonmark"],
+)
+
+java_library(
+    name = "gfm-strikethrough",
+    data = ["//lib:LICENSE-Apache2.0"],
+    visibility = ["//visibility:public"],
+    exports = ["@gerrit_plugin_deps//:org_commonmark_commonmark_ext_gfm_strikethrough"],
+)
+
+java_library(
+    name = "gfm-tables",
+    data = ["//lib:LICENSE-Apache2.0"],
+    visibility = ["//visibility:public"],
+    exports = ["@gerrit_plugin_deps//:org_commonmark_commonmark_ext_gfm_tables"],
+)
+
+java_library(
+    name = "gitiles-servlet",
+    data = ["//lib:LICENSE-Apache2.0"],
+    visibility = ["//visibility:public"],
+    exports = ["@gerrit_plugin_deps//:com_google_gitiles_gitiles_servlet"],
+)
+
+java_library(
+    name = "blame-cache",
+    data = ["//lib:LICENSE-Apache2.0"],
+    visibility = ["//visibility:public"],
+    exports = ["@gerrit_plugin_deps//:com_google_gitiles_blame_cache"],
+)
+
+java_library(
+    name = "prettify",
+    visibility = ["//visibility:public"],
+    exports = ["@java-prettify"],
 )
