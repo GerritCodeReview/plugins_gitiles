@@ -1,0 +1,39 @@
+module(name = "gerrit-plugin-gitiles")
+
+bazel_dep(name = "rules_jvm_external", version = "6.10")
+
+bazel_dep(name = "java-prettify")
+git_override(
+  module_name = "java-prettify",
+  remote = "https://gerrit.googlesource.com/java-prettify",
+  commit = "d50c5563fb7452966ee29ddeeec91fbc8a68d41f",
+)
+
+maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
+
+COMMOMMARK_VERSION = "0.21.0"
+GITILES_VERSION = "1.6.0"
+
+maven.install(
+    name = "gitiles_plugin_deps",
+    artifacts = [
+        "org.commonmark:commonmark:" + COMMOMMARK_VERSION,
+        "org.commonmark:commonmark-ext-autolink:" + COMMOMMARK_VERSION,
+        "org.commonmark:commonmark-ext-gfm-strikethrough:" + COMMOMMARK_VERSION,
+        "org.commonmark:commonmark-ext-gfm-tables:" + COMMOMMARK_VERSION,
+        "com.google.gitiles:gitiles-servlet:" + GITILES_VERSION,
+    ],
+    repositories = [
+        "https://repo1.maven.org/maven2",
+        "https://gerrit-maven.storage.googleapis.com",
+    ],
+    duplicate_version_warning = "error",
+    fail_if_repin_required = True,
+    fail_on_missing_checksum = True,
+    fetch_sources = True,
+    lock_file = "//:gitiles_plugin_deps.lock.json",
+    strict_visibility = True,
+    version_conflict_policy = "pinned",
+)
+
+use_repo(maven, "gitiles_plugin_deps")
