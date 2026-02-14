@@ -7,6 +7,10 @@ load(
     "gerrit_plugin_tests",
 )
 load(
+    "@com_googlesource_gerrit_bazlets//tools:runtime_jars_allowlist.bzl",
+    "runtime_jars_allowlist_test",
+)
+load(
     "@com_googlesource_gerrit_bazlets//tools:runtime_jars_overlap.bzl",
     "runtime_jars_overlap_test",
 )
@@ -133,4 +137,11 @@ runtime_jars_overlap_test(
     hint = "Exclude overlaps via maven.install(excluded_artifacts=[...]) and re-run this test.",
     target = ":gitiles__plugin",
     target_compatible_with = in_gerrit_tree_enabled(),
+)
+
+runtime_jars_allowlist_test(
+    name = "check_gitiles_third_party_runtime_jars",
+    allowlist = ":gitiles_third_party_runtime_jars.allowlist.txt",
+    hint = ":check_gitiles_third_party_runtime_jars_manifest",
+    target = ":gitiles__plugin",
 )
