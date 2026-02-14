@@ -14,6 +14,35 @@ This plugin tracks the set of third-party runtime JARs that are bundled into the
 A deterministic, version-agnostic manifest is generated from the plugin’s runtime classpath and
 compared against the checked-in allowlist:
 
+`oauth_third_party_runtime_jars.allowlist.txt`
+
+This acts as a guardrail to detect unintended changes to the packaged runtime dependency set.
+
+To run the check (standalone or in Gerrit tree):
+
+```bash
+bazelisk test //:check_oauth_third_party_runtime_jars
+```
+
+#### Updating the allowlist
+
+If the test fails because the packaged third-party JAR set changed, the plugin’s bundled runtime
+dependencies have changed.
+
+If the change is expected and has been reviewed, refresh the allowlist:
+
+```bash
+bazelisk build //:oauth_third_party_runtime_jars.txt
+cp bazel-bin/oauth_third_party_runtime_jars.txt oauth_third_party_runtime_jars.allowlist.txt
+```
+
+Commit the updated allowlist along with the dependency change.
+
+
+This plugin tracks the set of third-party runtime JARs that are bundled into the plugin JAR.
+A deterministic, version-agnostic manifest is generated from the plugin’s runtime classpath and
+compared against the checked-in allowlist:
+
 `gitiles_third_party_runtime_jars.allowlist.txt`
 
 This acts as a guardrail to detect unintended changes to the packaged runtime dependency set.
