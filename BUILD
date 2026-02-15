@@ -1,7 +1,19 @@
 load("//tools/bzl:genrule2.bzl", "genrule2")
-load("//tools/bzl:plugin.bzl", "PLUGIN_DEPS", "PLUGIN_TEST_DEPS", "gerrit_plugin")
 load("//tools/bzl:junit.bzl", "junit_tests")
 load("@rules_java//java:defs.bzl", "java_library")
+load(
+    "@com_googlesource_gerrit_bazlets//:gerrit_plugin.bzl",
+    "gerrit_plugin",
+    "gerrit_plugin_tests",
+)
+load(
+    "@com_googlesource_gerrit_bazlets//tools:runtime_jars_overlap.bzl",
+    "runtime_jars_overlap_test",
+)
+load(
+    "@com_googlesource_gerrit_bazlets//tools:in_gerrit_tree.bzl",
+    "in_gerrit_tree_enabled",
+)
 
 gerrit_plugin(
     name = "gitiles",
@@ -48,13 +60,13 @@ genrule2(
     ]),
 )
 
-junit_tests(
+gerrit_plugin_tests(
     name = "gitiles_tests",
     srcs = glob(["src/test/java/**/*Test.java"]),
     tags = ["gitiles"],
     visibility = ["//visibility:public"],
     runtime_deps = [":gitiles__plugin"],
-    deps = PLUGIN_TEST_DEPS + PLUGIN_DEPS + [
+    deps = [
         ":gitiles__plugin",
         "//javatests/com/google/gerrit/util/http/testutil",
         ":gitiles_lib",
@@ -113,4 +125,12 @@ java_library(
     name = "prettify",
     visibility = ["//visibility:public"],
     exports = ["@java-prettify"],
+)
+
+runtime_jars_overlap_test(
+    name = "gitiles_no_overlap_with_gerrit",
+    against = "//:release.war.jars.txt",
+    hint = "Exclude overlaps via maven.install(excluded_artifacts=[...]) and re-run this test.",
+    target = ":gitiles__plugin",
+    target_compatible_with = in_gerrit_tree_enabled(),
 )
