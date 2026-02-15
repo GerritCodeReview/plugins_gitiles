@@ -9,6 +9,13 @@ git_override(
   commit = "d50c5563fb7452966ee29ddeeec91fbc8a68d41f",
 )
 
+bazel_dep(name = "com_googlesource_gerrit_bazlets")
+git_override(
+    module_name = "com_googlesource_gerrit_bazlets",
+    commit = "202b90383675fd8a759a865a4e0efe75de9a8932",
+    remote = "https://gerrit.googlesource.com/bazlets",
+)
+
 maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
 
 COMMOMMARK_VERSION = "0.21.0"
@@ -22,6 +29,12 @@ maven.install(
         "org.commonmark:commonmark-ext-gfm-strikethrough:" + COMMOMMARK_VERSION,
         "org.commonmark:commonmark-ext-gfm-tables:" + COMMOMMARK_VERSION,
         "com.google.gitiles:gitiles-servlet:" + GITILES_VERSION,
+    ],
+    excluded_artifacts = [
+        # Gerrit core already provides autolink, so exclude it here to
+        # avoid bundling it into the plugin and prevent duplicate classes
+        # or version skew at runtime in Gerrit's plugin classloader.
+        "org.nibor.autolink:autolink",
     ],
     repositories = [
         "https://repo1.maven.org/maven2",
