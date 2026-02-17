@@ -22,6 +22,30 @@
       },
       "revId": "88cfccd5602ddb091a73c0a2559f23c0e67cd42a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cf582e3_7ff392d2",
+        "filename": "BUILD",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2026-02-17T18:26:48Z",
+      "side": 1,
+      "message": "I’ve already fixed this in change 549784. If you’d like to include the fix in this change instead, I’m happy to abandon mine once this one is updated.",
+      "parentUuid": "7c33b141_06272a6d",
+      "range": {
+        "startLine": 25,
+        "startChar": 14,
+        "endLine": 25,
+        "endChar": 25
+      },
+      "revId": "88cfccd5602ddb091a73c0a2559f23c0e67cd42a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
