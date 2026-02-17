@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc44c07e_2aaae8fb",
+        "filename": "BUILD",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2026-02-17T18:22:08Z",
+      "side": 1,
+      "message": "User `gerrit_plugin_tests` macro from change 535901.\nThen the explicit dependencies on the Plugin API can be removed below:\n\n* `//java/com/google/gerrit/acceptance:lib`\n* `//plugins:plugin-lib`",
+      "revId": "8cfe778038ca099f5c7674abcf596bbafd5e67d8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
