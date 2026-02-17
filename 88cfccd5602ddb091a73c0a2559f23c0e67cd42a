@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c33b141_06272a6d",
+        "filename": "BUILD",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2026-02-17T18:12:01Z",
+      "side": 1,
+      "message": "This was renamed to @external_deps; please update the reference here and in the occurrences below.",
+      "range": {
+        "startLine": 25,
+        "startChar": 14,
+        "endLine": 25,
+        "endChar": 25
+      },
+      "revId": "88cfccd5602ddb091a73c0a2559f23c0e67cd42a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
