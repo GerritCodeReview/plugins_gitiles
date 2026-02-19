@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e81a83df_9c302381",
+        "filename": "BUILD",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2026-02-19T09:20:40Z",
+      "side": 1,
+      "message": "This should be excluded from the plugin artifact, as it is already provided by the Gerrit server.\n\n`blame-cache` is exported via the Plugin API and consumed as a `neverlink \u003d 1` `java_library`, which is why it is currently not bundled in the plugin artifact. After this change, it would also be packaged with this plugin, resulting in duplication. This should be avoided.\n\nTo resolve this, please remove it from the plugin dependencies and avoid declaring or fetching it in `MODULE.bazel`. Gerrit will fetch it and export it via the Plugin API, as was the case prior to this migration.\n\nSince we do not need to support a standalone build mode for this plugin, this should not introduce any issues.",
+      "range": {
+        "startLine": 68,
+        "startChar": 8,
+        "endLine": 68,
+        "endChar": 22
+      },
+      "revId": "bca19c96d30331a8ce1751a6b2dda6c68432abf2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6db3ec9_c25f6759",
+        "filename": "BUILD",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2026-02-19T09:20:40Z",
+      "side": 1,
+      "message": "Same here - these dependencies are already included in `release.war`. This can be easily verified in the bzlmod migration series:\n\n```\n$ bazel build release.war.jars.txt\n[...]\nTarget //:release.war.jars.txt up-to-date:\n  bazel-bin/release.war.jars.txt\n\n$ grep -E \u0027blame|commons-lang3|commons-text\u0027 bazel-bin/release.war.jars.txt\nblame-cache\ncommons-lang3\ncommons-text\n```",
+      "range": {
+        "startLine": 75,
+        "startChar": 8,
+        "endLine": 76,
+        "endChar": 29
+      },
+      "revId": "bca19c96d30331a8ce1751a6b2dda6c68432abf2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8f658db_cdce00ad",
+        "filename": "BUILD",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2026-02-19T09:20:40Z",
+      "side": 1,
+      "message": "This is already declared by gerrit.",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 0
+      },
+      "revId": "bca19c96d30331a8ce1751a6b2dda6c68432abf2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d25968d1_4f7a27ec",
+        "filename": "MODULE.bazel",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2026-02-19T09:20:40Z",
+      "side": 1,
+      "message": "One way to avoid version skew between blame-cache used by Gerrit core and gitiles-servlet used by this plugin would be to import Gitiles as a bzlmod dependency in Gerrit and build it from source, similar to what we did for JGit.\n\nWe could then reuse the external_dep repository and share the maven.install definition with amend_artifact to resolve any conflicts.",
+      "range": {
+        "startLine": 25,
+        "startChar": 8,
+        "endLine": 25,
+        "endChar": 64
+      },
+      "revId": "bca19c96d30331a8ce1751a6b2dda6c68432abf2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
