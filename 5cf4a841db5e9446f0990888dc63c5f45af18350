@@ -18,6 +18,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d114d11_0e42c6b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2026-02-23T13:21:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d725054c_7265ff01",
+      "revId": "5cf4a841db5e9446f0990888dc63c5f45af18350",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "92779df8_4df8c96b",
@@ -31,6 +49,24 @@
       "writtenOn": "2026-02-23T09:28:33Z",
       "side": 1,
       "message": "In case those libraries pull in transitive dependencies already shipped in release war, some exclusion would be necessary.\n\nCould you add integration and intercection tests to detect that from recent bazlets series, like we did in oauth and javamelody plugins?",
+      "revId": "5cf4a841db5e9446f0990888dc63c5f45af18350",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f9084af_2c549b33",
+        "filename": "BUILD",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2026-02-23T13:21:38Z",
+      "side": 1,
+      "message": "Done in followup change.",
+      "parentUuid": "92779df8_4df8c96b",
       "revId": "5cf4a841db5e9446f0990888dc63c5f45af18350",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
@@ -52,6 +88,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdb8be5e_ceda5946",
+        "filename": "MODULE.bazel",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2026-02-23T13:21:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a25c44d1_0645c1fb",
+      "revId": "5cf4a841db5e9446f0990888dc63c5f45af18350",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc783abc_2e36a240",
@@ -65,6 +119,24 @@
       "writtenOn": "2026-02-23T09:22:42Z",
       "side": 1,
       "message": "I have not checked, but it could be that commonmark\u0027s pom.xml Punks in the other dependencies transitively. See for example oauth plugin rules_jvm_external Integration, where we included only top Level SAP library and the Rest was resolved by Maven resolver. The only prerequisite for this would be to remove strict visibility on line 35.",
+      "revId": "5cf4a841db5e9446f0990888dc63c5f45af18350",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22868fe7_f9827eca",
+        "filename": "MODULE.bazel",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2026-02-23T13:21:38Z",
+      "side": 1,
+      "message": "This does not seem to be the case. You can see that in the generated maven lock file:\n\n```\n  \"dependencies\": {\n    \"org.commonmark:commonmark-ext-autolink\": [\n      \"org.commonmark:commonmark\",\n      \"org.nibor.autolink:autolink\"\n    ],\n    \"org.commonmark:commonmark-ext-gfm-strikethrough\": [\n      \"org.commonmark:commonmark\"\n    ],\n    \"org.commonmark:commonmark-ext-gfm-tables\": [\n      \"org.commonmark:commonmark\"\n    ]\n  },\n```",
+      "parentUuid": "fc783abc_2e36a240",
       "revId": "5cf4a841db5e9446f0990888dc63c5f45af18350",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
