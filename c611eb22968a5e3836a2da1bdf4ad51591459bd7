@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f28d056f_b09500dc",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2026-02-23T15:05:03Z",
+      "side": 1,
+      "message": "In this commit only overlapping test was added. The allowlist test was added in the follow up change. Move the description of allowlist test also in the follow up change, where the test is added?",
+      "revId": "c611eb22968a5e3836a2da1bdf4ad51591459bd7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
