@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d725054c_7265ff01",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2026-02-23T09:22:42Z",
+      "side": 1,
+      "message": "To avoid Verify-1, could you add Depends-On footer and reference rhe right gerrit-core change from the bzlmod series?",
+      "revId": "5cf4a841db5e9446f0990888dc63c5f45af18350",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a25c44d1_0645c1fb",
+        "filename": "MODULE.bazel",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2026-02-23T09:22:42Z",
+      "side": 1,
+      "message": "This version is broken, use 6.10?",
+      "revId": "5cf4a841db5e9446f0990888dc63c5f45af18350",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc783abc_2e36a240",
+        "filename": "MODULE.bazel",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2026-02-23T09:22:42Z",
+      "side": 1,
+      "message": "I have not checked, but it could be that commonmark\u0027s pom.xml Punks in the other dependencies transitively. See for example oauth plugin rules_jvm_external Integration, where we included only top Level SAP library and the Rest was resolved by Maven resolver. The only prerequisite for this would be to remove strict visibility on line 35.",
+      "revId": "5cf4a841db5e9446f0990888dc63c5f45af18350",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
