@@ -18,6 +18,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3175db4f_06bbc12e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2026-02-23T14:53:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31bb02cd_aeb1ff8b",
+      "revId": "13d94bb496c7fbeb2413b58dd1e073b0c50780c2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c7c3214e_de723164",
@@ -35,6 +53,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "649c2f27_e71d4799",
+        "filename": "MODULE.bazel",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2026-02-23T14:53:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7c3214e_de723164",
+      "revId": "13d94bb496c7fbeb2413b58dd1e073b0c50780c2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a6a78953_38851b78",
@@ -48,6 +84,24 @@
       "writtenOn": "2026-02-23T13:28:58Z",
       "side": 1,
       "message": "Please add a comment, why it\u0027s excluded.",
+      "revId": "13d94bb496c7fbeb2413b58dd1e073b0c50780c2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44aefc2c_f55b7bbd",
+        "filename": "MODULE.bazel",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2026-02-23T14:53:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6a78953_38851b78",
       "revId": "13d94bb496c7fbeb2413b58dd1e073b0c50780c2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
