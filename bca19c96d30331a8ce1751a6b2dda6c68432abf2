@@ -24,6 +24,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e65d7ed_57844d23",
+        "filename": "BUILD",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2026-02-23T08:06:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e81a83df_9c302381",
+      "range": {
+        "startLine": 68,
+        "startChar": 8,
+        "endLine": 68,
+        "endChar": 22
+      },
+      "revId": "bca19c96d30331a8ce1751a6b2dda6c68432abf2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b6db3ec9_c25f6759",
@@ -47,6 +71,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "60bff359_8dde97c4",
+        "filename": "BUILD",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2026-02-23T08:06:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6db3ec9_c25f6759",
+      "range": {
+        "startLine": 75,
+        "startChar": 8,
+        "endLine": 76,
+        "endChar": 29
+      },
+      "revId": "bca19c96d30331a8ce1751a6b2dda6c68432abf2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d8f658db_cdce00ad",
@@ -60,6 +108,30 @@
       "writtenOn": "2026-02-19T09:20:40Z",
       "side": 1,
       "message": "This is already declared by gerrit.",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 0
+      },
+      "revId": "bca19c96d30331a8ce1751a6b2dda6c68432abf2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9a6b065_196189f0",
+        "filename": "BUILD",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2026-02-23T08:06:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8f658db_cdce00ad",
       "range": {
         "startLine": 115,
         "startChar": 0,
