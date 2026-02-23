@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "92779df8_4df8c96b",
+        "filename": "BUILD",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2026-02-23T09:28:33Z",
+      "side": 1,
+      "message": "In case those libraries pull in transitive dependencies already shipped in release war, some exclusion would be necessary.\n\nCould you add integration and intercection tests to detect that from recent bazlets series, like we did in oauth and javamelody plugins?",
+      "revId": "5cf4a841db5e9446f0990888dc63c5f45af18350",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a25c44d1_0645c1fb",
         "filename": "MODULE.bazel",
         "patchSetId": 2
