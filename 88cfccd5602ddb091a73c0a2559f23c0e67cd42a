@@ -46,6 +46,30 @@
       },
       "revId": "88cfccd5602ddb091a73c0a2559f23c0e67cd42a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f92c9351_8ff5f8fb",
+        "filename": "BUILD",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2026-03-04T05:38:39Z",
+      "side": 1,
+      "message": "We have decided to apply these changes in two steps, so thst we need this change as-is.",
+      "parentUuid": "9cf582e3_7ff392d2",
+      "range": {
+        "startLine": 25,
+        "startChar": 14,
+        "endLine": 25,
+        "endChar": 25
+      },
+      "revId": "88cfccd5602ddb091a73c0a2559f23c0e67cd42a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
