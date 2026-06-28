@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54092cc5_c4aaeb66",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2026-06-28T15:49:29Z",
+      "side": 1,
+      "message": "Does this need to wait for gerrit core to migrate?",
+      "revId": "0e3ccb926a23b972d9f4472e3ba7d874fac481c8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
