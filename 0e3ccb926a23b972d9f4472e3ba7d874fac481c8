@@ -16,6 +16,24 @@
       "message": "Does this need to wait for gerrit core to migrate?",
       "revId": "0e3ccb926a23b972d9f4472e3ba7d874fac481c8",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0561a56_0d195a29",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2026-06-28T16:16:03Z",
+      "side": 1,
+      "message": "It can be merged independently from gerrit clean up.",
+      "parentUuid": "54092cc5_c4aaeb66",
+      "revId": "0e3ccb926a23b972d9f4472e3ba7d874fac481c8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
