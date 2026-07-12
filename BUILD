@@ -16,26 +16,19 @@ MANIFEST_ENTRIES = [
     "Gerrit-HttpDocumentationPrefix: +Documentation",
 ]
 
-# The sources are jakarta (Servlet API 6.1); the jar stamps
-# `Gerrit-Flavour: ee11` and consumes the jakarta gitiles-servlet 2.x
-# through //lib/gitiles. The EE8 flavour is gone with Gerrit's EE8
-# retirement; javax consumers stay on the last -ee8 release.
+# The sources are jakarta (Servlet API 6.1) and build natively against the
+# jakarta plugin API and gitiles-servlet 2.x through //lib/gitiles.
 gerrit_plugin(
     name = "gitiles",
     srcs = SRCS,
-    canonical = "jakarta",
-    flavour = "ee11",
     manifest_entries = MANIFEST_ENTRIES,
     resource_jars = [":gitiles-servlet-resources"],
     resources = RESOURCES,
     deps = ["//lib/gitiles"],
 )
 
-
-# Static resources are extracted from the gitiles-servlet jar of the active
-# flavour, via the single flavour seam in //lib/gitiles: javax by default,
-# jakarta under the ee11 transition (i.e. when built as part of :gitiles-ee11).
-# The CSS munging below is flavour-neutral.
+# Static resources are extracted from the gitiles-servlet jar (via
+# //lib/gitiles). The CSS munging below does not touch class files.
 genrule2(
     name = "gitiles-servlet-resources",
     srcs = ["//lib/gitiles:gitiles-servlet-jar"],
