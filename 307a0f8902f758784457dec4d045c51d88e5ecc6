@@ -16,6 +16,24 @@
       "message": "Moni",
       "revId": "307a0f8902f758784457dec4d045c51d88e5ecc6",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab728dec_f2aae8c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2026-07-12T06:13:03Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "cbf65081_9059aa05",
+      "revId": "307a0f8902f758784457dec4d045c51d88e5ecc6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
