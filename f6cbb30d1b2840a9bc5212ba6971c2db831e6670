@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "998878d6_367c5739",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4997236
+      },
+      "writtenOn": "2026-07-12T19:04:04Z",
+      "side": 1,
+      "message": "[ldap]\n  password \u003d secret",
+      "revId": "f6cbb30d1b2840a9bc5212ba6971c2db831e6670",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
