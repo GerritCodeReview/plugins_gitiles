@@ -16,16 +16,10 @@ MANIFEST_ENTRIES = [
     "Gerrit-HttpDocumentationPrefix: +Documentation",
 ]
 
-# The sources are jakarta-canonical (the JGit-style reversed bridge). The
-# unsuffixed jar is the EE11 default: it compiles the canonical sources
-# directly, stamps `Gerrit-Flavour: ee11` and self-selects the jakarta
-# configuration, under which //plugins:plugin-lib-neverlink, //lib/gitiles
-# (jakarta gitiles-servlet 2.x) and the resource jar below all flip
-# together. The -ee8 jar is the legacy flavour, generated through the
-# shared bazlets `to_javax` transform, stamping `Gerrit-Flavour: ee8` and
-# compiling against the javax plugin API and the javax gitiles-servlet
-# through the flavour seam in //lib/gitiles. Build one or both:
-#   bazelisk build //plugins/gitiles:gitiles //plugins/gitiles:gitiles-ee8
+# The sources are jakarta (Servlet API 6.1); the jar stamps
+# `Gerrit-Flavour: ee11` and consumes the jakarta gitiles-servlet 2.x
+# through //lib/gitiles. The EE8 flavour is gone with Gerrit's EE8
+# retirement; javax consumers stay on the last -ee8 release.
 gerrit_plugin(
     name = "gitiles",
     srcs = SRCS,
@@ -37,18 +31,6 @@ gerrit_plugin(
     deps = ["//lib/gitiles"],
 )
 
-# `dir_name = "gitiles"` keeps stamping/versioning shared with the default jar.
-gerrit_plugin(
-    name = "gitiles-ee8",
-    srcs = SRCS,
-    canonical = "jakarta",
-    dir_name = "gitiles",
-    flavour = "ee8",
-    manifest_entries = MANIFEST_ENTRIES,
-    resource_jars = [":gitiles-servlet-resources"],
-    resources = RESOURCES,
-    deps = ["//lib/gitiles"],
-)
 
 # Static resources are extracted from the gitiles-servlet jar of the active
 # flavour, via the single flavour seam in //lib/gitiles: javax by default,
