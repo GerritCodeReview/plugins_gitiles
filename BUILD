@@ -16,24 +16,24 @@ MANIFEST_ENTRIES = [
     "Gerrit-HttpDocumentationPrefix: +Documentation",
 ]
 
-# The sources are jakarta-canonical (the JGit-style reversed bridge): the
-# default ee8 jar is generated through the shared bazlets `to_javax`
-# transform and stamps `Gerrit-Flavour: ee8`, compiling against the javax
-# plugin API and the javax gitiles-servlet through the flavour seam in
-# //lib/gitiles; the ee11 jar compiles the canonical sources directly and
-# self-selects the jakarta configuration, under which
-# //plugins:plugin-lib-neverlink, //lib/gitiles (jakarta gitiles-servlet
-# 2.0.0) and the resource jar below all flip together. Each flavour's
-# targets are guarded to their configuration, so both wildcard passes stay
-# green:
+# The sources are jakarta-canonical (the JGit-style reversed bridge). The
+# unsuffixed jar is the EE11 default: it compiles the canonical sources
+# directly, stamps `Gerrit-Flavour: ee11` and self-selects the jakarta
+# configuration, under which //plugins:plugin-lib-neverlink, //lib/gitiles
+# (jakarta gitiles-servlet 2.x) and the resource jar below all flip
+# together. The -ee8 jar is the legacy flavour, generated through the
+# shared bazlets `to_javax` transform, stamping `Gerrit-Flavour: ee8` and
+# compiling against the javax plugin API and the javax gitiles-servlet
+# through the flavour seam in //lib/gitiles. Each flavour's targets are
+# guarded to their configuration, so both wildcard passes stay green:
 #   bazelisk test plugins/gitiles/...
-#   bazelisk test --@com_googlesource_gerrit_bazlets//flags:flavour=ee11 \
+#   bazelisk test --@com_googlesource_gerrit_bazlets//flags:flavour=ee8 \
 #       plugins/gitiles/...
 gerrit_plugin(
     name = "gitiles",
     srcs = SRCS,
     canonical = "jakarta",
-    flavour = "ee8",
+    flavour = "ee11",
     manifest_entries = MANIFEST_ENTRIES,
     resource_jars = [":gitiles-servlet-resources"],
     resources = RESOURCES,
@@ -42,11 +42,11 @@ gerrit_plugin(
 
 # `dir_name = "gitiles"` keeps stamping/versioning shared with the default jar.
 gerrit_plugin(
-    name = "gitiles-ee11",
+    name = "gitiles-ee8",
     srcs = SRCS,
     canonical = "jakarta",
     dir_name = "gitiles",
-    flavour = "ee11",
+    flavour = "ee8",
     manifest_entries = MANIFEST_ENTRIES,
     resource_jars = [":gitiles-servlet-resources"],
     resources = RESOURCES,
@@ -54,8 +54,9 @@ gerrit_plugin(
 )
 
 # Static resources are extracted from the gitiles-servlet jar of the active
-# flavour, via the single flavour seam in //lib/gitiles: javax by default,
-# jakarta under the ee11 transition (i.e. when built as part of :gitiles-ee11).
+# flavour, via the single flavour seam in //lib/gitiles: jakarta when built
+# as part of the unsuffixed :gitiles (which self-selects the jakarta
+# configuration), javax when built as part of the legacy :gitiles-ee8.
 # The CSS munging below is flavour-neutral.
 genrule2(
     name = "gitiles-servlet-resources",
@@ -84,14 +85,15 @@ genrule2(
     ]),
 )
 
-# EE8 tests, guarded to the ee8 configuration (the default). The test
-# sources are servlet-namespace-agnostic text; they bind to the flavour of
-# the plugin library and testutil fakes on the classpath.
+# Tests for the unsuffixed (EE11 default) jar, guarded to the ee11
+# configuration. The test sources are servlet-namespace-agnostic text; they
+# bind to the flavour of the plugin library and testutil fakes on the
+# classpath.
 gerrit_plugin_tests(
     name = "gitiles_tests",
     srcs = glob(["src/test/java/**/*Test.java"]),
     canonical = "jakarta",
-    flavour = "ee8",
+    flavour = "ee11",
     tags = ["gitiles"],
     visibility = ["//visibility:public"],
     runtime_deps = [":gitiles__plugin"],
@@ -102,23 +104,21 @@ gerrit_plugin_tests(
     ],
 )
 
-# EE11 test twin: the canonical test sources compiled directly (no
-# transform -- since the jakarta-canonical migration the EE11 side IS the
-# canonical side), executed against :gitiles-ee11__plugin; the in-tree
-# deps (testutil, //lib/gitiles) flip with the ee11 configuration.
+# EE8 legacy test twin: executed against the generated :gitiles-ee8__plugin;
+# the in-tree deps (testutil, //lib/gitiles) follow the ee8 configuration.
 # A test target cannot self-transition the flavour, so the twin is guarded
-# to the ee11 configuration and runs under the flag pass; the plain pass
-# skips it and runs gitiles_tests above.
+# to the ee8 configuration and runs under the ee8 flag pass; the plain
+# (EE11 default) pass skips it and runs gitiles_tests above.
 gerrit_plugin_tests(
-    name = "gitiles_tests-ee11",
+    name = "gitiles_tests-ee8",
     srcs = glob(["src/test/java/**/*Test.java"]),
     canonical = "jakarta",
-    flavour = "ee11",
+    flavour = "ee8",
     tags = ["gitiles"],
     visibility = ["//visibility:public"],
-    runtime_deps = [":gitiles-ee11__plugin"],
+    runtime_deps = [":gitiles-ee8__plugin"],
     deps = [
-        ":gitiles-ee11__plugin",
+        ":gitiles-ee8__plugin",
         "//javatests/com/google/gerrit/util/http/testutil",
         "//lib/gitiles",
     ],
