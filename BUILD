@@ -16,20 +16,21 @@ MANIFEST_ENTRIES = [
     "Gerrit-HttpDocumentationPrefix: +Documentation",
 ]
 
-# The sources are jakarta-canonical (the JGit-style reversed bridge): the
-# default ee8 jar is generated through the shared bazlets `to_javax`
-# transform and stamps `Gerrit-Flavour: ee8`, compiling against the javax
-# plugin API and the javax gitiles-servlet through the flavour seam in
-# //lib/gitiles; the ee11 jar compiles the canonical sources directly and
-# self-selects the jakarta configuration, under which
-# //plugins:plugin-lib-neverlink, //lib/gitiles (jakarta gitiles-servlet
-# 2.0.0) and the resource jar below all flip together. Build one or both:
-#   bazelisk build //plugins/gitiles:gitiles //plugins/gitiles:gitiles-ee11
+# The sources are jakarta-canonical (the JGit-style reversed bridge). The
+# unsuffixed jar is the EE11 default: it compiles the canonical sources
+# directly, stamps `Gerrit-Flavour: ee11` and self-selects the jakarta
+# configuration, under which //plugins:plugin-lib-neverlink, //lib/gitiles
+# (jakarta gitiles-servlet 2.x) and the resource jar below all flip
+# together. The -ee8 jar is the legacy flavour, generated through the
+# shared bazlets `to_javax` transform, stamping `Gerrit-Flavour: ee8` and
+# compiling against the javax plugin API and the javax gitiles-servlet
+# through the flavour seam in //lib/gitiles. Build one or both:
+#   bazelisk build //plugins/gitiles:gitiles //plugins/gitiles:gitiles-ee8
 gerrit_plugin(
     name = "gitiles",
     srcs = SRCS,
     canonical = "jakarta",
-    flavour = "ee8",
+    flavour = "ee11",
     manifest_entries = MANIFEST_ENTRIES,
     resource_jars = [":gitiles-servlet-resources"],
     resources = RESOURCES,
@@ -38,11 +39,11 @@ gerrit_plugin(
 
 # `dir_name = "gitiles"` keeps stamping/versioning shared with the default jar.
 gerrit_plugin(
-    name = "gitiles-ee11",
+    name = "gitiles-ee8",
     srcs = SRCS,
     canonical = "jakarta",
     dir_name = "gitiles",
-    flavour = "ee11",
+    flavour = "ee8",
     manifest_entries = MANIFEST_ENTRIES,
     resource_jars = [":gitiles-servlet-resources"],
     resources = RESOURCES,
