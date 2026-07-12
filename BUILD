@@ -16,26 +16,19 @@ MANIFEST_ENTRIES = [
     "Gerrit-HttpDocumentationPrefix: +Documentation",
 ]
 
-# The sources are jakarta (Servlet API 6.1); the jar stamps
-# `Gerrit-Flavour: ee11` and consumes the jakarta gitiles-servlet 2.x
-# through //lib/gitiles. The EE8 flavour is gone with Gerrit's EE8
-# retirement; javax consumers stay on the last -ee8 release.
+# The sources are jakarta (Servlet API 6.1) and build natively against the
+# jakarta plugin API and gitiles-servlet 2.x through //lib/gitiles.
 gerrit_plugin(
     name = "gitiles",
     srcs = SRCS,
-    canonical = "jakarta",
-    flavour = "ee11",
     manifest_entries = MANIFEST_ENTRIES,
     resource_jars = [":gitiles-servlet-resources"],
     resources = RESOURCES,
     deps = ["//lib/gitiles"],
 )
 
-# Static resources are extracted from the gitiles-servlet jar of the active
-# flavour, via the single flavour seam in //lib/gitiles: jakarta when built
-# as part of the unsuffixed :gitiles (which self-selects the jakarta
-# configuration), javax when built as part of the legacy :gitiles-ee8.
-# The CSS munging below is flavour-neutral.
+# Static resources are extracted from the gitiles-servlet jar (via
+# //lib/gitiles). The CSS munging below does not touch class files.
 genrule2(
     name = "gitiles-servlet-resources",
     srcs = ["//lib/gitiles:gitiles-servlet-jar"],
@@ -63,15 +56,9 @@ genrule2(
     ]),
 )
 
-# Tests for the unsuffixed (EE11 default) jar, guarded to the ee11
-# configuration. The test sources are servlet-namespace-agnostic text; they
-# bind to the flavour of the plugin library and testutil fakes on the
-# classpath.
 gerrit_plugin_tests(
     name = "gitiles_tests",
     srcs = glob(["src/test/java/**/*Test.java"]),
-    canonical = "jakarta",
-    flavour = "ee11",
     tags = ["gitiles"],
     visibility = ["//visibility:public"],
     runtime_deps = [":gitiles__plugin"],
