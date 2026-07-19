@@ -1,13 +1,13 @@
 {
   "checks": {
     "zuul-check:plugins_gitiles": {
-      "state": "SCHEDULED",
-      "message": "Change has been enqueued in check",
-      "url": "https://ci.gerritcodereview.com/t/gerrit/status/change/606563,1",
+      "state": "FAILED",
+      "message": "Change failed",
+      "url": "https://ci.gerritcodereview.com/t/gerrit/buildset/e931296ae915403780b5e44ce6b0e91f",
       "started": "2026-07-19T07:14:32Z",
-      "finished": "2026-07-19T07:14:03Z",
+      "finished": "2026-07-19T07:16:32Z",
       "created": "2026-07-19T07:13:03Z",
-      "updated": "2026-07-19T07:14:33Z"
+      "updated": "2026-07-19T07:16:34Z"
     }
   }
 }
