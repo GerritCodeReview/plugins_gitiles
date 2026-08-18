@@ -47,7 +47,7 @@ public class GitilesWeblinks
   private final String baseUrl;
 
   @Inject
-  public GitilesWeblinks(
+  GitilesWeblinks(
       @PluginName String pluginName,
       @Nullable @CanonicalWebUrl String gerritUrl,
       PluginConfigFactory configFactory)
