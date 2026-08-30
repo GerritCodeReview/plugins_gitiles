@@ -21,6 +21,7 @@ import com.google.gitiles.BranchRedirect;
 import com.google.gitiles.GitilesAccess;
 import com.google.gitiles.GitilesServlet;
 import com.google.gitiles.GitilesUrls;
+import com.google.gitiles.IntraLineDiffCache;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.google.inject.Provides;
@@ -111,9 +112,20 @@ class HttpModule extends ServletModule {
       @Named("gitiles") Config cfg,
       GitilesUrls urls,
       GitilesAccess.Factory accessFactory,
-      RepositoryResolver<HttpServletRequest> resolver) {
+      RepositoryResolver<HttpServletRequest> resolver,
+      IntraLineDiffCache intraLineCache) {
     return new GitilesServlet(
-        cfg, null, urls, accessFactory, resolver, null, null, null, null, new BranchRedirect());
+        cfg,
+        null,
+        urls,
+        accessFactory,
+        resolver,
+        null,
+        null,
+        null,
+        intraLineCache,
+        null,
+        new BranchRedirect());
   }
 
   @Provides
