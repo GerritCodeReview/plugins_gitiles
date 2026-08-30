@@ -33,11 +33,14 @@ import com.google.gitiles.ArchiveFormat;
 import com.google.gitiles.DefaultUrls;
 import com.google.gitiles.GitilesAccess;
 import com.google.gitiles.GitilesUrls;
+import com.google.gitiles.IntraLineDiffCache;
 import com.google.inject.Inject;
 import com.google.inject.Provides;
 import com.google.inject.ProvisionException;
 import com.google.inject.Singleton;
 import com.google.inject.TypeLiteral;
+import com.googlesource.gerrit.plugins.gitiles.cache.GerritPersistentIntraLineDiffCache;
+import com.googlesource.gerrit.plugins.gitiles.cache.IntraLineDiffCacheModule;
 import java.net.InetAddress;
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -55,6 +58,7 @@ import org.slf4j.LoggerFactory;
 class PluginModule extends LifecycleModule {
   private final boolean noWebLinks;
   private final String cloneUrlType;
+  private final boolean intralineDiffCache;
   private static final Logger log = LoggerFactory.getLogger(Module.class);
 
   @Inject
@@ -62,6 +66,7 @@ class PluginModule extends LifecycleModule {
     Config config = configFactory.getGlobalPluginConfig("gitiles");
     this.noWebLinks = config.getBoolean("gerrit", null, "noWebLinks", false);
     this.cloneUrlType = config.getString("gerrit", null, "cloneUrlType");
+    this.intralineDiffCache = config.getBoolean("gitiles", null, "intralineDiffCache", true);
   }
 
   @Override
@@ -78,6 +83,12 @@ class PluginModule extends LifecycleModule {
     bind(GitilesAccess.Factory.class).to(GerritGitilesAccess.Factory.class);
     bind(new TypeLiteral<RepositoryResolver<HttpServletRequest>>() {}).to(Resolver.class);
     listener().to(Lifecycle.class);
+    if (intralineDiffCache) {
+      install(new IntraLineDiffCacheModule());
+      bind(IntraLineDiffCache.class).to(GerritPersistentIntraLineDiffCache.class);
+    } else {
+      bind(IntraLineDiffCache.class).toInstance(IntraLineDiffCache.DIRECT);
+    }
   }
 
   private Optional<String> getSshCloneUrl(URL gerritUrl, List<String> advertisedSshAddresses) {

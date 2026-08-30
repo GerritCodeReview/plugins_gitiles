@@ -16,7 +16,9 @@ gerrit_plugin(
     ],
     resource_jars = [":gitiles-servlet-resources"],
     resources = glob(["src/main/resources/**/*"]),
-    deps = ["//lib/gitiles"],
+    deps = [
+        "//lib/gitiles",
+    ],
 )
 
 genrule2(

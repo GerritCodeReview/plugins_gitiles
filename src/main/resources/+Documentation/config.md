@@ -77,3 +77,43 @@ SSH, then HTTP, then Git.
   [gerrit]
     cloneUrlType = http
 ```
+
+Caches
+------
+
+The plugin serves the Gitiles diff view through Gerrit, which highlights the
+changed characters within a changed line (intraline diff). When running as this
+plugin, those results are served from a persistent, Gerrit-backed cache named
+`gitiles_intraline_diff`, so a diff computed once survives server restarts. The
+cache is enabled by default.
+
+It is sized the standard Gerrit way, in `gerrit.config`:
+
+```
+  [cache "gitiles_intraline_diff"]
+    memoryLimit = 10m
+    diskLimit = 128m
+```
+
+`memoryLimit` is an approximate byte budget (the cache is weighted), not an entry
+count.
+
+For an in-memory only cache (no disk usage, not retained across restarts), disable
+the disk tier by setting `diskLimit` to 0 in `gerrit.config`:
+
+```
+  [cache "gitiles_intraline_diff"]
+    diskLimit = 0
+```
+
+To disable it entirely — the plugin then does not configure the persistent cache
+and hands Gitiles a no-op cache, so the intraline diff is computed on every
+render — set in `etc/gitiles.config`:
+
+```
+  [gitiles]
+    intralineDiffCache = false
+```
+
+Only successful intraline results are stored; a computation that times out or
+fails renders the plain line-level diff and is never cached.
