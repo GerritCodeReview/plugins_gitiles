@@ -1,5 +1,5 @@
-load("@com_googlesource_gerrit_bazlets//tools:genrule2.bzl", "genrule2")
 load("@com_googlesource_gerrit_bazlets//:gerrit_plugin.bzl", "gerrit_plugin", "gerrit_plugin_tests")
+load("@com_googlesource_gerrit_bazlets//tools:genrule2.bzl", "genrule2")
 
 gerrit_plugin(
     name = "gitiles",
@@ -21,11 +21,11 @@ gerrit_plugin(
 
 genrule2(
     name = "gitiles-servlet-resources",
-    srcs = ["@external_deps//:com_google_gitiles_gitiles_servlet"],
+    srcs = ["@gitiles//resources/com/google/gitiles:webassets"],
     outs = ["gitiles-servlet-resources.jar"],
     cmd = " && ".join([
-        "unzip -qd $$TMP $(location @external_deps//:com_google_gitiles_gitiles_servlet) \"com/google/gitiles/static/*\"",
-        "cd $$TMP/com/google/gitiles/static",
+        "unzip -qd $$TMP $(location @gitiles//resources/com/google/gitiles:webassets) \"+static/*\"",
+        "cd $$TMP/+static",
         # To avoid loading 3rd party resources, we adapt gitiles' CSS to
         # load fonts from Gerrit directly:
         # 1. Strip out Google font CSS imports to tmp file as in-place replace is OSX no-go
@@ -34,15 +34,15 @@ genrule2(
         "mv $$TMP/base.css.tmp base.css",
         # 2. Add Gerrit's fonts CSS
         "sed -e 's%^\\(.*Common styles and definitions.*\\)$$%" +
-          "\\1\\n\\n@import \"../../../styles/fonts.css\";%' base.css > $$TMP/base.css.tmp",
+        "\\1\\n\\n@import \"../../../styles/fonts.css\";%' base.css > $$TMP/base.css.tmp",
         "mv $$TMP/base.css.tmp base.css",
         # 3. Use Gerrit's Roboto Mono for Source Code Pro
         "sed -e 's/Source Code Pro/Roboto Mono/g' base.css > $$TMP/base.css.tmp",
         "mv $$TMP/base.css.tmp base.css",
-        # Switching from `static` to `+static` (see comment in plugin definiton)
-        "cd $$TMP/com/google/gitiles",
-        "mv static +static",
-        "zip -qr $$ROOT/$@ .",
+        "mkdir -p $$TMP/com/google/gitiles",
+        "mv $$TMP/+static $$TMP/com/google/gitiles/+static",
+        "cd $$TMP",
+        "zip -qr $$ROOT/$@ com/google/gitiles/+static",
     ]),
 )
 
